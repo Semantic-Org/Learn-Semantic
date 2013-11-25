@@ -1,4 +1,4 @@
-learn-semantic
+LearnSemantic.com
 ==============
 
-Official repo of learn semantic
+This repo will (eventually) host the contents for the site learnsemantic.com
