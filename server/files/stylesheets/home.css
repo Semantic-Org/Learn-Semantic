@@ -35,7 +35,7 @@
   -webkit-transition: background-color 3s ease-in-out 2s;
   transition: background-color 3s ease-in-out 2s;
 
-  background-color: #00B5AD;
+  background-color: #777777;
   background-image: radial-gradient(farthest-corner, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.95));
 
   -webkit-perspective: 1000px;
@@ -166,7 +166,7 @@
   -moz-transition: opacity 3s ease-in-out, transform 5s ease-in-out;
   transition: opacity 3s ease-in-out, transform 5s ease-in-out;
 
-  opacity: 0.06;
+  opacity: 0.01;
 
   -webkit-animation-duration: 15s;
   -moz-animation-duration: 15s;
@@ -469,7 +469,6 @@
   transform-style: preserve-3d;
 }
 #example.index .masthead.segment h1 > .library {
-  visibility: hidden;
   display: block;
   font-size: 1.75em;
   color: #FFFFFF;
@@ -541,14 +540,8 @@
   visibility: hidden;
 }
 
-#example.index .demo.row .example {
-  clear: both;
-  padding-top: 1.5em;
-  margin-top: 1.5em;
-}
-#example.index .demo.row .example:first-child {
-  margin-top: 0;
-  padding-top: 0;
+#example.index .intro.stripe .text {
+  min-height: 200px;
 }
 
 #example.index .following.bar {
@@ -577,6 +570,13 @@
     Stripes
 ---------------*/
 
+#example.index .intro.stripe .two.column.grid {
+  margin: 5rem 0rem !important;
+}
+#example.index .intro.stripe p {
+  font-size: 16px;
+}
+
 #example.index .stripe .grid .row {
   margin: 2rem 0rem;
 }
@@ -589,6 +589,7 @@
 #example.index .feature.stripe .icon.header .icon.image {
   width: auto;
   height: 50px;
+  margin-bottom: 1rem;
 }
 #example.index .stripe .icon.header .icon.image {
   width: 64px;

@@ -1016,8 +1016,9 @@ semantic.ready = function() {
     })
   ;
 
-
-  window.Transifex.live.onTranslatePage(handler.showLanguageModal);
+  if(window.Transifex !== undefined) {
+    window.Transifex.live.onTranslatePage(handler.showLanguageModal);
+  }
 
 };
 

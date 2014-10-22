@@ -83,8 +83,6 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/dist/semantic.min.css">
   <% end %>
 
-
-  <link rel="stylesheet" type="text/css" href="/stylesheets/doc-icon.css">
   <link rel="stylesheet" type="text/css" href="/stylesheets/docs.css">
 
   <% if 'development' in @getEnvironments(): %>
@@ -148,31 +146,6 @@
   <% end %>
 
   <script src="/javascript/docs.js"></script>
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-44039803-2', 'auto');
-    ga('send', 'pageview');
-
-  </script>
-  <script type="text/javascript">
-    window.liveSettings = {
-      api_key    : '9ede3015b9f84c1aabc81ab839c55d74',
-      parse_attr : [
-        'data-title',
-        'data-content'
-      ],
-      detectlang   : true,
-      autocollect  : true,
-      ignore_tags  : ['i'],
-      parse_attr   : ['data-title', 'data-content', 'data-text'],
-      ignore_class : ["code", "anchor"]
-    };
-  </script>
-  <script type="text/javascript" src="http://cdn.transifex.com/live.js"></script>
 </head>
 <body id="example" class="pushable <%= @document.css %>" ontouchstart="">
 
@@ -181,7 +154,7 @@
       <a class="ui logo icon image" href="/">
         <img src="/images/logo.png">
       </a>
-      <a href="/"><b>Learn</b></a>
+      <a href="/"><b>Learn Semantic</b></a>
     </div>
     <div class="item">
       <div class="ui small <%= if @document.elementType is 'global' then 'active ' %> inverted header">Globals</div>
@@ -253,7 +226,7 @@
         <div class="container">
           <div class="ui stackable inverted divided relaxed grid">
             <div class="eight wide column">
-              <h3 class="ui inverted header">Help Keep Semantic UI Alive</h3>
+              <h3 class="ui inverted header">Donate to Semantic UI</h3>
               <p>Maintaining an open source UI library is no small task. Support for the continued development of Semantic UI comes directly from the community.</p>
               <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                 <input type="hidden" name="cmd" value="_s-xclick">
@@ -274,8 +247,8 @@
               <h5 class="ui teal inverted header">Semantic Network</h5>
               <div class="ui inverted link list">
                 <a class="item" href="https://www.transifex.com/projects/p/semantic-ui-beta/" target="_blank">Translation Hub</a>
-                <a class="disabled item">Semantic UI</a>
-                <a class="disabled item">Learn Semantic</a>
+                <a href="http://beta.semantic-ui.com" class="item">Semantic UI</a>
+                <a href="http://www.learnsemantic.com" class="item">Learn Semantic</a>
                 <a class="disabled item">Semantic Themes</a>
               </div>
             </div>
