@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Semantic Docs
 
 ## How to Use
@@ -15,3 +16,9 @@ docpad update; docpad upgrade;
 This node project uses docpad to generate the static documentation files for Semantic UI.
 
 
+=======
+LearnSemantic.com
+==============
+
+This repo will (eventually) host the contents for the site learnsemantic.com
+>>>>>>> b5c2f84c117852e49905ddd2ab84efe88e76d22c
