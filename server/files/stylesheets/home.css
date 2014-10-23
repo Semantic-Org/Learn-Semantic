@@ -6,6 +6,9 @@
   background-color: #FFFFFF;
 }
 
+#example.index .introduction {
+  font-size: 16px;
+}
 
 /*--------------
     Masthead
@@ -536,6 +539,9 @@
     Features
 ---------------*/
 
+#example.index .stripe .ui.header {
+  font-family: "Karma", Arial, Helvetica;
+}
 #example.index .hidden.code {
   visibility: hidden;
 }

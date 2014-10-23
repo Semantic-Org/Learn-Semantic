@@ -100,7 +100,7 @@ semantic.ready = function() {
       $sectionHeaders
         .visibility({
           once: false,
-          offset: 70,
+          offset: 110,
           onTopVisible: handler.activate.accordion,
           onTopPassed: handler.activate.section,
           onBottomPassed: handler.activate.section,
@@ -110,7 +110,7 @@ semantic.ready = function() {
       $sectionExample
         .visibility({
           once: false,
-          offset: 70,
+          offset: 110,
           onTopPassed: handler.activate.example,
           onBottomPassedReverse: handler.activate.example
         })

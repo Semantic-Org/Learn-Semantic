@@ -58,7 +58,7 @@ type   : 'Semantic'
           <div class="text">
             <h2 class="ui header">Do <b>Gulp</b> and <b>Grunt</b> sound like descriptions from an elementary school lunch room?</h2>
           </div>
-          <a class="ui pink right labeled icon button">
+          <a class="ui large pink right labeled icon button">
             <i class="right chevron icon"></i>
             Beginner's Guide
           </a>
@@ -67,7 +67,7 @@ type   : 'Semantic'
           <div class="text">
             <h2 class="ui header">Have you been making websites since <b>XSLT</b> was more popular than <b>CSS</b>?</h2>
           </div>
-          <a class="ui pink right labeled icon button">
+          <a class="ui large pink right labeled icon button">
             <i class="right chevron icon"></i>
             Expert Guide
           </a>
@@ -84,10 +84,10 @@ type   : 'Semantic'
       </h3>
       <form action="//semantic-ui.us9.list-manage.com/subscribe/post?u=1bb099283b001a74133a94364&amp;id=1b77a619a7" method="post" class="ui form">
         <div class="field">
-          <div class="ui huge input">
+          <div class="ui large input">
             <input type="text" placeholder="E-mail" data-validate="email" name="EMAIL">
           </div>
-          <button class="ui huge black submit button" type="submit">
+          <button class="ui large black submit button" type="submit">
             Sign-up
           </button>
         </div>
