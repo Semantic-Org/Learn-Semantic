@@ -1,0 +1,19 @@
+  ---
+layout      : 'default'
+css         : 'guide'
+
+title       : 'Expert Guide'
+description : 'Using Semantic UI in a production environment'
+type        : 'Getting Started'
+---
+<%- @partial('header') %>
+
+<div class="main container">
+  <h2 class='ui header'>
+    Installing Semantic UI
+  </h2>
+
+  <h3>Using Bower</h3>
+  <p>
+
+</div>

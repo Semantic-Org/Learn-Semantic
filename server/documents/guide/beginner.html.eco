@@ -1,0 +1,12 @@
+  ---
+layout      : 'default'
+css         : 'guide'
+
+title       : 'Beginner's Guide'
+description : 'Creating a website with Semantic UI'
+type        : 'Getting Started'
+---
+<%- @partial('header') %>
+
+<div class="main container">
+</div>
