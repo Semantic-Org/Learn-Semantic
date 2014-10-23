@@ -728,7 +728,9 @@ body#example.hide {
 #example .accordion.pointing.menu > .item {
   padding-left: 0em;
 }
-
+#example .main.container {
+  font-size: 15px;
+}
 #example .main.container .examples > h2,
 #example .main.container > h2,
 #example .main.container > .tab > h2 {
@@ -1574,6 +1576,9 @@ body.progress.animated .ui.progress .bar {
   }
   #example .header .button {
     margin-bottom: 0.5em;
+  }
+  #example .main.container {
+    font-size: 14px;
   }
   #example .main.container > p {
     font-size: 16px;
