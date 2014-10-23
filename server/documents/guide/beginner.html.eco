@@ -2,7 +2,7 @@
 layout      : 'default'
 css         : 'guide'
 
-title       : 'Beginner's Guide'
+title       : 'Beginners Guide'
 description : 'Creating a website with Semantic UI'
 type        : 'Getting Started'
 ---

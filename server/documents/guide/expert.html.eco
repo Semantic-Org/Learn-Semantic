@@ -9,11 +9,77 @@ type        : 'Getting Started'
 <%- @partial('header') %>
 
 <div class="main container">
+
   <h2 class='ui header'>
-    Installing Semantic UI
+    Getting Semantic UI
   </h2>
 
-  <h3>Using Bower</h3>
+  <p>For links to download Semantic UI, check our our <a href="/guide/download.html">download page</a>.</p>
+
+  <h2 class='ui header'>
+    Setting Up
+  </h2>
+
+  <h3 class="ui header">Dependencies</h3>
+  <p>Semantic is designed to be recompiled as you update your UI during development. After getting Semantic, you will need to install <a href="http://nodejs.org/download/" target="_blank">nodejs</a> and <a href="https://github.com/gulpjs/gulp/" target="_blank">gulp</a> to run the build process.</p>
+
+  <h3 class="ui header">Installing Semantic</h3>
+
+  <p>Once you're up and running. Navigate to the semantic directory and install the npm dependencies</p>
+  <div class="code">
+    # install dependencies
+    npm install
+    # start install script
+    gulp
+  </div>
+
+  <p>The first time you run gulp you will be greeted with an interactive installer</p>
+  <div class="code">
+    gulp
+  </div>
+
+  <p>The installer will let you select which components you are using from Semantic, and specify paths for your project.<p>
+
+  <p>This process will create two files for you: <code>semantic.json</code> is a <b>JSON</b> file which stores paths for your build system, <code>theme.config</code> is a <b>LESS</b> file that exists in <b>src/</b> and allows you to set the theme that should be used for each UI element</p>
+
+  <p>In addition the installer will create a special <b>site</b> folder, which will contain your site-specific themes.</p>
+
+  <h3 class="ui header">Installation Types</h3>
+
+  <p><b>Automatic</b> installation will use the default paths, outputing css files to <code>dist/</code> and packaging all components together</p>
+
+  <p><b>Express</b> will let you move your site folder and your dist folder and select from a list of components to include.</p>
+
+  <p><b>Custom</b> will prompt you for all available options</p>
+
+
+  <p>Semantic will automatically adjust asset paths and other folder
+
+
+  <h2 class="ui header">Preface</h2>
+  <p>Semantic UI is at its heart a component library. Individual components take the form of <b>defininitions</b> which describe common ways that element can be used in interface design.</p>
+  <p>This practice is similar to <a>test writing</a> in programming, and provides a visual proof for what a design should be able to accomplish.</p>
+
+
+
+  <h2 class="ui header">Theming Semantic</h2>
+
+  <p>Semantic definitions are written using <b>LESS</b>.
+  <p>Don't use <code>LESS</code> in your dev environment? Don't worry, the only CSS preprocessor features used in Semantic under the hood are <b>css variables</b>, functions to modify colors, and <b>import</b> to maintain inheritance.</p>
+
+  <p>Semantic uses an inheritance system that supports <b>three levels of inheritance</b>
+
+  <h2 class="ui header">Extending Semantic</h2>
+
+
+  <h3 class="ui header">Adding Definitions</h3>
+
+  <h3 class="ui header">Supplementing Definitions</h3>
+
   <p>
+    Although definitions include many common use-case, they may sometimes contain particular variations th
+  </p>
+
+  <p>This practice can be used for any UI design, even ones very specific to your business objectives</p>
 
 </div>

@@ -112,7 +112,7 @@ semantic.ready = function() {
           once: false,
           offset: 110,
           onTopPassed: handler.activate.example,
-          onBottomPassedReverse: handler.activate.example
+          onTopPassedReverse: handler.activate.previousExample
         })
       ;
       $footer
@@ -175,6 +175,24 @@ semantic.ready = function() {
         $activeSection
           .addClass('active')
         ;
+      },
+      previousExample: function() {
+        var
+          $section       = $(this),
+          index          = $exampleHeaders.index($section),
+          $followSection = $followMenu.find('.menu > .item'),
+          $activeSection = $followSection.eq(index).prev(),
+          inClosedTab    = ($(this).closest('.tab:not(.active)').size() > 0),
+          anotherExample = ($(this).filter('.another.example').size() > 0)
+        ;
+        if(!inClosedTab && !anotherExample) {
+          $followSection
+            .removeClass('active')
+          ;
+          $activeSection
+            .addClass('active')
+          ;
+        }
       },
       example: function() {
         var
@@ -250,7 +268,6 @@ semantic.ready = function() {
           ;
         })
       ;
-      console.log($sectionExample);
       $sectionExample
         .each(function() {
           var
@@ -351,7 +368,6 @@ semantic.ready = function() {
         $element = $('#'+id),
         position = $element.offset().top
       ;
-      console.log($element, position);
       $element
         .addClass('active')
       ;
@@ -739,7 +755,7 @@ semantic.ready = function() {
         code         = $code.html(),
         existingCode = $code.hasClass('existing'),
         evaluatedCode = $code.hasClass('evaluated'),
-        contentType  = $code.data('type')    || 'html',
+        contentType  = $code.data('language') || $code.data('type') || 'html',
         title        = $code.data('title')   || false,
         demo         = $code.data('demo')    || false,
         preview      = $code.data('preview') || false,
@@ -759,7 +775,7 @@ semantic.ready = function() {
         formattedCode = code,
         whiteSpace,
         $label,
-        codeHeight
+        html
       ;
       var entityMap = {
         "&": "&amp;",
@@ -817,9 +833,13 @@ semantic.ready = function() {
 
       // add label
       if(title) {
+        html = '<span class="title">' + title + '</span>';
+        if(contentType !== 'html') {
+          html += '<em>' + (displayType[contentType] || contentType) + '</em>';
+        }
         $('<div>')
           .addClass('ui attached top label')
-          .html('<span class="title">' + title + '</span>' + '<em>' + (displayType[contentType] || contentType) + '</em>')
+          .html(html)
           .prependTo( $code.closest('.segment') )
         ;
       }
