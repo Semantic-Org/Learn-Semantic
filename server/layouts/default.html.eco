@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <% uiIntroduction    = @getCollection("documents").findAll({type: $in: ['UI Introduction']},[{title: 1}]).toJSON() %>
-  <% uiProject         = @getCollection("documents").findAll({type: $in: ['Semantic Project']},[{title: 1}]).toJSON() %>
-  <% uiGuide           = @getCollection("documents").findAll({type: $in: ['UI Guide']},[{title: 1}]).toJSON() %>
-  <% uiGlobals         = @getCollection("documents").findAll({type: $in: ['UI Global']},[{title: 1}]).toJSON() %>
-  <% uiElements        = @getCollection("documents").findAll({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
-  <% uiCollections     = @getCollection("documents").findAll({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
-  <% uiViews           = @getCollection("documents").findAll({type: $in: ['UI View']},[{title: 1}]).toJSON() %>
-  <% uiModules         = @getCollection("documents").findAll({type: $in: ['UI Module']},[{title: 1}]).toJSON() %>
-  <% uiBehavior        = @getCollection("documents").findAll({type: $in: ['UI Behavior']},[{title: 1}]).toJSON() %>
-  <% uiSpecification   = @getCollection("documents").findAll({type: $in: ['UI Specification']},[{title: 1}]).toJSON() %>
+  <% gettingStarted    = @getCollection("documents").findAll({type: $in: ['Getting Started']},[{title: 1}]).toJSON() %>
+  <% theming           = @getCollection("documents").findAll({type: $in: ['Theming']},[{title: 1}]).toJSON() %>
+  <% definitions       = @getCollection("documents").findAll({type: $in: ['Definitions']},[{title: 1}]).toJSON() %>
+  <% usage             = @getCollection("documents").findAll({type: $in: ['Usage']},[{title: 1}]).toJSON() %>
+
   <% currentCollection = @getCollection("documents").findAll({type: $in: [@document.type]},[{title: 1}]).toJSON() %>
   <% pageCount         = @pageCount(currentCollection) %>
   <% pageNumber        = @getPage(currentCollection, @document.id) %>
@@ -146,6 +141,7 @@
   <% end %>
 
   <script src="/javascript/docs.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Karma:600,400' rel='stylesheet' type='text/css'>
 </head>
 <body id="example" class="pushable <%= @document.css %>" ontouchstart="">
 
@@ -157,14 +153,49 @@
       <a href="/"><b>Learn Semantic</b></a>
     </div>
     <div class="item">
-      <div class="ui small <%= if @document.elementType is 'global' then 'active ' %> inverted header">Globals</div>
+      <div class="ui small <%= if @document.type is 'Getting Started' then 'active ' %> inverted header">
+        Getting Started
+      </div>
       <div class="menu">
-        <% for element in uiGlobals: %>
+        <% for element in gettingStarted: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
             <%= element.title %>
-            <% if element.status?: %>
-            <span class="ui mini empty yellow circular ui label"></span>
-            <% end %>
+          </a>
+        <% end %>
+      </div>
+    </div>
+    <div class="item">
+      <div class="ui small <%= if @document.type is 'Theming' then 'active ' %> inverted header">
+        Theming
+      </div>
+      <div class="menu">
+        <% for element in theming: %>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+            <%= element.title %>
+          </a>
+        <% end %>
+      </div>
+    </div>
+    <div class="item">
+      <div class="ui small <%= if @document.type is 'Theming' then 'active ' %> inverted header">
+        Definitions
+      </div>
+      <div class="menu">
+        <% for element in definitions: %>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+            <%= element.title %>
+          </a>
+        <% end %>
+      </div>
+    </div>
+    <div class="item">
+      <div class="ui small <%= if @document.type is 'Usage' then 'active ' %> inverted header">
+        Usage
+      </div>
+      <div class="menu">
+        <% for element in usage: %>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+            <%= element.title %>
           </a>
         <% end %>
       </div>
@@ -231,11 +262,11 @@
               <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                 <input type="hidden" name="cmd" value="_s-xclick">
                 <input type="hidden" name="hosted_button_id" value="7ZAF2Q8DBZAQL">
-                <button type="submit" class="ui teal button">Donate Today</button>
+                <button type="submit" class="ui pink button">Donate Today</button>
               </form>
             </div>
             <div class="four wide column">
-              <h5 class="ui teal inverted header">Contribute</h5>
+              <h5 class="ui pink inverted header">Contribute</h5>
               <div class="ui inverted link list">
                 <a class="item" href="mailto:jack@semantic-ui.com?subject=Help Translating">Translate</a>
                 <a class="item" href="https://github.com/Semantic-Org/Semantic-UI" target="_blank">Issue Tracker</a>
@@ -244,7 +275,7 @@
               </div>
             </div>
             <div class="four wide column">
-              <h5 class="ui teal inverted header">Semantic Network</h5>
+              <h5 class="ui pink inverted header">Semantic Network</h5>
               <div class="ui inverted link list">
                 <a class="item" href="https://www.transifex.com/projects/p/semantic-ui-beta/" target="_blank">Translation Hub</a>
                 <a href="http://beta.semantic-ui.com" class="item">Semantic UI</a>

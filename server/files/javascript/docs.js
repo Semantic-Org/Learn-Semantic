@@ -43,8 +43,8 @@ semantic.ready = function() {
     $allHeaders          = $('.main.container > h2, .main.container > .tab > h2, .main.container > .tab > .examples h2'),
     $sectionHeaders      = $container.children('h2'),
     $followMenu          = $container.find('.following.menu'),
-    $sectionExample      = $container.find('.example'),
-    $exampleHeaders      = $sectionExample.children('h4'),
+    $sectionExample      = $container.children('h3, h4'),
+    $exampleHeaders      = $sectionExample,
     $footer              = $('.page > .footer'),
 
     $menuPopup           = $('.ui.main.menu .popup.item'),
@@ -54,8 +54,6 @@ semantic.ready = function() {
 
     $languageDropdown    = $('.language.dropdown'),
     $languageModal       = $('.language.modal'),
-
-    $downloadDropdown    = $('.download.buttons .dropdown'),
 
     $helpPopup           = $('.header .help.icon'),
 
@@ -109,7 +107,6 @@ semantic.ready = function() {
           onTopPassedReverse: handler.activate.previous
         })
       ;
-
       $sectionExample
         .visibility({
           once: false,
@@ -170,7 +167,10 @@ semantic.ready = function() {
           $activeSection = $followSection.eq(index)
         ;
         $followSection
+          .not($activeSection)
           .removeClass('active')
+          .find('.item')
+            .removeClass('active')
         ;
         $activeSection
           .addClass('active')
@@ -178,7 +178,7 @@ semantic.ready = function() {
       },
       example: function() {
         var
-          $section       = $(this).children('h4').eq(0),
+          $section       = $(this),
           index          = $exampleHeaders.index($section),
           $followSection = $followMenu.find('.menu > .item'),
           $activeSection = $followSection.eq(index),
@@ -250,16 +250,17 @@ semantic.ready = function() {
           ;
         })
       ;
-      $example
+      console.log($sectionExample);
+      $sectionExample
         .each(function() {
           var
-            $title   = $(this).children('h4').eq(0),
+            $title   = $(this),
             safeName = $title.text().trim().replace(/\s+/g, '-').replace(/[^-,'A-Za-z0-9]+/g, '').toLowerCase(),
             id       = window.escape(safeName),
             $anchor  = $('<a />').addClass('anchor').attr('id', id)
           ;
           if($title.size() > 0) {
-            $title.after($anchor);
+            $title.append($anchor);
           }
         })
       ;
@@ -278,13 +279,12 @@ semantic.ready = function() {
           var
             $currentHeader = $(this),
             $nextElements  = $currentHeader.nextUntil('h2'),
-            $examples      = $nextElements.find('.example').andSelf().filter('.example'),
+            $examples      = $nextElements.filter('h3, h4'),
             activeClass    = (index === 0)
               ? 'active '
               : '',
             safeName = $currentHeader.text().trim().replace(/\s+/g, '-').replace(/[^-,'A-Za-z0-9]+/g, '').toLowerCase(),
-            id       = window.escape(safeName),
-            $anchor  = $('<a />').addClass('anchor').attr('id', id)
+            id       = window.escape(safeName)
           ;
           html += '<div class="item">';
           if($examples.size() === 0) {
@@ -298,13 +298,12 @@ semantic.ready = function() {
             $examples
               .each(function() {
                 var
-                  $title   = $(this).children('h4').eq(0),
+                  $title   = $(this),
                   safeName = $title.text().trim().replace(/\s+/g, '-').replace(/[^-,'A-Za-z0-9]+/g, '').toLowerCase(),
-                  id       = window.escape(safeName),
-                  $anchor  = $('<a />').addClass('anchor').attr('id', id)
+                  id       = window.escape(safeName)
                 ;
                 if($title.size() > 0) {
-                  html += '<a class="item" href="#'+id+'">' + $(this).children('h4').html() + '</a>';
+                  html += '<a class="item" href="#'+id+'">' + $(this).text() + '</a>';
                 }
               })
             ;
@@ -314,7 +313,7 @@ semantic.ready = function() {
         })
       ;
       $followMenu = $('<div />')
-        .addClass('ui secondary vertical following fluid accordion menu')
+        .addClass('ui large pink pointing secondary vertical following fluid accordion menu')
         .html(html)
       ;
       $sticky = $('<div />')
@@ -322,7 +321,7 @@ semantic.ready = function() {
         .html($followMenu)
       ;
       $rail = $('<div />')
-        .addClass('ui close right rail')
+        .addClass('ui close left rail')
         .html($sticky)
         .prependTo($container)
       ;
@@ -340,7 +339,7 @@ semantic.ready = function() {
         .transition('fade', function() {
           $sticky.sticky({
             context: $container,
-            offset: 50
+            offset: 40
           });
         })
       ;
@@ -352,6 +351,7 @@ semantic.ready = function() {
         $element = $('#'+id),
         position = $element.offset().top
       ;
+      console.log($element, position);
       $element
         .addClass('active')
       ;
@@ -893,8 +893,8 @@ semantic.ready = function() {
             : $(this)
           ;
           $sectionHeaders = $container.children('h2');
-          $sectionExample = $container.find('.example');
-          $exampleHeaders = $sectionExample.children('h4');
+          $sectionExample = $container.children('h3, h4');
+          $exampleHeaders = $sectionExample;
           // create code
           handler.tryCreateMenu();
           $(window).on('resize.menu', function() {
@@ -933,7 +933,7 @@ semantic.ready = function() {
 
   $menu
     .sidebar({
-      transition       : 'uncover',
+      transition       : 'overlay',
       mobileTransition : 'uncover'
     })
     .sidebar('attach events', '.launch.button, .view-ui, .launch.item')
@@ -952,12 +952,6 @@ semantic.ready = function() {
     .each(handler.createCode)
   ;
 
-  $downloadDropdown
-    .dropdown({
-      on         : 'click',
-      transition : 'scale'
-    })
-  ;
 
   $themeDropdown
     .dropdown({
