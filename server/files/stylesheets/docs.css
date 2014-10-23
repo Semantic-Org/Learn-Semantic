@@ -252,10 +252,6 @@ a:hover {
   left: -1px;
   width: calc(100% + 1px);
 }
-#example .main.menu .container {
-  left: -185px;
-  width: 1070px;
-}
 #example .main.menu iframe {
   margin: 0px 0px 0px 0px;
 }
@@ -1468,13 +1464,16 @@ body.progress.animated .ui.progress .bar {
 }
 
 #example .main.container {
-  width: 780px;
   background-color: #FFFFFF;
   border-left: 1px solid #DDD;
   border-right: 1px solid #DDD;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
   margin: 0px auto 0px;
   padding: 3em 3em 5em;
+  -ms-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
   z-index: 1;
 }
 #example .wide.main.container {
@@ -1588,27 +1587,16 @@ body.progress.animated .ui.progress .bar {
     right: 0px;
   }
 }
-@media only screen and (min-width : 998px) and (max-width: 1200px) {
+@media only screen and (min-width : 1450px) {
+  #example .main.menu .container {
+    width: 1430px;
+  }
   #example .container {
-    width: 680px;
-    right: 75px;
-    margin: 0em auto;
+    width: 700px;
+  }
+  #example .main.container {
   }
   #example .container .left.rail {
-    width: 200px;
-    padding-left: 0em;
-  }
-}
-@media only screen and (min-width : 1200px) and (max-width: 1355px) {
-  #example .container {
-    width: 700px;
-    right: 128px;
-    margin: 0em auto;
-  }
-}
-@media only screen and (min-width : 1355px) {
-  #example .container {
-    width: 700px;
   }
 }
 
