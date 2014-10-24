@@ -21,7 +21,7 @@ type        : 'Getting Started'
   </h2>
 
   <h3 class="ui header">Dependencies</h3>
-  <p>Semantic is designed to be recompiled as you update your UI during development. After getting Semantic, you will need to install <a href="http://nodejs.org/download/" target="_blank">nodejs</a> and <a href="https://github.com/gulpjs/gulp/" target="_blank">gulp</a> to run the build process.</p>
+  <p>Theming Semantic requires using build tools. After getting Semantic, you will need to install <a href="http://nodejs.org/download/" target="_blank">nodejs</a> and <a href="https://github.com/gulpjs/gulp/" target="_blank">gulp</a> to run the build process.</p>
 
   <p>Once you're up and running. Navigate to the semantic directory and install the npm dependencies</p>
   <div class="bash code">
@@ -42,7 +42,7 @@ type        : 'Getting Started'
     gulp
   </div>
 
-  <p>The installer will let you select which components you are using, and specify paths for your project.<p>
+  <p>The installer will let you select which components to include, and specify paths for your project.<p>
 
   <table class="ui definition table">
     <thead>
@@ -69,7 +69,13 @@ type        : 'Getting Started'
 
   <p>The installer will also create a special <b>site</b> folder, which contains your site-specific themes. The default location for this is <code>src/site</code>. For more information on using site themes, see the theming guide below.</p>
 
-  <p>If you prefer these files and folders can be created manually instead of using the installer.</p>
+  <p>If you prefer these files and folders can be moved manually instead of using the installer.</p>
+  <div class="bash code">
+    mv semantic.json.example semantic.json
+    mv src/theme.config.example src/theme.config
+    mv src/_site src/site
+    vi semantic.json
+  </div>
 
   <div class="ui info message">For a full list of settings for <b>semantic.json</b>, check the <a href="https://github.com/Semantic-Org/Semantic-UI/blob/1.0/tasks/defaults.js">defaults values</a> which it inherits from.</div>
 
@@ -89,7 +95,7 @@ type        : 'Getting Started'
 
   <div class="ui info message">
     <h4 class="ui header">Advanced Usage</h4>
-    <p>In addition to the paths set in <code>semantic.json</code>, you can serve files to a second location, for example, a docs instance by using a separate config file <code>tasks/admin/docs.json</code>. Using the documentation may work well internally for creating an style guide, while updating theme designs for your project.</p>
+    <p>In addition to the paths set in <code>semantic.json</code>, you can serve files to a second location, for example, a docs instance by using a separate config file <code>tasks/admin/docs.json</code>. Using a copy of the SUI documentation may work well internally for creating a style guide to hack on the theme designs for your project.</p>
     <div class="bash code">
       gulp serve-docs
       gulp build-docs
@@ -126,13 +132,11 @@ type        : 'Getting Started'
   </div>
 
   <p>Semantic definitions are written using <b>LESS</b>.</p>
-  <p>Don't use <code>LESS</code> in your dev environment? Don't worry, the only CSS preprocessor features used in Semantic under the hood are <b>css variables</b>, functions to modify colors, and <b>import</b> to maintain inheritance.</p>
+  <p>Don't use <code>LESS</code> in your dev environment? Don't worry, the only CSS preprocessor features used in Semantic under the hood are <b>css variables</b>, functions to modify colors, and <b>@import</b> to implement  inheritance.</p>
 
   <h2 class="ui header">Extending Semantic</h2>
 
-  <p>Semantic UI is at its heart a component library. Individual components take the form of <b>defininitions</b> which describe common ways that element can be used in interface design.</p>
-
-  <p>Writing definitions while designing new interface elements is similar to <a href="http://en.wikipedia.org/wiki/Test-driven_development">test driven developement</a> when writing code. Definitions are a rubric for all possible ways an element can appear visually.</p>
+  <p>Writing definitions while designing new interface elements is similar to <a href="http://en.wikipedia.org/wiki/Test-driven_development">test driven development</a> when writing code. Definitions are a rubric for all possible ways an element can appear visually.</p>
 
   <p>Creating UI definitions lets you create components that are <b>self documenting</b> so that other team-members working on your project can develop with them immediately without examining the codebases</p>
 

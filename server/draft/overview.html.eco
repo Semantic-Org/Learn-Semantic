@@ -4,7 +4,7 @@ css         : 'guide'
 
 title       : 'Overview'
 description : 'An introduction to Semantic style coding'
-type        : 'Definitions'
+type        : 'Draft'
 ---
 <script src="/javascript/intro.js"></script>
 <script>

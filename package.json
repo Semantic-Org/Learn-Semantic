@@ -12,6 +12,7 @@
   "dependencies": {
     "docpad": "x.x.x",
     "docpad-plugin-eco": "x.x.x",
+    "docpad-plugin-marked": "~2.2.1",
     "docpad-plugin-partials": "x.x.x"
   },
   "devDependencies": {

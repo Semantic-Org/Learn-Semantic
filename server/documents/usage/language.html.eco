@@ -1,0 +1,25 @@
+  ---
+layout      : 'default'
+css         : 'guide'
+
+title       : 'Origins'
+description : ''
+type        : 'Usage'
+---
+<%- @partial('header') %>
+
+<div class="main container">
+
+  <h2 class='ui header'>
+    Nature's Misers
+  </h2>
+
+  <p>Semantic operates under the premise that many of the prescribed features of classical inheritance are similar to many innate features of natural languages.</p>
+  <p>Individual definitions are the <b>nouns</b> (tech-speak "components") which provide a <b>context</b> (tech-speak "namespace") to <b>limit</b> (tech-speak "encapsulate")  the <b>broadness</b> (tech speak "scope") of other concepts.</p>
+  <p>Natural languages are still used today for describing interface design, although oddly they aren't considered to be part of the actual process of coding interfaces.</p>
+  <p>Words like <b>popup</b>, <b>dropdown</b>, <b>modal</b> didn't exist twenty years ago, yet now most people, even those who code, understand these names and can identify them.</p>
+  <p>Language is designed to be terse.  We are cognitive misers looking to optimize for the conceptual scope of ideas as a society, under the same constraints as computers.</p>
+  <p>Explaining concepts in terms of a <em>namespace</em> like nouns is useful in preventing some classic problems in defining qualities</p>
+  <p>For example explaining "size" as a <b>general concept</b> can be very difficult. How can you define smallness <em>in general</em> when a <b>tiny</b> planet is still much larger than a <b>gigantic</b> ant?</p>
+
+</div>
