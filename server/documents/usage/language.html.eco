@@ -2,7 +2,7 @@
 layout      : 'default'
 css         : 'guide'
 
-title       : 'Origins'
+title       : 'Language Origins'
 description : ''
 type        : 'Usage'
 ---
@@ -10,16 +10,46 @@ type        : 'Usage'
 
 <div class="main container">
 
+  <div class="ui message">
+    Please bear in mind this is a draft, most likely full of inconsistencies, pauses, breaks in tone, and other fub-ups.
+  </div>
+
+  <h2 class='ui header'>
+    A Certain Scruple
+  </h2>
+
+  <p>Semantic operates under the premise that many of the prescribed best-practices of classical inheritance are similar to innate features of natural languages.</p>
+  <p>Individual definitions are the <b>nouns</b> (tech-speak "classes") which provide a <b>context</b> (tech-speak "scope") to <b>limit the broadness</b> (tech-speak "encapsulate") of <b>modifiers</b> (tech speak "properties") and <b>behaviors</b> (tech speak "methods").</p>
+  <p>Natural languages are used today for describing interface design, although oddly they aren't considered in the actual process of coding interfaces. Words like <b>popup</b>, <b>dropdown</b>, and <b>modal</b> didn't exist twenty years ago, yet now most people who visit websites can understand these elements, what to expect from their behavior, how they work, and operate.</p>
+  <p>Flat design has shown that there is a directionality to visual language, that we can convey meaning with less <a href="http://www.interaction-design.org/encyclopedia/affordances.html">affordances</a> than ever, not because design has evolved, but because <b>people's understanding of design has evolved from years of usage</b>.</p>
+
+  <p>The goal of Semantic UI, like many frameworks might do implicitly, is to bridge the gap between how we collectively create meaning, and how we construct meaning for computers, abstracting out the esoteric aspects of implementation from the clear, concise aspects of language that come from adoption and usage. </p>
+
+  <p>These things may be self-evident, obvious, maybe even down right boring, but they are nonetheless true. Natural languages have evolved over 10,000 odd years for the sole purpose of efficiently creating meaning among humans, yet today's programming languages attempt to best convey meaning for information processing systems, assuming their human programmers will some day achieve a zen-like <a href="http://www.haskell.org/haskellwiki/Haskell">purely mathematical</a> understanding of phenomenon.</p>
+
+  <p>It is by no means a perfect library, or hell, who knows if its even a good one, but its my best attempt to serve  the ideas which I know to be true.</p>
+  <blockquote>
+    <p>Tell him, Cebes, he replied, that I had no idea of rivalling him or his poems (Aesop); which is the truth, for I knew that I could not do that. But I wanted to see whether I could purge away a scruple which I felt about certain dreams. In the course of my life I have often had intimations in dreams “that I should make music.” The same dream came to me sometimes in one form, and sometimes in another, but always saying the same or nearly the same words: Make and cultivate music, said the dream. And hitherto I had imagined that this was only intended to exhort and encourage me in the study of philosophy, which has always been the pursuit of my life, and is the noblest and best of music. The dream was bidding me to do what I was already doing, in the same way that the competitor in a race is bidden by the spectators to run when he is already running. But I was not certain of this, as the dream might have meant music in the popular sense of the word, and being under sentence of death, and the festival giving me a respite, I thought that I should be safer if I satisfied the scruple, and, in obedience to the dream, composed a few verses before I departed.</p>
+    <p>~Cebes from <a href="http://classics.mit.edu/Plato/phaedo.html">Phaedo</a></p>
+  </blockquote>
+
+  <h2 class="ui header">Tending to Tendencies</h2>
+  <p>Classifying, creating rules, naming things are all essential parts of being a programmer. Something we are required to do day after day. Many programmers not only solve complex abstract problems routinely, but spend their free time thinking about the meta-tendencies of solving problems. How can i write this quicker next time? How can I avoid repetitive tasks? How can I abstract this out to be re-used? These are all positive traits individually, but lead to biases as a field.</p>
+
+
+  <p> There is a fundamental tendency for computer programmers who are <b>innate problem solvers</b> to look for intellectual solutions to problems. Simple solutions may not always feel as gratifying as <a href="http://en.wikipedia.org/wiki/Brainfuck">complex ones</a>. It is the tendency of scientific thinking to see the current version of truth as the Truth, the current best practices, as the only practice, whether next year they might be disavowed or forgotten for <b>the new big thing</b>. This mania drives forward progress, because many of the <b>new big thing</b> become the <b>old standard</b> soon enough, but still <b>requires programmers to operate under a shared, accepted fascination with the new.</b>.</p>
+
+  <h2 class="ui header">Who Said Delusion Is a Bad Thing?</h2>
+  <p>This isnt a surprising mania for programmers. Widespread internet usage is only a couple decades old, programming languages only sixty years old. Why is it unrealistic to assume we cant make something dramatically better next year? its just a tendency created by a set of social constraints, a 'blip' which will soon be corrected for in  </p>
+
   <h2 class='ui header'>
     Nature's Misers
   </h2>
 
-  <p>Semantic operates under the premise that many of the prescribed features of classical inheritance are similar to many innate features of natural languages.</p>
-  <p>Individual definitions are the <b>nouns</b> (tech-speak "components") which provide a <b>context</b> (tech-speak "namespace") to <b>limit</b> (tech-speak "encapsulate")  the <b>broadness</b> (tech speak "scope") of other concepts.</p>
-  <p>Natural languages are still used today for describing interface design, although oddly they aren't considered to be part of the actual process of coding interfaces.</p>
-  <p>Words like <b>popup</b>, <b>dropdown</b>, <b>modal</b> didn't exist twenty years ago, yet now most people, even those who code, understand these names and can identify them.</p>
-  <p>Language is designed to be terse.  We are cognitive misers looking to optimize for the conceptual scope of ideas as a society, under the same constraints as computers.</p>
-  <p>Explaining concepts in terms of a <em>namespace</em> like nouns is useful in preventing some classic problems in defining qualities</p>
+  <p>Natural languages are designed to be terse.  Humans are cognitive misers looking to optimize for the conceptual scope of ideas, under the same constraints as computers.</p>
+  <p>Often times the <b>connotations</b> (tech speak "implementation") may vary from person to person of an idea, but yet a single 4 characters still suffice. <b>Love</b> may connote ideas of eros, or romantic love, in others felings of agape, or brotherly love, or specific memories with a qualia you only can understand.</p>
+  <p>A single idea may also vary from instance to instance. An ideal <b>horse</b> might have four legs, but you might encounter a three-legged horse and know its a horse just the same. In fact, you may never encounter a three-legged horse, and still know that you might one day. Or the classic Wittgenstein example of  "<a href="http://en.wikipedia.org/wiki/Language-game_(philosophy)#Description">What is a game?</a>". Natural language can accomodate for these variations in implementation, tempered by at least 10,000 years of usage, and a whole life-time of shared collective experiences.</p>
+  <p>So where does all this leave us? What practicality can be gleamed from all this convoluted mess?</p>
   <p>For example explaining "size" as a <b>general concept</b> can be very difficult. How can you define smallness <em>in general</em> when a <b>tiny</b> planet is still much larger than a <b>gigantic</b> ant?</p>
 
 </div>

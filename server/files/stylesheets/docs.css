@@ -42,6 +42,14 @@ body > .content  {
   background: #FCFCFC url(../images/bg.jpg) repeat;
 }
 
+blockquote {
+  border-left: 2px solid #009fda;
+  font-family: Lato;
+  line-height: 2;
+  margin: 0;
+  padding-left: 2em;
+}
+
 h1,
 h2,
 h3,
@@ -1632,7 +1640,7 @@ body.progress.animated .ui.progress .bar {
   #example .left.rail {
     left: 100%;
     right: auto;
-    margin: 0em 0em 0em 1em !important;
+    margin: 0em 0em 0em 2em !important;
     width: 250px;
   }
 }

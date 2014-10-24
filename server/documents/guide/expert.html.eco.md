@@ -68,12 +68,22 @@ type        : 'Getting Started'
 
   <p>The installer will also create a special folder which contains your site-specific themes. The default location for this is <code>src/site</code>. For more information on using site themes, see the theming guide below.</p>
 
+  <h3 class="ui header">Manual Install</h3>
   <p>If you prefer these files and folders can be moved manually instead of using the installer.</p>
   <div class="bash code">
     mv semantic.json.example semantic.json
     mv src/theme.config.example src/theme.config
     mv src/_site src/site
     vi semantic.json
+  </div>
+
+  <h3>Upgrading Semantic</h3>
+
+  <p>You can use normal package manager functions to update your project, just be sure to re-install semantic after upgrading. Re-install will <b>extend your <code>semantic.json</code> but not overwrite it</b></p>
+  <div class="bash code">
+    bower update
+    cd ./bower_modules/semantic-ui
+    gulp install
   </div>
 
   <div class="ui info message">For a full list of settings for <b>semantic.json</b>, check the <a href="https://github.com/Semantic-Org/Semantic-UI/blob/1.0/tasks/defaults.js">defaults values</a> which it inherits from.</div>
@@ -89,6 +99,10 @@ type        : 'Getting Started'
     gulp build # builds all files from source
     gulp install # re-runs install
   </div>
+
+  <p>
+    Semantic creates minified, and uncompressed files in your source for both individual components, and the components specified for your packaged version.
+  </p>
 
   <p>Keep in mind semantic will automatically adjust urls in css and add vendor-prefixes as part of the build process. This means <b>definitions and theme files do not need vendor prefixes</b>.</p>
 
@@ -920,7 +934,7 @@ type        : 'Getting Started'
 
   </div>
 
-  <p>This may seem like way too many variables, but its important to note that themes <b>do not need to redefine all these derived variables</b>. For example, the "raised" theme, just redefines a single variable, which modifies the four or five other derived variables that the theme maker does not even need to know exist.</p>
+  <p>This may seem like way too much abstraction, but its important to note that themes <b>do not need to redefine all these derived variables</b>. For example, the "raised" theme, just redefines a single variable, which modifies the four or five other derived variables that the theme maker does not even need to know exist.</p>
   <div class="less code" data-title="src/themes/raised/elements/button.variables">
     @shadowDistance: 0.3em;
   </div>
