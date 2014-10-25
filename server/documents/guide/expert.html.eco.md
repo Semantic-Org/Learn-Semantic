@@ -88,7 +88,7 @@ type        : 'Getting Started'
 
   <div class="ui info message">For a full list of settings for <b>semantic.json</b>, check the <a href="https://github.com/Semantic-Org/Semantic-UI/blob/1.0/tasks/defaults.js">defaults values</a> which it inherits from.</div>
 
-  <h2 class="ui header">Using Semantic</h2>
+  <h2 class="ui header">Using Semantic Build Tools</h2>
 
   <h3 class="ui header">Gulp commands</h3>
   <p>After setting up your project you have access to several commands for building your css and javascript.</p>
@@ -119,13 +119,12 @@ type        : 'Getting Started'
 
   <p>Building and watching Semantic is only necessary while adjusting your UI. This is usually the first part of building a new project, and a separate process than building-out pages in your site.</p>
   <p>During this architecting phase you can try <a href="#creating-packaged-themes">downloading different themes</a>, adjusting your <a href="#global-inheritance">site-wide settings</a> (font-family, colors, etc) and tweaking components in your site's <a href="#css-overrides">component overrides</a>.</p>
-  <p>Files in the <code>examples/</code> folder of your project can be useful for testing out changes in your UI. For example, you might run <code>gulp watch</code> download a new theme to <code>src/site/themes/</code> then adjust your <code>theme.config</code> file with the name of the new theme and refresh <code>examples/kitchensink.html</code> to see whether you like it or not.</p>
-  <p>Once your UI is honed, you will not need to use the build tools during development and can rely on using the packages in <code>dist/</code> you have created.</p>
-  <p>You may need to adjust element designs during the course of building a site, but generally these processes do not need to integrated into the general build process while working on your site.</p>
+  <p>Files in the <code>examples/</code> folder of your project can be useful for testing out changes in your UI. For example, you might run <code>gulp watch</code> download a new theme to <code>src/site/themes/</code> then adjust your <code>theme.config</code> file with the name of the new theme and refresh <code>examples/kitchensink.html</code> to inspect changes in the theme.</p>
+  <p>You will only need to use Semantic's build tools while refining your UI, while designing pages you can rely on the packages in <code>dist/</code> and your software stack's normal build set-up.</p>
 
   <p><code>gulp watch</code> will automatically recompile only the necessary definition files when you update <code>semantic.config</code> or any <code>.variables</code> or <code>.overrides</code> file.<p>
 
-  <h2 class="ui header">Theming Semantic</h2>
+  <h2 class="ui header">Theming Concepts</h2>
   <p>
     Semantic uses an inheritance system similar to <a href="https://www.sublimetext.com/docs/2/settings.html" target="_blank">Sublime Text</a> designed to facilitate an ecosystem of theming.
   </p>
