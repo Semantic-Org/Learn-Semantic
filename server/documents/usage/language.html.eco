@@ -4,7 +4,7 @@ css         : 'guide'
 
 title       : 'Language Origins'
 description : ''
-type        : 'Usage'
+type        : 'Usage (Draft)'
 ---
 <%- @partial('header') %>
 
