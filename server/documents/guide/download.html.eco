@@ -2,8 +2,8 @@
 layout      : 'default'
 css         : 'guide'
 
-title       : 'Downloading'
-description : 'Links to download Semantic UI'
+title       : 'Download'
+description : 'Links to package managers and repositories'
 type        : 'Getting Started'
 ---
 <%- @partial('header') %>
@@ -18,7 +18,7 @@ type        : 'Getting Started'
     <i class="download icon"></i> Download Zip
   </a>
 
-  <div class="ui message">Some npm and bower paths may not be correct until 1.0 release is complete.</div>
+  <div class="ui warning message">Some npm and bower paths may change with 1.0 release.</div>
 
   <h4 class="ui header">Git</h4>
   <div class="bash code">
@@ -33,7 +33,7 @@ type        : 'Getting Started'
     bower install semantic-ui#2.0
   </div>
 
-  <h4 class="ui header">Wget</h4>
+  <h4 class="ui header">wget</h4>
   <div class="bash code">
     wget https://github.com/Semantic-Org/Semantic-UI/archive/1.0.zip
   </div>
@@ -47,7 +47,9 @@ type        : 'Getting Started'
     Single Components
   </h2>
 
-  <p>Individual components are available pre-compiled with default theming. These may be useful for one of projects where additional theming isn't necessary.</p>
+  <p>Individual components are available pre-built with default theming. These may be useful for projects where additional theming isn't necessary.</p>
+
+  <div class="ui warning message">Editors Note: These repos have not been created yet, but will be available with 1.0</div>
 
   <a class="ui button" href="https://github.com/Semantic-Org">
     Components on GitHub
@@ -56,10 +58,9 @@ type        : 'Getting Started'
 
   <h4 class="ui header">Bower</h4>
   <div class="bash code">
-  # each component is available as a separate repository
+  # component names correspond to element names
   bower install semantic-input
   bower install semantic-form
-  bower install semantic-accordion
   </div>
   <h4 class="ui header">Git</h4>
   <div class="bash code">
@@ -70,9 +71,8 @@ type        : 'Getting Started'
   <h2 class='ui header'>
     CDN
   </h2>
-  <p>
-    These CDN links host the entire library with all components, and do not support theming.
-  <p>
+  <p>These Content Distribution Networks host the packaged library with all components.</p>
+  <p>Using these links is only recommended for projects that <b>do not require theming</b>.<p>
 
   <h4 class="ui header">CDNJS</h4>
   <div class="html code">
