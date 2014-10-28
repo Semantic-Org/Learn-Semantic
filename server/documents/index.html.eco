@@ -5,7 +5,6 @@ title  : 'Introduction'
 type   : 'Semantic'
 ---
 
-<script src="/javascript/home.js"></script>
 <link rel="stylesheet" type="text/css" href="/stylesheets/home.css">
 
 <div class="following bar">
