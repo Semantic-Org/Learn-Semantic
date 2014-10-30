@@ -157,8 +157,8 @@ type        : 'Getting Started'
   </p>
   <p>Don't use <b>LESS</b> in your dev environment? Don't worry, Definitions only uses only pure CSS in combination with well established pre-processor features like <b>css variables</b>, <b>color adjustment functions</b>, <b>value calculations</b> and <b>@import</b> statements.</p>
   <div class="ui info message">
-    <p>A SCSS port is underway for those who are persnickety about which indiciating character precedes their variable declarations.</p>
-    <p>Semantic only uses a minimal featureset of our CSS preprocessor to make the library easy to port to future preprocessors.</p>
+    <p>A SCSS port is underway for those who are persnickety about which indicating character precedes their variable declarations.</p>
+    <p>Semantic only uses a minimal feature-set of our CSS preprocessor to make the library easy to port to future preprocessors.</p>
   </div>
   <h3 class="ui header">Elements of a Theme</h3>
   <p>
@@ -216,7 +216,7 @@ type        : 'Getting Started'
 
   <p>Overrides are parsed and <b>written after the definition's css</b> and allows developers to include arbitrary css inside the definition. Overrides are parsed as <b>LESS</b> files and all component variables are available inside an override file.</p>
   <p>Theme overrides are used to add css rules which are not available in the source definition, but are necessary for the theme to work.</p>
-  <p>Site theme overrides are home to the <b>arbitrary</b> or <b>temporaneous</b> aspects of an element for integrating it on a site. Hacks, one-time fixes, shortcuts, etc are all sometimes important parts of making a website work, but arent thing we want to re-use from project to project. Using a <b>site override</b> file for an element, allows you to make these concessions without sullying the re-usability of the rest of your code.</p>
+  <p>Site theme overrides are home to the <b>arbitrary</b> or <b>temporaneous</b> aspects of an element for integrating it on a site. Hacks, one-time fixes, shortcuts, etc are all sometimes important parts of making a website work, but aren't things we want to re-use from project to project. Using a <b>site override</b> file for an element, allows you to make these concessions without sullying the re-usability of the rest of your code.</p>
 
   <h5 class="ui header">CSS Write Order</h5>
   <div class="ui large bulleted list">
@@ -855,7 +855,7 @@ type        : 'Getting Started'
 
   <h3 class="ui header">A Practical Example</h3>
   <p>Perhaps you find it useful while working on your site to have icons aliases in your local language <b>Spanish</b> to make them easier to remember. You might include a set of aliases in your site's icon overrides in  <code>src/site/elements/icon.overrides</code>.</p>
-  <p>These files already exist for your project, but are left blank by default. You can simply update the file with your alises and save it and <code>gulp watch</code> will automatically recreate the original definition with your changes.</p>
+  <p>These files already exist for your project, but are left blank by default. You can simply update the file with your aliases and save it and <code>gulp watch</code> will automatically recreate the original definition with your changes.</p>
   <div class="less code" data-type="LESS" data-title="src/site/elements/icon.overrides">
     /* Alias Search in Spanish */
     i.icon.buscar:before { content: "\f002"; }
@@ -888,8 +888,8 @@ type        : 'Getting Started'
   <p>Variables are not just one-to-one matches with css properties, but let you work with higher-order concepts in an element's design, that may adjust several properties at once.</p>
 
   <h4 class="ui header">Abstracting Concepts to Remove Tedium</h4>
-  <p>Sometimes variables are used to deal with latent issues in CSS. For example <code>@lineHeight</code> might seem like a simple value. Setting a line-height greater than 1 on an input is necessary to make sure descendors like "p" or "q" aren't cut off in your form. Some browsers even implicitly add this line-height to inputs even if you specify a value to low.</p>
-  <p>Having a different line height on input elements increases its vertical padding to a larger value than what is set in <code>@verticalPadding</code>. This implicit change in actual vertical-padding on an input, would mean the element would not line up with other UI elements that use the same <code>@verticalPadding</code>. Semantic deals with this on a framework level, by using derived values for padding spefically on inputs.</p>
+  <p>Sometimes variables are used to deal with latent issues in CSS. For example <code>@lineHeight</code> might seem like a simple value. Setting a line-height greater than 1 on an input is necessary to make sure descenders like "p" or "q" aren't cut off in your form. Some browsers even implicitly add this line-height to inputs even if you specify a value to low.</p>
+  <p>Having a different line height on input elements increases its vertical padding to a larger value than what is set in <code>@verticalPadding</code>. This implicit change in actual vertical-padding on an input, would mean the element would not line up with other UI elements that use the same <code>@verticalPadding</code>. Semantic deals with this on a framework level, by using derived values for padding specifically on inputs.</p>
   <div class="less code" data-title="src/themes/default/elements/input.variables" data-type="less">
     @lineHeight: 1.2em;
     @lineHeightOffset: ((@lineHeight - 1em) / 2);
@@ -942,7 +942,7 @@ type        : 'Getting Started'
 
   <p>Writing definitions while designing new interface elements is similar to <a href="http://en.wikipedia.org/wiki/Test-driven_development">test driven development</a> when writing code. Definitions are a rubric for all possible ways an element can appear visually.</p>
 
-  <p>Creating UI definitions lets you create components that are <b>self documenting</b> so that other team-members working on your project can develop with them immediately without examining the codebases</p>
+  <p>Creating UI definitions lets you create components that are <b>self documenting</b> so that other team-members working on your project can develop with immediately without spending time learning internal naming conventions.</p>
 
 
 </div>
