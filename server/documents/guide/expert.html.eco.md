@@ -104,7 +104,7 @@ type        : 'Getting Started'
     Semantic creates minified, and uncompressed files in your source for both individual components, and the components specified for your packaged version.
   </p>
 
-  <p>Keep in mind semantic will automatically adjust urls in css and add vendor-prefixes as part of the build process. This means <b>definitions and theme files do not need vendor prefixes</b>.</p>
+  <p>Keep in mind semantic will automatically adjust URLs in CSS and add vendor-prefixes as part of the build process. This means <b>definitions and theme files do not need vendor prefixes</b>.</p>
 
   <div class="ui info message">
     <h4 class="ui header">Advanced Usage</h4>
@@ -168,11 +168,10 @@ type        : 'Getting Started'
     In the following examples, paths all refer to default project paths, these might be adjusted in your project's <b>semantic.json</b> file.
   </div>
   <h3 class="ui header">Global Inheritance</h3>
-  <p>Each component in Semantic, inherits from <code>site.variables</code>. This file contains many important site-wide defaults like <b>brand colors</b>, <b>default colors</b>, <b>size defaults</b>, <b>font-face</b>. Keeping site wide defaults central allow you to quickly adjust constraints for all components.</p>
+  <p>Each component in Semantic, inherits from <code>site.variables</code>. This file contains many important site-wide defaults like <b>base EM values</b>, <b>brand colors and named colors</b>, <b>sizing defaults</b>, <b>font settings</b> and more. Keeping site wide defaults central allow you to quickly adjust constraints for all components for your site, by adjusting values like global <code>@borderRadius</code> <code>@fontSize</code> or <code>@emSize</code>.</p>
   <p>
-    <code>site.variables</code> is a "global definition" file with the same packaged theme and site theme inheritance as other definitions.
+    <code>site.variables</code> is a "global definition" file with the same three levels of inheritance as other definitions.
   </p>
-
   <h3 class="ui header">Component Inheritance</h3>
   <p>Each component in Semantic, begins its inheritance with default values from <code>site.variables</code>, and then defines its own variables as part of a default theme. The default theme then can be modified by a packaged theme, or by a site theme.</p>
   <p>For example, <code>ui button</code> loads variables in the following inheritance order:</p>
@@ -881,7 +880,7 @@ type        : 'Getting Started'
     @icon        : 'spanish';
   </div>
 
-  <div class="ui warning message">A package manager for distributing semantic themes is in the works, but does not yet exist. Please check back for more information.</div>
+  <div class="ui warning message">A package manager for distributing semantic themes is in the works, but does not yet exist.</div>
 
   <h3 class="ui header">Variables in Semantic</h3>
 
