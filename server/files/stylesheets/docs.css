@@ -47,7 +47,7 @@ blockquote {
   font-family: Lato;
   line-height: 2;
   margin: 0;
-  padding-left: 2em;
+  padding: 0em 2em;
 }
 
 h1,
@@ -1658,7 +1658,7 @@ body.progress.animated .ui.progress .bar {
     width: 700px;
   }
 }
-@media only screen and (min-width : 1570px) {
+@media only screen and (min-width : 1620px) {
   #example .container {
     left: -164px;
     width: 1085px;
