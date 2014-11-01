@@ -1,0 +1,47 @@
+  ---
+layout      : 'default'
+css         : 'guide'
+
+title       : 'Introduction'
+description : ''
+type        : 'Usage'
+---
+<%- @partial('header') %>
+
+<div class="main container">
+
+  <div class="ui message">
+    Please bear in mind this is a draft, most likely full of inconsistencies, pauses, breaks in tone, and other fub-ups.
+  </div>
+
+  <h2 class='ui header'>
+    A Certain Scruple
+  </h2>
+
+  <p>The goal of Semantic UI, like many programming frameworks do implicitly, is to bridge the gap between how we create meaning, through language, and how we construct meaning for computers, in an attempt to remove the esoteric aspects of implementation and make coding simpler.</p>
+
+  <p>Natural languages evolved specifically for the purpose of codifying meaning for human beings, yet many programming languages assume that logical and mathematical purity should be the primary goal of creating a good programming language, often ignoring that their human counterparts will never reach a zen like <a href="http://www.haskell.org/haskellwiki/Haskell">purely computational</a> understanding of phenomenon in concordance with the machines they program.</p>
+  <p>Technologies are useful (even programming languages are technologies) when they become easy enough that most people can use and understand them. It is my belief that <b>our best guidance towards constructing an artifical language for programming machines, is to try our best to not do that at all</b>, and defer as much as possible to principles observed in natural systems, or language that appears organically through common usage.</p>
+
+  <p>Semantic UI is by no means a perfect library, many of the particulars are still being hammered out on a day-to-day, but it is my attempt to service <a href="http://plato.stanford.edu/entries/montague-semantics/">some of</a> the <a href="http://plato.stanford.edu/entries/compositionality/">ideas</a> which I believe to be true.</p>
+
+  <blockquote>
+    <p>Tell him, Cebes, he replied, that I had no idea of rivalling him or his poems (Aesop); which is the truth, for I knew that I could not do that. But I wanted to see whether I could purge away a scruple which I felt about certain dreams. In the course of my life I have often had intimations in dreams “that I should make music.” The same dream came to me sometimes in one form, and sometimes in another, but always saying the same or nearly the same words: Make and cultivate music, said the dream. And hitherto I had imagined that this was only intended to exhort and encourage me in the study of philosophy, which has always been the pursuit of my life, and is the noblest and best of music. The dream was bidding me to do what I was already doing, in the same way that the competitor in a race is bidden by the spectators to run when he is already running. But I was not certain of this, as the dream might have meant music in the popular sense of the word, and being under sentence of death, and the festival giving me a respite, I thought that I should be safer if I satisfied the scruple, and, in obedience to the dream, composed a few verses before I departed.</p>
+    <p>~from <a href="http://classics.mit.edu/Plato/phaedo.html">Phaedo</a></p>
+  </blockquote>
+
+  <div class="ui horizontal section divider">
+    What's Next
+  </div>
+  <div class="ui two fluid buttons">
+    <a class="ui button">
+      Coding Principles
+    </a>
+    <div class="or"></div>
+    <a class="ui pink button" href="/usage/language.html">
+      Language Origins
+    </a>
+  </div>
+
+
+</div>

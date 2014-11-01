@@ -190,7 +190,7 @@
     </div>
     <div class="item">
       <div class="ui small <%= if @document.type is 'Usage' then 'active ' %> inverted header">
-        Usage
+        Language
       </div>
       <div class="menu">
         <% for element in usage: %>
