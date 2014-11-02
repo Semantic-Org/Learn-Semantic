@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <% preface           = @getCollection("documents").findAll({type: $in: ['Preface']},[{title: 1}]).toJSON() %>
   <% gettingStarted    = @getCollection("documents").findAll({type: $in: ['Getting Started']},[{title: 1}]).toJSON() %>
+  <% developing        = @getCollection("documents").findAll({type: $in: ['Developing']},[{title: 1}]).toJSON() %>
   <% theming           = @getCollection("documents").findAll({type: $in: ['Theming']},[{title: 1}]).toJSON() %>
   <% definitions       = @getCollection("documents").findAll({type: $in: ['Definitions']},[{title: 1}]).toJSON() %>
-  <% usage             = @getCollection("documents").findAll({type: $in: ['Usage']},[{title: 1}]).toJSON() %>
+  <% conventions       = @getCollection("documents").findAll({type: $in: ['Conventions']},[{title: 1}]).toJSON() %>
+  <% project           = @getCollection("documents").findAll({type: $in: ['Project']},[{title: 1}]).toJSON() %>
 
   <% currentCollection = @getCollection("documents").findAll({type: $in: [@document.type]},[{title: 1}]).toJSON() %>
   <% pageCount         = @pageCount(currentCollection) %>
@@ -154,7 +157,19 @@
     </div>
     <div class="item">
       <div class="ui small <%= if @document.type is 'Getting Started' then 'active ' %> inverted header">
-        Getting Started
+        <b>Preface</b>
+      </div>
+      <div class="menu">
+        <% for element in preface: %>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+            <%= element.title %>
+          </a>
+        <% end %>
+      </div>
+    </div>
+    <div class="item">
+      <div class="ui small <%= if @document.type is 'Getting Started' then 'active ' %> inverted header">
+        <b>Getting Started</b>
       </div>
       <div class="menu">
         <% for element in gettingStarted: %>
@@ -166,7 +181,19 @@
     </div>
     <div class="item">
       <div class="ui small <%= if @document.type is 'Theming' then 'active ' %> inverted header">
-        Theming
+        <b>Developing</b>
+      </div>
+      <div class="menu">
+        <% for element in developing: %>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+            <%= element.title %>
+          </a>
+        <% end %>
+      </div>
+    </div>
+    <div class="item">
+      <div class="ui small <%= if @document.type is 'Theming' then 'active ' %> inverted header">
+        <b>Theming</b>
       </div>
       <div class="menu">
         <% for element in theming: %>
@@ -178,7 +205,7 @@
     </div>
     <div class="item">
       <div class="ui small <%= if @document.type is 'Theming' then 'active ' %> inverted header">
-        Definitions
+        <b>Definitions</b>
       </div>
       <div class="menu">
         <% for element in definitions: %>
@@ -190,10 +217,22 @@
     </div>
     <div class="item">
       <div class="ui small <%= if @document.type is 'Usage' then 'active ' %> inverted header">
-        Language
+        <b>Conventions</b>
       </div>
       <div class="menu">
-        <% for element in usage: %>
+        <% for element in conventions: %>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+            <%= element.title %>
+          </a>
+        <% end %>
+      </div>
+    </div>
+    <div class="item">
+      <div class="ui small <%= if @document.type is 'Usage' then 'active ' %> inverted header">
+        <b>Semantic Project</b>
+      </div>
+      <div class="menu">
+        <% for element in project: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
             <%= element.title %>
           </a>

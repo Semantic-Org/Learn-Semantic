@@ -1,0 +1,28 @@
+  ---
+layout      : 'default'
+css         : 'guide'
+
+title       : 'FAQ'
+type        : 'Developing'
+---
+<%- @partial('header') %>
+
+<div class="main container">
+
+  <h2 class="ui header">Technologies</h2>
+
+  <h3 class="ui header">Why are source files in LESS?</h3>
+
+  <h3 class="ui header">Why dont you use mix-ins, extend, optional braces, etc.</h3>
+
+  <h3 class="ui header">Where can I find bindings/integrations for my language/framework?</h3>
+
+  <h2 class="ui header">Usage</h2>
+
+
+  <h2 class="ui header">Project</h2>
+
+  <h3 class="ui header">Who is behind Semantic UI?</h3>
+
+
+</div>

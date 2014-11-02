@@ -1,0 +1,100 @@
+  ---
+layout      : 'default'
+css         : 'guide'
+
+title       : 'Creating Themes'
+description : 'Re-using designs from project to project'
+type        : 'Theming'
+---
+<%- @partial('header') %>
+
+<div class="main container">
+
+  <h2 class="ui header">Creating Themes</h2>
+
+  <h3 class="ui header">A Practical Example</h3>
+  <p>Perhaps you find it useful while working on your site to have icons aliases in your local language <b>Spanish</b> to make them easier to remember. You might include a set of aliases in your site's icon overrides in  <code>src/site/elements/icon.overrides</code>.</p>
+  <p>These files already exist for your project, but are left blank by default. You can simply update the file with your aliases and save it and <code>gulp watch</code> will automatically recreate the original definition with your changes.</p>
+  <div class="less code" data-type="LESS" data-title="src/site/elements/icon.overrides">
+    /* Alias Search in Spanish */
+    i.icon.buscar:before { content: "\f002"; }
+  </div>
+
+  <h3 class="ui header">Creating Packaged Themes</h3>
+  <p>After finishing up work on your project, you realize that all of your icon aliases you created might be useful to other Spanish developers working with Semantic. You can then create a packaged theme for distribution that other people can download and use on their site</p>
+  <p>To do this create a new folder under themes with your theme name, for example <code>src/themes/spanish/</code> and add your variables and overrides file. Keep in mind all themes must include <b>both</b> an override and variable file, if no variables are changed you can include a blank <code>.variables</code> file.</p>
+
+  <p>You can test your packaged theme locally by adjusting your <code>theme.config</code> to use the specified theme:</p>
+  <div class="less code" data-type="LESS" data-title="src/theme.config" data-type="less">
+    /*******************************
+                Themes
+    *******************************/
+
+    /* Global */
+    @site        : 'default';
+    @reset       : 'default';
+
+    /* Elements */
+    @button      : 'default';
+    @container   : 'default';
+    @icon        : 'spanish';
+  </div>
+
+  <div class="ui warning message">A website dedicated for distributing semantic themes is currently in the works</div>
+
+  <h3 class="ui header">Variables in Semantic</h3>
+
+  <p>Variables are not just one-to-one matches with css properties, but let you work with higher-order concepts in an element's design, that may adjust several properties at once.</p>
+
+  <h4 class="ui header">Abstracting Concepts to Remove Tedium</h4>
+  <p>Sometimes variables are used to deal with latent issues in CSS. For example <code>@lineHeight</code> might seem like a simple value. Setting a line-height greater than 1 on an input is necessary to make sure descenders like "p" or "q" aren't cut off in your form. Some browsers even implicitly add this line-height to inputs even if you specify a value to low.</p>
+  <p>Having a different line height on input elements increases its vertical padding to a larger value than what is set in <code>@verticalPadding</code>. This implicit change in actual vertical-padding on an input, would mean the element would not line up with other UI elements that use the same <code>@verticalPadding</code>. Semantic deals with this on a framework level, by using derived values for padding specifically on inputs.</p>
+  <div class="less code" data-title="src/themes/default/elements/input.variables" data-type="less">
+    @lineHeight: 1.2em;
+    @lineHeightOffset: ((@lineHeight - 1em) / 2);
+    @padding: (@verticalPadding - @lineHeightOffset) @horizontalPadding;
+  </div>
+
+  <p>Using a <code>@lineHeightOffset</code> is also useful for other unexpected css quirks.
+
+  <p>For example floated elements do not receive the same top padding as other sibling content:</p>
+  <div class="less code" data-title="src/themes/default/collections/menu.variables" data-type="less">
+  @menuIconFloat: right;
+  @menuIconMargin: @lineHeightOffset 0em 0em 1em;
+  </div>
+  <p>Or headers might appear overly spaced because they have additional vertical padding from large line heights.</p>
+  <div class="less code" data-title="src/themes/default/elements/header.variables" data-type="less">
+  /* Space exactly 2rem */
+  @topMargin: ~"calc(2rem - "@lineHeightOffset~")";
+  </div>
+
+  <h4 class="ui header">Abstracting Concepts to Facilitate Theming</h4>
+  <p>Sometimes there is a disconnect between the name of a css property, and the function it performs visually, or a single property might house multiple concepts. For example a button may have a <code>@shadow</code> to make it appear raised, but it might also use require an inset box shadow to give the button a <code>border</code> that can use the shade of an element's background color. That single <code>box-shadow</code> definition might actually houses several separate concepts.</p>
+
+  <p>Semantic does its best to abstract out each concept separately when possible.</p>
+
+  <div class="less code" data-title="src/themes/default/elements/button.variables" data-type="less">
+    /* Internal Shadow */
+    @shadowDistance: 0em;
+    @shadowOffset: (@shadowDistance / 2);
+    @shadowBoxShadow: 0px -@shadowDistance 0px 0px @borderColor inset;
+
+    /* Box Shadow */
+    @borderBoxShadowColor: transparent;
+    @borderBoxShadowWidth: 1px;
+    @borderBoxShadow: 0px 0px 0px @borderBoxShadowWidth @borderBoxShadowColor inset;
+    @boxShadow:
+      @borderBoxShadow,
+      @shadowBoxShadow
+    ;
+    /* Remove Border on Colored */
+    @coloredBoxShadow: @shadowBoxShadow;
+
+  </div>
+
+  <p>This may seem like way too much abstraction, but its important to note that themes <b>do not need to redefine all these derived variables</b>. For example, the "raised" theme, just redefines a single variable, which modifies the four or five other derived variables that the theme maker does not even need to know exist.</p>
+  <div class="less code" data-title="src/themes/raised/elements/button.variables">
+    @shadowDistance: 0.3em;
+  </div>
+
+</div>

@@ -1,0 +1,19 @@
+  ---
+layout      : 'default'
+css         : 'guide'
+
+title       : 'CSS'
+description : 'Re-usable patterns in CSS'
+type        : 'Conventions'
+---
+<%- @partial('header') %>
+
+<div class="main container">
+
+  <h2 class="ui header">Overarching Principles</h2>
+
+  <h2 class="ui header">Techniques</h2>
+
+  <h2 class="ui header">Structure & Styleguide </h2>
+
+</div>

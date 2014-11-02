@@ -2,11 +2,12 @@
 layout      : 'default'
 css         : 'guide'
 
-title       : 'Beginner Guide'
-description : 'Creating a website with Semantic UI'
-type        : 'Getting Started'
+title       : 'Resources & Support'
+type        : 'Developing'
 ---
 <%- @partial('header') %>
 
 <div class="main container">
+
+
 </div>
