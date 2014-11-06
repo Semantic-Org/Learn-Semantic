@@ -3,13 +3,32 @@ layout      : 'default'
 css         : 'guide'
 
 title       : 'Customizing Designs'
-description : 'Developing with Semantic'
+description : 'Adopting SUI to fit your needs'
 type        : 'Developing'
 ---
 <%- @partial('header') %>
 
 <div class="main container">
 
-  <h2 class="ui header">Site Theme Overview</h2>
+  <h2 class="ui header">Freedom in Design</h2>
+
+  <p>Semantic is intended to provide a baseline visual language for a website, but isnt meant to be relied on completely for creating layouts for your website. Websites are complex beasts, involving plenty of application specific idiosyncracies which a framework cannot presume to contain. It is encouraged to use your own styles, custom elements, and css to alter interface designs to fit your needs. Although Semantic relies predominantly on class names to create </p>
+
+
+  <h2 class="ui header">The Hatchet and the Scalpel</h2>
+
+  <p>Semantic provides several different ways for you to adjust designs, depending on your particular project, time investment, and your long-term maintaince requirements.</p>
+
+  <h3 class="ui header">The Scalpel</h3>
+
+  <p>The underlying goal of a UI framework is to create a consistent language for your website. This means projects that have long-term development ambitions should carefully consider how the UI language is maintained across a website.</p>
+  <p>Any changes to UI elements which should remain <b>consistent across your website</b> should be applied as a <b>site theme</b> on top of Semantic UI. Site themes allow UI definitions to directly adjust the compiled CSS of Semantic, avoiding redundant CSS that redefines what is set in the framework. Each UI element has an individual <code>override</code> and <code>variable</code> file inside your site theme folder. <a href="http://laptop-vm:9778/themes/overview.html#css-overrides">Override files</a> are used for providing arbitrary CSS rules which modify the baseline definition. Variable files allow you to modify the many <a href="" </p>
+  <p>Site themes are the last level of inheritance for Semantic UI allowing you to have final word in the settings and defaults for UI elements. To understand more about using themes check out our <a href="theming/overview.html">theming overview</a>.
+
+  <h3 class="ui header">The Hatchet</h3>
+
+  <p>When quickly designing and prototyping a website, especially when you know your content will be short lived and will not require continuous adjustments, it makes sense to use the simplest solution for adjusting your design. The "hatchet" approach for adjusting Semantic UI, is to directly override CSS styles in your layout, adding internal styles particular to your page.</p>
+  <p>For instance, if you need to expand the margins on a floated image for a particular page, change your heading sizes, increase segment padding, use a non-standard color, these all may require you to override library defaults.</p>
+
 
 </div>

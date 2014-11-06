@@ -4,19 +4,39 @@ css    : 'index'
 title  : 'Introduction'
 type   : 'Semantic'
 ---
-
+<script src="/javascript/home.js"></script>
 <link rel="stylesheet" type="text/css" href="/stylesheets/home.css">
 
 <div class="following bar">
   <div class="ui page grid">
     <div class="column">
-      <img src="/images/logo.png" class="logo">
-      <div class="ui large inverted right floated secondary menu">
-        <div class="ui language floating dropdown item" id="languages">
+      <div class="ui logo shape">
+        <div class="sides">
+          <div class="ui side">
+            <img class="ui image" src="/images/logo.png">
+          </div>
+          <div class="active side">
+            <img class="ui image" src="/images/learn-logo.png">
+          </div>
+        </div>
+      </div>
+      <div class="ui inverted right floated secondary menu">
+        <div class="item">
+          <iframe class="github" src="http://ghbtns.com/github-btn.html?user=semantic-org&amp;repo=semantic-ui&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+        </div>
+        <div class="ui language floating dropdown link item" id="languages">
           <i class="world icon"></i>
-          <div class="text">Select Language</div>
+          <div class="text">English</div>
           <%- @partial('languages') %>
         </div>
+      </div>
+      <div class="ui large inverted secondary network menu">
+        <a class="view-ui item">
+          <i class="sidebar icon"></i> Menu
+        </a>
+        <a href="http://www.semantic-ui.com" data-site="ui" class="additional item">UI Docs</a>
+        <span class="additional item" data-site="themes" data-content="Coming Soon">Themes</span>
+        <span class="additional item" data-site="layout" data-content="Coming Soon">Layouts</span>
       </div>
     </div>
   </div>
@@ -64,7 +84,7 @@ type   : 'Semantic'
         </div>
         <div class="column">
           <div class="text">
-            <h2 class="ui header">Have you been making websites since <b>XSLT</b> was more popular than <b>CSS</b>?</h2>
+            <h2 class="ui header">Have you been making websites since <b>XSLT</b> was more popular t` <b>CSS</b>?</h2>
           </div>
           <a class="ui big pink right labeled icon button" href="guide/expert.html">
             <i class="right chevron icon"></i>

@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <% preface           = @getCollection("documents").findAll({type: $in: ['Preface']},[{title: 1}]).toJSON() %>
-  <% gettingStarted    = @getCollection("documents").findAll({type: $in: ['Getting Started']},[{title: 1}]).toJSON() %>
-  <% developing        = @getCollection("documents").findAll({type: $in: ['Developing']},[{title: 1}]).toJSON() %>
-  <% theming           = @getCollection("documents").findAll({type: $in: ['Theming']},[{title: 1}]).toJSON() %>
-  <% definitions       = @getCollection("documents").findAll({type: $in: ['Definitions']},[{title: 1}]).toJSON() %>
-  <% conventions       = @getCollection("documents").findAll({type: $in: ['Conventions']},[{title: 1}]).toJSON() %>
-  <% project           = @getCollection("documents").findAll({type: $in: ['Project']},[{title: 1}]).toJSON() %>
-
   <% currentCollection = @getCollection("documents").findAll({type: $in: [@document.type]},[{title: 1}]).toJSON() %>
   <% pageCount         = @pageCount(currentCollection) %>
   <% pageNumber        = @getPage(currentCollection, @document.id) %>
@@ -148,99 +140,151 @@
 </head>
 <body id="example" class="pushable <%= @document.css %>" ontouchstart="">
 
-  <div class="ui vertical inverted sidebar menu" id="menu">
+  <div id="menu" class="ui vertical inverted sidebar menu" style="">
     <div class="item">
-      <a class="ui logo icon image" href="/">
+      <a href="/" class="ui logo icon image">
         <img src="/images/logo.png">
       </a>
-      <a href="/"><b>Learn Semantic</b></a>
+      <a href="/">
+        <b>Learn Semantic</b>
+      </a>
     </div>
     <div class="item">
-      <div class="ui small <%= if @document.type is 'Getting Started' then 'active ' %> inverted header">
+      <div class="ui small inverted header">
         <b>Preface</b>
       </div>
       <div class="menu">
-        <% for element in preface: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
-            <%= element.title %>
-          </a>
-        <% end %>
+        <a href="/preface/introduction.html" class="item">
+          Introduction
+        </a>
+        <div href="/preface/language.html" class="disabled item">
+          On Language
+        </div>
       </div>
     </div>
     <div class="item">
-      <div class="ui small <%= if @document.type is 'Getting Started' then 'active ' %> inverted header">
+      <div class="ui small inverted header">
         <b>Getting Started</b>
       </div>
       <div class="menu">
-        <% for element in gettingStarted: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
-            <%= element.title %>
-          </a>
-        <% end %>
+        <a href="/guide/download.html" class="item">
+          Download
+        </a>
+        <div href="/guide/beginner.html" class="disabled item">
+          Beginner Guide
+        </div>
+        <a href="/guide/expert.html" class="item">
+          Expert Guide
+        </a>
       </div>
     </div>
     <div class="item">
-      <div class="ui small <%= if @document.type is 'Theming' then 'active ' %> inverted header">
+      <div class="ui small inverted header">
         <b>Developing</b>
       </div>
       <div class="menu">
-        <% for element in developing: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
-            <%= element.title %>
-          </a>
-        <% end %>
+        <a href="/developing/customizing.html" class="item">
+          Customizing
+        </a>
+        <div href="/developing/extending.html" class="disabled item">
+          Extending
+        </div>
+        <div href="/developing/best-practices.html" class="disabled item">
+          Best Practices
+        </div>
+        <div href="/developing/faq.html" class="disabled item">
+          FAQ
+        </div>
+        <div href="/developing/support.html" class="disabled item">
+          Getting Support
+        </div>
       </div>
     </div>
     <div class="item">
-      <div class="ui small <%= if @document.type is 'Theming' then 'active ' %> inverted header">
+      <div class="ui small inverted header">
         <b>Theming</b>
       </div>
       <div class="menu">
-        <% for element in theming: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
-            <%= element.title %>
-          </a>
-        <% end %>
+        <a href="/themes/overview.html" class="item">
+          Overview
+        </a>
+        <a href="/themes/creating.html" class="item">
+          Creating Themes
+        </a>
+        <div href="/themes/downloading.html" class="disabled item">
+          Downloading Themes
+        </div>
       </div>
     </div>
     <div class="item">
-      <div class="ui small <%= if @document.type is 'Theming' then 'active ' %> inverted header">
+      <div class="ui small inverted header">
         <b>Definitions</b>
       </div>
       <div class="menu">
-        <% for element in definitions: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
-            <%= element.title %>
-          </a>
-        <% end %>
+        <div href="/definitions/how-to-read.html" class="disabled item">
+          How to Read Definitions
+        </div>
+        <div href="/definitions/elements.html" class="disabled item">
+          Elements
+        </div>
+        <div href="/definitions/collections.html" class="disabled item">
+          Collections
+        </div>
+        <div href="/definitions/views.html" class="disabled item">
+          Views
+        </div>
+        <div href="/definitions/modules.html" class="disabled item">
+          Modules
+        </div>
+        <div href="/definitions/behaviors.html" class="disabled item">
+          Behaviors
+        </div>
       </div>
     </div>
     <div class="item">
-      <div class="ui small <%= if @document.type is 'Usage' then 'active ' %> inverted header">
+      <div class="ui small inverted header">
         <b>Conventions</b>
       </div>
       <div class="menu">
-        <% for element in conventions: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
-            <%= element.title %>
-          </a>
-        <% end %>
+        <div href="/conventions/css.html" class="disabled item">
+          CSS
+        </div>
+        <div href="/conventions/classnames.html" class="disabled item">
+          Class Names
+        </div>
+        <div href="/conventions/html.html" class="disabled item">
+          HTML
+        </div>
+        <div href="/conventions/javascript.html" class="disabled item">
+          Javascript
+        </div>
+        <div href="/conventions/terms.html" class="disabled item">
+          Terms Glossary
+        </div>
+        <div href="/conventions/variables.html" class="disabled item">
+          Variables
+        </div>
       </div>
     </div>
     <div class="item">
-      <div class="ui small <%= if @document.type is 'Usage' then 'active ' %> inverted header">
+      <div class="ui small inverted header">
         <b>Semantic Project</b>
       </div>
       <div class="menu">
-        <% for element in project: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
-            <%= element.title %>
-          </a>
-        <% end %>
+        <div href="/project/author.html" class="disabled item">
+          About the Author
+        </div>
+        <div href="/project/contributing.html" class="disabled item">
+          Contributing
+        </div>
+        <div href="/project/donating.html" class="disabled item">
+          Donating
+        </div>
       </div>
     </div>
   </div>
-    <div class="ui fixed inverted main menu">
+
+  <div class="ui fixed inverted main menu">
     <div class="container">
       <a class="launch item"><i class="content icon"></i></a>
       <div class="title item">
@@ -288,39 +332,37 @@
   </div>
 
   <div class="pusher">
-    <div class="page">
-      <div class="full height">
-        <%- @content %>
-      </div>
-      <div class="ui vertical inverted black footer segment">
-        <div class="container">
-          <div class="ui stackable inverted divided relaxed grid">
-            <div class="eight wide column">
-              <h3 class="ui inverted header">Donate to Semantic UI</h3>
-              <p>Maintaining an open source UI library is no small task. Support for the continued development of Semantic UI comes directly from the community.</p>
-              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                <input type="hidden" name="cmd" value="_s-xclick">
-                <input type="hidden" name="hosted_button_id" value="7ZAF2Q8DBZAQL">
-                <button type="submit" class="ui pink button">Donate Today</button>
-              </form>
+    <div class="full height">
+      <%- @content %>
+    </div>
+    <div class="ui vertical inverted black footer segment">
+      <div class="container">
+        <div class="ui stackable inverted divided relaxed grid">
+          <div class="eight wide column">
+            <h3 class="ui inverted header">Donate to Semantic UI</h3>
+            <p>Maintaining an open source UI library is no small task. Support for the continued development of Semantic UI comes directly from the community.</p>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+              <input type="hidden" name="cmd" value="_s-xclick">
+              <input type="hidden" name="hosted_button_id" value="7ZAF2Q8DBZAQL">
+              <button type="submit" class="ui pink button">Donate Today</button>
+            </form>
+          </div>
+          <div class="four wide column">
+            <h5 class="ui pink inverted header">Contribute</h5>
+            <div class="ui inverted link list">
+              <a class="item" href="mailto:jack@semantic-ui.com?subject=Help Translating">Translate</a>
+              <a class="item" href="https://github.com/Semantic-Org/Semantic-UI" target="_blank">Issue Tracker</a>
+              <a class="item" href="/cla.html" target="_blank">CLA</a>
+              <a class="disabled item">Create Themes</a>
             </div>
-            <div class="four wide column">
-              <h5 class="ui pink inverted header">Contribute</h5>
-              <div class="ui inverted link list">
-                <a class="item" href="mailto:jack@semantic-ui.com?subject=Help Translating">Translate</a>
-                <a class="item" href="https://github.com/Semantic-Org/Semantic-UI" target="_blank">Issue Tracker</a>
-                <a class="item" href="/cla.html" target="_blank">CLA</a>
-                <a class="disabled item">Create Themes</a>
-              </div>
-            </div>
-            <div class="four wide column">
-              <h5 class="ui pink inverted header">Semantic Network</h5>
-              <div class="ui inverted link list">
-                <a class="item" href="https://www.transifex.com/projects/p/semantic-ui-beta/" target="_blank">Translation Hub</a>
-                <a href="http://beta.semantic-ui.com" class="item">Semantic UI</a>
-                <a href="http://www.learnsemantic.com" class="item">Learn Semantic</a>
-                <a class="disabled item">Semantic Themes</a>
-              </div>
+          </div>
+          <div class="four wide column">
+            <h5 class="ui pink inverted header">Semantic Network</h5>
+            <div class="ui inverted link list">
+              <a class="item" href="https://www.transifex.com/projects/p/semantic-ui-beta/" target="_blank">Translation Hub</a>
+              <a href="http://beta.semantic-ui.com" class="item">Semantic UI</a>
+              <a href="http://www.learnsemantic.com" class="item">Learn Semantic</a>
+              <a class="disabled item">Semantic Themes</a>
             </div>
           </div>
         </div>

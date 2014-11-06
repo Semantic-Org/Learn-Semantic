@@ -17,15 +17,22 @@
 #example.index .masthead {
   position: relative;
   overflow: hidden;
-  /*background: #111111 url(../images/bg-sky.jpg);*/
+/*  background: #111111 url(../images/bg-sky.jpg);*/
   background-size: cover;
   text-align: center;
   padding: 0em;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 0px;
   border-bottom: none;
+  background-color: #777777;
+  background-image: -webkit-radial-gradient(farthest-corner, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.95));
+  background-image: radial-gradient(farthest-corner, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.95));
 }
-
+#example .masthead .grid {
+  margin: 0em;
+  padding: 15rem 0em;
+}
+#example.index .following.bar,
 #example.index .masthead {
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
@@ -33,13 +40,14 @@
   -ms-transform-style: preserve-3d;
   transform-style: preserve-3d;
 
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+
   -ms-transition: background-color 3s ease-in-out 2s;
   -moz-transition: background-color 3s ease-in-out 2s;
   -webkit-transition: background-color 3s ease-in-out 2s;
   transition: background-color 3s ease-in-out 2s;
-
-  background-color: #777777;
-  background-image: radial-gradient(farthest-corner, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.95));
 
   -webkit-perspective: 1000px;
   -moz-perspective: 1000px;
@@ -47,6 +55,17 @@
   -ms-perspective: 1000px;
   perspective: 1000px;
 }
+#example.index .following.bar iframe.github {
+  margin-top: 0px;
+}
+#example.index.pushed .masthead,
+#example.index.pushed .following.bar {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+#example.index .colored.following.bar,
 #example.index .masthead.colored {
   -webkit-animation-name: colors;
   -moz-animation-name: colors;
@@ -83,9 +102,9 @@
 #example.index .masthead:before {
   position: absolute;
   z-index: 1;
-  width: 150%;
-  height: 200%;
-  top: -25%;
+  width: 100%;
+  height: 100%;
+  top: 0%;
   left: 0px;
   content: '';
   background: url(/images/before.jpg);
@@ -138,12 +157,13 @@
   -moz-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateY(0%) translateX(0) translateZ(-500px);
   transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateY(0%) translateX(0) translateZ(-500px);
 }
+#example.index .following.bar:after,
 #example.index .masthead:after {
   position: absolute;
   z-index: 1;
-  width: 150%;
-  height: 200%;
-  top: -25%;
+  width: 135%;
+  height: 135%;
+  top: 18%;
   left: 0px;
   content: '';
   background: url(/images/ui.png);
@@ -169,7 +189,7 @@
   -moz-transition: opacity 3s ease-in-out, transform 5s ease-in-out;
   transition: opacity 3s ease-in-out, transform 5s ease-in-out;
 
-  opacity: 0.01;
+  opacity: 0.06;
 
   -webkit-animation-duration: 15s;
   -moz-animation-duration: 15s;
@@ -192,9 +212,49 @@
   -o-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 
-  -webkit-transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateY(-10%) translateX(-2%) translateZ(370px);
-  -moz-transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateY(-10%) translateX(-2%) translateZ(370px);
-  transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateY(-10%) translateX(-2%) translateZ(370px);
+  -webkit-transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateY(-14%) translateX(-14%) translateZ(370px);
+  -moz-transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateY(-14%) translateX(-14%) translateZ(370px);
+  transform: rotateX(50deg) rotateZ(0deg) rotateY(0deg) translateY(-14%) translateX(-14%) translateZ(370px);
+}
+
+#example.index .fixed.following.bar {
+  background-image: none;
+}
+#example.index .following.bar:after {
+  height: 58px;
+  opacity: 0;
+  -ms-transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  -webkit-transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  -webkit-animation-duration: 30s;
+  -moz-animation-duration: 30s;
+  -ms-animation-duration: 30s;
+  -o-animation-duration: 30s;
+  animation-duration: 30s;
+  -webkit-transform: none;
+  -moz-transform: none;
+  transform: none;
+  z-index: -1;
+}
+#example.index .fixed.following.bar {
+  position: fixed;
+  top: 0px;
+  padding: 1em 0em;
+  background-color: #FFFFFF;
+}
+#example.index .fixed.light.following.bar {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #DDDDDD;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.04);
+}
+#example.index .fixed.dark.following.bar {
+  background-color: #EDF1F2;
+  border-bottom: 1px solid #DDDDDD;
+  box-shadow: none;
+}
+#example.index .animated.following.bar:after {
+  opacity: 0.06;
 }
 
 /* Zoomed Out */
@@ -209,9 +269,9 @@
 }
 #example.index .masthead.zoomed:after {
   opacity: 0;
-  -webkit-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
-  -moz-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
-  transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateZ(0px);
+  -webkit-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateY(-6%) translateZ(0px);
+  -moz-transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateY(-6%) translateZ(0px);
+  transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg) translateY(-6%) translateZ(0px);
 }
 
 @keyframes masthead {
@@ -413,7 +473,7 @@
   }
 }
 
-
+#example.index .animated.following.bar.stopped:after,
 #example.index .masthead.stopped:after {
   -webkit-animation-name: none;
   -moz-animation-name: none;
@@ -508,7 +568,6 @@
   clear: both;
   display: block;
   text-align: center;
-  margin: 15rem 0rem;
 }
 #example.index .introduction .buttons {
   margin-top: 3em;
@@ -559,6 +618,79 @@
 }
 #example.index .following .logo {
   float: left;
+  width: 35px;
+}
+#example .masthead .version.label:after {
+  background-color: #000000 !important;
+}
+#example.index .following .version.label {
+  margin: 0.25em 0px 0px 1em;
+}
+
+#example.index .introduction .version.label {
+  visibility: hidden;
+}
+
+/*--------------
+    Following
+---------------*/
+
+#example.index .following.bar {
+  position: absolute;
+  top: 0px;
+  z-index: 900;
+  left: 0%;
+  padding: 2em 0em;
+  width: 100%;
+  box-shadow: 0px 0px 0px 0px transparent;
+  border-bottom: 1px solid transparent;
+  transition:
+    padding 0.2s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    border 0.3s ease
+  ;
+}
+#example.index .following.bar > .menu .item {
+  transition: all 0.5s ease;
+}
+#example.index.pushed .following.bar .menu .item,
+#example.index.pushed .following.bar {
+  transition: none;
+}
+#example.index .following.bar .additional.item {
+  display: none;
+}
+#example.index .fixed.following.bar .network.menu .view-ui {
+  color: #D9499A;
+}
+#example.index .following.bar .additional.item[data-site="learn"]:hover {
+  color: #D9499A;
+}
+#example.index .following.bar .additional.item[data-site="ui"]:hover {
+  color: #00B5AD;
+}
+#example.index .following.bar span.additional.item {
+  cursor: default;
+  color: rgba(0, 0, 0, 0.2);
+}
+#example.index .following.bar .inverted span.additional.item {
+  color: rgba(255, 255, 255, 0.2);
+}
+#example.index .following.bar .column > .menu {
+  margin-top: 0px;
+  height: 35px;
+  font-weight: bold;
+}
+#example.index .following.bar .network.menu .view-ui {
+  margin-right: 2em;
+}
+#example.index .following .logo {
+  float: left;
+  width: 35px;
+  margin-right: 1em;
+}
+#example.index .following .logo .side {
   width: 35px;
 }
 #example .masthead .version.label:after {
@@ -706,6 +838,7 @@
 }
 
 
+
 @media only screen and (max-width : 400px) {
   #example.index .advertisement {
     display: none;
@@ -741,8 +874,8 @@
     vertical-align: top;
     margin-top: 0em;
   }
-  #example.index .introduction {
-    margin: 7rem 0rem;
+  #example .masthead .grid {
+    padding: 6rem 0rem;
   }
   #example.index .masthead.segment h1 {
     font-size: 2.25em;
@@ -768,7 +901,7 @@
     display: none;
   }
   #example.index .fixed.launch.button {
-    display: block;
+    display: none;
   }
 }
 
@@ -783,6 +916,9 @@
   #example.index .container {
     margin-left: 2em;
     margin-right: 2em;
+  }
+  #example.index .following.bar .network.menu .view-ui {
+    margin-right: 0.75em;
   }
 }
 

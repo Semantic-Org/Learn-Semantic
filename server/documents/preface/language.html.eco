@@ -18,8 +18,8 @@ type        : 'Preface'
     Fabricating Language
   </h2>
 
-  <p>Language is a difficult topic for discussion because it is such an inperceivable part of our experience of reality, the only method which humans can record meaning. So ingrained is language in our humanity that even our internal experience is experience as a self dialog, an internal narrator explaining ideas to ourselves.</p>
-  <p>Even though day in, day out we reap the benefits of language's evolution as a method of effectively exchanging meaning between biological information processing machines, we are still hesitant to accept its utility when creating systems of codified meaning for computers, choosing instead to manufacture new systems of meaning with a near religious devotion to the axioms and prescribed standards of its creators.</p>
+  <p>Language is a difficult topic for discussion because it is such an inperceivable part of our experience of reality. It is one of the most primitive methods which human can interpet meaning. So ingrained is language in our humanity that even inside ourselves we often comprehend reality through an internal dialog, a stream of consciousness championed by an internal narrator that explains our interpretation of reality back to ourselves through language.</p>
+  <p>Even though day in, day out we reap the benefits of language's evolution as a method of effectively exchanging meaning between biological information processing machines, we are still hesitant to accept its utility when creating systems of codified meaning for computers, choosing instead to manufacture new systems of meaning to structure and codify meaning, often with a near religious devotion to the predetermined axioms and standards of its creators.</p>
 
   <h2 class="ui header">
     Tending to Tendencies
@@ -30,11 +30,9 @@ type        : 'Preface'
     <p>~Borges' <a href="http://books.google.com/books?id=1FrJqcRILaoC&pg=PA75&lpg=PA75&dq=lay+claim+in+this+novel+game+tedium+borges&source=bl&ots=pUWUsG99R-&sig=zJqgEd7QE38_IWO8kVsY-0ODf0Y&hl=en&sa=X&ei=q15VVJyvIM3LsASDzYDIDw&ved=0CDIQ6AEwAg#v=onepage&q=lay%20claim%20in%20this%20novel%20game%20tedium%20borges&f=false">Ficciones</a>
   </blockquote>
 
-  <p>Creating a system is no easy task. All decisions made by an individual, even <a href="http://www.oxforddictionaries.com/us/external/files/Garner_s_American_The_Ongoing_Struggles_of_Garlic-Hangers.pdf?version=2014-10-15-1630">those with the best intentions</a> towards impartiality, add some aspects of themselves as an imprint on their work.</a>.
+  <p>Creating a system is no easy task. All decisions made by an individual, even <a href="http://www.oxforddictionaries.com/us/external/files/Garner_s_American_The_Ongoing_Struggles_of_Garlic-Hangers.pdf?version=2014-10-15-1630">those with the best intentions</a> towards impartiality, add some aspects of themselves as an imprint on their work.</a>
   </p>
-  <p>Programming languages are relatively nascent technologies. The first widely used languages are only around fifty years old. Most people have relatives who are older than computer programming's entire history. Much of what we think of as the entire breadth of programming syntax and concepts comes from a handful of individual, or organizations, with particular interests, often business objectives, attached to the success of the languages.</p>
-
-  <p>Its my belief that computer programmers are the machinists of our generation, highly specialized task operators, who will eventuall
+  <p>Programming languages are relatively nascent technologies. The first widely used languages are only around fifty years old. Many people have relatives who are older than computer programming's entire history. What we think of as the entire breadth of programming syntax and concepts comes from a handful of individual and  organizations, with particular interests, often business objectives, attached to the success of the languages.</p>
   <h3>Predisposition towards Rational Argument</h3>
 
    <p>Many programmers not only solve complex abstract problems routinely, but spend their free time thinking about the meta-tendencies of solving problems. How can i write this quicker next time? How can I avoid repetitive tasks? How can I abstract this out to be re-used? There is a fundamental tendency for computer programmers who are innate problem solvers to look for intellectual solutions to problems, to see all problems as solvable using the same techniques which problems are solved inside the curly quotes of programming.</p>
