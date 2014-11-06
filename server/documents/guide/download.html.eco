@@ -18,8 +18,6 @@ type        : 'Getting Started'
     <i class="download icon"></i> Download Zip
   </a>
 
-  <div class="ui warning message">Some npm and bower paths may change with 1.0 release.</div>
-
   <h4 class="ui header">Git</h4>
   <div class="bash code">
     git clone git@github.com:Semantic-Org/Semantic-UI.git
@@ -29,8 +27,8 @@ type        : 'Getting Started'
   <div class="bash code">
     # install latest stable
     bower install semantic-ui
-    # or specify the branch
-    bower install semantic-ui#2.0
+    # or specify a branch
+    bower install semantic-ui#1.0
   </div>
 
   <h4 class="ui header">wget</h4>
@@ -47,11 +45,9 @@ type        : 'Getting Started'
     Single Components
   </h2>
 
-  <p>Individual components are available pre-built with default theming. These may be useful for projects where additional theming isn't necessary.</p>
+  <p>Individual components are available pre-built with default theming. These may be useful for projects where only a few additional theming isn't necessary.</p>
 
-  <div class="ui warning message">Editors Note: These repos have not been created yet, but will be available with 1.0</div>
-
-  <a class="ui button" href="https://github.com/Semantic-Org">
+  <a class="ui button" href="https://github.com/Semantic-Org?query=ui-">
     Components on GitHub
     <i class="right chevron icon"></i>
   </a>
@@ -59,13 +55,18 @@ type        : 'Getting Started'
   <h4 class="ui header">Bower</h4>
   <div class="bash code">
   # component names correspond to element names
-  bower install semantic-input
-  bower install semantic-form
+  bower install semantic-ui-dropdown
   </div>
+
+  <h4 class="ui header">NPM</h4>
+  <div class="bash code">
+  npm install semantic-ui-dropdown
+  </div>
+
   <h4 class="ui header">Git</h4>
   <div class="bash code">
     # individual repos for each element by name
-    git clone git@github.com:Semantic-Org/Semantic-Dropdown.git
+    git clone git@github.com:Semantic-Org/UI-Dropdown.git
   </div>
 
   <h2 class='ui header'>

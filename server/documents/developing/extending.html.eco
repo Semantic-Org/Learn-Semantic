@@ -1,0 +1,20 @@
+  ---
+layout      : 'default'
+css         : 'guide'
+
+title       : 'Adding Components'
+description : 'Writing custom definitions'
+type        : 'Developing'
+---
+<%- @partial('header') %>
+
+<div class="main container">
+
+  <h2 class="ui header">Definition Driven Development (DDD)</h2>
+
+  <p>Writing definitions while designing new interface elements is similar to <a href="http://en.wikipedia.org/wiki/Test-driven_development">test driven development</a> when writing code. Definitions are a rubric for all possible ways an element can appear visually.</p>
+
+  <p>Creating UI definitions lets you write components so that they are <b>self documenting</b> and other team-members working on your project can use them immediately without spending time learning new naming conventions.</p>
+
+
+</div>

@@ -1,0 +1,15 @@
+  ---
+layout      : 'default'
+css         : 'guide'
+
+title       : 'Customizing Designs'
+description : 'Developing with Semantic'
+type        : 'Developing'
+---
+<%- @partial('header') %>
+
+<div class="main container">
+
+  <h2 class="ui header">Site Theme Overview</h2>
+
+</div>
