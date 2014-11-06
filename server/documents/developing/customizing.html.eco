@@ -12,20 +12,64 @@ type        : 'Developing'
 
   <h2 class="ui header">Freedom in Design</h2>
 
-  <p>Semantic is intended to provide a baseline visual language for a website, but isnt meant to be relied on completely for creating layouts for your website. Websites are complex beasts, involving plenty of application specific idiosyncracies which a framework cannot presume to contain. It is encouraged to use your own styles, custom elements, and css to alter interface designs to fit your needs. Although Semantic relies predominantly on class names to create </p>
+  <p>Semantic is intended to provide a baseline visual language for a website, but isnt meant to be relied on completely for creating layouts for your website. Websites are complex beasts, involving plenty of application specific idiosyncracies which a framework cannot presume to contain. It is encouraged to use your own styles, custom elements, and css to alter interface designs to fit your needs.</p>
+
+  <p>Semantic provides several different ways for you to adjust designs, depending on your particular project, time investment, and your long-term maintaince requirements you may prefer to carefully craft your toolkit, or to quickly hack-out a project using whatever means necessary.</p>
+
+  <h2 class="ui header">The Scalpel</h2>
+
+  <p>The underlying goal of a UI framework is to create a consistent visual language for your website. This means projects that have long-term maintainance ambitions should carefully consider how their UI language is developed to avoid future headaches. Semantic's theme inheritance system is designed to let you preserve long-term changes to your UI, letting you move your interface elements from project to project, and helps organize your code to avoid any headaches that come from having "multiple cooks in the kitchen" for large projects.</p>
+
+  <h3 class="ui header">Site Themes</h3>
+
+  <p>Any changes to UI elements which adjust their global look and feel, and should remain <b>consistent across your website</b> should be applied as a <b>site theme</b> on top of Semantic UI.
+
+  <p>Site themes allow UI definitions to directly adjust the compiled CSS of Semantic, avoiding redundant CSS that redefines what is set in the framework. Each UI element has an individual <code>override</code> and <code>variable</code> file inside your site theme folder. <a href="/themes/overview.html#css-overrides">Override files</a> are used for providing additional CSS rules which modify the baseline definition. Variable files allow you to modify the many <a href="/themes/creating.html#variables-in-semantic">underlying variables</a> of Semantic. Any arbitrary part of a definition is defined as a variable. In semantic there are <b>over 3000 variables</b> for customizing elements, and these provide the best means for consistently adjusting elements.</p>
+
+  <h3 class="ui header">A Pragmatic Word</h3>
+
+  <p>When you download Semantic, your site's theme folder will be loaded with blank <em>stub</em> files for all possible theme overrides. When customizing your site's themes, you do not need to add all the original variables to your theme file, but <b>only the variables which you wish to modify</b>. The best way to explore what variables are available to modify, is to navigate inside the <code>src/themes/default/</code> and view all the default variables for Semantic.</p>
+  <p>The purposes of keeping your site folder separate and not adjusting the site's default theme directly, is to make sure you don't lose any changes when updating Semantic UI to new versions.</p>
+
+  <h3 class="ui header">Why Not Just Use Custom CSS?</h3>
+  <p>Variables unlike CSS rules often abstract away many <a href="themes/creating.html#variables-in-semantic">difficult details of implementation</a>. For instance you may want to adjust the border color of a button, but adding a css override will upset the inheritance for other rules which also adjust border. Adjusting the <code>@borderColor</code> value in your site button variable file <code>src/site/elements/button.variables</code> will modify all other variables which need to reference a button's border color, which can be quite extensive.</p>
+
+  <div class="code" data-type="less" data-title="Variables referencing @borderColor (from default theme)">
+    /* Adjusting @borderColor actually modifies a ton of other variables */
+    @shadowBoxShadow: 0px -@shadowDistance 0px 0px @borderColor inset;
+    @borderBoxShadow: 0px 0px 0px @borderBoxShadowWidth @borderBoxShadowColor inset;
+    @boxShadow:
+      @borderBoxShadow,
+      @shadowBoxShadow
+    ;
+    @downBoxShadow:
+      @borderBoxShadow,
+      0px 1px 4px 0px @borderColor inset !important
+    ;
+    @basicBoxShadow: 0px 0px 0px @basicBorderSize @borderColor inset;
+    @basicHoverBoxShadow:
+      0px 0px 0px @basicBorderSize @borderColor inset,
+      0px 0px 0px 0px @borderColor inset
+    ;
+    @basicDownBoxShadow:
+      0px 0px 0px @basicBorderSize rgba(0, 0, 0, 0.15) inset,
+      0px 1px 4px 0px @borderColor inset
+    ;
+    @basicGroupBorder: 1px solid @borderColor;
+    @basicGroupBoxShadow: 0px 0px 0px 1px @borderColor;
+    @attachedBoxShadow: 0px 0px 0px 1px @borderColor;
+  </div>
+
+  <h3 class="ui header">Levels of Inheritance</h3>
+
+  <p>Many variables in semantic are inherited from a global site.variables file. This contains many of the most important variables for your site, which will affect all UI definitions which inherit them.</p>
+  <p><code>@borderColor</code> which button uses to define its default border color, is inherited from <code>themes/default/globals/site.variables</code>, the global default site variables.</p>
+  <p>If you want to adjust the <code>@borderColor</code> for all elements at once, you can adjust your site theme's <code>site.variables</code>.
 
 
-  <h2 class="ui header">The Hatchet and the Scalpel</h2>
-
-  <p>Semantic provides several different ways for you to adjust designs, depending on your particular project, time investment, and your long-term maintaince requirements.</p>
-
-  <h3 class="ui header">The Scalpel</h3>
-
-  <p>The underlying goal of a UI framework is to create a consistent language for your website. This means projects that have long-term development ambitions should carefully consider how the UI language is maintained across a website.</p>
-  <p>Any changes to UI elements which should remain <b>consistent across your website</b> should be applied as a <b>site theme</b> on top of Semantic UI. Site themes allow UI definitions to directly adjust the compiled CSS of Semantic, avoiding redundant CSS that redefines what is set in the framework. Each UI element has an individual <code>override</code> and <code>variable</code> file inside your site theme folder. <a href="http://laptop-vm:9778/themes/overview.html#css-overrides">Override files</a> are used for providing arbitrary CSS rules which modify the baseline definition. Variable files allow you to modify the many <a href="" </p>
   <p>Site themes are the last level of inheritance for Semantic UI allowing you to have final word in the settings and defaults for UI elements. To understand more about using themes check out our <a href="theming/overview.html">theming overview</a>.
 
-  <h3 class="ui header">The Hatchet</h3>
+  <h3 class="ui header">The Hatchet - Custom CSS</h3>
 
   <p>When quickly designing and prototyping a website, especially when you know your content will be short lived and will not require continuous adjustments, it makes sense to use the simplest solution for adjusting your design. The "hatchet" approach for adjusting Semantic UI, is to directly override CSS styles in your layout, adding internal styles particular to your page.</p>
   <p>For instance, if you need to expand the margins on a floated image for a particular page, change your heading sizes, increase segment padding, use a non-standard color, these all may require you to override library defaults.</p>
