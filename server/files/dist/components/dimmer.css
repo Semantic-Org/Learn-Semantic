@@ -1,7 +1,7 @@
  /*
  * # Semantic UI
- * git://github.com/Semantic-Org/Semantic-UI.git
- *
+ * https://github.com/Semantic-Org/Semantic-UI
+ * http://beta.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -112,10 +112,15 @@ body.dimmed.dimmable {
 body.dimmable > .dimmer {
   position: fixed;
 }
-body.dimmed.dimmable > :not(.dimmer) {
-  -webkit-filter: '';
-          filter: '';
+/*
+body.dimmable > :not(.dimmer) {
+  filter: @elementStartFilter;
 }
+body.dimmed.dimmable > :not(.dimmer) {
+  filter: @elementEndFilter;
+  transition: @elementTransition;
+}
+*/
 
 /*--------------
     Aligned

@@ -1,7 +1,7 @@
  /*
  * # Semantic UI
- * git://github.com/Semantic-Org/Semantic-UI.git
- *
+ * https://github.com/Semantic-Org/Semantic-UI
+ * http://beta.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -336,6 +336,26 @@ ol.ui.list ol,
 .ui.inverted.list .list > .item .description,
 .ui.inverted.list > .item .description {
   color: rgba(255, 255, 255, 0.8);
+}
+
+/* Item Link */
+.ui.inverted.list .list > a.item,
+.ui.inverted.list > a.item {
+  cursor: pointer;
+  color: #ffffff;
+}
+.ui.inverted.list .list > a.item:hover,
+.ui.inverted.list > a.item:hover {
+  color: #00b2f3;
+}
+
+/* Linking Content */
+.ui.inverted.list .item a {
+  cursor: pointer;
+  color: #ffffff !important;
+}
+.ui.inverted.list .item a:hover {
+  color: #00b2f3 !important;
 }
 
 /*-------------------

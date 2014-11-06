@@ -1,7 +1,7 @@
  /*
  * # Semantic UI
- * git://github.com/Semantic-Org/Semantic-UI.git
- *
+ * https://github.com/Semantic-Org/Semantic-UI
+ * http://beta.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -139,7 +139,7 @@
 .ui.cards > .card > .content > .header,
 .ui.card > .content > .header {
   display: block;
-  margin: 0em;
+  margin: 1em 0em 1rem;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -391,7 +391,7 @@ a.ui.card:hover,
   z-index: 5;
   background: '';
   border: none;
-  box-shadow: 0px 0.2em 0px 0px #bebebf, 0px 0px 0px 1px rgba(39, 41, 43, 0.2);
+  box-shadow: 0px 0.2em 0px 0px #bebebf, 0px 0px 0px 1px rgba(39, 41, 43, 0.3);
 }
 
 /*--------------
@@ -724,6 +724,9 @@ a.ui.card:hover,
   .ui.stackable.cards {
     display: block !important;
   }
+  .ui.stackable.cards .card:first-child {
+    margin-top: 0em !important;
+  }
   .ui.stackable.cards > .card {
     display: block !important;
     height: auto !important;
@@ -739,56 +742,14 @@ a.ui.card:hover,
 ---------------*/
 
 .ui.cards > .card {
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 
 /*******************************
-             Item
+         Theme Overrides
 *******************************/
 
-
-/*-------------------
-         View
---------------------*/
-
-
-/* Item */
-
-/* Item Group */
-
-/*-------------------
-       Content
---------------------*/
-
-
-/* Image */
-
-/* Content */
-
-/* Title */
-
-/* Metadata */
-
-/* Description */
-
-/* Image */
-
-/* Paragraph */
-
-/* Additional Content */
-
-/*-------------------
-       States
---------------------*/
-
-
-/*-------------------
-      Variations
---------------------*/
-
-
-/* Sizes */
 
 
 /*******************************

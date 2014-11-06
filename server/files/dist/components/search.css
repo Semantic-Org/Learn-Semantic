@@ -1,7 +1,7 @@
  /*
  * # Semantic UI
- * git://github.com/Semantic-Org/Semantic-UI.git
- *
+ * https://github.com/Semantic-Org/Semantic-UI
+ * http://beta.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -17,12 +17,12 @@
 
 .ui.search {
   position: relative;
-  text-shadow: none;
-  font-style: normal;
-  font-weight: normal;
 }
 .ui.search input {
   border-radius: 500rem;
+  text-shadow: none;
+  font-style: normal;
+  font-weight: normal;
 }
 
 /*--------------

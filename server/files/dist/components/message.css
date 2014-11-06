@@ -1,7 +1,7 @@
  /*
  * # Semantic UI
- * git://github.com/Semantic-Org/Semantic-UI.git
- *
+ * https://github.com/Semantic-Org/Semantic-UI
+ * http://beta.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -45,7 +45,7 @@
   display: block;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
-  margin: 0em 0em 0em 0rem;
+  margin: 0em 0em 0.5rem 0em;
 }
 
 /* Default font size */
@@ -383,19 +383,19 @@
 ---------------*/
 
 .ui.small.message {
-  font-size: 0.9285em;
+  font-size: 0.9285rem;
 }
 .ui.message {
-  font-size: 1em;
+  font-size: 1rem;
 }
 .ui.large.message {
-  font-size: 1.1428em;
+  font-size: 1.1428rem;
 }
 .ui.huge.message {
-  font-size: 1.4285em;
+  font-size: 1.4285rem;
 }
 .ui.massive.message {
-  font-size: 1.7142em;
+  font-size: 1.7142rem;
 }
 
 

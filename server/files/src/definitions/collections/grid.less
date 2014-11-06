@@ -165,7 +165,8 @@
     width: @mobileWidth;
     padding-left: @mobileGutter;
     padding-right: @mobileGutter;
-    margin: 0em;
+    margin-left: 0em;
+    margin-right: 0em;
   }
 }
 @media only screen and (min-width: @tabletBreakpoint) {
@@ -888,13 +889,6 @@
 .ui[class*="equal height"].grid {
   display: table;
   table-layout: fixed;
-  width: @tableWidth;
-}
-.ui[class*="equal height"].relaxed.grid {
-  width: @relaxedTableWidth;
-}
-.ui[class*="equal height"][class*="very relaxed"].grid {
-  width: @veryRelaxedTableWidth;
 }
 
 .ui[class*="equal height"].grid > .row,

@@ -1,7 +1,7 @@
  /*
  * # Semantic UI
- * git://github.com/Semantic-Org/Semantic-UI.git
- *
+ * https://github.com/Semantic-Org/Semantic-UI
+ * http://beta.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -26,8 +26,9 @@
 html,
 body {
   height: 100%;
+}
+html {
   font-size: 14px;
-  font-smoothing: antialiased;
 }
 body {
   margin: 0px;
@@ -35,9 +36,10 @@ body {
   min-width: 278px;
   background: #f7f7f7;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 14px;
   line-height: 1.33;
   color: rgba(0, 0, 0, 0.8);
-  overflow-x: hidden;
+  font-smoothing: antialiased;
 }
 
 

@@ -1,7 +1,7 @@
  /*
  * # Semantic UI
- * git://github.com/Semantic-Org/Semantic-UI.git
- *
+ * https://github.com/Semantic-Org/Semantic-UI
+ * http://beta.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -906,6 +906,7 @@
 ---------------*/
 
 .ui.text.menu {
+  display: inline-block;
   background: none transparent;
   margin: 1rem -1rem;
   border-radius: 0px;
@@ -1429,7 +1430,7 @@
 
 .ui.menu.fixed {
   position: fixed;
-  z-index: 999;
+  z-index: 101;
   margin: 0em;
   border: none;
   width: 100%;

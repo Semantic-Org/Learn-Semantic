@@ -1,7 +1,7 @@
  /*
  * # Semantic UI
- * git://github.com/Semantic-Org/Semantic-UI.git
- *
+ * https://github.com/Semantic-Org/Semantic-UI
+ * http://beta.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -113,6 +113,7 @@
 /* Table Cells */
 .ui.table td {
   padding: 0.7em 0.8em;
+  text-align: left;
   vertical-align: middle;
 }
 
