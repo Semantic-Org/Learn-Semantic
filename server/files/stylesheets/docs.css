@@ -116,9 +116,9 @@ code {
   font-family: "Lato", Arial;
   font-size: 0.9em;
   font-weight: normal;
-  margin: 0 0.1em;
+  margin: -0.2em 0.1em;
+  padding: 0.2em 0.3em;
   line-height: 1.4;
-  padding: 0em 0.25em;
   vertical-align: baseline;
   border-radius: 2px;
 }
@@ -617,6 +617,10 @@ body#example.hide {
   margin-top: 1.5em;
 }
 
+#example .ui.list .list > .item,
+#xample .ui.list > .item {
+  font-size: 16px;
+}
 
 
 /*----------------

@@ -1,0 +1,66 @@
+---
+layout      : 'default'
+css         : 'guide'
+title       : "What's Different"
+description : 'Separating Semantic from the pack'
+type        : 'Introduction'
+---
+
+<%- @partial('header') %>
+
+<div class="main container">
+
+    <h2 class="ui header">Key Features</h2>
+
+    <h3 class="ui header">
+      Designed completely with EM
+    </h3>
+    <p>Every component is defined using <code>em</code> and <code>rem</code> so that components can be resized simply on the fly. Want a menu to get smaller on mobile? Simply have it's font-size change using a media query.</p>
+
+    <h3 class="ui header">
+      Convention First
+    </h3>
+    <p>Writing front end code shouldn't require learning the naming or programming conventions of a particular developer.</p>
+    <p>Instead of using short-hand, or codifying naming conventions, Semantic uses simple, common language for parts of interface elements, and familiar patterns found in natural languages for describing elements.</p>
+
+    <h3 class="ui header">
+      Tag ambivalent
+    </h3>
+    <p>Interface definitions in Semantic are, with some <a href="http://beta.semantic-ui.com/elements/icon.html">small exceptions</a>, tag ambivalent. That means you can use div, article, section, span without affecting the display of the element. Special tags like a, table, td still carry special meaning in certain circumstances however.</p>
+
+    <h3 class="ui header">
+      Powerful tools for expressing groups and collections.
+    </h3>
+    <p>In English it's much easier to say "There are three tall men" than "There is a tall man, a tall man and a tall man".</p>
+    <p>Semantic element use principles of plurality to express similarities across groups to avoid repetitive declarations.</p>
+
+    <h3 class="ui header">
+      High Level Theming
+    </h3>
+    <p>All UI components share site-wide defaults which let you quickly change the look and feel of components. High level variables make sure you aren't specifying one to one matches with CSS properties.</p>
+
+    <h3 class="ui header">
+      Module System
+    </h3>
+    <p>Semantic components are written in a singular style, but are not part of mandated overarching library. Only like a couple components? No problem. Using our built in build tools you can reply on the fly while trying out different themes, or adjusting your compiled release to only container certain components.</p>
+    <p>UI components in Semantic also are loosely coupled, meaning using several similar components together might also reap additional  benefits where their usage intersect. A popup can check for the existence of CSS transition component before using the fallback javascript animations. or a <code>ui input</code> may replace the standard input styled inside a <code>ui form</code>.</p>
+
+    <h3 class="ui header">
+      Define Once, Redesign Infinitely
+    </h3>
+    <p>Creating a site in Semantic means you never have to rewrite your codebase from scratch. Redesigning means retooling your UI toolkit, adjusting UI definitions, not creating entirely new HTML.</p>
+
+    <h3 class="ui header">
+      Only the important stuff
+    </h3>
+    <p>Instead of giving every possible variation or behavior under the sun, element definitions are designed to be a starting off point. No oversized downloads with optional features you will most likely never use, just the stuff to get you going.</p>
+    <p>Have custom UI specific to your company? Add additional element extensions to fit your custom business needs and get the added benefit of a built-in style guide.</p>
+
+  <div class="ui horizontal divider"><i class="circular heart icon"></i></div>
+
+  <a class="ui large right labeled teal icon button" href="/introduction/definitions.html">
+    Next: UI Definitions
+    <i class="right arrow icon"></i>
+  </a>
+
+</div>

@@ -11,19 +11,18 @@ type        : 'Preface'
 <div class="main container">
 
   <h2 class='ui header'>
-    Building a Frame
+    A Couple Words
   </h2>
 
-  <p>The goal of Semantic UI is to narrow the divide between how we most easily create meaning through language, and how we construct meaning for computers.</p>
+  <p>The goal of Semantic UI is to narrow the divide between how we create meaning personally, through language, and how we construct meaning for computers.</p>
 
-  <p>Natural languages evolved specifically for the purpose of codifying meaning for human beings, yet many programming languages treat logical and mathematical purity as their primary objectives, often ignoring that their human counterparts will never reach a zen like <a target="_blank" href="http://learnyouahaskell.com/a-fistful-of-monads">purely computational</a> understanding of phenomenon in concordance with the machines they program.
-
-  <p>Technologies are useful (even programming languages are technologies) when they become simple enough that most people can understand their usage. Semantic is a human-first UI framework designed to reduce the complexity in implementing user interfaces.</p>
+  <p>Many programming languages treat logical and mathematical purity as their primary objectives, often ignoring that most of their human counterparts will never reach a zen like <a target="_blank" href="http://learnyouahaskell.com/a-fistful-of-monads">purely computational</a> understanding of phenomenon in concordance with the machines they program.<p>
+  <p>Semantic UI is built around a different premise, that programming languages are most useful when they are optimized for human comprehension, the real bottleneck in computer programming.</p>
 
   <h2 class='ui header'>
     A Certain Scruple
   </h2>
-  <p>The best strategy for moving the web forward isn't solely providing <a target="_blank" href="https://www.khanacademy.org/computing/computer-programming">useful tools</a> for learning programming, or even making <a target="_blank" href="http://facebook.github.io/react/">more powerful tools</a> for existing programmers, but also simplifying the languages used to make websites so that even those who haven't produced front end code before might not be afraid to pick it up.</p>
+  <p>It is my belief that the best strategy for moving the web forward isn't solely providing <a target="_blank" href="https://www.khanacademy.org/computing/computer-programming">useful tools</a> for learning programming, or even making <a target="_blank" href="http://facebook.github.io/react/">more powerful tools</a> for existing programmers, but also simplifying the languages used to make websites so that even those who haven't produced front end code before might not be afraid to pick it up.</p>
 
   <p>Semantic UI is by no means a perfect library, many of the particulars are still hammered out on a day-to-day, but it is my attempt to service <a target="_blank" href="http://plato.stanford.edu/entries/montague-semantics/">some of</a> the <a target="_blank" href="http://edge.org/conversation/the-argumentative-theory">ideas</a> which I believe to be true.</p>
 

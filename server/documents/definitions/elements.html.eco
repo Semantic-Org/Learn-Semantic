@@ -1,13 +1,39 @@
-  ---
+---
 layout      : 'default'
-css         : 'guide'
+css         : 'list'
 
-title       : 'Elements'
-description : 'UI Element definition format'
+title       : 'UI Elements'
+description : 'Elements are the basic building blocks of a website.'
 type        : 'Definitions'
 ---
+
 <%- @partial('header') %>
 
 <div class="main container">
+
+  <h2 class="ui dividing header">Definition</h2>
+  <p>UI Elements are the smallest useful unit for describing page content, and do not contain other elements inside themselves.</p>
+
+  <h3 class="ui header">Plurality</h3>
+  <p>Element usually exist by themselves, but they my also be grouped together with other elements of their kind. This forms a plural definition of an element.</p>
+  <p>The look and feel of the plural may change to show a relationship, and plural definitions can often share many of the same variations as singular definitions.</p>
+
+  <div class="ui segment">
+    <h4 class="ui header">Groups</h4>
+    <p>The plural of button is "buttons" a button wrapped inside "buttons" will automatically apply styling appropriate for a group. Many button variations can be used on plural definitions just like they would be used in singular.</p>
+    <p>For example, in this case each button will be large because we understand it is a part of the large button group, but the continue button has its own variations applied as well.</p>
+    <div class="ui simple ignored divider"></div>
+    <div class="large ui buttons">
+      <div class="ui secondary button">Cancel</div>
+      <div class="ui teal button">Continue <i class="icon right arrow"></i></div>
+    </div>
+    <br>
+    <div class="code" data-type="html">
+    <div class="large ui buttons">
+      <div class="ui secondary button">Cancel</div>
+      <div class="ui teal button">Continue <i class="icon right arrow"></i></div>
+    </div>
+    </div>
+  </div>
 
 </div>
