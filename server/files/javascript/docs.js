@@ -803,7 +803,7 @@ semantic.ready = function() {
       whiteSpace = new RegExp('\\n\\s{' + indent + '}', 'g');
       formattedCode = $.trim(code).replace(whiteSpace, '\n');
 
-      if(contentType != 'javascript') {
+      if(contentType != 'javascript' && contentType != 'css') {
         formattedCode = escapeHTML(formattedCode);
       }
 

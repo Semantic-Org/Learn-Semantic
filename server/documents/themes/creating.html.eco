@@ -21,7 +21,7 @@ type        : 'Theming'
   </div>
 
   <h3 class="ui header">Creating Packaged Themes</h3>
-  <p>After finishing up work on your project, you realize that all of your icon aliases you created might be useful to other Spanish developers working with Semantic. You can then create a packaged theme for distribution that other people can download and use on their site</p>
+  <p>After finishing up work on your project, you might find that all of your icon aliases would be  useful to other Spanish developers working with Semantic. You can then create a packaged theme for distribution that other people can download and use on their site</p>
   <p>To do this create a new folder under themes with your theme name, for example <code>src/themes/spanish/</code> and add your variables and overrides file. Keep in mind all themes must include <b>both</b> an override and variable file, if no variables are changed you can include a blank <code>.variables</code> file.</p>
 
   <p>You can test your packaged theme locally by adjusting your <code>theme.config</code> to use the specified theme:</p>

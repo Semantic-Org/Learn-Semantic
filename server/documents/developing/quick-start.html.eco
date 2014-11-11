@@ -1,0 +1,27 @@
+  ---
+layout      : 'default'
+css         : 'guide'
+
+title       : 'Quick Start'
+description : 'Adopting SUI to fit your needs'
+type        : 'Getting Started'
+---
+<%- @partial('header') %>
+
+<div class="main container">
+
+  <h2 class="ui header">Set Up</h2>
+
+  <div class="ui ordered list">
+    <div class="item">Download Semantic UI using Bower</div>
+    <div class="item">Run <code>npm install</code> and <code>gulp install</code> inside semantic folder</div>
+    <div class="item">Choose an easy to find location for your site theme during install</div>
+  </div>
+
+  <h2 class="ui header">Customize</h2>
+  <div class="ui ordered list">
+    <div class="item">Open <code>site/global/site.variables</code> and <code>src/themes/default/site.variables</code>.</div>
+    <div class="item">Add  </div>
+  </div>
+
+</div>

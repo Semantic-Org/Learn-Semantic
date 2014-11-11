@@ -18,7 +18,7 @@ type        : 'Introduction'
     <p>Every component is defined using <code>em</code> and <code>rem</code> so that components can be resized simply on the fly. Want a menu to get smaller on mobile? Simply have it's font-size change using a media query.</p>
 
     <h3 class="ui header">
-      Convention First
+      Easy To Learn
     </h3>
     <p>Writing front end code shouldn't require learning the naming or programming conventions of a particular developer.</p>
     <p>Instead of using short-hand, or codifying naming conventions, Semantic uses simple, common language for parts of interface elements, and familiar patterns found in natural languages for describing elements.</p>
@@ -40,13 +40,13 @@ type        : 'Introduction'
     <p>All UI components share site-wide defaults which let you quickly change the look and feel of components. High level variables make sure you aren't specifying one to one matches with CSS properties.</p>
 
     <h3 class="ui header">
-      Module System
+      Componentized UI
     </h3>
     <p>Semantic components are written in a singular style, but are not part of mandated overarching library. Only like a couple components? No problem. Using our built in build tools you can reply on the fly while trying out different themes, or adjusting your compiled release to only container certain components.</p>
     <p>UI components in Semantic also are loosely coupled, meaning using several similar components together might also reap additional  benefits where their usage intersect. A popup can check for the existence of CSS transition component before using the fallback javascript animations. or a <code>ui input</code> may replace the standard input styled inside a <code>ui form</code>.</p>
 
     <h3 class="ui header">
-      Define Once, Redesign Infinitely
+      Develop Once, Redesign Infinitely
     </h3>
     <p>Creating a site in Semantic means you never have to rewrite your codebase from scratch. Redesigning means retooling your UI toolkit, adjusting UI definitions, not creating entirely new HTML.</p>
 
@@ -58,8 +58,8 @@ type        : 'Introduction'
 
   <div class="ui horizontal divider"><i class="circular heart icon"></i></div>
 
-  <a class="ui large right labeled teal icon button" href="/introduction/definitions.html">
-    Next: UI Definitions
+  <a class="ui large right labeled teal icon button" href="/guide/download.html">
+    Next: Download Semantic
     <i class="right arrow icon"></i>
   </a>
 
