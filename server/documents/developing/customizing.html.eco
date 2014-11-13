@@ -107,17 +107,16 @@ type        : 'Developing'
 
   <div class="code" data-type="css">
     /* This is all perfectly fine */
-    #mypage .article .image {
+    #profile .user .image {
       margin-right: 3em;
     }
-    #mypage .page.grid > .column {
-      max-width: 700px;
+    #promo .page.grid > h1 {
+      font-size: 3em;
     }
-    #mypage .important.segment {
-      padding: 2em;
+    #faq .unusual.segment {
+      border-top-color: #009FDA;
     }
   </div>
-
 
   <h3 class="ui header">Packaged Themes</h3>
 
