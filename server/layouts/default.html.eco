@@ -321,10 +321,12 @@
         <a class="popup icon github item" data-content="View project on GitHub" href="https://github.com/quirkyinc/semantic">
           <i class="alternate github icon"></i>
         </a>
+        <!--
         <div class="ui language dropdown item" id="languages" data-content="Select Language">
           <i class="world icon"></i>
           <%- @partial('languages') %>
         </div>
+        !-->
       </div>
     </div>
   </div>

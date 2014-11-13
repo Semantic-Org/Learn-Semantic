@@ -45,7 +45,7 @@ semantic.home.ready = function() {
     returnLogo: function() {
       var
         $logo = $('.following .logo'),
-        $nextSide = $logo.find('.ui.side')
+        $nextSide = $logo.find('.learn.side')
       ;
       clearTimeout(handler.timer);
       handler.timer = setTimeout(function() {
