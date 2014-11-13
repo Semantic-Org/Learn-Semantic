@@ -12,15 +12,19 @@ type        : 'Developing'
 
   <h2 class="ui header">Introduction</h2>
 
-  <p>Semantic provides several different ways for you to adjust designs, depending on your particular project, time investment, and your long-term maintaince requirements you may prefer to carefully craft your toolkit, or to quickly hack-out a project using whatever means necessary.</p>
+  <p>Semantic provides several ways to modify UI elements. For big projects that rely on building a personalized brand-aware visual language, <b>site themes</b> allow you to modify the underlying variables powering Semantic UI, as well as specify alternative overriding css. Site themes are portable between projects, and affect the compiled framework code.</p>
+
+  <p>For smaller projects, projects with quick deadlines, or for those who prefer not to get into front end coding, <b>packaged themes</b> are great for borrowing from other open source designs in the field.</p>
+
+  <p>For either project type, an important place to start customizing Semantic is the <code>site.variables</code> file, the variables file which all other variable files inherit from.</p>
 
 
   <h2 class="ui header">Setting Global Variables</h3>
 
-  <p>Many variables in Semantic are inherited from a global <code>site.variables</code> file. This contains many of the most important variables for your site, adjusting these values will instantly help make your site feel more like your brand.</p>
-  <p>A good place to start is by adjusting the fonts used in your project. Semantic includes variables which let you specify free fonts available on <a href="http://www.google.com/fonts">Google Fonts</a>.</p>
+  <p><code>site.variables</code> contains many of the most important variables for your site. Adjusting these parameters will instantly help make your site feel less like a cookie-cutter design, and more like your brand.</p>
+  <p>A good place to start customizing is by adjusting the fonts used in your project. Semantic includes several variables which let you specify free fonts available on <a href="http://www.google.com/fonts">Google Fonts</a>.</p>
 
-  <p>Here's an example of how you might go about adjusting your header and page fonts when starting a new site.</p>
+  <p>For example, you might want to specify a custom font stack for your site by adding several superceding site theme variables in your site theme's variable file, <code>src/site/site.variables</code>.</p>
 
   <div class="code" data-title="site/global/site.variables">
     @headerFont        : 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -28,11 +32,68 @@ type        : 'Developing'
     @googleFontFamily  : 'Open+Sans:400italic,400|Oswald:400,700';
   </div>
 
-  <p>Variables encompass a large part of the <b>arbitrary parts</b> of an element's design. The best way to get a feel for what variables can be modified is to open the default theme file. Each UI definition inherits its default settings from the global site theme, so it can be a useful place for defining things like <code>@linkColor</code>, <code>@borderRadius</code>, <code>@selectedTextColor</code>, <code>@borderColor</code> and other global design styles inherited by each component.
+  <p>Variables encompass the <b>arbitrary parts</b> of an interface element's design. The best way to find out what variables can be modified for an element is to look at the master file where the element's defaults are defined, the efault theme file.</p>
+
+  <p>Each UI element file, for example <code>src/themes/default/elements/button.variables</code> inherits many of its default settings from global site variables specified in <code>site.variables</code>.</p>
+
+  <p>Other examples of common globally inherited settings include <code>@linkColor</code>, <code>@borderRadius</code>, <code>@selectedTextColor</code>, and <code>@borderColor</code>.
   </p>
+
   <div class="code" data-title="site/global/default.variables">
   <%- @partial('code/site') %>
   </div>
+
+
+  <h2 class="ui header">Designing for the Long Now</h2>
+  <p>In addition to coarsely defining global changes across all UI elements, each individual UI definition has its own default values which can be overwritten.</p>
+
+  <p>Semantic's UI theme inheritance is designed to let you preserve long-term changes to your UI designs, letting you move your interface elements from project to project, and share them with others. Semantic's inheritance system also helps provide a uniform structure to modifying elements, helping you avoid headaches from looking for rules that affect your UI scattered around your codebase.</p>
+
+  <h3 class="ui header">Customizing UI Elements</h3>
+
+  <p>Any changes to UI elements which are <b>consistent across your website</b> should be applied as a <b>site theme</b> on top of Semantic UI.</p>
+
+  <p>Site themes allow UI definitions to directly adjust the compiled CSS of Semantic, avoiding redundant CSS that redefines what is set in the framework. Each UI element has an individual <code>override</code> and <code>variable</code> file inside your site theme folder. <a href="/themes/overview.html#css-overrides">Override files</a> are used for providing additional CSS rules which modify the baseline definition. Variable files allow you to modify the many <a href="/themes/creating.html#variables-in-semantic">underlying variables</a> of Semantic. Any arbitrary part of a definition is defined as a variable. In semantic there are <b>over 3000 variables</b> for customizing elements, and these provide the best means for consistently adjusting elements.</p>
+
+  <h3 class="ui header">Using Stub Files</h3>
+
+  <p>When you download Semantic, your site's theme folder will be loaded with empty <em>stub files</em> for all possible theme overrides.</p>
+  <p> When customizing your site's themes, you do not need to add all the original variables to your theme file, but <b>only the variables which you wish to modify</b>.</p>
+  <p>The best way to explore what variables are available to modify, is to navigate inside the <code>src/themes/default/</code> and view all the default variables for Semantic.</p>
+
+  <p>Keeping your site theme separate makes sure you don't lose any changes when updating Semantic UI to new versions. For more practical examples of creating themes, check out the <a href="/themes/overview.html">theme guide</a>.</p>
+
+  <h3 class="ui header">Adjusting UI Variables</h3>
+  <p>Variables unlike CSS rules often abstract away many <a href="/themes/creating.html#variables-in-semantic">difficult details of implementation</a>. For instance you may want to adjust the border color of a button, but adding a css override will upset the inheritance for other rules which also adjust border. Adjusting the <code>@borderColor</code> value in your site button variable file <code>src/site/elements/button.variables</code> will modify all other variables which need to reference a button's border color, which can be quite extensive.</p>
+
+  <div class="code" data-type="less" data-title="Variables referencing @borderColor (from default theme)">
+    /* Adjusting @borderColor actually modifies a ton of other variables */
+    @shadowBoxShadow: 0px -@shadowDistance 0px 0px @borderColor inset;
+    @borderBoxShadow: 0px 0px 0px @borderBoxShadowWidth @borderBoxShadowColor inset;
+    @boxShadow:
+      @borderBoxShadow,
+      @shadowBoxShadow
+    ;
+    @downBoxShadow:
+      @borderBoxShadow,
+      0px 1px 4px 0px @borderColor inset !important
+    ;
+    @basicBoxShadow: 0px 0px 0px @basicBorderSize @borderColor inset;
+    @basicHoverBoxShadow:
+      0px 0px 0px @basicBorderSize @borderColor inset,
+      0px 0px 0px 0px @borderColor inset
+    ;
+    @basicDownBoxShadow:
+      0px 0px 0px @basicBorderSize rgba(0, 0, 0, 0.15) inset,
+      0px 1px 4px 0px @borderColor inset
+    ;
+    @basicGroupBorder: 1px solid @borderColor;
+    @basicGroupBoxShadow: 0px 0px 0px 1px @borderColor;
+    @attachedBoxShadow: 0px 0px 0px 1px @borderColor;
+  </div>
+
+  <p>Site themes are the last level of inheritance for Semantic UI allowing you to have final word in the settings and defaults for UI elements.</p>
+
 
   <h2 class="ui header">Designing for the Right Now</h2>
 
@@ -128,58 +189,7 @@ type        : 'Developing'
   <h3 class="ui header">The Future of Themes</h3>
   <p>Semantic provides out of the box several first party packaged themes, which are intended to showcase how easy it is to customize UI designs with Semantic. A specialized hub for Semantic themes is in the works which will make packaged themes more ubiquitous.</p>
 
-
-  <h2 class="ui header">Designing for the Long Now</h2>
-  <p>In addition to coarsely defining global changes across all UI elements, each individual UI definition has its own default values which can be overwritten.</p>
-
-  <p>Semantic's UI theme inheritance is designed to let you preserve long-term changes to your UI designs, letting you move your interface elements from project to project, and share them with others. Semantic's inheritance system also helps avoid headaches of looking for rules that affect your UI be scattered around your codebase.</p>
-
-  <h3 class="ui header">Customizing UI Elements</h3>
-
-  <p>Any changes to UI elements which are <b>consistent across your website</b> should be applied as a <b>site theme</b> on top of Semantic UI.</p>
-
-  <p>Site themes allow UI definitions to directly adjust the compiled CSS of Semantic, avoiding redundant CSS that redefines what is set in the framework. Each UI element has an individual <code>override</code> and <code>variable</code> file inside your site theme folder. <a href="/themes/overview.html#css-overrides">Override files</a> are used for providing additional CSS rules which modify the baseline definition. Variable files allow you to modify the many <a href="/themes/creating.html#variables-in-semantic">underlying variables</a> of Semantic. Any arbitrary part of a definition is defined as a variable. In semantic there are <b>over 3000 variables</b> for customizing elements, and these provide the best means for consistently adjusting elements.</p>
-
-  <h3 class="ui header">Using Stub Files</h3>
-
-  <p>When you download Semantic, your site's theme folder will be loaded with empty <em>stub files</em> for all possible theme overrides.</p>
-  <p> When customizing your site's themes, you do not need to add all the original variables to your theme file, but <b>only the variables which you wish to modify</b>.</p>
-  <p>The best way to explore what variables are available to modify, is to navigate inside the <code>src/themes/default/</code> and view all the default variables for Semantic.</p>
-
-  <p>Keeping your site theme separate makes sure you don't lose any changes when updating Semantic UI to new versions. For more practical examples of creating themes, check out the <a href="/themes/overview.html">theme guide</a>.</p>
-
-  <h3 class="ui header">Adjusting UI Variables</h3>
-  <p>Variables unlike CSS rules often abstract away many <a href="/themes/creating.html#variables-in-semantic">difficult details of implementation</a>. For instance you may want to adjust the border color of a button, but adding a css override will upset the inheritance for other rules which also adjust border. Adjusting the <code>@borderColor</code> value in your site button variable file <code>src/site/elements/button.variables</code> will modify all other variables which need to reference a button's border color, which can be quite extensive.</p>
-
-  <div class="code" data-type="less" data-title="Variables referencing @borderColor (from default theme)">
-    /* Adjusting @borderColor actually modifies a ton of other variables */
-    @shadowBoxShadow: 0px -@shadowDistance 0px 0px @borderColor inset;
-    @borderBoxShadow: 0px 0px 0px @borderBoxShadowWidth @borderBoxShadowColor inset;
-    @boxShadow:
-      @borderBoxShadow,
-      @shadowBoxShadow
-    ;
-    @downBoxShadow:
-      @borderBoxShadow,
-      0px 1px 4px 0px @borderColor inset !important
-    ;
-    @basicBoxShadow: 0px 0px 0px @basicBorderSize @borderColor inset;
-    @basicHoverBoxShadow:
-      0px 0px 0px @basicBorderSize @borderColor inset,
-      0px 0px 0px 0px @borderColor inset
-    ;
-    @basicDownBoxShadow:
-      0px 0px 0px @basicBorderSize rgba(0, 0, 0, 0.15) inset,
-      0px 1px 4px 0px @borderColor inset
-    ;
-    @basicGroupBorder: 1px solid @borderColor;
-    @basicGroupBoxShadow: 0px 0px 0px 1px @borderColor;
-    @attachedBoxShadow: 0px 0px 0px 1px @borderColor;
-  </div>
-
-  <p>Site themes are the last level of inheritance for Semantic UI allowing you to have final word in the settings and defaults for UI elements.</p>
-
-  <p>To understand more about using themes check out our <a href="/theming/overview.html">theming overview</a>.</p>
+  <p>To understand more about using themes check out our <a href="/themes/overview.html">theming overview</a>.</p>
 
 
 
