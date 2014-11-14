@@ -509,6 +509,7 @@
 
 #example.index .vertical.segment {
   box-shadow: none;
+  margin: 0em;
 }
 
 #example.index .masthead {
