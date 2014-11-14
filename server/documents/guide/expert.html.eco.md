@@ -118,7 +118,7 @@ type        : 'Getting Started'
   <h3 class="ui header">Workflow</h3>
 
   <p>Building and watching Semantic is only necessary while adjusting your UI. This is usually the first part of building a new project, and a separate process than building-out pages in your site.</p>
-  <p>During this architecting phase you can try <a href="#creating-packaged-themes">downloading different themes</a>, adjusting your <a href="#global-inheritance">site-wide settings</a> (font-family, colors, etc) and tweaking components in your site's <a href="#css-overrides">component overrides</a>.</p>
+  <p>During this architecting phase you can try <a href="/themes/creating.html">downloading different themes</a>, adjusting your <a href="/developing/customizing.html#setting-global-variables">site-wide settings</a> (font-family, colors, etc) and tweaking components in your site's <a href="/developing/customizing.html#designing-for-the-long-now">component overrides</a>.</p>
   <p>Files in the <code>examples/</code> folder of your project can be useful for testing out changes in your UI. For example, you might run <code>gulp watch</code> download a new theme to <code>src/site/themes/</code> then adjust your <code>theme.config</code> file with the name of the new theme and refresh <code>examples/kitchensink.html</code> to inspect changes in the theme.</p>
   <p>You will only need to use Semantic's build tools while refining your UI, while designing pages you can rely on the packages in <code>dist/</code> and your software stack's normal build set-up.</p>
 

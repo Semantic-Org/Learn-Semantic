@@ -318,7 +318,7 @@
           <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=watch&count=true"
   allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
         </div>
-        <a class="popup icon github item" data-content="View project on GitHub" href="https://github.com/quirkyinc/semantic">
+        <a class="popup icon github item" data-content="View project on GitHub" href="https://github.com/Semantic-Org/Semantic-UI">
           <i class="alternate github icon"></i>
         </a>
         <!--

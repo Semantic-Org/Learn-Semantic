@@ -1845,4 +1845,10 @@ body.progress.animated .ui.progress .bar {
   #example > .pusher > .full.height {
     flex: 1;
   }
+
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  #example > .pusher > .full.height {
+    flex: none;
+  }
 }
