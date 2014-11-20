@@ -1,4 +1,4 @@
-  ---
+---
 layout      : 'default'
 css         : 'guide'
 
@@ -32,7 +32,7 @@ type        : 'Developing'
     @googleFontFamily  : 'Open+Sans:400italic,400|Oswald:400,700';
   </div>
 
-  <p>Variables encompass the <b>arbitrary parts</b> of an interface element's design. The best way to find out what variables can be modified for an element is to look at the master file where the element's defaults are defined, the efault theme file.</p>
+  <p>Variables encompass the <b>arbitrary parts</b> of an interface element's design. The best way to find out what variables can be modified for an element is to look at the master file where the element's defaults are defined, the element's default theme file.</p>
 
   <p>Each UI element file, for example <code>src/themes/default/elements/button.variables</code> inherits many of its default settings from global site variables specified in <code>site.variables</code>.</p>
 
