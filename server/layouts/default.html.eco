@@ -187,7 +187,7 @@
       </div>
       <div class="menu">
         <a href="/developing/customizing.html" class="item">
-          Customizing Semantic
+          Integration
         </a>
         <div href="/developing/extending.html" class="disabled item">
           Extending
@@ -315,8 +315,7 @@
       <% end %>
       <div class="right menu">
         <div class="vertically fitted borderless item">
-          <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=watch&count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+          <iframe class="github" src="http://ghbtns.com/github-btn.html?user=semantic-org&amp;repo=semantic-ui&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
         </div>
         <a class="popup icon github item" data-content="View project on GitHub" href="https://github.com/Semantic-Org/Semantic-UI">
           <i class="alternate github icon"></i>

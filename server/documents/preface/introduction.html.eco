@@ -17,7 +17,7 @@ type        : 'Preface'
   <p>The goal of Semantic UI is to narrow the divide between how we create meaning personally, through language, and how we construct meaning for computers.</p>
 
   <p>Many programming languages treat logical and mathematical purity as their primary objectives, often ignoring that most of their human counterparts will never reach a zen like <a target="_blank" href="http://learnyouahaskell.com/a-fistful-of-monads">purely computational</a> understanding of phenomenon in concordance with the machines they program.</p>
-  <p>Semantic UI is built around a very different premise, that the real bottleneck in computer programming are humans, and that the best way to advance the web isn't solely providing <a target="_blank" href="https://www.khanacademy.org/computing/computer-programming">useful tools</a> for learning programming, or even making <a target="_blank" href="http://facebook.github.io/react/">more powerful tools</a> for existing programmers, but more importantly simplifying the language used to make websites so that even those who haven't produced a website before might not be afraid to pick it up.</p>
+  <p>Semantic UI is built around a very different premise, that the real bottleneck in computer programming are humans, and that the best way to advance the web isn't solely providing <a target="_blank" href="https://www.khanacademy.org/computing/computer-programming">better institutions</a> for learning programming, or even making <a target="_blank" href="http://facebook.github.io/react/">more refined tools</a> for existing programmers, but more importantly removing the technical barriers that separate programmatic meaning from human meaning.</p>
 
   <h2 class='ui header'>
     A Certain Scruple
