@@ -1,7 +1,7 @@
 ---
 layout : 'default'
 css    : 'index'
-title  : 'Introduction'
+title  : 'Learn Semantic'
 type   : 'Semantic'
 ---
 <script src="/javascript/home.js"></script>
