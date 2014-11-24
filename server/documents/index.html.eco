@@ -12,11 +12,11 @@ type   : 'Semantic'
     <div class="column">
       <div class="ui logo shape">
         <div class="sides">
+          <div class="active learn side">
+            <img class="ui image" src="/images/learn-logo.png">
+          </div>
           <div class="ui side">
             <img class="ui image" src="/images/logo.png">
-          </div>
-          <div class="active side">
-            <img class="ui image" src="/images/learn-logo.png">
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@ type   : 'Semantic'
     </div>
   </div>
 </div>
-<div class="ui vertical stripe intro segment">
+<!-- <div class="ui vertical stripe intro segment">
   <div class="ui stackable center aligned page grid">
     <div class="sixteen wide column">
       <div class="ui two column divided stackable center aligned very relaxed vertically padded grid">
@@ -94,12 +94,12 @@ type   : 'Semantic'
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <div class="ui vertical email stripe segment">
   <div class="ui center aligned page grid">
     <div class="column">
       <h3 class="ui header">
-        Semantic is growing fast. Want to see just how much? Sign up and we'll let you know
+        Itching for more guides? Sign-up to our newsletter to receive the latest updates.
       </h3>
       <form action="//semantic-ui.us9.list-manage.com/subscribe/post?u=1bb099283b001a74133a94364&amp;id=1b77a619a7" method="post" class="ui form">
         <div class="field">
@@ -130,9 +130,9 @@ type   : 'Semantic'
     </div>
     <div class="column">
       <h2 class="ui icon header">
-        <img class="ui icon image" src="/images/icons/plugin.png">Customizing</h2>
-      <p>Learn how to adjust elements for your site.</p>
-      <a href="developing/customizing.html" class="ui black large button">Customization Tips</a>
+      <img class="ui icon image" src="/images/icons/plugin.png">Tweaking Design</h2>
+      <p>Learn how to customize Semantic for your site.</p>
+      <a href="developing/customizing.html" class="ui black large button">Customization Guide</a>
     </div>
 <!--     <div class="column">
       <h2 class="ui icon header">
