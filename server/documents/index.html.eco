@@ -1,7 +1,7 @@
 ---
 layout : 'default'
 css    : 'index'
-title  : 'Introduction'
+title  : 'Learn Semantic'
 type   : 'Semantic'
 ---
 <script src="/javascript/home.js"></script>
@@ -12,11 +12,11 @@ type   : 'Semantic'
     <div class="column">
       <div class="ui logo shape">
         <div class="sides">
+          <div class="active learn side">
+            <img class="ui image" src="/images/learn-logo.png">
+          </div>
           <div class="ui side">
             <img class="ui image" src="/images/logo.png">
-          </div>
-          <div class="active side">
-            <img class="ui image" src="/images/learn-logo.png">
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@ type   : 'Semantic'
     </div>
   </div>
 </div>
-<div class="ui vertical stripe intro segment">
+<!-- <div class="ui vertical stripe intro segment">
   <div class="ui stackable center aligned page grid">
     <div class="sixteen wide column">
       <div class="ui two column divided stackable center aligned very relaxed vertically padded grid">
@@ -84,7 +84,7 @@ type   : 'Semantic'
         </div>
         <div class="column">
           <div class="text">
-            <h2 class="ui header">Have you been making websites since <b>XSLT</b> was more popular than <b>CSS</b>?</h2>
+            <h2 class="ui header">Have you been making websites since <b>XSL</b> was more popular than <b>CSS</b>?</h2>
           </div>
           <a class="ui big pink right labeled icon button" href="guide/expert.html">
             <i class="right chevron icon"></i>
@@ -94,19 +94,19 @@ type   : 'Semantic'
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <div class="ui vertical email stripe segment">
   <div class="ui center aligned page grid">
     <div class="column">
       <h3 class="ui header">
-        Semantic is growing fast. Want to see just how much? Sign up and we'll let you know
+        Itching for more guides? Sign-up to our newsletter to receive the latest updates.
       </h3>
       <form action="//semantic-ui.us9.list-manage.com/subscribe/post?u=1bb099283b001a74133a94364&amp;id=1b77a619a7" method="post" class="ui form">
         <div class="field">
-          <div class="ui large input">
+          <div class="ui huge input">
             <input type="text" placeholder="E-mail" data-validate="email" name="EMAIL">
           </div>
-          <button class="ui large black submit button" type="submit">
+          <button class="ui huge black submit button" type="submit">
             Sign-up
           </button>
         </div>
@@ -118,11 +118,23 @@ type   : 'Semantic'
   <div class="ui three column equal height center aligned divided relaxed stackable page grid">
     <div class="column">
       <h2 class="ui icon header">
-        <img class="ui icon image" src="/images/icons/paint.png">Learn Theming</h2>
+        <img class="ui icon image" src="/images/icons/paint.png">Designing Themes</h2>
       <p>Learn how to use, and create custom themes for your UI components</p>
-      <div class="ui secondary button">Learn Theming</div>
+      <a href="/themes/overview.html" class="ui secondary large button">Learn Theming</a>
     </div>
     <div class="column">
+      <h2 class="ui icon header">
+        <img class="ui icon image" src="/images/icons/gear.png">Build Tools</h2>
+      <p>Learn how to compile themes, and get started with command-line tools.</p>
+      <a href="/guide/expert.html" class="ui pink large button">Install Guide</a>
+    </div>
+    <div class="column">
+      <h2 class="ui icon header">
+      <img class="ui icon image" src="/images/icons/plugin.png">Tweaking Design</h2>
+      <p>Learn how to customize Semantic for your site.</p>
+      <a href="developing/customizing.html" class="ui black large button">Customization Guide</a>
+    </div>
+<!--     <div class="column">
       <h2 class="ui icon header">
         <img src="/images/icons/book.png" class="ui icon image">Reading Definitions</h2>
         <p>Learn the concepts behind <em>types</em>, <em>states</em>, <em>behaviors</em>, <em>plurality</em> and other essential parts of UI definitions.</p>
@@ -133,6 +145,6 @@ type   : 'Semantic'
         <img class="ui icon image" src="/images/icons/school.png">Usage Guide</h2>
       <p>Learn about the guiding ideas behind Semantic UI, as well as organizational principles for the library.</p>
       <a href="https://github.com/Semantic-Org/Semantic-UI/issues" class="ui secondary button">Learn Guidelines</a>
-    </div>
+    </div> -->
   </div>
 </div>

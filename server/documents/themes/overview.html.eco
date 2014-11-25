@@ -37,15 +37,11 @@ type        : 'Theming'
       </div>
     </div>
   </div>
-
-  <p>
-    Semantic definitions are written using <b>LESS</b>. Source files in Semantic cannot be imported into other <b>LESS</b> files. They must be compiled individually to preserve correct variable inheritance.
-  </p>
-  <p>Don't use <b>LESS</b> in your dev environment? Don't worry, Definitions only uses only pure CSS in combination with well established pre-processor features like <b>css variables</b>, <b>color adjustment functions</b>, <b>value calculations</b> and <b>@import</b> statements.</p>
+  <p>Semantic definitions are compiled with <a href="http://lesscss.org/">LESS</a> using only simple, well adopted CSS pre-processing features like <b>css variables</b>, <b>color adjustment functions</b>, and <b>unit conversions</b>, but not language-specific features like nested rule declarations, guards, or mix-ins.</p>
   <div class="ui info message">
     <p>A SCSS port is underway for those who are persnickety about which indicating character precedes their variable declarations.</p>
-    <p>Semantic only uses a minimal feature-set of our CSS preprocessor to make the library easy to port to future preprocessors.</p>
   </div>
+
   <h3 class="ui header">Elements of a Theme</h3>
   <p>
     Themes are composed of two separate files: a <code>.variable</code> file, which has values that modify variables for a component, and an <code>.overrides</code> file, which includes LESS rules which will be included after the default css of a definition.

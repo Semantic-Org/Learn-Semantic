@@ -2,8 +2,8 @@
 layout      : 'default'
 css         : 'guide'
 
-title       : 'Expert Guide'
-description : 'Using Semantic UI in a production environment'
+title       : 'Getting Started'
+description : 'Setting up Semantic UI build tools'
 type        : 'Getting Started'
 ---
 <%- @partial('header') %>
@@ -33,7 +33,7 @@ type        : 'Getting Started'
 
   <h3 class="ui header">Installing Semantic</h3>
 
-  <p>The first time you run gulp you will be greeted with an interactive installer</p>
+  <p>Semantic uses gulp to compile your stylesheets when your theme changes. The first time you run gulp you will be greeted with an interactive installer</p>
   <div class="bash code">
     # install
     gulp

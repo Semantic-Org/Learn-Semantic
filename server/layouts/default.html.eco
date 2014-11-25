@@ -157,9 +157,9 @@
         <a href="/preface/introduction.html" class="item">
           Introduction
         </a>
-        <div href="/preface/language.html" class="disabled item">
+<!--         <div href="/preface/language.html" class="disabled item">
           On Language
-        </div>
+        </div> -->
         <a href="/preface/whats-different.html" class="item">
           What's Different
         </a>
@@ -173,12 +173,16 @@
         <a href="/guide/download.html" class="item">
           Download
         </a>
+        <a href="/guide/expert.html" class="item">
+          Getting Started
+        </a>
+        <!--
         <div href="/guide/beginner.html" class="disabled item">
           Beginner Guide
         </div>
         <a href="/guide/expert.html" class="item">
           Expert Guide
-        </a>
+        </a> -->
       </div>
     </div>
     <div class="item">
@@ -187,9 +191,9 @@
       </div>
       <div class="menu">
         <a href="/developing/customizing.html" class="item">
-          Customizing Semantic
+          Integration
         </a>
-        <div href="/developing/extending.html" class="disabled item">
+<!--         <div href="/developing/extending.html" class="disabled item">
           Extending
         </div>
         <div href="/developing/best-practices.html" class="disabled item">
@@ -200,7 +204,7 @@
         </div>
         <div href="/developing/support.html" class="disabled item">
           Getting Support
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="item">
@@ -214,12 +218,12 @@
         <a href="/themes/creating.html" class="item">
           Creating Themes
         </a>
-        <div href="/themes/downloading.html" class="disabled item">
+<!--         <div href="/themes/downloading.html" class="disabled item">
           Downloading Themes
-        </div>
+        </div> -->
       </div>
     </div>
-    <div class="item">
+   <!--  <div class="item">
       <div class="ui small inverted header">
         <b>Definitions</b>
       </div>
@@ -284,7 +288,7 @@
           Donating
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
   <div class="ui fixed inverted main menu">
@@ -315,8 +319,7 @@
       <% end %>
       <div class="right menu">
         <div class="vertically fitted borderless item">
-          <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=watch&count=true"
-  allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+          <iframe class="github" src="http://ghbtns.com/github-btn.html?user=semantic-org&amp;repo=semantic-ui&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
         </div>
         <a class="popup icon github item" data-content="View project on GitHub" href="https://github.com/Semantic-Org/Semantic-UI">
           <i class="alternate github icon"></i>
@@ -364,8 +367,8 @@
           <div class="four wide column">
             <h5 class="ui pink inverted header">Semantic Network</h5>
             <div class="ui inverted link list">
-              <a class="item" href="https://www.transifex.com/projects/p/semantic-ui-beta/" target="_blank">Translation Hub</a>
-              <a href="http://beta.semantic-ui.com" class="item">Semantic UI</a>
+              <a class="item" href="https://www.transifex.com/organization/semantic-org/" target="_blank">Translation Hub</a>
+              <a href="http://www.semantic-ui.com" class="item">Semantic UI</a>
               <a href="http://www.learnsemantic.com" class="item">Learn Semantic</a>
               <a class="disabled item">Semantic Themes</a>
             </div>

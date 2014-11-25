@@ -15,7 +15,7 @@ type        : 'Introduction'
     <h3 class="ui header">
       Designed completely with EM
     </h3>
-    <p>Every component is defined using <code>em</code> and <code>rem</code> so that components can be resized simply on the fly. Want a menu to get smaller on mobile? Simply have it's font-size change using a media query.</p>
+    <p>Every component is defined using <code>em</code> and <code>rem</code> so that components can be resized simply on the fly. Want a menu to get smaller on mobile? Simply have its font-size change using a media query.</p>
 
     <h3 class="ui header">
       Easy To Learn

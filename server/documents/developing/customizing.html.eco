@@ -2,7 +2,7 @@
 layout      : 'default'
 css         : 'guide'
 
-title       : 'Customizing Designs'
+title       : 'Integration Guide'
 description : 'Adopting SUI to fit your needs'
 type        : 'Developing'
 ---
