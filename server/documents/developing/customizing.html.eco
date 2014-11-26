@@ -99,7 +99,7 @@ type        : 'Developing'
 
   <h3 class="ui header">Layout CSS</h3>
 
-  <p>Semantic is designed to make it easy to rapidly prototype new layouts, often providing a bulk of the styles necessary to make a functioning design. There may however be instances where elements are used in a way the original library did not anticipate, or where you may have to massage elements to fit correctly into a page design. It is perfectly fine in these instances to use additional layout css ontop of Semantic.</p>
+  <p>Semantic is designed to make it easy to rapidly prototype new layouts, often providing a bulk of the styles necessary to make a functioning design. There may however be instances where elements are used in a way the original library did not anticipate, or where you may have to massage elements to fit correctly into a page design. It is perfectly fine in these instances to use additional layout css on top of Semantic.</p>
 
   <p>Semantic is intended to provide a baseline visual language for a website, but isnt meant to be relied on completely for creating layouts for your website. Websites are complex beasts, involving plenty of application specific idiosyncracies which a framework cannot presume to contain.</p>
 
