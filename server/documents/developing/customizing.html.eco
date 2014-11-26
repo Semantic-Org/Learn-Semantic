@@ -101,7 +101,7 @@ type        : 'Developing'
 
   <p>Semantic is designed to make it easy to rapidly prototype new layouts, often providing a bulk of the styles necessary to make a functioning design. There may however be instances where elements are used in a way the original library did not anticipate, or where you may have to massage elements to fit correctly into a page design. It is perfectly fine in these instances to use additional layout css ontop of Semantic.</p>
 
-  <p>Semantic is intended to provide a baseline visual language for a website, but isnt meant to be relied on completely for creating layouts for your website. Websites are complex beasts, involving plenty of application specific idiosyncracies which a framework cannot presume to contain.</p>
+  <p>Semantic is intended to provide a baseline visual language for a website, but isn't meant to be relied on completely for creating layouts for your website. Websites are complex beasts, involving plenty of application specific idiosyncracies which a framework cannot presume to contain.</p>
 
   <p>For instance, if you need to expand the margins on a floated image for a particular page, change your heading sizes for a certain promotional page, add additional padding to a group of segments, or use a non-standard color, you do not need to adjust your site's theme, but instead can simply write layout specific CSS to override library defaults.</p>
 
