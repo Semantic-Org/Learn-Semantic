@@ -16,22 +16,57 @@ type        : 'Getting Started'
 
   <p>For links to download Semantic UI, check our our <a href="/guide/download.html">download page</a>.</p>
 
-  <h2 class='ui header'>
-    Setting Up
-  </h2>
-
-  <h3 class="ui header">Dependencies</h3>
   <p>Semantic uses command-line tools to build your project while theming. After getting Semantic, you will need to install <a href="http://nodejs.org/download/" target="_blank">nodejs</a> and <a href="https://github.com/gulpjs/gulp/" target="_blank">gulp</a> to run the build process.</p>
 
-  <p>Once you're up and running. Navigate to the semantic directory and install the npm dependencies</p>
-  <div class="bash code">
-    # install dependencies
-    npm install
-    # start install script
-    gulp
+  <h2 class="ui header">Prerequisites</h2>
+
+  <h3 class="ui header">Node</h3>
+
+  <h5 class="ui header">OS X</h5>
+  <p>Installing node on OSX is easiest with homebrew</p>
+  <div class="code">
+  brew install node
   </div>
 
-  <h3 class="ui header">Installing Semantic</h3>
+  <h5 class="ui header">Linux</h5>
+  <p>Node on Linux should be installed to work without sudo. You can do that by <a href="https://gist.github.com/isaacs/579814">using one of these techniques</a>.</p>
+
+  <p>I personally use this set-up procedure:</p>
+  <div class="code" data-type="bash" data-title="Installing without sudo from GitHub">
+  mkdir ~/local
+  echo 'export PATH=$HOME/local/bin:$PATH' >> ~/.bashrc
+  . ~/.bashrc
+  git clone git://github.com/joyent/node.git
+  cd node
+  ./configure --prefix=~/local
+  make install
+  git clone git://github.com/isaacs/npm.git
+  cd npm
+  make install
+  </div>
+
+  <h5 class="ui header">Windows</h5>
+  <p>Windows install just requires <a href="http://nodejs.org/download/">downloading the node binary</a></p>
+
+  <h3 class="ui header">Gulp</h3>
+
+  <p>After installing Node, Gulp can be installed globally using Node Package Manager (NPM)</p>
+  <div class="code" data-type="bash">
+  npm install -g gulp
+  </div>
+
+  <h3 class="ui header">Project Dependencies</h3>
+
+  <p>Node dependencies are managed per project in a special file <code><a href="https://www.npmjs.org/doc/files/package.json.html">package.json</a></code> to make installing a project's depencies easy.</p>
+  <p>Once you're up and running. Navigate to the semantic directory and install the npm dependencies.</p>
+  <div class="bash code">
+    # install semantic dependencies
+    npm install
+  </div>
+
+  <h2 class="ui header">Installing</h2>
+
+  <h3 class="ui header">Running Installer</h3>
 
   <p>Semantic uses gulp to compile your stylesheets when your theme changes. The first time you run gulp you will be greeted with an interactive installer</p>
   <div class="bash code">
@@ -77,14 +112,11 @@ type        : 'Getting Started'
     vi semantic.json
   </div>
 
-  <h3>Upgrading Semantic</h3>
+  <h3 class="ui header">Upgrading Semantic</h3>
 
   <p>You can use normal package manager functions to update your project, just be sure to re-install semantic after upgrading. Re-install will <b>extend your <code>semantic.json</code> but not overwrite it</b></p>
-  <div class="bash code">
-    bower update
-    cd ./bower_modules/semantic-ui
-    gulp install
-  </div>
+
+  <p>The method for updating Semantic will depend on your package manager, but in all cases just involves updating your source files and re-running the gulp installer</p>
 
   <div class="ui info message">For a full list of settings for <b>semantic.json</b>, check the <a href="https://github.com/Semantic-Org/Semantic-UI/blob/1.0/tasks/defaults.js">defaults values</a> which it inherits from.</div>
 
@@ -106,22 +138,48 @@ type        : 'Getting Started'
 
   <p>Keep in mind semantic will automatically adjust URLs in CSS and add vendor-prefixes as part of the build process. This means <b>definitions and theme files do not need vendor prefixes</b>.</p>
 
-  <div class="ui info message">
-    <h4 class="ui header">Advanced Usage</h4>
-    <p>In addition to the paths set in <code>semantic.json</code>, you can serve files to a second location, for example, a docs instance by using a separate config file <code>tasks/admin/docs.json</code>. Using a copy of the SUI documentation may work well internally for creating a style guide to hack on the theme designs for your project.</p>
-    <div class="bash code">
-      gulp serve-docs
-      gulp build-docs
-    </div>
-  </div>
-
   <h3 class="ui header">Workflow</h3>
 
   <p>Building and watching Semantic is only necessary while adjusting your UI. This is usually the first part of building a new project, and a separate process than building-out pages in your site.</p>
+
   <p>During this architecting phase you can try <a href="/themes/creating.html">downloading different themes</a>, adjusting your <a href="/developing/customizing.html#setting-global-variables">site-wide settings</a> (font-family, colors, etc) and tweaking components in your site's <a href="/developing/customizing.html#designing-for-the-long-now">component overrides</a>.</p>
+
   <p>Files in the <code>examples/</code> folder of your project can be useful for testing out changes in your UI. For example, you might run <code>gulp watch</code> download a new theme to <code>src/site/themes/</code> then adjust your <code>theme.config</code> file with the name of the new theme and refresh <code>examples/kitchensink.html</code> to inspect changes in the theme.</p>
-  <p>You will only need to use Semantic's build tools while refining your UI, while designing pages you can rely on the packages in <code>dist/</code> and your software stack's normal build set-up.</p>
+
+  <p>You will only need to use Semantic's build tools while refining your UI, while designing pages you can rely on the compiled css and js in <code>dist/</code> and your software stack's normal build set-up.</p>
 
   <p><code>gulp watch</code> will automatically recompile only the necessary definition files when you update <code>semantic.config</code> or any <code>.variables</code> or <code>.overrides</code> file.<p>
+
+  <h3 class="ui header">Running Docs Locally</h3>
+
+  <p>One useful way to track ui modifications for a team is to run a local instance of the UI docs to serve as a team "styleguide". </p>
+
+  <p>You can grab the doc source <a href="https://github.com/Semantic-Org/Semantic-UI-Docs/">from GitHub</a>.</p>
+
+  <div class="code">
+    git clone git@github.com:Semantic-Org/Semantic-UI-Docs.git
+    npm update
+    # run server
+    docpad run
+  </div>
+
+  <p>The easiest setup is to keep semantic ui source and the docs source in adjacent directories and use Gulp to serve files to the docs. </p>
+
+  <p>Gulp includes two special commands for serving files to a second location</p>
+  <div class="code" data-type="bash">
+    gulp serve-docs # watches for changes only
+    gulp build-docs # builds all files to docs
+  </div>
+  <div class="ui info message">
+    The default directory path is <code>../docs</code>.
+    You can set-up a different location for serving docs by adjusting values in <code>tasks/admin/docs.json</code>
+  </div>
+
+  <div class="ui horizontal divider"><i class="circular heart icon"></i></div>
+
+  <a class="ui large pink button" href="/developing/customizing.html">
+    Next: Customizing Semantic
+  </a>
+
 
 </div>

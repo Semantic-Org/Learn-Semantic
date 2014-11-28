@@ -58,9 +58,8 @@ type        : 'Introduction'
 
   <div class="ui horizontal divider"><i class="circular heart icon"></i></div>
 
-  <a class="ui large right labeled teal icon button" href="/guide/download.html">
+  <a class="ui large pink button" href="/guide/download.html">
     Next: Download Semantic
-    <i class="right arrow icon"></i>
   </a>
 
 </div>

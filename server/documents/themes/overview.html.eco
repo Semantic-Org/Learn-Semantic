@@ -1,3 +1,4 @@
+
   ---
 layout      : 'default'
 css         : 'guide'
@@ -26,14 +27,14 @@ type        : 'Theming'
       <i class="download icon"></i>
       <div class="content">
         <div class="title">Theme</div>
-        <div class="description">Downloadable Packages</div>
+        <div class="description">Package Defaults</div>
       </div>
     </div>
     <div class="step">
       <i class="user icon"></i>
       <div class="content">
         <div class="title">Site</div>
-        <div class="description">User's Overrides</div>
+        <div class="description">User Overrides</div>
       </div>
     </div>
   </div>

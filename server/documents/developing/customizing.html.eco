@@ -2,7 +2,7 @@
 layout      : 'default'
 css         : 'guide'
 
-title       : 'Integration Guide'
+title       : 'Customization Guide'
 description : 'Adopting SUI to fit your needs'
 type        : 'Developing'
 ---
@@ -26,7 +26,7 @@ type        : 'Developing'
 
   <p>For example, you might want to specify a custom font stack for your site by adding several superceding site theme variables in your site theme's variable file, <code>src/site/site.variables</code>.</p>
 
-  <div class="code" data-title="site/global/site.variables">
+  <div class="code" data-title="site/globals/site.variables">
     @headerFont        : 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
     @pageFont          : 'Oswald', 'Helvetica Neue', Arial, Helvetica, sans-serif;
     @googleFontFamily  : 'Open+Sans:400italic,400|Oswald:400,700';
@@ -39,7 +39,7 @@ type        : 'Developing'
   <p>Other examples of common globally inherited settings include <code>@linkColor</code>, <code>@borderRadius</code>, <code>@selectedTextColor</code>, and <code>@borderColor</code>.
   </p>
 
-  <div class="code" data-title="site/global/default.variables">
+  <div class="code" data-title="src/themes/default/globals/site.variables">
   <%- @partial('code/site') %>
   </div>
 

@@ -111,18 +111,20 @@ pre.console {
   direction:ltr;
 }
 code {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.02);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
   display: inline-block;
-  font-family: "Lato", Arial;
+  font-family: "Lato",Arial;
   font-size: 0.9em;
   font-weight: normal;
+  line-height: 1.4;
   margin: -0.2em 0.1em;
   padding: 0.2em 0.3em;
-  line-height: 1.4;
   vertical-align: baseline;
-  border-radius: 2px;
 }
 pre code {
+  box-shadow: none;
   border: none;
   padding: 0px;
   font-size: 1em;
@@ -199,7 +201,9 @@ a:hover {
 #example #menu .menu .active.item {
   color: #6DFFFF !important;
 }
-
+#example .ui.message {
+  line-height: 1.6;
+}
 
 /* segment headers */
 #example .header.segment,
