@@ -24,9 +24,9 @@ type        : 'Developing'
   <p><code>site.variables</code> contains many of the most important variables for your site. Adjusting these parameters will instantly help make your site feel less like a cookie-cutter design, and more like your brand.</p>
   <p>A good place to start customizing is by adjusting the fonts used in your project. Semantic includes several variables which let you specify free fonts available on <a href="http://www.google.com/fonts">Google Fonts</a>.</p>
 
-  <p>For example, you might want to specify a custom font stack for your site by adding several superceding site theme variables in your site theme's variable file, <code>src/site/site.variables</code>.</p>
+  <p>For example, you might want to specify a custom font stack for your site by adding several superceding site theme variables in your site theme's variable file, <code>src/site/globals/site.variables</code>.</p>
 
-  <div class="code" data-title="site/globals/site.variables">
+  <div class="code" data-title="src/site/globals/site.variables">
     @headerFont        : 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
     @pageFont          : 'Oswald', 'Helvetica Neue', Arial, Helvetica, sans-serif;
     @googleFontFamily  : 'Open+Sans:400italic,400|Oswald:400,700';
