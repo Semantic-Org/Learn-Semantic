@@ -101,7 +101,7 @@ type        : 'Getting Started'
 
   <p>The install process will create two files: <code>semantic.json</code> stores paths for your build  and sits on the top-level of your project, <code>theme.config</code> is a <b>LESS</b> file that exists in <b>src/</b> and allows you to centrally set the themes for each UI component.</p>
 
-  <p>The installer will also create a special folder which contains your site-specific themes. The default location for this is <code>src/site</code>. For more information on using site themes, see the theming guide below.</p>
+  <p>The installer will also create a special folder which contains your site-specific themes. The default location for this is <code>src/site</code>. For more information on using site themes, see our <a href="/developing/customizing.html">customization guide</a>.</p>
 
   <h3 class="ui header">Manual Install</h3>
   <p>If you prefer these files and folders can be moved manually instead of using the installer.</p>
@@ -109,7 +109,8 @@ type        : 'Getting Started'
     mv semantic.json.example semantic.json
     mv src/theme.config.example src/theme.config
     mv src/_site src/site
-    vi semantic.json
+    vi semantic.json # modify paths
+    vi src/theme.config # modify paths
   </div>
 
   <h3 class="ui header">Upgrading Semantic</h3>

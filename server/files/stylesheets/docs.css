@@ -1619,10 +1619,6 @@ body.progress.animated .ui.progress .bar {
   #example .following.menu {
     display: block;
   }
-  #example .header.segment .container {
-    width: 900px;
-    left: 50px;
-  }
   #example .tab.header.segment .tabular.menu {
     width: 600px;
   }
@@ -1644,6 +1640,10 @@ body.progress.animated .ui.progress .bar {
     right: auto;
     margin: 0em 0em 0em 2em !important;
     width: 250px;
+  }
+  #example .header.segment .container {
+    width: 900px;
+    left: 50px;
   }
 }
 
