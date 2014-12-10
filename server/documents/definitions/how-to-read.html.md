@@ -20,7 +20,7 @@ You may be able to say things like in most cases "a button is clickable", "a but
 </div>
 
 
-## Varying the Prototype
+## "Standard" Elements
 
 User interface elements most often exist with differences from a standard form. Semantic uses special names for describing these modifications to an element's standard form.
 
@@ -34,7 +34,8 @@ Variations are modifications to an element that are not mutually exclusive. Thes
 
 So for example a button may be "large or small", "colored", "show primacy on a page", "have an icon", "be animated".
 
-
 ### States
 
-States are modifications to a UI element which show a change in its condition. States can be used to indicate an element things like, "should be visible", "should be hidden", "should be unmodifiable", "should indicate a user must wait".
+States are modifications to a UI element which show a change in its condition. S
+
+States can be used to indicate changes like: "is hidden", "should appear unmodifiable", "should indicate a user must wait".
