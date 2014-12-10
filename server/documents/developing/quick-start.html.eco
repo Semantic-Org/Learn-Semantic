@@ -4,7 +4,7 @@ css         : 'guide'
 
 title       : 'Quick Start'
 description : 'Adopting SUI to fit your needs'
-type        : 'Getting Started'
+type        : 'Draft'
 ---
 <%- @partial('header') %>
 

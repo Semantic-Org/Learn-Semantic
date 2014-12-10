@@ -3,7 +3,7 @@ layout      : 'default'
 css         : 'guide'
 
 title       : 'FAQ'
-type        : 'Developing'
+type        : 'Draft'
 ---
 <%- @partial('header') %>
 

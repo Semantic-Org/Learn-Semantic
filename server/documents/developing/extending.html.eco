@@ -4,7 +4,7 @@ css         : 'guide'
 
 title       : 'Adding Components'
 description : 'Writing custom definitions'
-type        : 'Developing'
+type        : 'Draft'
 ---
 <%- @partial('header') %>
 

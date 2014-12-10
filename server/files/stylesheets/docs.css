@@ -49,6 +49,9 @@ blockquote {
   margin: 0;
   padding: 0em 2em;
 }
+blockquote p {
+  line-height: 2em;
+}
 
 h1,
 h2,

@@ -4,7 +4,7 @@ css         : 'guide'
 
 title       : 'Best Practices'
 description : 'Developing with Semantic'
-type        : 'Developing'
+type        : 'Draft'
 ---
 <%- @partial('header') %>
 

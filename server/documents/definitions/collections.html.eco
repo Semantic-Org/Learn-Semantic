@@ -4,7 +4,7 @@ css         : 'guide'
 
 title       : 'Collections'
 description : 'UI Collections definition overview'
-type        : 'Definitions'
+type        : 'Draft'
 ---
 <%- @partial('header') %>
 

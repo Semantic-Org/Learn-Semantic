@@ -4,7 +4,7 @@ css         : 'list'
 
 title       : 'UI Elements'
 description : 'Elements are the basic building blocks of a website.'
-type        : 'Definitions'
+type        : 'Draft'
 ---
 
 <%- @partial('header') %>

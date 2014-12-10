@@ -4,7 +4,7 @@ css         : 'module'
 
 title       : 'UI Modules'
 description : 'Modules are interface elements whose behavior is an essential part of their definition'
-type        : 'Definitions'
+type        : 'Draft'
 ---
 
 <%- @partial('header', { tabs: { overview: 'Overview', init: 'Initializing', behavior: 'Behaviors', settings: 'Settings'} }) %>
