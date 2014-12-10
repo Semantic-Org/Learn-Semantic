@@ -1,7 +1,7 @@
  /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -133,12 +133,23 @@
             States
 *******************************/
 
-.ui.message.visible,
-.ui.header.visible {
-  display: block !important;
+
+/*--------------
+    Visible
+---------------*/
+
+.ui.message.visible {
+  display: block;
 }
-.ui.message.hidden,
-.ui.header.hidden {
+.ui.icon.message.visible {
+  display: table;
+}
+
+/*--------------
+     Hidden
+---------------*/
+
+.ui.message.hidden {
   display: none;
 }
 
@@ -383,19 +394,19 @@
 ---------------*/
 
 .ui.small.message {
-  font-size: 0.9285rem;
+  font-size: 0.92857143em;
 }
 .ui.message {
-  font-size: 1rem;
+  font-size: 1em;
 }
 .ui.large.message {
-  font-size: 1.1428rem;
+  font-size: 1.14285714em;
 }
 .ui.huge.message {
-  font-size: 1.4285rem;
+  font-size: 1.42857143em;
 }
 .ui.massive.message {
-  font-size: 1.7142rem;
+  font-size: 1.71428571em;
 }
 
 

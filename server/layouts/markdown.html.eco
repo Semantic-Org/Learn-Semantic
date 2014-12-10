@@ -193,7 +193,10 @@
 
   <div class="pusher">
     <div class="full height">
-      <%- @content %>
+      <%- @partial('header') %>
+      <div class="main container">
+        <%- @content %>
+      </div>
     </div>
     <div class="ui vertical inverted black footer segment">
       <div class="container">

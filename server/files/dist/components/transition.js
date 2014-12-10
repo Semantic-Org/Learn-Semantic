@@ -47,6 +47,7 @@ $.fn.transition = function() {
         error,
         className,
         metadata,
+        animationStart,
         animationEnd,
         animationName,
 
@@ -66,7 +67,8 @@ $.fn.transition = function() {
           className       = settings.className;
           metadata        = settings.metadata;
 
-          animationEnd    = module.get.animationEvent();
+          animationStart  = module.get.animationStartEvent();
+          animationEnd    = module.get.animationEndEvent();
           animationName   = module.get.animationName();
           error           = settings.error;
           namespace       = settings.namespace;
@@ -145,7 +147,7 @@ $.fn.transition = function() {
 
             }
           }
-          if(module.can.animate) {
+          if( module.can.animate() ) {
             module.set.animating(settings.animation);
           }
           else {
@@ -155,9 +157,8 @@ $.fn.transition = function() {
 
         reset: function() {
           module.debug('Resetting animation to beginning conditions');
-          $module.off(animationEnd + eventNamespace);
+          module.remove.animationEndCallback();
           module.restore.conditions();
-          module.hide();
           module.remove.animating();
         },
 
@@ -175,12 +176,13 @@ $.fn.transition = function() {
 
         complete: function () {
           module.verbose('CSS animation complete', settings.animation);
+          module.remove.animationEndCallback();
+          module.remove.failSafe();
           if(!module.is.looping()) {
             if( module.is.outward() ) {
               module.verbose('Animation is outward, hiding element');
               module.restore.conditions();
               module.hide();
-              module.remove.display();
               $.proxy(settings.onHide, this)();
             }
             else if( module.is.inward() ) {
@@ -193,7 +195,7 @@ $.fn.transition = function() {
             else {
               module.restore.conditions();
             }
-            module.remove.duration();
+            module.remove.animation();
             module.remove.animating();
           }
           $.proxy(settings.onComplete, this)();
@@ -207,6 +209,12 @@ $.fn.transition = function() {
               return true;
             }
             return false;
+          },
+          inlineDisplay: function() {
+            var
+              style = $module.attr('style') || ''
+            ;
+            return $.isArray(style.match(/display.*?;/, ''));
           }
         },
 
@@ -217,7 +225,7 @@ $.fn.transition = function() {
               module.save.conditions();
             }
             module.remove.direction();
-            $module.off('.complete');
+            module.remove.animationEndCallback();
             if(module.can.transition() && !module.has.direction()) {
               module.set.direction();
             }
@@ -229,9 +237,29 @@ $.fn.transition = function() {
               .addClass(animation)
               .one(animationEnd + '.complete' + eventNamespace, module.complete)
             ;
+            if(settings.useFailSafe) {
+              module.add.failSafe();
+            }
             module.set.duration(settings.duration);
             $.proxy(settings.onStart, this)();
             module.debug('Starting tween', animation, $module.attr('class'));
+          },
+          duration: function(animationName, duration) {
+            duration = duration || settings.duration;
+            duration = (typeof duration == 'number')
+              ? duration + 'ms'
+              : duration
+            ;
+            module.verbose('Setting animation duration', duration);
+            $module
+              .css({
+                '-webkit-animation-duration': duration,
+                '-moz-animation-duration': duration,
+                '-ms-animation-duration': duration,
+                '-o-animation-duration': duration,
+                'animation-duration':  duration
+              })
+            ;
           },
           display: function() {
             var
@@ -239,6 +267,7 @@ $.fn.transition = function() {
               displayType        = module.get.displayType(),
               overrideStyle      = style + 'display: ' + displayType + ' !important;'
             ;
+            $module.css('display', '');
             module.refresh();
             if( $module.css('display') !== displayType ) {
               module.verbose('Setting inline visibility to', displayType);
@@ -267,23 +296,6 @@ $.fn.transition = function() {
             module.debug('Transition set to loop');
             $module
               .addClass(className.looping)
-            ;
-          },
-          duration: function(duration) {
-            duration = duration || settings.duration;
-            duration = (typeof duration == 'number')
-              ? duration + 'ms'
-              : duration
-            ;
-            module.verbose('Setting animation duration', duration);
-            $module
-              .css({
-                '-webkit-animation-duration': duration,
-                '-moz-animation-duration': duration,
-                '-ms-animation-duration': duration,
-                '-o-animation-duration': duration,
-                'animation-duration': duration
-              })
             ;
           },
           hidden: function() {
@@ -353,9 +365,33 @@ $.fn.transition = function() {
           }
         },
 
+        add: {
+          failSafe: function() {
+            var
+              duration = module.get.duration()
+            ;
+            module.timer = setTimeout(module.complete, duration + 100);
+            module.verbose('Adding fail safe timer', module.timer);
+          }
+        },
+
         remove: {
           animating: function() {
             $module.removeClass(className.animating);
+          },
+          animation: function() {
+            $module
+              .css({
+                '-webkit-animation' : '',
+                '-moz-animation'    : '',
+                '-ms-animation'     : '',
+                '-o-animation'      : '',
+                'animation'         : ''
+              })
+            ;
+          },
+          animationEndCallback: function() {
+            $module.off('.complete');
           },
           display: function() {
             $module.css('display', '');
@@ -366,16 +402,11 @@ $.fn.transition = function() {
               .removeClass(className.outward)
             ;
           },
-          duration: function() {
-            $module
-              .css({
-                '-webkit-animation-duration' : '',
-                '-moz-animation-duration'    : '',
-                '-ms-animation-duration'     : '',
-                '-o-animation-duration'      : '',
-                'animation-duration'         : ''
-              })
-            ;
+          failSafe: function() {
+            module.verbose('Removing fail safe timer', module.timer);
+            if(module.timer) {
+              clearTimeout(module.timer);
+            }
           },
           hidden: function() {
             $module.removeClass(className.hidden);
@@ -439,6 +470,15 @@ $.fn.transition = function() {
             }
             return $.fn.transition.settings;
           },
+          duration: function(duration) {
+            duration = duration || settings.duration;
+            return (typeof settings.duration === 'string')
+              ? (duration.indexOf('ms') > -1)
+                ? parseFloat(duration)
+                : parseFloat(duration) * 1000
+              : duration
+            ;
+          },
           displayType: function() {
             if(settings.displayType) {
               return settings.displayType;
@@ -451,7 +491,7 @@ $.fn.transition = function() {
           },
           style: function() {
             var
-               style = $module.attr('style') || ''
+              style = $module.attr('style') || ''
             ;
             return style.replace(/display.*?;/, '');
           },
@@ -476,7 +516,25 @@ $.fn.transition = function() {
             }
             return false;
           },
-          animationEvent: function() {
+          animationStartEvent: function() {
+            var
+              element     = document.createElement('div'),
+              animations  = {
+                'animation'       :'animationstart',
+                'OAnimation'      :'oAnimationStart',
+                'MozAnimation'    :'mozAnimationStart',
+                'WebkitAnimation' :'webkitAnimationStart'
+              },
+              animation
+            ;
+            for(animation in animations){
+              if( element.style[animation] !== undefined ){
+                return animations[animation];
+              }
+            }
+            return false;
+          },
+          animationEndEvent: function() {
             var
               element     = document.createElement('div'),
               animations  = {
@@ -498,26 +556,16 @@ $.fn.transition = function() {
         },
 
         can: {
-          animate: function() {
-            if($module.css(settings.animation) !== 'none') {
-              module.debug('CSS definition found',  $module.css(settings.animation));
-              return true;
-            }
-            else {
-              module.debug('Unable to find css definition', $module.attr('class'));
-              return false;
-            }
-          },
           transition: function(forced) {
             var
               elementClass      = $module.attr('class'),
               tagName           = $module.prop('tagName'),
               animation         = settings.animation,
-              transitionExists  = module.get.transitionExists(settings.animation),
+              transitionExists  = module.get.transitionExists(animation),
               $clone,
               currentAnimation,
               inAnimation,
-              animationExists,
+              directionExists,
               displayType
             ;
             if( transitionExists === undefined || forced) {
@@ -538,26 +586,36 @@ $.fn.transition = function() {
               displayType = $clone
                 .attr('class', elementClass)
                 .removeAttr('style')
+                .removeClass(className.hidden)
                 .removeClass(className.visible)
                 .show()
                 .css('display')
               ;
               module.verbose('Determining final display state', displayType);
+              $clone.remove();
               if(currentAnimation != inAnimation) {
-                module.debug('Transition exists for animation', animation);
-                animationExists = true;
+                module.debug('Direction exists for animation', animation);
+                directionExists = true;
+              }
+              else if(currentAnimation == 'none' || !currentAnimation) {
+                module.debug('No animation defined in css', animation);
+                return;
               }
               else {
                 module.debug('Static animation found', animation, displayType);
-                animationExists = false;
+                directionExists = false;
               }
-              $clone.remove();
               module.save.displayType(displayType);
-              if(transitionExists === undefined) {
-                module.save.transitionExists(animation, animationExists);
-              }
+              module.save.transitionExists(animation, directionExists);
             }
-            return transitionExists || animationExists;
+            return (transitionExists !== undefined)
+              ? transitionExists
+              : directionExists
+            ;
+          },
+          animate: function() {
+            // can transition does not return a value if animation does not exist
+            return (module.can.transition() !== undefined);
           }
         },
 
@@ -592,6 +650,10 @@ $.fn.transition = function() {
 
         hide: function() {
           module.verbose('Hiding element');
+          if( module.is.animating() ) {
+            module.reset();
+          }
+          module.remove.display();
           module.remove.visible();
           module.set.hidden();
           module.repaint();
@@ -796,35 +858,38 @@ $.fn.transition.exists = {};
 $.fn.transition.settings = {
 
   // module info
-  name        : 'Transition',
+  name         : 'Transition',
 
   // debug content outputted to console
-  debug       : false,
+  debug        : false,
 
   // verbose debug output
-  verbose     : true,
+  verbose      : true,
 
   // performance data output
-  performance : true,
+  performance  : true,
 
   // event namespace
-  namespace   : 'transition',
+  namespace    : 'transition',
 
   // animation complete event
-  onStart     : function() {},
-  onComplete  : function() {},
-  onShow      : function() {},
-  onHide      : function() {},
+  onStart      : function() {},
+  onComplete   : function() {},
+  onShow       : function() {},
+  onHide       : function() {},
+
+  // whether timeout should be used to ensure callback fires in cases animationend does not
+  useFailSafe  : false,
 
   // whether EXACT animation can occur twice in a row
   allowRepeats : false,
 
   // Override final display type on visible
-  displayType : false,
+  displayType  : false,
 
   // animation duration
-  animation  : 'fade',
-  duration   : '500ms',
+  animation    : 'fade',
+  duration     : '500ms',
 
   // new animations will occur after previous ones
   queue       : true,

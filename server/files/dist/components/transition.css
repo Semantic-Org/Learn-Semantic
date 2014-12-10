@@ -1,7 +1,7 @@
  /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -48,7 +48,7 @@
 /* Loading */
 .loading.transition {
   position: absolute;
-  top: -999999px;
+  top: -99999px;
   left: -99999px;
 }
 
@@ -415,8 +415,7 @@
   -webkit-perspective: 2000px;
           perspective: 2000px;
 }
-.horizontal.flip.transition.in,
-.horizontal.flip.transition.out {
+.horizontal.flip.transition.in {
   -webkit-animation-name: horizontalFlipIn;
           animation-name: horizontalFlipIn;
 }
@@ -424,8 +423,7 @@
   -webkit-animation-name: horizontalFlipOut;
           animation-name: horizontalFlipOut;
 }
-.vertical.flip.transition.in,
-.vertical.flip.transition.out {
+.vertical.flip.transition.in {
   -webkit-animation-name: verticalFlipIn;
           animation-name: verticalFlipIn;
 }

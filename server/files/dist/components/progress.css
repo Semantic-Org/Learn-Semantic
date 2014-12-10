@@ -1,7 +1,7 @@
  /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -34,6 +34,19 @@
 }
 
 /* Indicating */
+.ui.indicating.progress .bar[style^="width: 1%"],
+.ui.indicating.progress .bar[style^="width: 2%"],
+.ui.indicating.progress .bar[style^="width: 3%"],
+.ui.indicating.progress .bar[style^="width: 4%"],
+.ui.indicating.progress .bar[style^="width: 5%"],
+.ui.indicating.progress .bar[style^="width: 6%"],
+.ui.indicating.progress .bar[style^="width: 7%"],
+.ui.indicating.progress .bar[style^="width: 8%"],
+.ui.indicating.progress .bar[style^="width: 9%"],
+.ui.indicating.progress .bar[style^="width: 1"],
+.ui.indicating.progress .bar[style^="width: 2"] {
+  background-color: #d95c5c;
+}
 .ui.indicating.progress .bar[style^="width: 3"] {
   background-color: #d9a65c;
 }
@@ -51,19 +64,6 @@
 .ui.indicating.progress .bar[style^="width: 9"],
 .ui.indicating.progress .bar[style^="width: 100"] {
   background-color: #66da81;
-}
-.ui.indicating.progress .bar[style^="width: 1%"],
-.ui.indicating.progress .bar[style^="width: 2%"],
-.ui.indicating.progress .bar[style^="width: 3%"],
-.ui.indicating.progress .bar[style^="width: 4%"],
-.ui.indicating.progress .bar[style^="width: 5%"],
-.ui.indicating.progress .bar[style^="width: 6%"],
-.ui.indicating.progress .bar[style^="width: 7%"],
-.ui.indicating.progress .bar[style^="width: 8%"],
-.ui.indicating.progress .bar[style^="width: 9%"],
-.ui.indicating.progress .bar[style^="width: 1"],
-.ui.indicating.progress .bar[style^="width: 2"] {
-  background-color: #d95c5c;
 }
 
 /* Single Digits Last */
@@ -98,6 +98,9 @@
 .ui.indicating.progress .bar[style^="width: 100"] + .label {
   color: #66da81;
 }
+.ui.indicating.progress.success .bar + .label {
+  color: #356e36;
+}
 
 
 /*******************************
@@ -111,12 +114,11 @@
   line-height: 1;
   position: relative;
   width: 0%;
-  min-width: 0.25em;
-  height: 1.75em;
+  min-width: 2em;
   background: #888888;
   border-radius: 0.2857rem;
-  -webkit-transition: width 0.5s ease, background-color 1s ease;
-          transition: width 0.5s ease, background-color 1s ease;
+  -webkit-transition: width 0.2s linear, background-color 0.2s linear;
+          transition: width 0.2s linear, background-color 0.2s linear;
 }
 
 /* Percent Complete */
@@ -150,8 +152,8 @@
   text-shadow: none;
   margin-top: 0.2em;
   text-align: center;
-  -webkit-transition: color 1s ease;
-          transition: color 1s ease;
+  -webkit-transition: color 0.4s ease;
+          transition: color 0.4s ease;
 }
 
 
@@ -214,7 +216,7 @@
 
 .ui.active.progress .bar {
   position: relative;
-  min-width: 3em;
+  min-width: 2em;
 }
 .ui.active.progress .bar::after {
   content: '';
@@ -273,8 +275,6 @@
     Inverted
 ---------------*/
 
-
-/* bottom attached */
 .ui.inverted.progress {
   background: rgba(255, 255, 255, 0.05);
   border: none;
@@ -305,7 +305,7 @@
 
 /* bottom attached */
 .ui.progress.attached {
-  background: none transparent;
+  background: transparent;
   position: relative;
   border: none;
   margin: 0em;
@@ -313,7 +313,7 @@
 .ui.progress.attached,
 .ui.progress.attached .bar {
   display: block;
-  height: 0.25em;
+  height: 3px;
   padding: 0px;
   overflow: hidden;
   border-radius: 0em 0em 0.2857rem 0.2857rem;
@@ -395,6 +395,33 @@
      Sizes
 ---------------*/
 
+.ui.tiny.progress {
+  font-size: 0.85714286rem;
+}
+.ui.tiny.progress .bar {
+  height: 0.5em;
+}
+.ui.small.progress {
+  font-size: 0.92857143rem;
+}
 .ui.small.progress .bar {
-  height: 14px;
+  height: 1em;
+}
+.ui.progress {
+  font-size: 1rem;
+}
+.ui.progress .bar {
+  height: 1.75em;
+}
+.ui.large.progress {
+  font-size: 1.14285714rem;
+}
+.ui.large.progress .bar {
+  height: 2.5em;
+}
+.ui.big.progress {
+  font-size: 1.28571429rem;
+}
+.ui.big.progress .bar {
+  height: 3.5em;
 }

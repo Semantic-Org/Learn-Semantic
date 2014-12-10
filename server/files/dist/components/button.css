@@ -1,7 +1,7 @@
  /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -24,9 +24,9 @@
   vertical-align: baseline;
   background-color: #e0e0e0;
   color: rgba(0, 0, 0, 0.6);
-  margin: 0em 0.25em 0em 0em;
-  padding: 0.8em 1.5em 0.8em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  margin: 0em 0.25em 0em 0em;
+  padding: 0.78571em 1.5em 0.78571em;
   text-transform: none;
   text-shadow: none;
   font-weight: bold;
@@ -516,6 +516,7 @@
   -webkit-transition: opacity 0.2s ease;
           transition: opacity 0.2s ease;
   vertical-align: baseline;
+  color: '';
 }
 .ui.button > .right.icon {
   margin: 0em -0.2em 0em 0.4em;
@@ -550,15 +551,15 @@
 
 .ui.compact.buttons .button,
 .ui.compact.button {
-  padding: 0.6em 1.125em 0.6em;
+  padding: 0.5892825em 1.125em 0.5892825em;
 }
 .ui.compact.icon.buttons .button,
 .ui.compact.icon.button {
-  padding: 0.6em 0.6em 0.6em;
+  padding: 0.5892825em 0.5892825em 0.5892825em;
 }
 .ui.compact.labeled.icon.buttons .button,
 .ui.compact.labeled.icon.button {
-  padding: 0.6em 3.725em 0.6em;
+  padding: 0.5892825em 3.69642em 0.5892825em;
 }
 
 /*-------------------
@@ -568,17 +569,17 @@
 .ui.mini.buttons .button,
 .ui.mini.buttons .or,
 .ui.mini.button {
-  font-size: 0.7142rem;
+  font-size: 0.71428571rem;
 }
 .ui.tiny.buttons .button,
 .ui.tiny.buttons .or,
 .ui.tiny.button {
-  font-size: 0.8571rem;
+  font-size: 0.85714286rem;
 }
 .ui.small.buttons .button,
 .ui.small.buttons .or,
 .ui.small.button {
-  font-size: 0.9285rem;
+  font-size: 0.92857143rem;
 }
 .ui.buttons .button,
 .ui.buttons .or,
@@ -588,22 +589,22 @@
 .ui.large.buttons .button,
 .ui.large.buttons .or,
 .ui.large.button {
-  font-size: 1.1428rem;
+  font-size: 1.14285714rem;
 }
 .ui.big.buttons .button,
 .ui.big.buttons .or,
 .ui.big.button {
-  font-size: 1.2857rem;
+  font-size: 1.28571429rem;
 }
 .ui.huge.buttons .button,
 .ui.huge.buttons .or,
 .ui.huge.button {
-  font-size: 1.4285rem;
+  font-size: 1.42857143rem;
 }
 .ui.massive.buttons .button,
 .ui.massive.buttons .or,
 .ui.massive.button {
-  font-size: 1.7142rem;
+  font-size: 1.71428571rem;
 }
 
 /*--------------
@@ -612,7 +613,7 @@
 
 .ui.icon.buttons .button,
 .ui.icon.button {
-  padding: 0.8em 0.8em 0.8em;
+  padding: 0.78571em 0.78571em 0.78571em;
 }
 .ui.icon.buttons .button > .icon,
 .ui.icon.button > .icon {
@@ -725,7 +726,7 @@
 .ui.labeled.icon.buttons .button,
 .ui.labeled.icon.button {
   position: relative;
-  padding-left: 4.1em !important;
+  padding-left: 4.07142em !important;
   padding-right: 1.5em !important;
 }
 
@@ -733,7 +734,7 @@
 .ui.labeled.icon.buttons > .button > .icon,
 .ui.labeled.icon.button > .icon {
   position: absolute;
-  width: 2.6em;
+  width: 2.57142em;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.05);
   text-align: center;
@@ -752,7 +753,7 @@
 
 /* Right Labeled */
 .ui[class*="right labeled"].icon.button {
-  padding-right: 4.1em !important;
+  padding-right: 4.07142em !important;
   padding-left: 1.5em !important;
 }
 .ui[class*="right labeled"].icon.button > .icon {
@@ -869,7 +870,7 @@
   position: relative;
   float: left;
   width: 0.3em;
-  height: 2.6em;
+  height: 2.57142em;
   z-index: 3;
 }
 .ui.buttons .or:before {
@@ -879,11 +880,11 @@
   left: 50%;
   background-color: #ffffff;
   text-shadow: none;
-  margin-top: -0.9em;
-  margin-left: -0.9em;
-  width: 1.8em;
-  height: 1.8em;
-  line-height: 1.6em;
+  margin-top: -0.892855em;
+  margin-left: -0.892855em;
+  width: 1.78571em;
+  height: 1.78571em;
+  line-height: 1.58571em;
   color: rgba(0, 0, 0, 0.4);
   font-style: normal;
   font-weight: bold;
@@ -1142,7 +1143,7 @@
 }
 .ui.black.buttons .button:hover,
 .ui.black.button:hover {
-  background-color: #222425;
+  background-color: #1b1c1d;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1170,8 +1171,8 @@
 .ui.basic.black.buttons .button:hover,
 .ui.basic.black.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #222425 inset !important;
-  color: #222425 !important;
+  box-shadow: 0px 0px 0px 2px #1b1c1d inset !important;
+  color: #1b1c1d !important;
 }
 .ui.basic.black.buttons .button:active,
 .ui.basic.black.button:active {

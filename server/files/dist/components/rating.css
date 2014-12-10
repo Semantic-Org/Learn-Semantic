@@ -1,7 +1,7 @@
  /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -19,7 +19,6 @@
   display: inline-block;
   font-size: 0em;
   vertical-align: baseline;
-  margin: 0em 0.5rem 0em 0em;
 }
 .ui.rating:last-child {
   margin-right: 0em;

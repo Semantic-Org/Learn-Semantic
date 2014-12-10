@@ -1,7 +1,7 @@
  /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -24,7 +24,7 @@
   border: 1px solid #cccccc;
   max-width: 250px;
   background-color: #ffffff;
-  padding: 0.8em 1em;
+  padding: 0.833em 1em;
   font-weight: normal;
   font-style: normal;
   color: rgba(0, 0, 0, 0.8);
@@ -205,6 +205,14 @@
 
 
 /*--------------
+     Basic
+---------------*/
+
+.ui.basic.popup:before {
+  display: none;
+}
+
+/*--------------
      Wide
 ---------------*/
 
@@ -223,7 +231,7 @@
 
 .ui.fluid.popup {
   width: 100%;
-  max-width: 99999px;
+  max-width: none;
 }
 
 /*--------------
@@ -252,7 +260,7 @@
 ---------------*/
 
 .ui.flowing.popup {
-  max-width: 9999px;
+  max-width: none;
 }
 
 /*--------------
@@ -260,16 +268,16 @@
 ---------------*/
 
 .ui.small.popup {
-  font-size: 0.8rem;
+  font-size: 0.785714rem;
 }
 .ui.popup {
-  font-size: 0.875rem;
+  font-size: 0.85714rem;
 }
 .ui.large.popup {
   font-size: 1rem;
 }
 .ui.huge.popup {
-  font-size: 1.1rem;
+  font-size: 1.14285rem;
 }
 
 

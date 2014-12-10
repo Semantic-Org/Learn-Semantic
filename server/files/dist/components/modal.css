@@ -1,7 +1,7 @@
  /*
  * # Semantic UI
  * https://github.com/Semantic-Org/Semantic-UI
- * http://beta.semantic-ui.com/
+ * http://www.semantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -26,7 +26,7 @@
   margin-left: -45%;
   background: #ffffff;
   border: none;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.3);
   border-radius: 0.2857rem;
   -webkit-user-select: text;
      -moz-user-select: text;
@@ -234,11 +234,11 @@
     box-shadow: none;
   }
   .ui.modal > .actions {
-    padding: 1rem 1rem 0rem !important;
+    padding: 1rem 1rem -1rem !important;
   }
   .ui.modal .actions > .buttons,
   .ui.modal .actions > .button {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
 }
 
@@ -292,7 +292,7 @@
 }
 .ui.scrolling.modal {
   position: static;
-  margin: 3.5rem auto;
+  margin: 3.5rem auto !important;
 }
 @media only screen and (max-width: 992px) {
   .ui.scrolling.modal {
@@ -322,7 +322,11 @@
 
 .ui.fullscreen.modal {
   width: 95% !important;
-  margin: 1em 0em 1em -47.5%;
+  left: 2.5% !important;
+  margin: 1em auto;
+}
+.ui.fullscreen.scrolling.modal {
+  left: 0em !important;
 }
 .ui.fullscreen.modal > .header {
   padding-right: 2.25rem;
@@ -336,8 +340,6 @@
   .ui.fullscreen.modal {
     width: auto !important;
     margin: 1em !important;
-    top: 0% !important;
-    left: 0% !important;
   }
 }
 
