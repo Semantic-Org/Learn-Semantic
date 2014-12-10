@@ -23,7 +23,7 @@
   vertical-align: top;
   background: #ffffff;
   color: rgba(0, 0, 0, 0.8);
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15);
+  box-shadow: 0px 0px 0px 1px #d4d4d5;
   border-radius: 0em;
 }
 .ui.steps .step:after {
@@ -105,10 +105,11 @@
 .ui.ordered.steps .step:before {
   display: table-cell;
   position: static;
+  content: counters(ordered, ".");
+  vertical-align: middle;
   padding-right: 0.6em;
   font-size: 2em;
   counter-increment: ordered;
-  content: counters(ordered, ".");
 }
 .ui.ordered.steps .step > * {
   display: table-cell;
