@@ -18,24 +18,24 @@ type        : 'Preface'
     <p>Every component is defined using <code>em</code> and <code>rem</code> so that components can be resized simply on the fly. Want a menu to get smaller on mobile? Simply have its font-size change using a media query.</p>
 
     <h3 class="ui header">
-      Easy To Learn
+      Easy to Learn
     </h3>
     <p>Writing front end code shouldn't require learning the naming or programming conventions of a particular developer.</p>
     <p>Instead of using short-hand, or codifying naming conventions, Semantic uses simple, common language for parts of interface elements, and familiar patterns found in natural languages for describing elements.</p>
 
     <h3 class="ui header">
-      Tag ambivalent
+      Tag agnostic
     </h3>
-    <p>Interface definitions in Semantic are, with some <a href="http://beta.semantic-ui.com/elements/icon.html">small exceptions</a>, tag ambivalent. That means you can use div, article, section, span without affecting the display of the element. Special tags like a, table, td still carry special meaning in certain circumstances however.</p>
+    <p>Interface definitions in Semantic are, with some <a href="http://beta.semantic-ui.com/elements/icon.html">small exceptions</a>, tag agnostic. That means you can use div, article, section, span without affecting the display of the element. Special tags like a, table, td still carry special meaning in certain circumstances however.</p>
 
     <h3 class="ui header">
       Powerful tools for expressing groups and collections.
     </h3>
     <p>In English it's much easier to say "There are three tall men" than "There is a tall man, a tall man and a tall man".</p>
-    <p>Semantic element use principles of plurality to express similarities across groups to avoid repetitive declarations.</p>
+    <p>Semantic elements use principles of plurality to express similarities across groups to avoid repetitive declarations.</p>
 
     <h3 class="ui header">
-      High Level Theming
+      High-Level Theming
     </h3>
     <p>All UI components share site-wide defaults which let you quickly change the look and feel of components. High level variables make sure you aren't specifying one to one matches with CSS properties.</p>
 
