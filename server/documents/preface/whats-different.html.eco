@@ -42,8 +42,8 @@ type        : 'Preface'
     <h3 class="ui header">
       Componentized UI
     </h3>
-    <p>Semantic components are written in a singular style, but are not part of mandated overarching library. Only like a couple components? No problem. Using our built in build tools you can reply on the fly while trying out different themes, or adjusting your compiled release to only container certain components.</p>
-    <p>UI components in Semantic also are loosely coupled, meaning using several similar components together might also reap additional  benefits where their usage intersect. A popup can check for the existence of CSS transition component before using the fallback javascript animations. or a <code>ui input</code> may replace the standard input styled inside a <code>ui form</code>.</p>
+    <p>Semantic components are written in a singular style, but are not part of mandated overarching library. Only like a couple components? No problem. Using our built in build tools you can rebuild on the fly while trying out different themes, or adjust your compiled release to only contain certain components.</p>
+    <p>UI components in Semantic also are loosely coupled, meaning using several similar components together might also reap additional  benefits where their usage intersect. A popup can check for the existence of CSS transition component before using the fallback javascript animations. or a <code>ui input</code> may replace the standard input styled inside a <code>ui form</code>.</p>		+    <p>UI components in Semantic are also loosely coupled. This means using several similar components together might reap additional benefits where their usage intersect. A popup can check for the existence of a CSS transition component before using the fallback javascript animations. or a <code>ui input</code> may replace the standard input styled inside a <code>ui form</code>.</p>
 
     <h3 class="ui header">
       Develop Once, Redesign Infinitely
