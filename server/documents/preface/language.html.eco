@@ -1,6 +1,7 @@
   ---
 layout      : 'default'
 css         : 'guide'
+standalone  : true
 
 title       : 'On Language'
 description : ''
@@ -10,16 +11,12 @@ type        : 'Draft'
 
 <div class="main container">
 
-  <div class="ui message">
-    Please bear in mind this is a draft, most likely full of inconsistencies, pauses, breaks in tone, and other fub-ups.
-  </div>
-
   <h2 class="ui header">
     Fabricating Language
   </h2>
 
-  <p>Language is a difficult topic for discussion because it is such an inperceivable part of our experience of reality. It is one of the most primitive methods which human can interpet meaning. So ingrained is language in our humanity that we even comprehend reality internally through self-dialog, a stream of consciousness championed by an internal narrator explaning an interpretation of reality back to ourselves.</p>
-  <p>Even though day in, day out we reap the benefits of language's evolution as a method of effectively exchanging meaning between biological information processing machines, we are still hesitant to accept its utility when creating systems of codified meaning for computers, choosing instead to manufacture new systems of meaning, often with a near religious devotion to the prescribed axioms and standards of its creators.</p>
+  <p>Language is a difficult topic to discuss directly because it is such an essential part of our experience of reality. Words are the most primitive tool at our disposal to construct meaning. So ingrained is language in our comprehension of reality that even internally we explain reality through self-dialog, a stream of consciousness championed by an internal narrator explaning reality back to ourselves.</p>
+  <p>Even though we continuously reap the benefits of language's evolution as a method of effectively exchanging meaning between biological information processing machines, we are still hesitant to accept its utility when constructing systems of codified meaning for computers, choosing instead to manufacture new formal systems for organizing information, often with a near religious devotion to the prescribed axioms and standards of its creators.</p>
 
   <h2 class="ui header">
     Tending to Tendencies
@@ -30,13 +27,45 @@ type        : 'Draft'
     <p>~Borges' <a href="http://books.google.com/books?id=1FrJqcRILaoC&pg=PA75&lpg=PA75&dq=lay+claim+in+this+novel+game+tedium+borges&source=bl&ots=pUWUsG99R-&sig=zJqgEd7QE38_IWO8kVsY-0ODf0Y&hl=en&sa=X&ei=q15VVJyvIM3LsASDzYDIDw&ved=0CDIQ6AEwAg#v=onepage&q=lay%20claim%20in%20this%20novel%20game%20tedium%20borges&f=false">Ficciones</a>
   </blockquote>
 
-  <p>Creating a system is no easy task. All decisions made by an individual, even <a href="http://www.oxforddictionaries.com/us/external/files/Garner_s_American_The_Ongoing_Struggles_of_Garlic-Hangers.pdf?version=2014-10-15-1630">those with the best intentions</a> towards impartiality, add some aspects of themselves as an imprint on their work.</a>
+  <p>Creating a formal system is no easy task. All decisions made by an individual, even <a href="http://www.oxforddictionaries.com/us/external/files/Garner_s_American_The_Ongoing_Struggles_of_Garlic-Hangers.pdf?version=2014-10-15-1630">those with the best intentions</a> towards impartiality, add some aspects of themselves as an imprint on their work.</a>
   </p>
-  <p>Programming languages are relatively nascent technologies. The first widely used languages are only around fifty years old. Many people have relatives who are older than computer programming's entire history. As many have noted, often what seem to be the <a href="http://c2.com/cgi/wiki?IfSmalltalkIsSoGoodWhyDoesNobodyUseIt">better language</a> loses out to something else.</p>
 
-  <p>What we know to be the entire breadth of programming syntax and concepts comes from institutions, often with particular personal interests and business objectives attached to the success of their languages. I believe programming culture has succumbed to a certain set of central tendencies:</p>
+  <p>Programming languages are a relatively nascent technology. The first imperative programming languages appeared in the mid 1950s, making the field of programming roughly sixty years old. Unsuprisingly, many people have relatives who are older than our field's entire history.</p>
 
-  <h3>Predisposition towards Rational Argument</h3>
+  <p>A programming language has the special requirement of requiring a <b>compiler</b>, a special set of code that interprets and encodes the meaning of the language in lower-level machine code. This requirement creates conditions where many languages are mostly authored by the single individuals, most likely engineers, who are responsible for developing their machine implementation.</p>
+
+  <p>Even now what we know to be the entire breadth of programming syntax and concepts comes from small teams at academic institutions and corporations, who at their worst, have particular interests or business objectives attached to the success of their languages, and at their best, are biased to an expressed ideological agenda.  As many have noted, often what seem later to be the <a href="http://c2.com/cgi/wiki?IfSmalltalkIsSoGoodWhyDoesNobodyUseIt">better language</a> lose out.</p>
+
+  <table class="ui very basic celled table">
+    <thead>
+      <th class="eight wide">Linguistic Concept</th>
+      <th class="eight wide">Programming Concept</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Words</td>
+        <td>Instances</td>
+      </tr>
+      <tr>
+        <td>Ideals (Forms)</td>
+        <td>Classes</td>
+      </tr>
+      <tr>
+        <td>Modifiers</td>
+        <td>Properties, Settings</td>
+      </tr>
+      <tr>
+        <td>Verbs</td>
+        <td>Methods</td>
+      </tr>
+      <tr>
+        <td>Tense</td>
+        <td>State</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Predisposition towards Individual Rational Argument</h3>
 
    <p>Many programmers not only solve complex abstract problems routinely, but spend their free time thinking about the meta-tendencies of solving problems. How can i write this quicker next time? How can I avoid repetitive tasks? How can I abstract this out to be re-used? There is a fundamental tendency for computer programmers who are innate problem solvers to look for intellectual solutions to problems, to see all problems as solvable using the same techniques which problems are solved inside the curly quotes of programming.</p>
 

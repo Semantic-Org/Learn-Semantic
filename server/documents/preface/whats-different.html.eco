@@ -29,7 +29,7 @@ type        : 'Preface'
     <p>Interface definitions in Semantic are, with some <a href="http://beta.semantic-ui.com/elements/icon.html">small exceptions</a>, tag agnostic. That means you can use div, article, section, span without affecting the display of the element. Special tags like a, table, td still carry special meaning in certain circumstances however.</p>
 
     <h3 class="ui header">
-      Powerful tools for expressing groups and collections.
+      Concise and Expressive
     </h3>
     <p>In English it's much easier to say "There are three tall men" than "There is a tall man, a tall man and a tall man".</p>
     <p>Semantic elements use principles of plurality to express similarities across groups to avoid repetitive declarations.</p>
@@ -43,12 +43,13 @@ type        : 'Preface'
       Componentized UI
     </h3>
     <p>Semantic components are written in a singular style, but are not part of mandated overarching library. Only like a couple components? No problem. Using our built in build tools you can rebuild on the fly while trying out different themes, or adjust your compiled release to only contain certain components.</p>
-    <p>UI components in Semantic also are loosely coupled, meaning using several similar components together might also reap additional  benefits where their usage intersect. A popup can check for the existence of CSS transition component before using the fallback javascript animations. or a <code>ui input</code> may replace the standard input styled inside a <code>ui form</code>.</p>		+    <p>UI components in Semantic are also loosely coupled. This means using several similar components together might reap additional benefits where their usage intersect. A popup can check for the existence of a CSS transition component before using the fallback javascript animations. or a <code>ui input</code> may replace the standard input styled inside a <code>ui form</code>.</p>
+
+    <p>UI components in Semantic also are loosely coupled, meaning using several similar components together might also reap additional  benefits where their usage intersect. A popup will check for the existence of CSS transition component before using a fallback javascript animations, or including <code>ui input</code> may improve upon the standard input styled inside <code>ui form</code>.</p>
 
     <h3 class="ui header">
       Develop Once, Redesign Infinitely
     </h3>
-    <p>Creating a site in Semantic means you never have to rewrite your codebase from scratch. Redesigning means retooling your UI toolkit, adjusting UI definitions, not creating entirely new HTML.</p>
+    <p>Creating a site in Semantic means you never have to rewrite your codebase from scratch. Redesigning means retooling your UI toolkit, adjusting UI definitions, not creating entirely new HTML layouts.</p>
 
     <h3 class="ui header">
       Only the important stuff
