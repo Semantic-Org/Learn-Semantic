@@ -40,6 +40,7 @@
 /* Content */
 @contentDistance: 0.5em;
 @contentLineHeight: 1.2em;
+@contentLineHeightOffset: (@contentLineHeight - 1em) / 2;
 @contentVerticalAlign: middle;
 
 /* Link */
@@ -71,7 +72,9 @@
 --------------------*/
 
 /* Float */
-@floatMargin: 1em;
+@floatDistance: 1em;
+@leftFloatMargin: 0em @floatDistance 0em 0em;
+@rightFloatMargin: 0em 0em 0em @floatDistance;
 
 /* Horizontal */
 @horizontalSpacing: 1em;
@@ -137,7 +140,6 @@
   0.2s background-color ease
 ;
 @animatedListIndent: 1em;
-@animatedListChildIndent: 0.5em;
 
 /* Bulleted */
 @bulletDistance: 1rem;
@@ -151,7 +153,6 @@
 
 /* Horizontal Bullets */
 @horizontalBulletSpacing: 1.5rem;
-@horizontalBulletOffset: -1.1rem;
 
 /* Ordered List */
 @orderedCountName: ordered;
@@ -162,7 +163,7 @@
 @orderedCountTextAlign: right;
 @orderedCountVerticalAlign: middle;
 
-@orderedChildCountDistance: 2em;
+@orderedChildCountDistance: 1em;
 @orderedChildCountOffset: -2em;
 
 /* Horizontal Ordereded */
@@ -201,13 +202,3 @@
 @veryRelaxedHeaderMargin: 0.5rem;
 @veryRelaxedHorizontalPadding: 2rem;
 
-
-/* Sizes */
-@mini: 0.7rem;
-@tiny: 0.8rem;
-@small: 0.9rem;
-@medium: 1rem;
-@large: 1.1rem;
-@big: 1.2rem;
-@huge: 1.3rem;
-@massive: 1.5rem;

@@ -102,8 +102,9 @@ i.emphasized.icon {
   opacity: 1;
 }
 
-i.icon.disabled {
-  opacity: @disabledOpacity;
+i.disabled.icon {
+  pointer-events: none;
+  opacity: @disabledOpacity !important;
 }
 
 
@@ -118,7 +119,7 @@ i.icon.disabled {
 
 i.link.icon {
   cursor: pointer;
-  opacity: @opacity;
+  opacity: @linkOpacity;
   transition: opacity @transitionDuration @transitionEasing;
 }
 i.link.icon:hover {

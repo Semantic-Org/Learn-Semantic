@@ -13,7 +13,7 @@
 
 "use strict";
 
-$.tab = $.fn.tab = function(parameters) {
+$.fn.tab = function(parameters) {
 
   var
     // use window context if none specified
@@ -37,7 +37,6 @@ $.tab = $.fn.tab = function(parameters) {
     returnedValue
   ;
 
-
   $allModules
     .each(function() {
       var
@@ -51,13 +50,13 @@ $.tab = $.fn.tab = function(parameters) {
         moduleNamespace    = 'module-' + settings.namespace,
 
         $module            = $(this),
-        $tabs              = $(selector.tabs),
 
         cache              = {},
         firstLoad          = true,
         recursionDepth     = 0,
 
         $context,
+        $tabs,
         activeTabPath,
         parameterArray,
         historyEvent,
@@ -71,10 +70,8 @@ $.tab = $.fn.tab = function(parameters) {
         initialize: function() {
           module.debug('Initializing tab menu item', $module);
 
-          if(settings.context) {
-            module.determineTabs();
-            module.debug('Using only tabs inside context', settings.context, $tabs);
-          }
+          module.determineTabs();
+          module.debug('Determining tabs', settings.context, $tabs);
 
           // set up automatic routing
           if(settings.auto) {
@@ -98,21 +95,28 @@ $.tab = $.fn.tab = function(parameters) {
           var
             $reference
           ;
+
+          // determine tab context
           if(settings.context === 'parent') {
-            if($module.closest('.' + className.ui).size() > 0) {
-              $reference = $module.closest('.' + className.ui);
+            if($module.closest(selector.ui).size() > 0) {
+              $reference = $module.closest(selector.ui);
               module.verbose('Using closest UI element for determining parent', $reference);
             }
             else {
               $reference = $module;
             }
             $context = $reference.parent();
-            module.verbose('Determining parent element for creating context', $context);
+            module.verbose('Determined parent element for creating context', $context);
           }
-          else {
+          else if(settings.context) {
             $context = $(settings.context);
             module.verbose('Using selector for tab context', settings.context, $context);
           }
+          else {
+            $context = $('body');
+          }
+
+          // find tabs
           if(settings.childrenOnly) {
             $tabs = $context.children(selector.tabs);
             module.debug('Searching tab context children for tabs', $context, $tabs);
@@ -153,6 +157,7 @@ $.tab = $.fn.tab = function(parameters) {
 
         instantiate: function () {
           module.verbose('Storing instance of module', module);
+          instance = module;
           $module
             .data(moduleNamespace, module)
           ;
@@ -308,13 +313,13 @@ $.tab = $.fn.tab = function(parameters) {
                 $.proxy(settings.onTabLoad, $tab)(currentPath, parameterArray, historyEvent);
               }
             }
-            else {
+            else if(tabPath.search('/') == -1 && tabPath !== '') {
               // look for in page anchor
-              $anchor     = $('#' + tabPath + ', a[name="' + tabPath + '"]');
+              $anchor     = $('#' + tabPath + ', a[name="' + tabPath + '"]'),
               currentPath = $anchor.closest('[data-tab]').data('tab');
               $tab        = module.get.tabElement(currentPath);
               // if anchor exists use parent tab
-              if($anchor.size() > 0 && currentPath) {
+              if($anchor && $anchor.size() > 0 && currentPath) {
                 module.debug('No tab found, but deep anchor link present, opening parent tab');
                 module.activate.all(currentPath);
                 if( !module.cache.read(currentPath) ) {
@@ -322,10 +327,11 @@ $.tab = $.fn.tab = function(parameters) {
                   module.debug('First time tab loaded calling tab init');
                   $.proxy(settings.onTabInit, $tab)(currentPath, parameterArray, historyEvent);
                 }
+                return false;
               }
-              else {
-                module.error(error.missingTab, $module, currentPath);
-              }
+            }
+            else {
+              module.error(error.missingTab, $module, $context, currentPath);
               return false;
             }
           });
@@ -691,7 +697,6 @@ $.tab = $.fn.tab = function(parameters) {
           return found;
         }
       };
-
       if(methodInvoked) {
         if(instance === undefined) {
           module.initialize();
@@ -717,52 +722,39 @@ $.tab = $.fn.tab = function(parameters) {
 };
 
 // shortcut for tabbed content with no defined navigation
-$.tab = function(settings) {
-  $(window).tab(settings);
+$.tab = function() {
+  $(window).tab.apply(this, arguments);
 };
 
 $.fn.tab.settings = {
 
-  name        : 'Tab',
-  namespace   : 'tab',
+  name            : 'Tab',
+  namespace       : 'tab',
 
-  debug       : false,
-  verbose     : false,
-  performance : false,
+  debug           : false,
+  verbose         : true,
+  performance     : true,
 
-  // only called first time a tab's content is loaded (when remote source)
-  onTabInit   : function(tabPath, parameterArray, historyEvent) {},
+  auto            : false,  // uses pjax style endpoints fetching content from same url with remote-content headers
+  history         : false,  // use browser history
+  historyType     : 'hash', // #/ or html5 state
+  path            : false,  // base path of url
 
-  // called on every load
-  onTabLoad   : function(tabPath, parameterArray, historyEvent) {},
+  context         : false,  // specify a context that tabs must appear inside
+  childrenOnly    : false,  // use only tabs that are children of context
+  maxDepth        : 25,     // max depth a tab can be nested
 
-  templates   : {
-    determineTitle: function(tabArray) {}
+  alwaysRefresh   : false,  // load tab content new every tab click
+  cache           : true,   // cache the content requests to pull locally
+  ignoreFirstLoad : false,  // don't load remote content on first load
+  apiSettings     : false,  // settings for api call
+
+  onTabInit    : function(tabPath, parameterArray, historyEvent) {}, // called first time loaded
+  onTabLoad    : function(tabPath, parameterArray, historyEvent) {}, // called on every load
+
+  templates    : {
+    determineTitle: function(tabArray) {} // returns page title for path
   },
-
-  // uses pjax style endpoints fetching content from same url with remote-content headers
-  auto            : false,
-  history         : false,
-  historyType     : 'hash',
-  path            : false,
-
-  context         : false,
-  childrenOnly    : false,
-
-  // max depth a tab can be nested
-  maxDepth        : 25,
-
-  // dont load content on first load
-  ignoreFirstLoad : false,
-
-  // load tab content new every tab click
-  alwaysRefresh   : false,
-
-  // cache the content requests to pull locally
-  cache           : true,
-
-  // settings for api call
-  apiSettings     : false,
 
   error: {
     api        : 'You attempted to load content without API module',
@@ -771,7 +763,7 @@ $.fn.tab.settings = {
     noContent  : 'The tab you specified is missing a content url.',
     path       : 'History enabled, but no path was specified',
     recursion  : 'Max recursive depth reached',
-    state      : 'The state library has not been initialized'
+    state      : 'History requires Asual\'s Address library <https://github.com/asual/jquery-address>'
   },
 
   metadata : {
@@ -782,12 +774,12 @@ $.fn.tab.settings = {
 
   className   : {
     loading : 'loading',
-    active  : 'active',
-    ui      : 'ui'
+    active  : 'active'
   },
 
   selector    : {
-    tabs : '.ui.tab'
+    tabs : '.ui.tab',
+    ui   : '.ui'
   }
 
 };

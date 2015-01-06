@@ -12,12 +12,13 @@
 /* Style */
 @backgroundColor: #E0E0E0;
 @backgroundImage: none;
-@verticalPadding: 0.8em;
+@verticalPadding: 0.78571em;
 @horizontalPadding: 1.5em;
 
 /* Text */
 @textTransform: none;
 @tapColor: transparent;
+@fontFamily: @pageFont;
 @fontWeight: bold;
 @textColor: rgba(0, 0, 0, 0.6);
 @textShadow: none;
@@ -42,10 +43,12 @@
 /* Icon */
 @iconOpacity: 0.8;
 @iconDistance: 0.4em;
+@iconColor: '';
 @iconTransition: opacity @transitionDuration @transitionEasing;
+@iconVerticalAlign: baseline;
+
 @iconMargin: 0em @iconDistance 0em -(@iconDistance / 2);
 @rightIconMargin: 0em -(@iconDistance / 2) 0em @iconDistance;
-@iconVerticalAlign: baseline;
 
 /* Loader */
 @loaderSize: 1.2857em;
@@ -60,6 +63,10 @@
   box-shadow 0.1s @transitionEasing,
   background 0.1s @transitionEasing
 ;
+/*
+@willChange: box-shadow, transform, opacity, color, background;
+*/
+@willChange: '';
 
 /*-------------------
         Group
@@ -96,9 +103,10 @@
 /* Pressed Down */
 @downBackgroundColor: #CCCCCC;
 @downBackgroundImage: '';
+@downPressedShadow: 0px 1px 4px 0px @borderColor inset !important;
 @downBoxShadow:
   @borderBoxShadow,
-  0px 1px 4px 0px @borderColor inset !important
+  @downPressedShadow
 ;
 @downColor: @pressedTextColor;
 
@@ -129,7 +137,7 @@
 
 @orCircleDistanceToEdge: (@verticalPadding);
 @orCircleSize: @orHeight - @orCircleDistanceToEdge;
-@orLineHeight: (@orCircleSize - 0.2em);
+@orLineHeight: (@orCircleSize);
 @orBoxShadow: @borderBoxShadow;
 
 @orVerticalOffset: -(@orCircleSize / 2);
@@ -168,6 +176,7 @@
 /* Basic */
 @basicBorderRadius: @borderRadius;
 @basicBorderSize: 1px;
+@basicTextColor: @textColor;
 @basicColoredBorderSize: 2px;
 
 @basicBackground: transparent;
@@ -179,12 +188,14 @@
 
 /* Basic Hover */
 @basicHoverBackground: #FAFAFA;
+@basicHoverTextColor: @hoveredTextColor;
 @basicHoverBoxShadow:
   0px 0px 0px @basicBorderSize @borderColor inset,
   0px 0px 0px 0px @borderColor inset
 ;
 /* Basic Down */
 @basicDownBackground: #F8F8F8;
+@basicDownTextColor: @pressedTextColor;
 @basicDownBoxShadow:
   0px 0px 0px @basicBorderSize rgba(0, 0, 0, 0.15) inset,
   0px 1px 4px 0px @borderColor inset
@@ -192,7 +203,7 @@
 /* Basic Active */
 @basicActiveBackground: @transparentBlack;
 @basicActiveBoxShadow: '';
-@basicActiveColor: @selectedTextColor;
+@basicActiveTextColor: @selectedTextColor;
 
 /* Basic Inverted */
 @basicInvertedBackground: transparent;
@@ -247,10 +258,8 @@
 @floatedMargin: 0.25em;
 
 /* Animated */
+@animatedVerticalAlign: middle;
 @animationDuration: 0.3s;
 @animationEasing: ease;
 @fadeScaleHigh: 1.5;
 @fadeScaleLow: 0.75;
-
-
-/* Sizing (Uses Defaults) */

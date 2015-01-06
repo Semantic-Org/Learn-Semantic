@@ -88,13 +88,14 @@
 @likeActiveColor: #FF2733;
 
 /* Links */
-@contentLinkTransition: color @transitionDuration @transitionEasing;
-@contentLinkColor: @linkColor;
-@contentLinkHoverColor: @linkHoverColor;
 @headerLinkColor: @headerColor;
 @headerLinkHoverColor: @linkHoverColor;
 @metaLinkColor: @lightTextColor;
 @metaLinkHoverColor: @textColor;
+@contentLinkColor: '';
+@contentLinkHoverColor: '';
+@contentLinkTransition: color @transitionDuration @transitionEasing;
+
 
 /* Description */
 @descriptionDistance: 0.6em;
@@ -117,7 +118,7 @@
 
 /* Additional Content */
 @extraDivider: none;
-@extraSpacing: 0.5rem;
+@extraHorizontalSpacing: 0.5rem;
 @extraRowSpacing: 0.5rem;
 
 @extraBackground: none;

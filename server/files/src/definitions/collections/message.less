@@ -140,12 +140,23 @@
             States
 *******************************/
 
-.ui.message.visible,
-.ui.header.visible {
-  display: block !important;
+/*--------------
+    Visible
+---------------*/
+
+.ui.visible.visible.visible.visible.message {
+  display: block;
 }
-.ui.message.hidden,
-.ui.header.hidden {
+
+.ui.icon.visible.visible.visible.visible.message {
+  display: table;
+}
+
+/*--------------
+     Hidden
+---------------*/
+
+.ui.hidden.hidden.hidden.hidden.message {
   display: none;
 }
 
@@ -413,19 +424,19 @@
 ---------------*/
 
 .ui.small.message {
-  font-size: @small;
+  font-size: @relativeSmall;
 }
 .ui.message {
-  font-size: @medium;
+  font-size: @relativeMedium;
 }
 .ui.large.message {
-  font-size: @large;
+  font-size: @relativeLarge;
 }
 .ui.huge.message {
-  font-size: @huge;
+  font-size: @relativeHuge;
 }
 .ui.massive.message {
-  font-size: @massive;
+  font-size: @relativeMassive;
 }
 
 .loadUIOverrides();

@@ -267,7 +267,7 @@ $.fn.search = function(parameters) {
               else if(settings.apiSettings) {
                 module.search.remote(searchTerm);
               }
-              else if($.api !== undefined && $.api.settings.api.search !== undefined) {
+              else if($.fn.api !== undefined && $.api.settings.api.search !== undefined) {
                 module.debug('Searching with default search API endpoint');
                 settings.apiSettings = {
                   action: 'search'
@@ -302,10 +302,10 @@ $.fn.search = function(parameters) {
                   notAlreadyResult = ($.inArray(content, results) == -1 && $.inArray(content, fullTextResults) == -1)
                 ;
                 if(fieldExists && notAlreadyResult) {
-                  if( searchRegExp.test( content[field] ) ) {
+                  if( content[field].match(searchRegExp) ) {
                     results.push(content);
                   }
-                  else if( settings.searchFullText && fullTextRegExp.test( content[field] ) ) {
+                  else if( settings.searchFullText && content[field].match(fullTextRegExp) ) {
                     fullTextResults.push(content);
                   }
                 }
@@ -713,7 +713,7 @@ $.fn.search.settings = {
   },
 
   error : {
-    source      : 'No source or api action specified',
+    source      : 'Cannot search. No source used, and Semantic API module was not included',
     noResults   : 'Your search returned no results',
     logging     : 'Error in debug logging, exiting.',
     noTemplate  : 'A valid template name was not specified.',

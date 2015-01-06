@@ -22,12 +22,14 @@
 @barHeight: 1.75em;
 @barBackground: #888888;
 @barBorderRadius: @borderRadius;
+@barTransitionEasing: ease;
+@barTransitionDuration: 0.3s;
 @barTransition:
-  width 0.5s @defaultEasing,
-  background-color 1s @defaultEasing
+  width @barTransitionDuration @barTransitionEasing,
+  background-color @barTransitionDuration @barTransitionEasing
 ;
 @barInitialWidth: 0%;
-@barMinWidth: 0.25em;
+@barMinWidth: 2em;
 
 /* Progress Bar Label */
 @progressWidth: auto;
@@ -57,7 +59,7 @@
 @labelTextShadow: none;
 @labelFontWeight: bold;
 @labelTextAlign: center;
-@labelTransition: color 1s @defaultEasing;
+@labelTransition: color 0.4s @defaultEasing;
 
 /*-------------------
         Types
@@ -79,15 +81,16 @@
 @activePulseColor: @white;
 @activePulseMaxOpacity: 0.3;
 @activePulseDuration: 2s;
-@activeMinWidth: 3em;
+@activeMinWidth: @barMinWidth;
 
 
 /*-------------------
-        Types
+      Variations
 --------------------*/
 
 /* Attached */
-@attachedHeight: 0.25em;
+@attachedBackground: transparent;
+@attachedHeight: 3px;
 @attachedBorderRadius: @borderRadius;
 
 /* Inverted */
@@ -96,3 +99,9 @@
 @invertedBarBackground: @barBackground;
 @invertedProgressColor: @offWhite;
 @invertedLabelColor: @white;
+
+/* Sizing */
+@tinyBarHeight: 0.5em;
+@smallBarHeight: 1em;
+@largeBarHeight: 2.5em;
+@bigBarHeight: 3.5em;

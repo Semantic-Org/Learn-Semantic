@@ -1,5 +1,5 @@
  /*
- * # Semantic UI
+ * # Semantic UI - 1.6.1
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -105,6 +105,7 @@
 .ui.ordered.steps .step:before {
   display: table-cell;
   position: static;
+  text-align: center;
   content: counters(ordered, ".");
   vertical-align: middle;
   padding-right: 0.6em;
@@ -144,6 +145,35 @@
 /* Active Arrow */
 .ui.vertical.steps .active.step:after {
   display: block;
+}
+
+/*---------------
+    Responsive
+----------------*/
+
+
+/* Mobile (Default) */
+@media only screen and (max-width: 767px) {
+  .ui.steps {
+    overflow: visible;
+  }
+  .ui.steps .step {
+    display: block;
+    border-radius: 0em;
+    padding: 0.9285em 1.5em;
+  }
+  .ui.steps .step:first-child {
+    padding: 0.9285em 1.5em;
+    border-radius: 0.2857rem 0.2857rem 0em 0em;
+  }
+  .ui.steps .step:last-child {
+    border-radius: 0em 0em 0.2857rem 0.2857rem;
+  }
+  
+/* Arrow */
+  .ui.steps .step:after {
+    display: none;
+  }
 }
 
 
@@ -254,12 +284,51 @@
 *******************************/
 
 
+/*--------------
+   Stackable
+---------------*/
+
+
+/* Tablet Or Below */
+@media only screen and (min-width: 992px) {
+  .ui[class*="tablet stackable"].steps {
+    overflow: visible;
+  }
+  .ui[class*="tablet stackable"].steps .step {
+    display: block;
+    border-radius: 0em;
+    padding: 0.9285em 1.5em;
+  }
+  .ui[class*="tablet stackable"].steps .step:first-child {
+    padding: 0.9285em 1.5em;
+    border-radius: 0.2857rem 0.2857rem 0em 0em;
+  }
+  .ui[class*="tablet stackable"].steps .step:last-child {
+    border-radius: 0em 0em 0.2857rem 0.2857rem;
+  }
+  
+/* Arrow */
+  .ui[class*="tablet stackable"].steps .step:after {
+    display: none;
+  }
+}
+
+/*--------------
+      Fluid
+---------------*/
+
+
 /* Fluid */
 .ui.fluid.steps {
   width: 100%;
 }
 
-/* Attached */
+/*--------------
+    Attached
+---------------*/
+
+
+/* Top */
 .attached.ui.steps {
   margin: 0em;
   border-radius: 0.2857rem 0.2857rem 0em 0em;
@@ -271,9 +340,9 @@
   border-radius: 0em 0.2857rem 0em 0em;
 }
 
-/* Bottom Side */
+/* Bottom */
 .bottom.attached.ui.steps {
-  margin-top: -1px;
+  margin: -1px 0em 0em;
   border-radius: 0em 0em 0.2857rem 0.2857rem;
 }
 .bottom.attached.ui.steps .step:first-child {
@@ -283,7 +352,10 @@
   border-radius: 0em 0em 0.2857rem 0em;
 }
 
-/* Evenly divided  */
+/*-------------------
+    Evenly Divided
+--------------------*/
+
 .ui.one.steps,
 .ui.two.steps,
 .ui.three.steps,
@@ -319,10 +391,9 @@
   width: 12.500%;
 }
 
-
-/*******************************
-             Sizes
-*******************************/
+/*-------------------
+       Sizes
+--------------------*/
 
 .ui.small.step,
 .ui.small.steps .step {
@@ -349,7 +420,7 @@
 .ui.steps .step.completed > .icon:before,
 .ui.ordered.steps .step.completed:before {
   font-family: 'Step';
-  content: '\e800'
+  content: '\e800';
   
 /* '' */
 }

@@ -154,15 +154,11 @@
   font-size: @headerFontSize;
 }
 
-.ui.items > .item > .content > .meta + .description{
-  margin-top: @descriptionDistance;
-}
-
 /*--------------
      Floated
 ---------------*/
 
-.ui.items > .item  .left.floated {
+.ui.items > .item [class*="left floated"] {
   float: left;
 }
 .ui.items > .item [class*="right floated"] {
@@ -192,6 +188,7 @@
 ---------------*/
 
 .ui.items > .item > .content > .description {
+  margin-top: @descriptionDistance;
   max-width: @descriptionMaxWidth;
   font-size: @descriptionFontSize;
   line-height: @descriptionLineHeight;
@@ -235,11 +232,11 @@
 ---------------*/
 
 /* Generic */
-.ui.items > .item > .content a {
+.ui.items > .item > .content a:not(.ui) {
   color: @contentLinkColor;
   transition: @contentLinkTransition;
 }
-.ui.items > .item > .content a:hover {
+.ui.items > .item > .content a:not(.ui):hover {
   color: @contentLinkHoverColor;
 }
 
@@ -252,10 +249,10 @@
 }
 
 /* Meta */
-.ui.items > .item .meta a {
+.ui.items > .item .meta > a:not(.ui) {
   color: @metaLinkColor;
 }
-.ui.items > .item .meta a:hover {
+.ui.items > .item .meta > a:not(.ui):hover {
   color: @metaLinkHoverColor;
 }
 
@@ -316,10 +313,10 @@
   border-top: @extraDivider;
 }
 .ui.items > .item .extra > * {
-  margin: @extraRowSpacing @extraSpacing 0em 0em;
+  margin: (@extraRowSpacing / 2) @extraHorizontalSpacing (@extraRowSpacing / 2) 0em;
 }
 .ui.items > .item .extra > [class*="right floated"] {
-  margin: @extraRowSpacing 0em 0em @extraSpacing;
+  margin: (@extraRowSpacing / 2) 0em (@extraRowSpacing / 2) @extraHorizontalSpacing;
 }
 
 .ui.items > .item .extra:after {

@@ -57,13 +57,9 @@
   background-color: transparent;
   border-radius: 0px;
   border: none;
-  box-shadow: 0px 1px 0px @borderColor;
-}
-.ui[class*="vertical segment"]:first-child {
-  padding-top: 0em;
+  box-shadow: 0px -1px 0px @borderColor inset;
 }
 .ui[class*="vertical segment"]:last-child {
-  padding-bottom: 0em;
   box-shadow: none;
 }
 
@@ -82,11 +78,6 @@
 /*-------------------
     Loose Coupling
 --------------------*/
-
-/* Menu */
-.ui.pointing.menu + .ui.attached.segment {
-  top: 1px;
-}
 
 /* Header */
 .ui.inverted.segment > .ui.header {
@@ -173,6 +164,22 @@
   transform: rotate(-@piledDegrees);
   top: 0;
   z-index: -2;
+}
+
+/* Piled Attached */
+.ui[class*="top attached"].piled.segment {
+  margin-top: @piledMargin;
+  margin-bottom: 0em;
+}
+.ui.piled.segment[class*="top attached"]:first-child {
+  margin-top: 0em;
+}
+.ui.piled.segment[class*="bottom attached"] {
+  margin-top: 0em;
+  margin-bottom: @piledMargin;
+}
+.ui.piled.segment[class*="bottom attached"]:last-child {
+  margin-bottom: 0em;
 }
 
 /*-------------------
@@ -266,7 +273,6 @@
   text-shadow: none !important;
   color: transparent !important;
   transition: all 0s linear;
-  z-index: 100;
 }
 .ui.loading.segment:before {
   position: absolute;
@@ -351,39 +357,67 @@
 
 .ui.black.segment:not(.inverted) {
   border-top: @coloredBorderSize solid @black;
-  border-radius: @coloredBorderRadius !important;
 }
 .ui.blue.segment:not(.inverted) {
   border-top: @coloredBorderSize solid @blue;
-  border-radius: @coloredBorderRadius !important;
 }
 .ui.green.segment:not(.inverted) {
   border-top: @coloredBorderSize solid @green;
-  border-radius: @coloredBorderRadius !important;
 }
 .ui.orange.segment:not(.inverted) {
   border-top: @coloredBorderSize solid @orange;
-  border-radius: @coloredBorderRadius !important;
 }
 .ui.pink.segment:not(.inverted) {
   border-top: @coloredBorderSize solid @pink;
-  border-radius: @coloredBorderRadius !important;
 }
 .ui.purple.segment:not(.inverted) {
   border-top: @coloredBorderSize solid @purple;
-  border-radius: @coloredBorderRadius !important;
 }
 .ui.red.segment:not(.inverted) {
   border-top: @coloredBorderSize solid @red;
-  border-radius: @coloredBorderRadius !important;
 }
 .ui.teal.segment:not(.inverted) {
   border-top: @coloredBorderSize solid @teal;
-  border-radius: @coloredBorderRadius !important;
 }
 .ui.yellow.segment:not(.inverted) {
   border-top: @coloredBorderSize solid @yellow;
-  border-radius: @coloredBorderRadius !important;
+}
+
+.ui.black.segment:not(.inverted):not(.attached) {
+  border-top-left-radius: @coloredBorderRadius !important;
+  border-top-right-radius: @coloredBorderRadius !important;
+}
+.ui.blue.segment:not(.inverted):not(.attached) {
+  border-top-left-radius: @coloredBorderRadius !important;
+  border-top-right-radius: @coloredBorderRadius !important;
+}
+.ui.green.segment:not(.inverted):not(.attached) {
+  border-top-left-radius: @coloredBorderRadius !important;
+  border-top-right-radius: @coloredBorderRadius !important;
+}
+.ui.orange.segment:not(.inverted):not(.attached) {
+  border-top-left-radius: @coloredBorderRadius !important;
+  border-top-right-radius: @coloredBorderRadius !important;
+}
+.ui.pink.segment:not(.inverted):not(.attached) {
+  border-top-left-radius: @coloredBorderRadius !important;
+  border-top-right-radius: @coloredBorderRadius !important;
+}
+.ui.purple.segment:not(.inverted):not(.attached) {
+  border-top-left-radius: @coloredBorderRadius !important;
+  border-top-right-radius: @coloredBorderRadius !important;
+}
+.ui.red.segment:not(.inverted):not(.attached) {
+  border-top-left-radius: @coloredBorderRadius !important;
+  border-top-right-radius: @coloredBorderRadius !important;
+}
+.ui.teal.segment:not(.inverted):not(.attached) {
+  border-top-left-radius: @coloredBorderRadius !important;
+  border-top-right-radius: @coloredBorderRadius !important;
+}
+.ui.yellow.segment:not(.inverted):not(.attached) {
+  border-top-left-radius: @coloredBorderRadius !important;
+  border-top-right-radius: @coloredBorderRadius !important;
 }
 
 /*-------------------
@@ -481,8 +515,7 @@
 
 .ui.inverted.block.segment,
 .ui.inverted.attached.segment {
-  box-shadow: none !important;
-  border: none !important;
+  border-color: @solidWhiteBorderColor;
 }
 
 /*-------------------
@@ -523,7 +556,7 @@
   box-shadow: @attachedBoxShadow;
   border: @attachedBorder;
 }
-.ui.segment.attached + .ui.segment.attached {
+.ui.segment.attached + .ui.segment.attached:not(.top) {
   border-top: none;
 }
 

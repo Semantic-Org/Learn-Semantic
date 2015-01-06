@@ -43,14 +43,29 @@
   overflow-y: auto !important;
   z-index: @topLayer;
 }
-.ui.sidebar * {
+
+/* GPU Layers for Child Elements */
+.ui.sidebar > * {
   backface-visibility: hidden;
   transform: rotateZ(0deg);
 }
 
+
 /*--------------
    Direction
 ---------------*/
+
+.ui.left.sidebar {
+  right: auto;
+  left: 0px;
+  transform: translate3d(-100%, 0, 0);
+}
+
+.ui.right.sidebar {
+  right: 0px !important;
+  left: auto !important;
+  transform: translate3d(100%, 0%, 0);
+}
 
 .ui.top.sidebar,
 .ui.bottom.sidebar {
@@ -59,22 +74,10 @@
   overflow-y: visible !important;
 }
 
-.ui.left.sidebar {
-  right: auto;
-  left: 0px;
-  transform: translate3d(-100%, 0, 0);
-}
-
 .ui.top.sidebar {
   top: 0px !important;
   bottom: auto !important;
   transform: translate3d(0, -100%, 0);
-}
-
-.ui.right.sidebar {
-  right: 0px !important;
-  left: auto !important;
-  transform: translate3d(100%, 0%, 0);
 }
 
 .ui.bottom.sidebar {
@@ -136,7 +139,10 @@
   height: 0px;
   overflow: hidden;
   opacity: 0;
-  transition: opacity @duration;
+  transition:
+    transform @duration,
+    opacity @duration
+  ;
   will-change: opacity;
   z-index: @dimmerLayer;
 }
@@ -179,16 +185,27 @@
   visibility: visible;
 }
 
+.ui.left.visible.sidebar,
+.ui.right.visible.sidebar {
+  box-shadow: @horizontalBoxShadow;
+}
+
+.ui.top.visible.sidebar,
+.ui.bottom.visible.sidebar {
+  box-shadow: @verticalBoxShadow;
+}
 
 /*--------------
-     Mobile
+       iOS
 ---------------*/
 
-@media only screen and (max-width: @computerBreakpoint) {
-  html {
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-  }
+/*
+  iOS incorrectly sizes document when content
+  is presented outside of view with 2Dtranslate
+*/
+html.ios {
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 
@@ -196,33 +213,31 @@
           Variations
 *******************************/
 
-
 /*--------------
-      Sizes
+     Width
 ---------------*/
 
-.ui.sidebar {
-  width: @sidebarWidth !important;
+/* Left / Right */
+.ui[class*="very thin"].left.sidebar,
+.ui[class*="very thin"].right.sidebar {
+  width: @sidebarVeryThinWidth;
 }
-
-/* Sizes */
-.ui.visible.left.sidebar ~ .fixed,
-.ui.visible.left.sidebar ~ .pusher {
-  transform: translate3d(@sidebarWidth, 0, 0);
+.ui.thin.left.sidebar,
+.ui.thin.right.sidebar {
+  width: @sidebarThinWidth;
 }
-.ui.visible.right.sidebar ~ .fixed,
-.ui.visible.right.sidebar ~ .pusher {
-  transform: translate3d(-@sidebarWidth, 0, 0);
+.ui.left.sidebar,
+.ui.right.sidebar {
+  width: @sidebarWidth;
 }
-.ui.visible.top.sidebar ~ .fixed,
-.ui.visible.top.sidebar ~ .pusher {
-  transform: translate3d(0, @sidebarHeight, 0);
+.ui.wide.left.sidebar,
+.ui.wide.right.sidebar {
+  width: @sidebarWideWidth;
 }
-.ui.visible.bottom.sidebar ~ .pusher {
-  transform: translate3d(0, -@sidebarHeight, 0);
+.ui[class*="very wide"].left.sidebar,
+.ui[class*="very wide"].right.sidebar {
+  width: @sidebarVeryWideWidth;
 }
-
-
 
 /*******************************
           Animations
