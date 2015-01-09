@@ -629,6 +629,11 @@ body#example.hide {
   font-size: 16px;
 }
 
+#example .very.basic.padded.table th,
+#example .very.basic.padded.table td {
+  padding: 1.2em;
+}
+
 
 /*----------------
     Examples

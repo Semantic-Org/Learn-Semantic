@@ -78,7 +78,7 @@ Semantic codifies these descriptions of common usage into a special format that 
   </tr>
   <tr>
     <td>Modules</td>
-    <td>Elements where a behavior and design are both an essential part of its definition</td>
+    <td>Elements where behavior and design are both an essential part of its definition</td>
   </tr>
   <tr>
     <td>Behaviors</td>
@@ -99,13 +99,13 @@ You may be able to say things like in most cases "a button is clickable", "a but
 </div>
 
 
-## Varying Standard Elements
+## Varying Prototypes
 
-User interface elements most often exist with differences from a standard form. Semantic uses special names for describing these modifications to an element's standard form.
+User interface components most often exist with differences from a standard form. Semantic uses special names for describing these modifications to a component's standard form.
 
 ### Types
 
-Types are mutually exclusive forms of an element. Just like a pet cannot be both a "cat" and a "dog", types of ui elements, like a ``vertical`` menu or a ``tiered`` menu are *mutually exclusive*.
+Types are mutually exclusive forms of a ui component. Just like a pet cannot be both a "cat" and a "dog", ui types like a ``vertical`` menu or a ``tiered`` menu are *mutually exclusive* and cannot be used together.
 
 ### Variations
 

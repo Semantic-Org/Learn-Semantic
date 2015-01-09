@@ -1,6 +1,7 @@
   ---
 layout      : 'default'
 css         : 'guide'
+standalone  : true
 
 title       : 'Getting Started'
 description : 'Setting up Semantic UI build tools'
