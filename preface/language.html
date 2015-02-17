@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  
+  
+  
+
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <link rel="image_src" type="image/jpeg" href="/images/logo.png" />
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.69.1" />
+  <title>On Language | Semantic UI</title>
+
+  <meta name="description" content="Semantic empowers designers and developers by creating a shared vocabulary for UI." />
+  <meta name="keywords" content="html5, ui, library, framework, javascript" />
+
+  
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/semantic.min.css">
+  
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/docs.css">
+
+  
+  <script>
+  (function () {
+    var
+      eventSupport = ('querySelector' in document && 'addEventListener' in window)
+      jsonSupport  = (typeof JSON !== 'undefined'),
+      jQuery       = (eventSupport && jsonSupport)
+        ? '/javascript/library/jquery.min.js'
+        : '/javascript/library/jquery.legacy.min.js'
+    ;
+    document.write('<script src="' + jQuery + '"><\/script>');
+  }());
+  </script>
+  
+
+  <script src="/javascript/library/highlight.js"></script>
+  <script src="/javascript/library/highlight.languages.js"></script>
+  <script src="/javascript/library/history.js"></script>
+  <script src="/javascript/library/easing.js"></script>
+  <script src="/javascript/library/tablesort.js"></script>
+  <script src="/javascript/library/typing.js"></script>
+
+  
+  <script src="/dist/semantic.min.js"></script>
+  
+
+  <script src="/javascript/docs.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Karma:600,400' rel='stylesheet' type='text/css'>
+</head>
+<body id="example" class="pushable guide" ontouchstart="">
+
+  <div id="menu" class="ui vertical inverted sidebar menu" style="">
+  <div class="item">
+    <a href="/" class="ui logo icon image">
+      <img src="/images/learn-logo.png">
+    </a>
+    <a href="/">
+      <b>Learn Semantic</b>
+    </a>
+  </div>
+  <div class="item">
+    <div class="ui small inverted header">
+      <b>Preface</b>
+    </div>
+    <div class="menu">
+      <a href="/preface/introduction.html" class="item">
+        Introduction
+      </a>
+<!--         <div href="/preface/language.html" class="disabled item">
+        On Language
+      </div> -->
+      <a href="/preface/whats-different.html" class="item">
+        What's Different
+      </a>
+    </div>
+  </div>
+  <div class="item">
+    <div class="ui small inverted header">
+      <b>Getting Started</b>
+    </div>
+    <div class="menu">
+      <a href="/guide/download.html" class="item">
+        Download
+      </a>
+      <a href="/guide/expert.html" class="item">
+        Getting Started
+      </a>
+      <!--
+      <div href="/guide/beginner.html" class="disabled item">
+        Beginner Guide
+      </div>
+      <a href="/guide/expert.html" class="item">
+        Expert Guide
+      </a> -->
+    </div>
+  </div>
+  <div class="item">
+    <div class="ui small inverted header">
+      <b>Developing</b>
+    </div>
+    <div class="menu">
+      <a href="/developing/customizing.html" class="item">
+        Customizing
+      </a>
+      <a href="/developing/glossary.html" class="item">
+        Glossary
+      </a>
+<!--         <div href="/developing/extending.html" class="disabled item">
+        Extending
+      </div>
+      <div href="/developing/best-practices.html" class="disabled item">
+        Best Practices
+      </div>
+      <div href="/developing/faq.html" class="disabled item">
+        FAQ
+      </div>
+      <div href="/developing/support.html" class="disabled item">
+        Getting Support
+      </div> -->
+    </div>
+  </div>
+  <div class="item">
+    <div class="ui small inverted header">
+      <b>Theming</b>
+    </div>
+    <div class="menu">
+      <a href="/themes/overview.html" class="item">
+        Overview
+      </a>
+      <a href="/themes/creating.html" class="item">
+        Creating Themes
+      </a>
+    </div>
+  </div>
+  <div class="item">
+    <div class="ui small inverted header">
+      <b>Definitions</b>
+    </div>
+    <div class="menu">
+      <a href="/definitions/overview.html" class="item">
+        Overview
+      </a>
+      <!--
+      <a href="/definitions/how-to-read.html" class="item">
+        How to Read
+      </a>
+      <div href="/definitions/elements.html" class="disabled item">
+        Elements
+      </div>
+      <div href="/definitions/collections.html" class="disabled item">
+        Collections
+      </div>
+      <div href="/definitions/views.html" class="disabled item">
+        Views
+      </div>
+      <div href="/definitions/modules.html" class="disabled item">
+        Modules
+      </div>
+      <div href="/definitions/behaviors.html" class="disabled item">
+        Behaviors
+      </div>
+      -->
+    </div>
+  </div>
+  <!--
+  <div class="item">
+    <div class="ui small inverted header">
+      <b>Conventions</b>
+    </div>
+    <div class="menu">
+      <div href="/conventions/css.html" class="disabled item">
+        CSS
+      </div>
+      <div href="/conventions/classnames.html" class="disabled item">
+        Class Names
+      </div>
+      <div href="/conventions/html.html" class="disabled item">
+        HTML
+      </div>
+      <div href="/conventions/javascript.html" class="disabled item">
+        Javascript
+      </div>
+      <div href="/conventions/terms.html" class="disabled item">
+        Terms Glossary
+      </div>
+      <div href="/conventions/variables.html" class="disabled item">
+        Variables
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="ui small inverted header">
+      <b>Semantic Project</b>
+    </div>
+    <div class="menu">
+      <div href="/project/author.html" class="disabled item">
+        About the Author
+      </div>
+      <div href="/project/contributing.html" class="disabled item">
+        Contributing
+      </div>
+      <div href="/project/donating.html" class="disabled item">
+        Donating
+      </div>
+    </div>
+  </div> -->
+</div>
+
+  <div class="ui fixed inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="content icon"></i></a>
+      <div class="title item">
+        <b>Draft:</b> On Language
+      </div>
+      
+      <a class="icon item" href="/definitions/how-to-read.html"><i class="left chevron icon"></i></a>
+      
+      <div class="section ui page dropdown link item">
+        <span class="count">8 of 13</span>
+        <div class="menu">
+          
+            <a class="item" href="/developing/extending.html">
+              Adding Components
+            </a>
+          
+            <a class="item" href="/guide/beginner.html">
+              Beginner Guide
+            </a>
+          
+            <a class="item" href="/definitions/behaviors.html">
+              Behaviors
+            </a>
+          
+            <a class="item" href="/definitions/collections.html">
+              Collections
+            </a>
+          
+            <a class="item" href="/themes/downloading.html">
+              Downloading Themes
+            </a>
+          
+            <a class="item" href="/developing/faq.html">
+              FAQ
+            </a>
+          
+            <a class="item" href="/definitions/how-to-read.html">
+              How to Read Definitions
+            </a>
+          
+            <a class="active item" href="/preface/language.html">
+              On Language
+            </a>
+          
+            <a class="item" href="/developing/quick-start.html">
+              Quick Start
+            </a>
+          
+            <a class="item" href="/developing/support.html">
+              Resources &amp; Support
+            </a>
+          
+            <a class="item" href="/definitions/elements.html">
+              UI Elements
+            </a>
+          
+            <a class="item" href="/definitions/modules.html">
+              UI Modules
+            </a>
+          
+            <a class="item" href="/definitions/views.html">
+              Views
+            </a>
+          
+        </div>
+      </div>
+      
+      <a class="icon item" href="/developing/quick-start.html"><i class="right chevron icon"></i></a>
+      
+      <div class="right menu">
+        <div class="vertically fitted borderless item">
+          <iframe class="github" src="http://ghbtns.com/github-btn.html?user=semantic-org&amp;repo=semantic-ui&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+        </div>
+        <a class="popup icon github item" data-content="View project on GitHub" href="https://github.com/Semantic-Org/Semantic-UI">
+          <i class="alternate github icon"></i>
+        </a>
+        <!--
+        <div class="ui language dropdown item" id="languages" data-content="Select Language">
+          <i class="world icon"></i>
+          <div class="menu">
+  <div class="item" data-percent="100" data-value="en"    data-english="English">English</div>
+  <div class="item" data-percent="37"  data-value="el"    data-english="Greek">ελληνικά</div>
+  <div class="item" data-percent="30"  data-value="fr"    data-english="French">Français</div>
+  <div class="item" data-percent="30"  data-value="fa"   data-english="Persian">پارسی</div>
+  <div class="item" data-percent="21"  data-value="de"    data-english="German">Deutsch</div>
+  <div class="item" data-percent="15"  data-value="lt"    data-english="Lithuanian">Lietuvių</div>
+  <div class="item" data-percent="15"  data-value="da"    data-english="Danish">dansk</div>
+  <div class="item" data-percent="10"  data-value="es"    data-english="Spanish">Español</div>
+  <div class="item" data-percent="9"   data-value="nl"    data-english="Dutch">Nederlands</div>
+  <div class="item" data-percent="9"   data-value="hu"    data-english="Hungarian">Magyar</div>
+  <div class="item" data-percent="7"   data-value="pt_BR" data-english="Portuguese">Português</div>
+  <div class="item" data-percent="7"   data-value="vi"    data-english="Vietnamese">tiếng Việt</div>
+  <div class="item" data-percent="6"   data-value="ar"    data-english="Arabic">العربية</div>
+  <div class="item" data-percent="3"   data-value="zh"    data-english="Chinese">简体中文</div>
+  <div class="item" data-percent="2"   data-value="sv"    data-english="Swedish">svenska</div>
+  <div class="item" data-percent="0"   data-value="tr"    data-english="Turkish">Türkçe</div>
+  <div class="item" data-percent="0"   data-value="ru"    data-english="Russian">Русский</div>
+  <div class="item" data-percent="0"   data-value="ja"    data-english="Japanese">日本語</div>
+  <div class="item" data-percent="0"   data-value="kr"    data-english="Korean">한국어</div>
+  <div class="item" data-percent="0"   data-value="it"    data-english="Italian">Italiano</div>
+  <div class="item" data-precent="0"   data-value="pl"    data-englihs="Polish">polski</div>
+</div>
+        </div>
+        !-->
+      </div>
+    </div>
+  </div>
+
+  <div class="ui black big launch right attached fixed button">
+    <i class="content icon"></i>
+    <span class="text">Menu</span>
+  </div>
+
+  <div class="pusher">
+    <div class="full height">
+      
+
+<div class=" header segment">
+  <div class="container">
+    <div class="introduction">
+
+      <div class="ui huge header">
+        On Language
+        
+      </div>
+
+      <p></p>
+      
+      
+      
+      
+      
+    </div>
+    <div class="advertisement">
+      
+      <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/51619/azcarbon_2_1_0_HORIZ"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
+      
+    </div>
+    
+  </div>
+</div>
+
+<div class="main container">
+
+  <h2 class="ui header">
+    Fabricating Language
+  </h2>
+
+  <p>Language is a difficult topic to discuss directly because it is such an essential part of our experience of reality. Words are the most primitive tool at our disposal to construct meaning. So ingrained is language in our comprehension of reality that even internally we explain reality through self-dialog, a stream of consciousness championed by an internal narrator explaning reality back to ourselves.</p>
+  <p>Even though we continuously reap the benefits of language's evolution as a method of effectively exchanging meaning between biological information processing machines, we are still hesitant to accept its utility when constructing systems of codified meaning for computers, choosing instead to manufacture new formal systems for organizing information, often with a near religious devotion to the prescribed axioms and standards of its creators.</p>
+
+  <h2 class="ui header">
+    Tending to Tendencies
+  </h2>
+
+  <blockquote>
+    "I lay claim in this novel", I heard him say, "to the essential qualities of all games: symmetry, arbitrary rules, tedium."
+    <p>~Borges' <a href="http://books.google.com/books?id=1FrJqcRILaoC&pg=PA75&lpg=PA75&dq=lay+claim+in+this+novel+game+tedium+borges&source=bl&ots=pUWUsG99R-&sig=zJqgEd7QE38_IWO8kVsY-0ODf0Y&hl=en&sa=X&ei=q15VVJyvIM3LsASDzYDIDw&ved=0CDIQ6AEwAg#v=onepage&q=lay%20claim%20in%20this%20novel%20game%20tedium%20borges&f=false">Ficciones</a>
+  </blockquote>
+
+  <p>Creating a formal system is no easy task. All decisions made by an individual, even <a href="http://www.oxforddictionaries.com/us/external/files/Garner_s_American_The_Ongoing_Struggles_of_Garlic-Hangers.pdf?version=2014-10-15-1630">those with the best intentions</a> towards impartiality, add some aspects of themselves as an imprint on their work.</a>
+  </p>
+
+  <p>Programming languages are a relatively nascent technology. The first imperative programming languages appeared in the mid 1950s, making the field of programming roughly sixty years old. Unsuprisingly, many people have relatives who are older than our field's entire history.</p>
+
+  <p>A programming language has the special requirement of requiring a <b>compiler</b>, a special set of code that interprets and encodes the meaning of the language in lower-level machine code. This requirement creates conditions where many languages are mostly authored by the single individuals, most likely engineers, who are responsible for developing their machine implementation.</p>
+
+  <p>Even now what we know to be the entire breadth of programming syntax and concepts comes from small teams at academic institutions and corporations, who at their worst, have particular interests or business objectives attached to the success of their languages, and at their best, are biased to an expressed ideological agenda.  As many have noted, often what seem later to be the <a href="http://c2.com/cgi/wiki?IfSmalltalkIsSoGoodWhyDoesNobodyUseIt">better language</a> lose out.</p>
+
+  <table class="ui very basic celled table">
+    <thead>
+      <th class="eight wide">Linguistic Concept</th>
+      <th class="eight wide">Programming Concept</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Words</td>
+        <td>Instances</td>
+      </tr>
+      <tr>
+        <td>Ideals (Forms)</td>
+        <td>Classes</td>
+      </tr>
+      <tr>
+        <td>Modifiers</td>
+        <td>Properties, Settings</td>
+      </tr>
+      <tr>
+        <td>Verbs</td>
+        <td>Methods</td>
+      </tr>
+      <tr>
+        <td>Tense</td>
+        <td>State</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Predisposition towards Individual Rational Argument</h3>
+
+   <p>Many programmers not only solve complex abstract problems routinely, but spend their free time thinking about the meta-tendencies of solving problems. How can i write this quicker next time? How can I avoid repetitive tasks? How can I abstract this out to be re-used? There is a fundamental tendency for computer programmers who are innate problem solvers to look for intellectual solutions to problems, to see all problems as solvable using the same techniques which problems are solved inside the curly quotes of programming.</p>
+
+   <p>These predispositions are extremely useful traits for system design, but can lead to biases as a field to intellectualize issues, to search for a unifying set of axioms which should guide all future programming. For one, simple solutions may not always feel as gratifying as <a href="http://en.wikipedia.org/wiki/Brainfuck">complex ones</a>. The current version of programmatic truth is usually seen as the Truth, the current best practices, as the only practice for a good developer, whether next year they might be disavowed or forgotten for the new big thing. Though this mania drives innovation forward, many of these <em>new big thing</em>s become the <em>old standard</em>s soon enough, but they nonetheless encourage a shared, irrational obsession with novel rational appeal.</p>
+
+  <h3>Predisposition towards Prescription</h3>
+  <p>Classifying, creating rules, drawing boundaries are all essential parts of being a programmer. Much of what makes up the functionality of programming may not have common accepted language, so individuals are forced to construct language more than many other fields. Many of those 'named things' in programming, the guts of a program, will only be read by several people in their lifetime, sometimes even one, so the conventions can be determined by particular, singular conditions.</p>
+  <p>Programmers who are limited by the predetermined syntax of interpreted languages (the parts of code defined for machines), feel bound to use similar machine-like rules for naming the parts of code defined just for other human editors.</p>
+
+  <h3>Predisposition towards the Primacy of Computational Efficiency</h3>
+  <p>Many coding languages are still chosen under the belief that the most important features of a language is computational efficiency. For a long time this was true. Systems were just too slow, and compilers too inefficient to deal with code that didn't make <b>the needs of computers paramount</b>. This may have been painfully obvious in a period of time when <a href="http://www.mkomo.com/cost-per-gigabyte-update">most personal computers didn't have hard drives</a>.</p>
+
+  <p> But this period is drawing to a close. Not only are processors' transistors now only a few nanometers wide, but compiler improvements by browser-makers increase performance by <a href="http://blog.chromium.org/2010/12/new-crankshaft-for-v8.html">double digits</a> regularly.</p>
+  <p>The age when images, text, and video cannot be constructed, manipulated, and animated on a page at sixty frames-per-second are drawing to a close, yet many programming languages do not appear to acknowledge the need to adjust for this shift in focus.</p>
+
+
+  <h2 class="ui header">Twin Brothers</h2>
+
+  <p>Even if <a href="http://en.wikipedia.org/wiki/Functionalism_(philosophy_of_mind)">pure functionalism</a> and the talk of humans as being peculiar types of machines makes you want to run and hide in a <a href="http://en.wikipedia.org/wiki/Chinese_room">far-away room</a>, the argument that natural languages are much better equipped than prescribed languages to create meaning doesn't necessarily have to be tackled philosophically.</p>
+  <p>Many features of natural languages are <a href="http://huh.ideophone.org/">convergent</a>, arising simultenously in different parts of the world with no contact. Natural languages even evolved under similar constraints as programming languages.</p>
+
+  <p>Bandwidth plays a critical role in natural languages, being even more restrictive than computer systems. Speaking requiring us to physically contort internal valves in our larynx to modulate the frequency of waves of air pressure at a rate of only <a href="http://en.wikipedia.org/wiki/Words_per_minute#Speech_and_listening">150 or so words</a> per minute—and that's not say anything of the <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1315292/">fascinating complexity</a> in our capacity to observe those same modulations.</p>
+  <p>Natural languages are also designed to limit not just the length of encoding to a collection of sounds, but also to optimally limit the conceptual scope of ideas into classes, <b>nouns</b>, and account for varying implementations of an idea effectively through qualifiers.</p>
+  <p>Often times the <b>connotations</b> (tech-speak: "implementation") may vary from person to person of an idea. <b>Love</b> may connote ideas of romantic love, or in others felings of agape, or specific memories with <a href="http://en.wikipedia.org/wiki/Qualia">a quality</a> you only can understand, yet four letters and one sylabble are enough to contain the concept.</p>
+  <p>A single idea may also vary from instance to instance. A normal <b>horse</b> might have four legs, but if you encountered a three-legged horse you would find no difficulty considering it a horse. In fact, you may never encounter a three-legged horse, and still might store space for it conceptually based purely on your imagination of the possibility. Or the classic Wittgenstein example of  "<a href="http://en.wikipedia.org/wiki/Language-game_(philosophy)#Description">What is a game?</a>". Natural language can accomodate for these variations in implementation, tempered by a "development history" that started longer ago than we even had the means to record it</p>
+
+  <h2 class="ui header">Narrowing the Focus</h2>
+
+  <h3 class="ui header">Creating a Vocabulary for Design</h3>
+  <p>Individual interface elements are the <b>nouns</b> (tech-speak: "classes") which provide a <b>context</b> ("scope") to <b>limit the broadness</b> ("encapsulate") of <b>modifiers</b> ("properties") and <b>behaviors</b> ("methods").</p>
+  <p>Natural languages are used today for describing interface design, although they aren't usually considered in the actual process of coding interfaces. Words like <b>popup</b>, <b>dropdown</b>, and <b>modal</b> didn't exist twenty years ago, yet now most people who visit websites understand these as essential elements of a design. They know what to expect from their behavior, how to use them, and can distinguish them in a design.</p>
+
+  <h3 class="ui header">Well What is "Everyone Else" Doing?</h3>
+
+  <p>The resolute success industry-wide of "flattening" design: removing gradients and reducing the use of shadows, recanting of skeumorphic design, defining relationships through negative spacing instead of borders, etc. shows there is a directionality to interface languages. We can convey meaning with less <a href="http://www.interaction-design.org/encyclopedia/affordances.html">affordances</a> than ever, not primarily because web developers' understanding of design has evolved, but because <b>users' understanding of design has evolved from years of usage</b>.</p>
+
+  <h2 class="ui header">Drawing Limits</h2>
+  <p>It's important to explain, that this argument only applies directly to <b>exchange languages like HTML</b> and not all programming languages. The meat and potatoes of most programming can be much more complex. Moods, sentiments, feelings — the internal "processing languages" of meaning in organic systems can difficult to comprehend, and utterly unaccountable by language.</p>
+
+</div>
+    </div>
+    <div class="ui vertical inverted black footer segment">
+      <div class="container">
+        <div class="ui stackable inverted divided relaxed grid">
+          <div class="eight wide column">
+            <h3 class="ui inverted header">Donate to Semantic UI</h3>
+            <p>Maintaining an open source UI library is no small task. Support for the continued development of Semantic UI comes directly from the community.</p>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+              <input type="hidden" name="cmd" value="_s-xclick">
+              <input type="hidden" name="hosted_button_id" value="7ZAF2Q8DBZAQL">
+              <button type="submit" class="ui pink button">Donate Today</button>
+            </form>
+          </div>
+          <div class="four wide column">
+            <h5 class="ui pink inverted header">Contribute</h5>
+            <div class="ui inverted link list">
+              <a class="item" href="mailto:jack@semantic-ui.com?subject=Help Translating">Translate</a>
+              <a class="item" href="https://github.com/Semantic-Org/Semantic-UI" target="_blank">Issue Tracker</a>
+              <a class="item" href="/cla.html" target="_blank">CLA</a>
+              <a class="disabled item">Create Themes</a>
+            </div>
+          </div>
+          <div class="four wide column">
+            <h5 class="ui pink inverted header">Semantic Network</h5>
+            <div class="ui inverted link list">
+              <a class="item" href="https://www.transifex.com/organization/semantic-org/" target="_blank">Translation Hub</a>
+              <a href="http://www.semantic-ui.com" class="item">Semantic UI</a>
+              <a href="http://www.learnsemantic.com" class="item">Learn Semantic</a>
+              <a class="disabled item">Semantic Themes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui basic language modal">
+  <i class="close icon"></i>
+  <div class="header">The <span class="name"></span> Translation Needs Your Help</div>
+  <div class="content">
+    <div class="middle aligned image">
+      <i class="world icon"></i>
+    </div>
+    <div class="description">
+      <p>This translation is only <b><span class="complete"></span>%</b> complete!</p>
+      <div class="ui inverted indicating progress">
+        <div class="bar"></div>
+      </div>
+      <p>We need your help to make Semantic available to  people who speak your language.</p>
+      <p>Our translation tools are easy to use and allow you to translate text without having to leave the site. If you are interested in joining our translation team please <a href="mailto:jack@semantic-ui.com?subject=Localization%20Help">e-mail me</a> for access to our translation hub.
+      </p>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui inverted cancel button">No Thanks</div>
+    <a href="mailto:jack@semantic-ui.com?subject=Localization%20Help" target="_blank" class="ui inverted approve teal button">
+      <i class="mail icon"></i>
+      Help Translate
+    </a>
+  </div>
+</div>
+  <div class="ui demo page dimmer">
+  <div class="content">
+    <div class="center">
+      <h2 class="ui inverted icon header">
+        <i class="mail icon"></i>
+        Dimmer Message
+        <div class="sub header">Dimmer sub-header</div>
+      </h2>
+    </div>
+  </div>
+</div>
+
+  <script>
+  window.less = {
+    async: true,
+    environment: 'production',
+    fileAsync: false,
+    useFileCache: true
+  };
+  </script>
+  <script src="/javascript/library/less.js"></script>
+</body>
+
+</html>

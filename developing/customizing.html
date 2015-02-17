@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  
+  
+  
+
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <link rel="image_src" type="image/jpeg" href="/images/logo.png" />
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.69.1" />
+  <title>Customization Guide | Semantic UI</title>
+
+  <meta name="description" content="Adopting SUI to fit your needs" />
+  <meta name="keywords" content="html5, ui, library, framework, javascript" />
+
+  
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/semantic.min.css">
+  
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/docs.css">
+
+  
+  <script>
+  (function () {
+    var
+      eventSupport = ('querySelector' in document && 'addEventListener' in window)
+      jsonSupport  = (typeof JSON !== 'undefined'),
+      jQuery       = (eventSupport && jsonSupport)
+        ? '/javascript/library/jquery.min.js'
+        : '/javascript/library/jquery.legacy.min.js'
+    ;
+    document.write('<script src="' + jQuery + '"><\/script>');
+  }());
+  </script>
+  
+
+  <script src="/javascript/library/highlight.js"></script>
+  <script src="/javascript/library/highlight.languages.js"></script>
+  <script src="/javascript/library/history.js"></script>
+  <script src="/javascript/library/easing.js"></script>
+  <script src="/javascript/library/tablesort.js"></script>
+  <script src="/javascript/library/typing.js"></script>
+
+  
+  <script src="/dist/semantic.min.js"></script>
+  
+
+  <script src="/javascript/docs.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Karma:600,400' rel='stylesheet' type='text/css'>
+</head>
+<body id="example" class="pushable guide" ontouchstart="">
+
+  <div id="menu" class="ui vertical inverted sidebar menu" style="">
+  <div class="item">
+    <a href="/" class="ui logo icon image">
+      <img src="/images/learn-logo.png">
+    </a>
+    <a href="/">
+      <b>Learn Semantic</b>
+    </a>
+  </div>
+  <div class="item">
+    <div class="ui small inverted header">
+      <b>Preface</b>
+    </div>
+    <div class="menu">
+      <a href="/preface/introduction.html" class="item">
+        Introduction
+      </a>
+<!--         <div href="/preface/language.html" class="disabled item">
+        On Language
+      </div> -->
+      <a href="/preface/whats-different.html" class="item">
+        What's Different
+      </a>
+    </div>
+  </div>
+  <div class="item">
+    <div class="ui small inverted header">
+      <b>Getting Started</b>
+    </div>
+    <div class="menu">
+      <a href="/guide/download.html" class="item">
+        Download
+      </a>
+      <a href="/guide/expert.html" class="item">
+        Getting Started
+      </a>
+      <!--
+      <div href="/guide/beginner.html" class="disabled item">
+        Beginner Guide
+      </div>
+      <a href="/guide/expert.html" class="item">
+        Expert Guide
+      </a> -->
+    </div>
+  </div>
+  <div class="item">
+    <div class="ui small inverted header">
+      <b>Developing</b>
+    </div>
+    <div class="menu">
+      <a href="/developing/customizing.html" class="item">
+        Customizing
+      </a>
+      <a href="/developing/glossary.html" class="item">
+        Glossary
+      </a>
+<!--         <div href="/developing/extending.html" class="disabled item">
+        Extending
+      </div>
+      <div href="/developing/best-practices.html" class="disabled item">
+        Best Practices
+      </div>
+      <div href="/developing/faq.html" class="disabled item">
+        FAQ
+      </div>
+      <div href="/developing/support.html" class="disabled item">
+        Getting Support
+      </div> -->
+    </div>
+  </div>
+  <div class="item">
+    <div class="ui small inverted header">
+      <b>Theming</b>
+    </div>
+    <div class="menu">
+      <a href="/themes/overview.html" class="item">
+        Overview
+      </a>
+      <a href="/themes/creating.html" class="item">
+        Creating Themes
+      </a>
+    </div>
+  </div>
+  <div class="item">
+    <div class="ui small inverted header">
+      <b>Definitions</b>
+    </div>
+    <div class="menu">
+      <a href="/definitions/overview.html" class="item">
+        Overview
+      </a>
+      <!--
+      <a href="/definitions/how-to-read.html" class="item">
+        How to Read
+      </a>
+      <div href="/definitions/elements.html" class="disabled item">
+        Elements
+      </div>
+      <div href="/definitions/collections.html" class="disabled item">
+        Collections
+      </div>
+      <div href="/definitions/views.html" class="disabled item">
+        Views
+      </div>
+      <div href="/definitions/modules.html" class="disabled item">
+        Modules
+      </div>
+      <div href="/definitions/behaviors.html" class="disabled item">
+        Behaviors
+      </div>
+      -->
+    </div>
+  </div>
+  <!--
+  <div class="item">
+    <div class="ui small inverted header">
+      <b>Conventions</b>
+    </div>
+    <div class="menu">
+      <div href="/conventions/css.html" class="disabled item">
+        CSS
+      </div>
+      <div href="/conventions/classnames.html" class="disabled item">
+        Class Names
+      </div>
+      <div href="/conventions/html.html" class="disabled item">
+        HTML
+      </div>
+      <div href="/conventions/javascript.html" class="disabled item">
+        Javascript
+      </div>
+      <div href="/conventions/terms.html" class="disabled item">
+        Terms Glossary
+      </div>
+      <div href="/conventions/variables.html" class="disabled item">
+        Variables
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="ui small inverted header">
+      <b>Semantic Project</b>
+    </div>
+    <div class="menu">
+      <div href="/project/author.html" class="disabled item">
+        About the Author
+      </div>
+      <div href="/project/contributing.html" class="disabled item">
+        Contributing
+      </div>
+      <div href="/project/donating.html" class="disabled item">
+        Donating
+      </div>
+    </div>
+  </div> -->
+</div>
+
+  <div class="ui fixed inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="content icon"></i></a>
+      <div class="title item">
+        <b>Developing:</b> Customization Guide
+      </div>
+      
+      <div class="disabled icon item"><i class="left chevron icon"></i></div>
+      
+      <div class="section ui page dropdown link item">
+        <span class="count">1 of 1</span>
+        <div class="menu">
+          
+            <a class="active item" href="/developing/customizing.html">
+              Customization Guide
+            </a>
+          
+        </div>
+      </div>
+      
+      <div class="disabled icon item"><i class="right chevron icon"></i></div>
+      
+      <div class="right menu">
+        <div class="vertically fitted borderless item">
+          <iframe class="github" src="http://ghbtns.com/github-btn.html?user=semantic-org&amp;repo=semantic-ui&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+        </div>
+        <a class="popup icon github item" data-content="View project on GitHub" href="https://github.com/Semantic-Org/Semantic-UI">
+          <i class="alternate github icon"></i>
+        </a>
+        <!--
+        <div class="ui language dropdown item" id="languages" data-content="Select Language">
+          <i class="world icon"></i>
+          <div class="menu">
+  <div class="item" data-percent="100" data-value="en"    data-english="English">English</div>
+  <div class="item" data-percent="37"  data-value="el"    data-english="Greek">ελληνικά</div>
+  <div class="item" data-percent="30"  data-value="fr"    data-english="French">Français</div>
+  <div class="item" data-percent="30"  data-value="fa"   data-english="Persian">پارسی</div>
+  <div class="item" data-percent="21"  data-value="de"    data-english="German">Deutsch</div>
+  <div class="item" data-percent="15"  data-value="lt"    data-english="Lithuanian">Lietuvių</div>
+  <div class="item" data-percent="15"  data-value="da"    data-english="Danish">dansk</div>
+  <div class="item" data-percent="10"  data-value="es"    data-english="Spanish">Español</div>
+  <div class="item" data-percent="9"   data-value="nl"    data-english="Dutch">Nederlands</div>
+  <div class="item" data-percent="9"   data-value="hu"    data-english="Hungarian">Magyar</div>
+  <div class="item" data-percent="7"   data-value="pt_BR" data-english="Portuguese">Português</div>
+  <div class="item" data-percent="7"   data-value="vi"    data-english="Vietnamese">tiếng Việt</div>
+  <div class="item" data-percent="6"   data-value="ar"    data-english="Arabic">العربية</div>
+  <div class="item" data-percent="3"   data-value="zh"    data-english="Chinese">简体中文</div>
+  <div class="item" data-percent="2"   data-value="sv"    data-english="Swedish">svenska</div>
+  <div class="item" data-percent="0"   data-value="tr"    data-english="Turkish">Türkçe</div>
+  <div class="item" data-percent="0"   data-value="ru"    data-english="Russian">Русский</div>
+  <div class="item" data-percent="0"   data-value="ja"    data-english="Japanese">日本語</div>
+  <div class="item" data-percent="0"   data-value="kr"    data-english="Korean">한국어</div>
+  <div class="item" data-percent="0"   data-value="it"    data-english="Italian">Italiano</div>
+  <div class="item" data-precent="0"   data-value="pl"    data-englihs="Polish">polski</div>
+</div>
+        </div>
+        !-->
+      </div>
+    </div>
+  </div>
+
+  <div class="ui black big launch right attached fixed button">
+    <i class="content icon"></i>
+    <span class="text">Menu</span>
+  </div>
+
+  <div class="pusher">
+    <div class="full height">
+      
+
+<div class=" header segment">
+  <div class="container">
+    <div class="introduction">
+
+      <div class="ui huge header">
+        Customization Guide
+        
+      </div>
+
+      <p>Adopting SUI to fit your needs</p>
+      
+      
+      
+      
+      
+    </div>
+    <div class="advertisement">
+      
+      <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/51619/azcarbon_2_1_0_HORIZ"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
+      
+    </div>
+    
+  </div>
+</div>
+
+<div class="main container">
+
+  <h2 class="ui header">Introduction</h2>
+
+  <p>Semantic provides several ways to modify UI elements. For big projects that rely on building a personalized brand-aware visual language, <b>site themes</b> allow you to modify the underlying variables powering Semantic UI, as well as specify alternative overriding css. Site themes are portable between projects, and affect the compiled framework code.</p>
+
+  <p>For smaller projects, projects with quick deadlines, or for those who prefer not to get into front end coding, <b>packaged themes</b> are great for borrowing from other open source designs in the field.</p>
+
+  <p>For either project type, an important place to start customizing Semantic is the <code>site.variables</code> file, the variables file which all other variable files inherit from.</p>
+
+
+  <h2 class="ui header">Setting Global Variables</h3>
+
+  <p><code>site.variables</code> contains many of the most important variables for your site. Adjusting these parameters will instantly help make your site feel less like a cookie-cutter design, and more like your brand.</p>
+  <p>A good place to start customizing is by adjusting the fonts used in your project. Semantic includes several variables which let you specify free fonts available on <a href="http://www.google.com/fonts">Google Fonts</a>.</p>
+
+  <p>For example, you might want to specify a custom font stack for your site by adding several superceding site theme variables in your site theme's variable file, <code>src/site/globals/site.variables</code>.</p>
+
+  <div class="code" data-title="src/site/globals/site.variables">
+    @headerFont        : 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    @pageFont          : 'Oswald', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    @googleFontFamily  : 'Open+Sans:400italic,400|Oswald:400,700';
+  </div>
+
+  <p>Variables encompass the <b>arbitrary parts</b> of an interface element's design. The best way to find out what variables can be modified for an element is to look at the master file where the element's defaults are defined, the element's default theme file.</p>
+
+  <p>Each UI element file, for example <code>src/themes/default/elements/button.variables</code> inherits many of its default settings from global site variables specified in <code>site.variables</code>.</p>
+
+  <p>Other examples of common globally inherited settings include <code>@linkColor</code>, <code>@borderRadius</code>, <code>@selectedTextColor</code>, and <code>@borderColor</code>.
+  </p>
+
+  <div class="code" data-title="src/themes/default/globals/site.variables">
+  /*-------------------
+       Fonts
+--------------------*/
+
+@headerFont        : 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@pageFont          : 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@fontSmoothing     : antialiased;
+
+@importGoogleFonts : true;
+@googleFontName    : 'Lato';
+@googleFontSizes   : '400,700,400italic,700italic';
+@googleFontFamily  : '@{googleFontName}:@{googleFontSizes}';
+
+/*-------------------
+      Base Sizes
+--------------------*/
+
+@emSize      : 14px;
+@fontSize    : 14px;
+
+/*-------------------
+      Site Colors
+--------------------*/
+
+/*---  Colors  ---*/
+@blue             : #3B83C0;
+@green            : #5BBD72;
+@orange           : #E07B53;
+@pink             : #D9499A;
+@purple           : #564F8A;
+@red              : #D95C5C;
+@teal             : #00B5AD;
+@yellow           : #F2C61F;
+
+@black            : #1B1C1D;
+@grey             : #CCCCCC;
+@white            : #FFFFFF;
+
+/*---  Brand Colors  ---*/
+@primaryColor        : @blue;
+@secondaryColor      : @black;
+
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/* Exact pixel values @ 14px em */
+@mini        : 0.7142rem;
+@tiny        : 0.8571rem;
+@small       : 0.9285rem;
+@medium      : 1rem;
+@large       : 1.1428rem;
+@big         : 1.2857rem;
+@huge        : 1.4285rem;
+@massive     : 1.7142rem;
+
+/*-------------------
+        Page
+--------------------*/
+
+@pageBackground      : #F7F7F7;
+@pageOverflowX       : hidden;
+
+@fontSize            : 14px;
+@lineHeight          : 1.33;
+@textColor           : rgba(0, 0, 0, 0.8);
+
+@headerMargin        : 1em 0em 1rem;
+@paragraphMargin     : 0em 0em 1em;
+
+@linkColor           : #009FDA;
+@linkUnderline       : none;
+@linkHoverColor      : lighten( @linkColor, 5);
+
+@highlightBackground : rgba(255, 255, 160, 0.4);
+@highlightColor      : @textColor;
+
+/*-------------------
+  Background Colors
+--------------------*/
+
+@subtleTransparentBlack : rgba(0, 0, 0, 0.03);
+@transparentBlack       : rgba(0, 0, 0, 0.05);
+@strongTransparentBlack : rgba(0, 0, 0, 0.10);
+
+@subtleTransparentWhite : rgba(255, 255, 255, 0.02);
+@transparentWhite       : rgba(255, 255, 255, 0.05);
+@strongTransparentWhite : rgba(255, 255, 255, 0.07);
+
+/*-------------------
+      Extra Colors
+--------------------*/
+
+/*---  Light Colors  ---*/
+
+@lightBlack:      : #CCCCCC;
+@lightBlue        : #54C8FF;
+@lightGreen       : #2ECC40;
+@lightOrange      : #FF851B;
+@lightPink        : #FF8EDF;
+@lightPurple      : #CDC6FF;
+@lightRed         : #FF695E;
+@lightTeal        : #6DFFFF;
+@lightYellow      : #FFE21F;
+
+@lightPrimaryColor   : @lightBlue;
+@lightSecondaryColor : @lightBlack;
+
+/*-------------------
+       Loader
+--------------------*/
+
+@loaderSpeed: 0.6s;
+@loaderLineWidth: 0.2em;
+@loaderFillColor: rgba(0, 0, 0, 0.1);
+@loaderLineColor: @darkGrey;
+@invertedLoaderFillColor: rgba(255, 255, 255, 0.15);
+@invertedLoaderLineColor: @white;
+
+/*-------------------
+       Accents
+--------------------*/
+
+/* 4px @ default em */
+@relativeBorderRadius: 0.2857em;
+@absoluteBorderRadius: 0.2857rem;
+@defaultBorderRadius: @absoluteBorderRadius;
+
+/* Used for differentiating neutrals */
+@subtleGradient: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+
+/* Used for differentiating layers */
+@subtleShadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+
+/*-------------------
+        Grid
+--------------------*/
+
+@columnCount: 16;
+
+/*-------------------
+     Breakpoints
+--------------------*/
+
+@mobileBreakpoint            : 320px;
+@tabletBreakpoint            : 768px;
+@computerBreakpoint          : 992px;
+@largeMonitorBreakpoint      : 1400px;
+@widescreenMonitorBreakpoint : 1920px;
+
+
+/*******************************
+           Power-User
+*******************************/
+
+/*-------------------
+        Paths
+--------------------*/
+
+@imagePath : "../../themes/default/assets/images";
+@fontPath  : "../../themes/default/assets/fonts";
+
+/*-------------------
+       Icons
+--------------------*/
+
+/* Maximum Glyph Width of Icon */
+@iconWidth : 1.18em;
+
+/*-------------------
+       Easing
+--------------------*/
+
+@defaultEasing: ease;
+
+/*---   Neutrals  ---*/
+@fullBlack        : #000000;
+@lightBlack       : #333333;
+@darkGrey         : #AAAAAA;
+@lightGrey        : #DCDDDE;
+@offWhite         : #FAFAFA;
+@darkWhite        : #F0F0F0;
+
+/*--- Colored Backgrounds ---*/
+@blueBackground   : #DFF0FF;
+@greenBackground  : #EBFFED;
+@orangeBackground : #FFEDDE;
+@pinkBackground   : #FFE3FB;
+@purpleBackground : #EAE7FF;
+@redBackground    : #FFE8E6;
+@tealBackground   : #E9FFFF;
+@yellowBackground : #FFF8DB;
+
+/*--- Colored Text ---*/
+@blueTextColor    : @blue;
+@orangeTextColor  : @orange;
+@pinkTextColor    : @pink;
+@purpleTextColor  : @purple;
+@redTextColor     : @red;
+@greenTextColor   : #1EBC30; // Green is difficult to read
+@tealTextColor    : #10A3A3; // Teal text is difficult to read
+@yellowTextColor  : #B58105; // Yellow text is difficult to read
+
+/*--- Colored Headers ---*/
+@blueHeaderColor   : darken(@blueTextColor, 5);
+@greenHeaderColor  : darken(@greenTextColor, 5);
+@orangeHeaderColor : darken(@orangeTextColor, 5);
+@pinkHeaderColor   : darken(@pinkTextColor, 5);
+@purpleHeaderColor : darken(@purpleTextColor, 5);
+@redHeaderColor    : darken(@redTextColor, 5);
+@tealHeaderColor   : darken(@tealTextColor, 5);
+@yellowHeaderColor : darken(@yellowTextColor, 5);
+
+
+/*-------------------
+    Emotive Colors
+--------------------*/
+
+/* Positive */
+@positiveColor           : @green;
+@positiveBackgroundColor : #EEFFE7;
+@positiveBorderColor     : #B7CAA7;
+@positiveHeaderColor     : #356E36;
+@positiveTextColor       : #3C763D;
+
+/* Negative */
+@negativeColor           : @red;
+@negativeBackgroundColor : #FFF0F0;
+@negativeBorderColor     : #DBB1B1;
+@negativeHeaderColor     : #912D2B;
+@negativeTextColor       : #A94442;
+
+/* Info */
+@infoColor              : #31CCEC;
+@infoBackgroundColor    : #E9FAFF;
+@infoBorderColor        : #AAD6DF;
+@infoHeaderColor        : #297187;
+@infoTextColor          : #337B92;
+
+/* Warning */
+@warningColor           : #F2C037;
+@warningBorderColor     : #D9CAAB;
+@warningBackgroundColor : #FFFBE6;
+@warningHeaderColor     : #825C01;
+@warningTextColor       : #876A38;
+
+
+/*-------------------
+     Neutral Text
+--------------------*/
+
+@darkTextColor               : rgba(0, 0, 0, 0.85);
+@lightTextColor              : rgba(0, 0, 0, 0.4);
+
+@unselectedTextColor         : rgba(0, 0, 0, 0.4);
+@hoveredTextColor            : rgba(0, 0, 0, 0.8);
+@pressedTextColor            : rgba(0, 0, 0, 0.8);
+@selectedTextColor           : rgba(0, 0, 0, 0.8);
+@disabledTextColor           : rgba(0, 0, 0, 0.2);
+
+@invertedTextColor           : rgba(255, 255, 255, 1);
+@invertedLightTextColor      : rgba(255, 255, 255, 0.8);
+@invertedUnselectedTextColor : rgba(255, 255, 255, 0.5);
+@invertedHoveredTextColor    : rgba(255, 255, 255, 1);
+@invertedPressedTextColor    : rgba(255, 255, 255, 1);
+@invertedSelectedTextColor   : rgba(255, 255, 255, 1);
+@invertedDisabledTextColor   : rgba(255, 255, 255, 0.2);
+
+/*-------------------
+     Brand Colors
+--------------------*/
+
+@facebookColor   : #3B579D;
+@twitterColor    : #4092CC;
+@googlePlusColor : #D34836;
+@linkedInColor   : #1F88BE;
+@youtubeColor    : #CC181E;
+@instagramColor  : #49769C;
+@pinterestColor  : #00ACED;
+@vkColor         : #4D7198;
+
+/*-------------------
+      Borders
+--------------------*/
+
+@circularRadius                : 500rem;
+
+@borderColor                   : rgba(39, 41, 43, 0.15);
+@selectedBorderColor           : rgba(39, 41, 43, 0.3);
+
+@solidBorderColor              : #D4D4D5;
+@solidSelectedBorderColor      : #BEBEBF;
+
+@whiteBorderColor              : rgba(255, 255, 255, 0.2);
+@selectedWhiteBorderColor      : rgba(255, 255, 255, 0.8);
+
+@solidWhiteBorderColor         : #555555;
+@selectedSolidWhiteBorderColor : #999999;
+
+
+/*-------------------
+     Transitions
+--------------------*/
+
+@transitionDuration : 0.2s;
+@transitionEasing   : ease;
+
+
+/*-------------------
+    Derived Values
+--------------------*/
+
+/* Makes sure padded grid can fit at 320px */
+@pageMinWidth        : (320px - (@fontSize * 3));
+
+/* Used to match floats with text */
+@lineHeightOffset    : ((@lineHeight - 1em) / 2);
+
+/* Positive / Negative Dupes */
+@successColor           : @positiveColor;
+@errorColor             : @negativeColor;
+@successBackgroundColor : @positiveBackgroundColor;
+@errorBackgroundColor   : @negativeBackgroundColor;
+@successTextColor       : @positiveTextColor;
+@errorTextColor         : @negativeTextColor;
+@successBorderColor     : @positiveBorderColor;
+@errorBorderColor       : @negativeBorderColor;
+@successHeaderColor     : @positiveHeaderColor;
+@errorHeaderColor       : @negativeHeaderColor;
+
+/* Responsive */
+@largestMobileScreen : (@tabletBreakpoint - 1px);
+@largestTabletScreen : (@computerBreakpoint - 1px);
+
+/* Columns */
+@oneWide        : (1 / @columnCount * 100%);
+@twoWide        : (2 / @columnCount * 100%);
+@threeWide      : (3 / @columnCount * 100%);
+@fourWide       : (4 / @columnCount * 100%);
+@fiveWide       : (5 / @columnCount * 100%);
+@sixWide        : (6 / @columnCount * 100%);
+@sevenWide      : (7 / @columnCount * 100%);
+@eightWide      : (8 / @columnCount * 100%);
+@nineWide       : (9 / @columnCount * 100%);
+@tenWide        : (10 / @columnCount * 100%);
+@elevenWide     : (11 / @columnCount * 100%);
+@twelveWide     : (12 / @columnCount * 100%);
+@thirteenWide   : (13 / @columnCount * 100%);
+@fourteenWide   : (14 / @columnCount * 100%);
+@fifteenWide    : (15 / @columnCount * 100%);
+@sixteenWide    : (16 / @columnCount * 100%);
+
+@oneColumn      : (1 / 1 * 100%);
+@twoColumn      : (1 / 2 * 100%);
+@threeColumn    : (1 / 3 * 100%);
+@fourColumn     : (1 / 4 * 100%);
+@fiveColumn     : (1 / 5 * 100%);
+@sixColumn      : (1 / 6 * 100%);
+@sevenColumn    : (1 / 7 * 100%);
+@eightColumn    : (1 / 8 * 100%);
+@nineColumn     : (1 / 9 * 100%);
+@tenColumn      : (1 / 10 * 100%);
+@elevenColumn   : (1 / 11 * 100%);
+@twelveColumn   : (1 / 12 * 100%);
+@thirteenColumn : (1 / 13 * 100%);
+@fourteenColumn : (1 / 14 * 100%);
+@fifteenColumn  : (1 / 15 * 100%);
+@sixteenColumn  : (1 / 16 * 100%);
+
+
+/*******************************
+           States
+*******************************/
+
+/*-------------------
+      Disabled
+--------------------*/
+
+@disabledOpacity: 0.3;
+@disabledTextColor: rgba(40, 40, 40, 0.3);
+@invertedDisabledTextColor: rgba(225, 225, 225, 0.3);
+
+/*-------------------
+        Hover
+--------------------*/
+
+/*---  Colors  ---*/
+@primaryColorHover    : lighten( @primaryColor, 3);
+@secondaryColorHover  : lighten( @secondaryColor, 3);
+
+@blueHover            : lighten( @blue, 3);
+@greenHover           : lighten( @green, 3);
+@orangeHover          : lighten( @orange, 3);
+@pinkHover            : lighten( @pink, 3);
+@purpleHover          : lighten( @purple, 3);
+@redHover             : lighten( @red, 3);
+@tealHover            : lighten( @teal, 3);
+@yellowHover          : lighten( @yellow, 3);
+
+@lightBlueHover       : lighten( @lightBlue, 3);
+@lightGreenHover      : lighten( @lightGreen, 3);
+@lightOrangeHover     : lighten( @lightOrange, 3);
+@lightPinkHover       : lighten( @lightPink, 3);
+@lightPurpleHover     : lighten( @lightPurple, 3);
+@lightRedHover        : lighten( @lightRed, 3);
+@lightTealHover       : lighten( @lightTeal, 3);
+@lightYellowHover     : lighten( @lightYellow, 3);
+
+/*---  Emotive  ---*/
+@positiveColorHover   : lighten( @positiveColor, 3);
+@negativeColorHover   : lighten( @negativeColor, 3);
+
+/*---  Neutrals  ---*/
+@fullBlackHover       : lighten( @fullBlack, 3);
+@blackHover           : lighten( @black, 3);
+@lightBlackHover      : lighten( @lightBlack, 3);
+
+@lightGreyHover       : lighten( @lightGrey, 3);
+@greyHover            : lighten( @grey, 3);
+@darkGreyHover        : lighten( @darkGrey, 3);
+
+@whiteHover           : lighten( @white, 3);
+@offWhiteHover        : lighten( @offWhite, 3);
+@darkWhiteHover       : lighten( @darkWhite, 3);
+
+@facebookHoverColor   : lighten( @facebookColor, 3);
+@twitterHoverColor    : lighten( @twitterColor, 3);
+@googlePlusHoverColor : lighten( @googlePlusColor, 3);
+@linkedInHoverColor   : lighten( @linkedInColor, 3);
+@youtubeHoverColor    : lighten( @youtubeColor, 3);
+@instagramHoverColor  : lighten( @instagramColor, 3);
+@pinterestHoverColor  : lighten( @pinterestColor, 3);
+@vkHoverColor         : lighten( @vkColor, 3);
+
+
+/*-------------------
+    Down (:active)
+--------------------*/
+
+
+/*---  Colors  ---*/
+@primaryColorDown    : darken(@primaryColor, 7);
+@secondaryColorDown  : darken(@secondaryColor, 7);
+
+@blueDown            : darken(@blue, 7);
+@greenDown           : darken(@green, 7);
+@orangeDown          : darken(@orange, 7);
+@pinkDown            : darken(@pink, 7);
+@purpleDown          : darken(@purple, 7);
+@redDown             : darken(@red, 7);
+@tealDown            : darken(@teal, 7);
+@yellowDown          : darken(@yellow, 7);
+
+@lightBlueDown       : darken(@lightBlue, 7);
+@lightGreenDown      : darken(@lightGreen, 7);
+@lightOrangeDown     : darken(@lightOrange, 7);
+@lightPinkDown       : darken(@lightPink, 7);
+@lightPurpleDown     : darken(@lightPurple, 7);
+@lightRedDown        : darken(@lightRed, 7);
+@lightTealDown       : darken(@lightTeal, 7);
+@lightYellowDown     : darken(@lightYellow, 7);
+
+/*---  Emotive  ---*/
+@positiveColorDown   : darken(@positiveColor, 7);
+@negativeColorDown   : darken(@negativeColor, 7);
+
+/*---  Neutrals  ---*/
+@fullBlackDown       : darken(@fullBlack, 7);
+@blackDown           : darken(@black, 7);
+@lightBlackDown      : darken(@lightBlack, 7);
+
+@lightGreyDown       : darken(@lightGrey, 7);
+@greyDown            : darken(@grey, 7);
+@darkGreyDown        : darken(@darkGrey, 7);
+
+@whiteDown           : darken(@white, 7);
+@offWhiteDown        : darken(@offWhite, 7);
+@darkWhiteDown       : darken(@darkWhite, 7);
+
+@facebookDownColor   : darken(@facebookColor, 7);
+@twitterDownColor    : darken(@twitterColor, 7);
+@googlePlusDownColor : darken(@googlePlusColor, 7);
+@linkedInDownColor   : darken(@linkedInColor, 7);
+@youtubeDownColor    : darken(@youtubeColor, 7);
+@instagramDownColor  : darken(@instagramColor, 7);
+@pinterestDownColor  : darken(@pinterestColor, 7);
+@vkDownColor         : darken(@vkColor, 7);
+
+
+/*-------------------
+        Active
+--------------------*/
+
+/*---  Standard  ---*/
+@primaryColorActive    : darken(@primaryColor, 5);
+@secondaryColorActive  : darken(@secondaryColor, 5);
+
+@blueActive            : darken(@blue, 5);
+@greenActive           : darken(@green, 5);
+@orangeActive          : darken(@orange, 5);
+@pinkActive            : darken(@pink, 5);
+@purpleActive          : darken(@purple, 5);
+@redActive             : darken(@red, 5);
+@tealActive            : darken(@teal, 5);
+@yellowActive          : darken(@yellow, 5);
+
+@lightBlueActive       : darken(@lightBlue, 5);
+@lightGreenActive      : darken(@lightGreen, 5);
+@lightOrangeActive     : darken(@lightOrange, 5);
+@lightPinkActive       : darken(@lightPink, 5);
+@lightPurpleActive     : darken(@lightPurple, 5);
+@lightRedActive        : darken(@lightRed, 5);
+@lightTealActive       : darken(@lightTeal, 5);
+@lightYellowActive     : darken(@lightYellow, 5);
+
+/*---  Emotive  ---*/
+@positiveColorActive   : darken(@positiveColor, 5);
+@negativeColorActive   : darken(@negativeColor, 5);
+
+/*---  Neutrals  ---*/
+@fullBlackActive       : darken(@fullBlack, 5);
+@blackActive           : darken(@black, 5);
+@lightBlackActive      : darken(@lightBlack, 5);
+
+@lightGreyActive       : darken(@lightGrey, 5);
+@greyActive            : darken(@grey, 5);
+@darkGreyActive        : darken(@darkGrey, 5);
+
+@whiteActive           : darken(@white, 5);
+@offWhiteActive        : darken(@offWhite, 5);
+@darkWhiteActive       : darken(@darkWhite, 5);
+
+@facebookActiveColor   : darken(@facebookColor, 5);
+@twitterActiveColor    : darken(@twitterColor, 5);
+@googlePlusActiveColor : darken(@googlePlusColor, 5);
+@linkedInActiveColor   : darken(@linkedInColor, 5);
+@youtubeActiveColor    : darken(@youtubeColor, 5);
+@instagramActiveColor  : darken(@instagramColor, 5);
+@pinterestActiveColor  : darken(@pinterestColor, 5);
+@vkActiveColor         : darken(@vkColor, 5);
+  </div>
+
+
+  <h2 class="ui header">Designing for the Long Now</h2>
+  <p>In addition to coarsely defining global changes across all UI elements, each individual UI definition has its own default values which can be overwritten.</p>
+
+  <p>Semantic's UI theme inheritance is designed to let you preserve long-term changes to your UI designs, letting you move your interface elements from project to project, and share them with others. Semantic's inheritance system also helps provide a uniform structure to modifying elements, helping you avoid headaches from looking for rules that affect your UI scattered around your codebase.</p>
+
+  <h3 class="ui header">Customizing UI Elements</h3>
+
+  <p>Any changes to UI elements which are <b>consistent across your website</b> should be applied as a <b>site theme</b> on top of Semantic UI.</p>
+
+  <p>Site themes allow UI definitions to directly adjust the compiled CSS of Semantic, avoiding redundant CSS that redefines what is set in the framework. Each UI element has an individual <code>override</code> and <code>variable</code> file inside your site theme folder. <a href="/themes/overview.html#css-overrides">Override files</a> are used for providing additional CSS rules which modify the baseline definition. Variable files allow you to modify the many <a href="/themes/creating.html#variables-in-semantic">underlying variables</a> of Semantic. Any arbitrary part of a definition is defined as a variable. In semantic there are <b>over 3000 variables</b> for customizing elements, and these provide the best means for consistently adjusting elements.</p>
+
+  <h3 class="ui header">Using Stub Files</h3>
+
+  <p>When you download Semantic, your site's theme folder will be loaded with empty <em>stub files</em> for all possible theme overrides.</p>
+  <p> When customizing your site's themes, you do not need to add all the original variables to your theme file, but <b>only the variables which you wish to modify</b>.</p>
+  <p>The best way to explore what variables are available to modify, is to navigate inside the <code>src/themes/default/</code> and view all the default variables for Semantic.</p>
+
+  <p>Keeping your site theme separate makes sure you don't lose any changes when updating Semantic UI to new versions. For more practical examples of creating themes, check out the <a href="/themes/overview.html">theme guide</a>.</p>
+
+  <h3 class="ui header">Adjusting UI Variables</h3>
+  <p>Variables unlike CSS rules often abstract away many <a href="/themes/creating.html#variables-in-semantic">difficult details of implementation</a>. For instance you may want to adjust the border color of a button, but adding a css override will upset the inheritance for other rules which also adjust border. Adjusting the <code>@borderColor</code> value in your site button variable file <code>src/site/elements/button.variables</code> will modify all other variables which need to reference a button's border color, which can be quite extensive.</p>
+
+  <div class="code" data-type="less" data-title="Variables referencing @borderColor (from default theme)">
+    /* Adjusting @borderColor actually modifies a ton of other variables */
+    @shadowBoxShadow: 0px -@shadowDistance 0px 0px @borderColor inset;
+    @borderBoxShadow: 0px 0px 0px @borderBoxShadowWidth @borderBoxShadowColor inset;
+    @boxShadow:
+      @borderBoxShadow,
+      @shadowBoxShadow
+    ;
+    @downBoxShadow:
+      @borderBoxShadow,
+      0px 1px 4px 0px @borderColor inset !important
+    ;
+    @basicBoxShadow: 0px 0px 0px @basicBorderSize @borderColor inset;
+    @basicHoverBoxShadow:
+      0px 0px 0px @basicBorderSize @borderColor inset,
+      0px 0px 0px 0px @borderColor inset
+    ;
+    @basicDownBoxShadow:
+      0px 0px 0px @basicBorderSize rgba(0, 0, 0, 0.15) inset,
+      0px 1px 4px 0px @borderColor inset
+    ;
+    @basicGroupBorder: 1px solid @borderColor;
+    @basicGroupBoxShadow: 0px 0px 0px 1px @borderColor;
+    @attachedBoxShadow: 0px 0px 0px 1px @borderColor;
+  </div>
+
+  <p>Site themes are the last level of inheritance for Semantic UI allowing you to have final word in the settings and defaults for UI elements.</p>
+
+
+  <h2 class="ui header">Designing for the Right Now</h2>
+
+  <h3 class="ui header">Layout CSS</h3>
+
+  <p>Semantic is designed to make it easy to rapidly prototype new layouts, often providing a bulk of the styles necessary to make a functioning design. There may however be instances where elements are used in a way the original library did not anticipate, or where you may have to massage elements to fit correctly into a page design. It is perfectly fine in these instances to use additional layout css on top of Semantic.</p>
+
+  <p>Semantic is intended to provide a baseline visual language for a website, but isn't meant to be relied on completely for creating layouts for your website. Websites are complex beasts, involving plenty of application specific idiosyncracies which a framework cannot presume to contain.</p>
+
+  <p>For instance, if you need to expand the margins on a floated image for a particular page, change your heading sizes for a certain promotional page, add additional padding to a group of segments, or use a non-standard color, you do not need to adjust your site's theme, but instead can simply write layout specific CSS to override library defaults.</p>
+
+  <div class="code" data-type="css">
+    /* This is all perfectly fine */
+    #profile .user .image {
+      margin-right: 3em;
+    }
+    #promo .page.grid > h1 {
+      font-size: 3em;
+    }
+    #faq .unusual.segment {
+      border-top-color: #009FDA;
+    }
+  </div>
+
+  <h3 class="ui header">Packaged Themes</h3>
+
+  <p>Semantic includes a global theming file <code>src/semantic.config</code> which lets you set which packaged theme each UI element should use.</p>
+  <p>Packaged themes are similar in structure to <a href="#customizing-site-ui">site themes</a> but are designed to be downloaded and distributed over the internet.</p>
+  <p>To add a new packaged theme, simply extract the theme to <code>src/themes/theme-name/</code> and adjust your <code>semantic.config</code> file to include reference to your new theme.</p>
+
+  <p>For example, UI feed provides a "Timeline" theme out of the box, which significantly adjusts the appearance of a feed for chronological display. Adjusting the string value for <code>@feed</code> inside <code>semantic.config</code> will let Semantic know to compile the element with a different packaged theme.</p>
+
+  <div class="code" data-type="less">
+  /* My Themes */
+  @feed        : 'timeline';
+
+  /* Global */
+  @site        : 'default';
+  @reset       : 'default';
+
+  /* Elements */
+  @button      : 'default';
+  @container   : 'default';
+  @icon        : 'default';
+  @divider     : 'default';
+  @flag        : 'default';
+  @header      : 'default';
+  @image       : 'default';
+  @input       : 'default';
+  @label       : 'default';
+  @list        : 'default';
+  @loader      : 'default';
+  @progress    : 'default';
+  @rail        : 'default';
+  @reveal      : 'default';
+  @segment     : 'default';
+  @step        : 'default';
+
+  /* Collections */
+  @breadcrumb  : 'default';
+  @form        : 'default';
+  @grid        : 'default';
+  @menu        : 'default';
+  @message     : 'default';
+  @table       : 'default';
+
+  /* Modules */
+  @accordion   : 'default';
+  @chatroom    : 'default';
+  @checkbox    : 'default';
+  @dimmer      : 'default';
+  @dropdown    : 'default';
+  @modal       : 'default';
+  @nag         : 'default';
+  @popup       : 'default';
+  @rating      : 'default';
+  @search      : 'default';
+  @shape       : 'default';
+  @sidebar     : 'default';
+  @sticky      : 'default';
+  @tab         : 'default';
+  @transition  : 'default';
+  @video       : 'default';
+
+  /* Views */
+  @card        : 'default';
+  @comment     : 'default';
+  @item        : 'default';
+  @statistic   : 'default';
+  </div>
+
+  <h3 class="ui header">The Future of Themes</h3>
+  <p>Semantic provides out of the box several first party packaged themes, which are intended to showcase how easy it is to customize UI designs with Semantic. A specialized hub for Semantic themes is in the works which will make packaged themes more ubiquitous.</p>
+
+  <p>To understand more about using themes check out our <a href="/themes/overview.html">theming overview</a>.</p>
+
+
+
+</div>
+    </div>
+    <div class="ui vertical inverted black footer segment">
+      <div class="container">
+        <div class="ui stackable inverted divided relaxed grid">
+          <div class="eight wide column">
+            <h3 class="ui inverted header">Donate to Semantic UI</h3>
+            <p>Maintaining an open source UI library is no small task. Support for the continued development of Semantic UI comes directly from the community.</p>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+              <input type="hidden" name="cmd" value="_s-xclick">
+              <input type="hidden" name="hosted_button_id" value="7ZAF2Q8DBZAQL">
+              <button type="submit" class="ui pink button">Donate Today</button>
+            </form>
+          </div>
+          <div class="four wide column">
+            <h5 class="ui pink inverted header">Contribute</h5>
+            <div class="ui inverted link list">
+              <a class="item" href="mailto:jack@semantic-ui.com?subject=Help Translating">Translate</a>
+              <a class="item" href="https://github.com/Semantic-Org/Semantic-UI" target="_blank">Issue Tracker</a>
+              <a class="item" href="/cla.html" target="_blank">CLA</a>
+              <a class="disabled item">Create Themes</a>
+            </div>
+          </div>
+          <div class="four wide column">
+            <h5 class="ui pink inverted header">Semantic Network</h5>
+            <div class="ui inverted link list">
+              <a class="item" href="https://www.transifex.com/organization/semantic-org/" target="_blank">Translation Hub</a>
+              <a href="http://www.semantic-ui.com" class="item">Semantic UI</a>
+              <a href="http://www.learnsemantic.com" class="item">Learn Semantic</a>
+              <a class="disabled item">Semantic Themes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui basic language modal">
+  <i class="close icon"></i>
+  <div class="header">The <span class="name"></span> Translation Needs Your Help</div>
+  <div class="content">
+    <div class="middle aligned image">
+      <i class="world icon"></i>
+    </div>
+    <div class="description">
+      <p>This translation is only <b><span class="complete"></span>%</b> complete!</p>
+      <div class="ui inverted indicating progress">
+        <div class="bar"></div>
+      </div>
+      <p>We need your help to make Semantic available to  people who speak your language.</p>
+      <p>Our translation tools are easy to use and allow you to translate text without having to leave the site. If you are interested in joining our translation team please <a href="mailto:jack@semantic-ui.com?subject=Localization%20Help">e-mail me</a> for access to our translation hub.
+      </p>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui inverted cancel button">No Thanks</div>
+    <a href="mailto:jack@semantic-ui.com?subject=Localization%20Help" target="_blank" class="ui inverted approve teal button">
+      <i class="mail icon"></i>
+      Help Translate
+    </a>
+  </div>
+</div>
+  <div class="ui demo page dimmer">
+  <div class="content">
+    <div class="center">
+      <h2 class="ui inverted icon header">
+        <i class="mail icon"></i>
+        Dimmer Message
+        <div class="sub header">Dimmer sub-header</div>
+      </h2>
+    </div>
+  </div>
+</div>
+
+  <script>
+  window.less = {
+    async: true,
+    environment: 'production',
+    fileAsync: false,
+    useFileCache: true
+  };
+  </script>
+  <script src="/javascript/library/less.js"></script>
+</body>
+
+</html>
