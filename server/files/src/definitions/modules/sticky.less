@@ -9,6 +9,7 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
@@ -16,7 +17,9 @@
 @type    : 'module';
 @element : 'sticky';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
+
+& {
 
 /*******************************
             Sticky
@@ -72,3 +75,6 @@
 }
 
 .loadUIOverrides();
+
+}
+

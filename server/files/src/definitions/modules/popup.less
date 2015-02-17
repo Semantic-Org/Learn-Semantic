@@ -9,6 +9,7 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
@@ -16,7 +17,10 @@
 @type    : 'module';
 @element : 'popup';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
+
+& {
+
 
 /*******************************
             Popup
@@ -27,6 +31,10 @@
   position: absolute;
   top: 0px;
   right: 0px;
+
+  /* Fixes content being squished when inline (moz only) */
+  min-width: -moz-max-content;
+
   z-index: @zIndex;
 
   border: @border;
@@ -221,11 +229,9 @@
 ---------------*/
 
 .ui.wide.popup {
-  width: @wideWidth;
   max-width: @wideWidth;
 }
 .ui[class*="very wide"].popup {
-  width: @veryWideWidth;
   max-width: @veryWideWidth;
 }
 
@@ -288,3 +294,6 @@
 
 
 .loadUIOverrides();
+
+}
+

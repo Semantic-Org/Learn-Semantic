@@ -9,6 +9,7 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
@@ -16,8 +17,9 @@
 @type    : 'module';
 @element : 'nag';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
 
+& {
 
 /*******************************
              Nag
@@ -157,3 +159,6 @@ a.ui.nag {
 }
 
 .loadUIOverrides();
+
+}
+

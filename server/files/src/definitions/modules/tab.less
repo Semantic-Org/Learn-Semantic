@@ -9,6 +9,7 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
@@ -16,7 +17,9 @@
 @type    : 'module';
 @element : 'tab';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
+
+& {
 
 /*******************************
            UI Tabs
@@ -92,3 +95,6 @@
 }
 
 .loadUIOverrides();
+
+}
+

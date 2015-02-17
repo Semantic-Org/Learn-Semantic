@@ -9,6 +9,7 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
@@ -16,7 +17,9 @@
 @type    : 'element';
 @element : 'image';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
+
+& {
 
 /*******************************
              Image
@@ -285,3 +288,5 @@ img.ui.bordered.image {
 }
 
 .loadUIOverrides();
+
+}

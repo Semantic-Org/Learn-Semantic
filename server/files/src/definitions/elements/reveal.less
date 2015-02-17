@@ -16,8 +16,9 @@
 @type    : 'element';
 @element : 'reveal';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
 
+& {
 
 /*******************************
             Reveal
@@ -255,3 +256,8 @@
 .ui.reveal > .content {
   font-size: @medium !important;
 }
+
+.loadUIOverrides();
+
+}
+

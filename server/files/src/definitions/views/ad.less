@@ -16,7 +16,9 @@
 @type    : 'view';
 @element : 'ad';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
+
+& {
 
 /*******************************
          Advertisement
@@ -264,3 +266,8 @@
 .ui.test.ad[data-text]:after {
   content: attr(data-text);
 }
+
+.loadUIOverrides();
+
+}
+

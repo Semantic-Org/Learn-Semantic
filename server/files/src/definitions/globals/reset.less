@@ -9,7 +9,6 @@
  *
  */
 
-
 /*******************************
             Theme
 *******************************/
@@ -17,7 +16,9 @@
 @type    : 'global';
 @element : 'reset';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
+
+& {
 
 /*******************************
              Reset
@@ -40,3 +41,6 @@ input[type="text"], input[type="email"], input[type="search"], input[type="passw
 }
 
 .loadUIOverrides();
+
+}
+

@@ -16,7 +16,9 @@
 @type    : 'view';
 @element : 'feed';
 
-@import '../../theme.config';
+@import (multiple) '../../theme.config';
+
+& {
 
 /*******************************
          Activity Feed
@@ -270,3 +272,5 @@
 }
 
 .loadUIOverrides();
+
+}
