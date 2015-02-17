@@ -10,7 +10,51 @@ type        : 'Getting Started'
 
 ## Semantic UI
 
+### Types of Definitions
+
+There are five types of component definitions in Semantic UI, each with their own unique qualities.
+
+<table class="ui relaxed padded basic definition table">
+  <thead>
+    <th>Term</th>
+    <th>Definition</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Element</td>
+      <td>
+        UI elements are the smallest atomic unit for describing page content. They can exist alone or in groups with shared qualities.</td>
+    </tr>
+    <tr>
+      <td>Collection</td>
+      <td>
+        <p>Collections are heterogeneous group of several ui elements which are usually found together. They may describe ui elements which do not necessarily have to be present.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Views</td>
+      <td>
+        <p>A view is a common design trope for presenting specific types of website content like comments, or user activity. These are common views like, comments, activity feeds, content cards, that are presented in a similar fashion across most websites.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Modules</td>
+      <td>
+        <p>Modules are UI components that have behaviors as an essential part of their definition. These include things like, accordions, dropdowns, and popups, which require not only a description of how they appear, but also a set of instructions for how to implement their behaviors. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>Behaviors</td>
+      <td>
+        <p>Behaviors are instructions for UI behavior that are not attached to a particular physical form. They may describe things like, form validation, state management, or server request routing.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 ### Definition Terminology
+
+The following terms have particular meaning inside of Semantic UI, and are used to describe parts of a component's definition.
 
 <table class="ui relaxed padded basic definition table">
   <thead>
@@ -40,62 +84,42 @@ type        : 'Getting Started'
     <tr>
       <td>Prototype</td>
       <td>
-        <p>The basic neutral form of a component that includes only its universal qualities.</p>
+        <p>The basic form of a component that includes only its universal qualities.</p>
         <p>Modifications like **types**, **states**, or **variations** describe changes from this neutral form</p>
       </td>
     </tr>
     <tr>
-      <td>Type</td>
+      <td>Types</td>
       <td>
-        <p>Types **are mutually exclusive** forms of an element that are modifications of the element's neutral form.</p>
+        <p>Types **are mutually exclusive** versions of an element that are modifications of the element's standard appearance.</p>
         <p>Types cannot be used simultaneously on the same element. For example, "cats" and "dogs" are types of animals, but a single animal cannot be both.</p>
       </td>
     </tr>
     <tr>
-      <td>Variation</td>
+      <td>States</td>
       <td>
-        A variation is a single word or a short phrase that is added to modify the base form of an element. Each variation describes a specific quality like size, or color.</p>
-        <p>Variations are **not mutually exclusive**, and can be used together concurrently.</p>
+        <p>States are modifications in an element that help indicate to a user a change in how an element behaves. This may include states like <code>loading</code>, <code>disabled</code>, or <code>active</code>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Variations</td>
+      <td>
+        Variations are modifications of individual qualities of an element like size, or color.</p>
+        <p>Variations are **not mutually exclusive**, and can be used together to modify an element.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Layout</td>
+      <td>
+        <p>A layout is a collection of unrelated UI components used together in a page to display a site's specific content.</p>
       </td>
     </tr>
   </tbody>
 </table>
 
-### Types of Definitions
+### General Terms
 
-<table class="ui relaxed padded basic definition table">
-  <thead>
-    <th>Term</th>
-    <th>Definition</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Element</td>
-      <td>
-        UI elements are the smallest atomic unit for describing page content. They can exist alone or in groups with shared qualities.</td>
-    </tr>
-    <tr>
-      <td>Collection</td>
-      <td>
-        <p>Collections are heterogeneous group of several ui elements which are usually found together. They may describe ui elements which do not necessarily have to be present.</p>
-      </td>
-    </tr>
-    <tr>
-      <td>Views</td>
-      <td>
-        <p>A view is a commonly used pattern for presenting types of website content. Views may describe several different types of content, or ui elements in its definition. For example a comment view may define content like "comment text", "actions", or a "reply form".</p>
-      </td>
-    </tr>
-    <tr>
-      <td>Modules</td>
-      <td>
-        <p>Modules are components that have behaviors as an essential part of their definition. They contain both </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-## General Terms
+These terms are general programming terms that may be used without explanation in other documentation pages.
 
 <table class="ui relaxed padded basic definition table">
   <tr>
