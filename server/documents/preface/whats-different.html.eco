@@ -26,7 +26,7 @@ type        : 'Preface'
     <h3 class="ui header">
       Tag agnostic
     </h3>
-    <p>Interface definitions in Semantic are, with some <a href="http://beta.semantic-ui.com/elements/icon.html">small exceptions</a>, tag agnostic. That means you can use div, article, section, span without affecting the display of the element. Special tags like a, table, td still carry special meaning in certain circumstances however.</p>
+    <p>Interface definitions in Semantic are, with some <a href="http://semantic-ui.com/elements/icon.html">small exceptions</a>, tag agnostic. That means you can use div, article, section, span without affecting the display of the element. Special tags like a, table, td still carry special meaning in certain circumstances however.</p>
 
     <h3 class="ui header">
       Concise and Expressive
