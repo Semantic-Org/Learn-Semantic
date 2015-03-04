@@ -120,11 +120,11 @@ type        : 'Developing'
 
   <h3 class="ui header">Packaged Themes</h3>
 
-  <p>Semantic includes a global theming file <code>src/semantic.config</code> which lets you set which packaged theme each UI element should use.</p>
+  <p>Semantic includes a global theming file <code>src/theme.config</code> which lets you set which packaged theme each UI element should use.</p>
   <p>Packaged themes are similar in structure to <a href="#customizing-site-ui">site themes</a> but are designed to be downloaded and distributed over the internet.</p>
-  <p>To add a new packaged theme, simply extract the theme to <code>src/themes/theme-name/</code> and adjust your <code>semantic.config</code> file to include reference to your new theme.</p>
+  <p>To add a new packaged theme, simply extract the theme to <code>src/themes/theme-name/</code> and adjust your <code>theme.config</code> file to include reference to your new theme.</p>
 
-  <p>For example, UI feed provides a "Timeline" theme out of the box, which significantly adjusts the appearance of a feed for chronological display. Adjusting the string value for <code>@feed</code> inside <code>semantic.config</code> will let Semantic know to compile the element with a different packaged theme.</p>
+  <p>For example, UI feed provides a "Timeline" theme out of the box, which significantly adjusts the appearance of a feed for chronological display. Adjusting the string value for <code>@feed</code> inside <code>theme.config</code> will let Semantic know to compile the element with a different packaged theme.</p>
 
   <div class="code" data-type="less">
   /* My Themes */
