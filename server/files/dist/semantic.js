@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 1.9.0
+ * # Semantic UI - 1.11.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -8,12 +8,12 @@
  * http://opensource.org/licenses/MIT
  *
  */
-/*
- * # Semantic - Site
+/*!
+ * # Semantic UI 1.11.0 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -495,18 +495,20 @@ $.extend($.expr[ ":" ], {
 
 
 })( jQuery, window , document );
-/*
- * # Semantic - Form Validation
+/*!
+ * # Semantic UI 1.11.0 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
 
 ;(function ( $, window, document, undefined ) {
+
+"use strict";
 
 $.fn.form = function(fields, parameters) {
   var
@@ -1466,10 +1468,18 @@ $.fn.form.settings = {
       return ($(this).filter(':checked').length > 0);
     },
 
-    // value contains (text)
+    // value contains text (insensitive)
     contains: function(value, text) {
+      // escape regex characters
       text = text.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
-      return (value.search(text) !== -1);
+      return (value.search( new RegExp(text, 'i') ) !== -1);
+    },
+
+    // value contains text (case sensitive)
+    containsExactly: function(value, text) {
+      // escape regex characters
+      text = text.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+      return (value.search( new RegExp(text) ) !== -1);
     },
 
     // is most likely an email
@@ -1517,8 +1527,21 @@ $.fn.form.settings = {
       );
     },
 
-    // is exactly value
+    // is value (case insensitive)
     is: function(value, text) {
+      text = (typeof text == 'string')
+        ? text.toLowerCase()
+        : text
+      ;
+      value = (typeof value == 'string')
+        ? value.toLowerCase()
+        : value
+      ;
+      return (value == text);
+    },
+
+    // is value
+    isExactly: function(value, text) {
       return (value == text);
     },
 
@@ -1560,8 +1583,21 @@ $.fn.form.settings = {
       ;
     },
 
-    // value is not exactly notValue
+    // value is not value (case insensitive)
     not: function(value, notValue) {
+      value = (typeof value == 'string')
+        ? value.toLowerCase()
+        : value
+      ;
+      notValue = (typeof notValue == 'string')
+        ? notValue.toLowerCase()
+        : notValue
+      ;
+      return (value != notValue);
+    },
+
+    // value is not value (case sensitive)
+    notExactly: function(value, notValue) {
       return (value != notValue);
     },
 
@@ -1578,12 +1614,12 @@ $.fn.form.settings = {
 
 })( jQuery, window , document );
 
-/*
- * # Semantic - Accordion
+/*!
+ * # Semantic UI 1.11.0 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -2137,12 +2173,12 @@ $.extend( $.easing, {
 })( jQuery, window , document );
 
 
-/*
- * # Semantic - Checkbox
+/*!
+ * # Semantic UI 1.11.0 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -2647,18 +2683,20 @@ $.fn.checkbox.settings = {
 
 })( jQuery, window , document );
 
-/*
- * # Semantic - Dimmer
+/*!
+ * # Semantic UI 1.11.0 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
 
 ;(function ( $, window, document, undefined ) {
+
+"use strict";
 
 $.fn.dimmer = function(parameters) {
   var
@@ -2862,6 +2900,9 @@ $.fn.dimmer = function(parameters) {
               : function(){}
             ;
             if(settings.useCSS && $.fn.transition !== undefined && $dimmer.transition('is supported')) {
+              if(settings.opacity !== 'auto') {
+                module.set.opacity();
+              }
               $dimmer
                 .transition({
                   animation   : settings.transition + ' in',
@@ -2881,6 +2922,9 @@ $.fn.dimmer = function(parameters) {
             else {
               module.verbose('Showing dimmer animation with javascript');
               module.set.dimmed();
+              if(settings.opacity == 'auto') {
+                settings.opacity = 0.8;
+              }
               $dimmer
                 .stop()
                 .css({
@@ -2888,7 +2932,7 @@ $.fn.dimmer = function(parameters) {
                   width   : '100%',
                   height  : '100%'
                 })
-                .fadeTo(module.get.duration(), 1, function() {
+                .fadeTo(module.get.duration(), settings.opacity, function() {
                   $dimmer.removeAttr('style');
                   module.set.active();
                   callback();
@@ -3008,6 +3052,23 @@ $.fn.dimmer = function(parameters) {
         },
 
         set: {
+          opacity: function(opacity) {
+            var
+              opacity    = settings.opacity || opacity,
+              color      = $dimmer.css('background-color'),
+              colorArray = color.split(','),
+              isRGBA     = (colorArray && colorArray.length == 4)
+            ;
+            if(isRGBA) {
+              colorArray[3] = opacity + ')';
+              color         = colorArray.join(',');
+            }
+            else {
+              color = 'rgba(0, 0, 0, ' + opacity + ')';
+            }
+            module.debug('Setting opacity to', opacity);
+            $dimmer.css('background-color', color);
+          },
           active: function() {
             $dimmer.addClass(className.active);
           },
@@ -3230,13 +3291,28 @@ $.fn.dimmer.settings = {
   verbose     : true,
   performance : true,
 
+  // name to distinguish between multiple dimmers in context
   dimmerName  : false,
+
+  // whether to add a variation type
   variation   : false,
+
+  // whether to bind close events
   closable    : 'auto',
-  transition  : 'fade',
+
+  // whether to use css animations
   useCSS      : true,
+
+  // css animation to use
+  transition  : 'fade',
+
+  // event to bind to
   on          : false,
 
+  // overriding opacity value
+  opacity     : 'auto',
+
+  // transition durations
   duration    : {
     show : 500,
     hide : 500
@@ -3276,12 +3352,12 @@ $.fn.dimmer.settings = {
 };
 
 })( jQuery, window , document );
-/*
- * # Semantic - Dropdown
+/*!
+ * # Semantic UI 1.11.0 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -3419,9 +3495,9 @@ $.fn.dropdown = function(parameters) {
 
         create: {
           id: function() {
-            module.verbose('Creating unique id for element');
-            id = module.get.uniqueID();
+            id = (Math.random().toString(16) + '000000000').substr(2,8);
             elementNamespace = '.' + id;
+            module.verbose('Creating unique id for element', id);
           }
         },
 
@@ -3734,6 +3810,7 @@ $.fn.dropdown = function(parameters) {
           ;
           if(hasSelected) {
             module.event.item.click.call($selectedItem);
+            module.remove.filteredItem();
           }
         },
 
@@ -4100,6 +4177,9 @@ $.fn.dropdown = function(parameters) {
         },
 
         get: {
+          id: function() {
+            return id;
+          },
           text: function() {
             return $text.text();
           },
@@ -4247,9 +4327,6 @@ $.fn.dropdown = function(parameters) {
               value = module.get.text();
             }
             return $selectedItem || false;
-          },
-          uniqueID: function() {
-            return (Math.random().toString(16) + '000000000').substr(2,8);
           }
         },
 
@@ -5059,12 +5136,12 @@ $.extend( $.easing, {
 
 })( jQuery, window , document );
 
-/*
- * # Semantic - Modal
+/*!
+ * # Semantic UI 1.11.0 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -5181,9 +5258,9 @@ $.fn.modal = function(parameters) {
             $dimmer = $dimmable.dimmer('get dimmer');
           },
           id: function() {
-            module.verbose('Creating unique id for element');
-            id = module.get.uniqueID();
+            id = (Math.random().toString(16) + '000000000').substr(2,8);
             elementNamespace = '.' + id;
+            module.verbose('Creating unique id for element', id);
           }
         },
 
@@ -5253,7 +5330,7 @@ $.fn.modal = function(parameters) {
         },
 
         get: {
-          uniqueID: function() {
+          id: function() {
             return (Math.random().toString(16) + '000000000').substr(2,8);
           }
         },
@@ -5363,7 +5440,7 @@ $.fn.modal = function(parameters) {
             module.set.type();
             module.set.clickaway();
 
-            if( !settings.allowMultiple && $otherModals.filter(':visible').length > 0) {
+            if( !settings.allowMultiple && $otherModals.filter('.' + className.active).length > 0) {
               module.debug('Other modals visible, queueing show animation');
               module.hideOthers(module.showModal);
             }
@@ -5408,7 +5485,7 @@ $.fn.modal = function(parameters) {
           }
         },
 
-        hideModal: function(callback) {
+        hideModal: function(callback, keepDimmed) {
           callback = $.isFunction(callback)
             ? callback
             : function(){}
@@ -5427,7 +5504,7 @@ $.fn.modal = function(parameters) {
                   duration    : settings.duration,
                   useFailSafe : true,
                   onStart     : function() {
-                    if( !module.othersActive() ) {
+                    if(!module.othersActive() && !keepDimmed) {
                       module.hideDimmer();
                     }
                     module.remove.keyboardShortcuts();
@@ -5483,30 +5560,34 @@ $.fn.modal = function(parameters) {
         },
 
         hideAll: function(callback) {
+          var
+            $visibleModals = $allModals.filter(':visible')
+          ;
           callback = $.isFunction(callback)
             ? callback
             : function(){}
           ;
-          if( $allModals.is(':visible') ) {
+          if( $visibleModals.length > 0 ) {
             module.debug('Hiding all visible modals');
             module.hideDimmer();
-            $allModals
-              .filter(':visible')
-                .modal('hide modal', callback)
+            $visibleModals
+              .modal('hide modal', callback)
             ;
           }
         },
 
         hideOthers: function(callback) {
+          var
+            $visibleModals = $otherModals.filter(':visible')
+          ;
           callback = $.isFunction(callback)
             ? callback
             : function(){}
           ;
-          if( $otherModals.is(':visible') ) {
+          if( $visibleModals.length > 0 ) {
             module.debug('Hiding other modals', $otherModals);
-            $otherModals
-              .filter(':visible')
-                .modal('hide modal', callback)
+            $visibleModals
+              .modal('hide modal', callback, true)
             ;
           }
         },
@@ -5916,12 +5997,12 @@ $.fn.modal.settings = {
 
 })( jQuery, window , document );
 
-/*
- * # Semantic - Nag
+/*!
+ * # Semantic UI 1.11.0 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -6394,12 +6475,12 @@ $.fn.nag.settings = {
 
 })( jQuery, window , document );
 
-/*
- * # Semantic - Popup
+/*!
+ * # Semantic UI 1.11.0 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -6458,6 +6539,9 @@ $.fn.popup = function(parameters) {
 
         element            = this,
         instance           = $module.data(moduleNamespace),
+
+        elementNamespace,
+        id,
         module
       ;
 
@@ -6465,24 +6549,9 @@ $.fn.popup = function(parameters) {
 
         // binds events
         initialize: function() {
-          module.debug('Initializing module', $module);
-          if(settings.on == 'click') {
-            $module
-              .on('click' + eventNamespace, module.toggle)
-            ;
-          }
-          else if( module.get.startEvent() ) {
-            $module
-              .on(module.get.startEvent() + eventNamespace, module.event.start)
-              .on(module.get.endEvent() + eventNamespace, module.event.end)
-            ;
-          }
-          if(settings.target) {
-            module.debug('Target set to element', $target);
-          }
-          $window
-            .on('resize' + eventNamespace, module.event.resize)
-          ;
+          module.debug('Initializing', $module);
+          module.createID();
+          module.bind.events();
           if( !module.exists() && settings.preserve) {
             module.create();
           }
@@ -6490,7 +6559,7 @@ $.fn.popup = function(parameters) {
         },
 
         instantiate: function() {
-          module.verbose('Storing instance of module', module);
+          module.verbose('Storing instance', module);
           instance = module;
           $module
             .data(moduleNamespace, instance)
@@ -6539,11 +6608,15 @@ $.fn.popup = function(parameters) {
 
         destroy: function() {
           module.debug('Destroying previous module');
+          // remove element only if was created dynamically
           if($popup && !settings.preserve) {
             module.removePopup();
           }
+          // clear all timeouts
           clearTimeout(module.hideTimer);
           clearTimeout(module.showTimer);
+          // remove events
+          $window.off(elementNamespace);
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
@@ -6603,6 +6676,7 @@ $.fn.popup = function(parameters) {
             $popup = $('<div/>')
               .addClass(className.popup)
               .addClass(variation)
+              .data(metadata.activator, $module)
               .html(html)
             ;
             if(variation) {
@@ -6631,13 +6705,14 @@ $.fn.popup = function(parameters) {
           else if($target.next(selector.popup).length !== 0) {
             module.verbose('Pre-existing popup found');
             settings.inline = true;
-            settings.popup  = $target.next(selector.popup);
+            settings.popup  = $target.next(selector.popup).data(metadata.activator, $module);
             module.refresh();
             if(settings.hoverable) {
               module.bind.popup();
             }
           }
           else if(settings.popup) {
+            settings.popup.data(metadata.activator, $module);
             module.verbose('Used popup specified in settings');
             module.refresh();
             if(settings.hoverable) {
@@ -6649,13 +6724,18 @@ $.fn.popup = function(parameters) {
           }
         },
 
+        createID: function() {
+          id = (Math.random().toString(16) + '000000000').substr(2,8);
+          elementNamespace = '.' + id;
+          module.verbose('Creating unique id for element', id);
+        },
+
         // determines popup state
         toggle: function() {
           module.debug('Toggling pop-up');
           if( module.is.hidden() ) {
             module.debug('Popup is hidden, showing pop-up');
             module.unbind.close();
-            module.hideAll();
             module.show();
           }
           else {
@@ -6675,6 +6755,9 @@ $.fn.popup = function(parameters) {
           }
           if( $popup && module.set.position() ) {
             module.save.conditions();
+            if(settings.exclusive) {
+              module.hideAll();
+            }
             module.animate.show(callback);
           }
         },
@@ -6692,8 +6775,13 @@ $.fn.popup = function(parameters) {
 
         hideAll: function() {
           $(selector.popup)
-            .filter(':visible')
-              .transition(settings.transition)
+            .filter('.' + className.visible)
+            .each(function() {
+              $(this)
+                .data(metadata.activator)
+                .popup('hide')
+              ;
+            })
           ;
         },
 
@@ -6819,14 +6907,26 @@ $.fn.popup = function(parameters) {
         },
 
         get: {
+          id: function() {
+            return id;
+          },
           startEvent: function() {
             if(settings.on == 'hover') {
-              return 'mouseenter';
+              return (hasTouch)
+                ? 'touchstart mouseenter'
+                : 'mouseenter'
+              ;
             }
             else if(settings.on == 'focus') {
               return 'focus';
             }
             return false;
+          },
+          scrollEvent: function() {
+            return (hasTouch)
+              ? 'touchmove scroll'
+              : 'scroll'
+            ;
           },
           endEvent: function() {
             if(settings.on == 'hover') {
@@ -7137,7 +7237,7 @@ $.fn.popup = function(parameters) {
               }
               else if(!settings.lastResort) {
                 module.debug('Popup could not find a position in view', $popup);
-                module.error(error.cannotPlace);
+                module.error(error.cannotPlace, element);
                 module.remove.attempts();
                 module.remove.loading();
                 module.reset();
@@ -7178,6 +7278,24 @@ $.fn.popup = function(parameters) {
         },
 
         bind: {
+          events: function() {
+            module.debug('Binding popup events to module');
+            if(settings.on == 'click') {
+              $module
+                .on('click' + eventNamespace, module.toggle)
+              ;
+            }
+            else if( module.get.startEvent() ) {
+              $module
+                .on(module.get.startEvent() + eventNamespace, module.event.start)
+                .on(module.get.endEvent() + eventNamespace, module.event.end)
+              ;
+            }
+            if(settings.target) {
+              module.debug('Target set to element', $target);
+            }
+            $window.on('resize' + elementNamespace, module.event.resize);
+          },
           popup: function() {
             module.verbose('Allowing hover events on popup to prevent closing');
             if( $popup && module.has.popup() ) {
@@ -7190,18 +7308,16 @@ $.fn.popup = function(parameters) {
           close:function() {
             if(settings.hideOnScroll === true || settings.hideOnScroll == 'auto' && settings.on != 'click') {
               $document
-                .one('touchmove' + eventNamespace, module.hideGracefully)
-                .one('scroll' + eventNamespace, module.hideGracefully)
+                .one(module.get.scrollEvent() + elementNamespace, module.hideGracefully)
               ;
               $context
-                .one('touchmove' + eventNamespace, module.hideGracefully)
-                .one('scroll' + eventNamespace, module.hideGracefully)
+                .one(module.get.scrollEvent() + elementNamespace, module.hideGracefully)
               ;
             }
             if(settings.on == 'click' && settings.closable) {
               module.verbose('Binding popup close event to document');
               $document
-                .on('click' + eventNamespace, function(event) {
+                .on('click' + elementNamespace, function(event) {
                   module.verbose('Pop-up clickaway intent detected');
                   module.hideGracefully.call(element, event);
                 })
@@ -7214,16 +7330,16 @@ $.fn.popup = function(parameters) {
           close: function() {
             if(settings.hideOnScroll === true || settings.hideOnScroll == 'auto' && settings.on != 'click') {
               $document
-                .off('scroll' + eventNamespace, module.hide)
+                .off('scroll' + elementNamespace, module.hide)
               ;
               $context
-                .off('scroll' + eventNamespace, module.hide)
+                .off('scroll' + elementNamespace, module.hide)
               ;
             }
             if(settings.on == 'click' && settings.closable) {
               module.verbose('Removing close event from document');
               $document
-                .off('click' + eventNamespace)
+                .off('click' + elementNamespace)
               ;
             }
           }
@@ -7470,6 +7586,7 @@ $.fn.popup.settings = {
   on           : 'hover',
   closable     : true,
   hideOnScroll : 'auto',
+  exclusive    : true,
 
   context      : 'body',
 
@@ -7506,6 +7623,7 @@ $.fn.popup.settings = {
   },
 
   metadata: {
+    activator : 'activator',
     content   : 'content',
     html      : 'html',
     offset    : 'offset',
@@ -7582,12 +7700,12 @@ $.extend( $.easing, {
 
 })( jQuery, window , document );
 
-/*
- * # Semantic - Progress
+/*!
+ * # Semantic UI 1.11.0 - Progress
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -8367,12 +8485,12 @@ $.fn.progress.settings = {
 
 
 })( jQuery, window , document );
-/*
- * # Semantic - Rating
+/*!
+ * # Semantic UI 1.11.0 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -8819,12 +8937,12 @@ $.fn.rating.settings = {
 
 })( jQuery, window , document );
 
-/*
- * # Semantic - Search
+/*!
+ * # Semantic UI 1.11.0 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -8889,6 +9007,7 @@ $.fn.search = function(parameters) {
           if(settings.automatic) {
             $prompt
               .on(inputEvent + eventNamespace, module.throttle)
+              .attr('autocomplete', 'off')
             ;
           }
           $prompt
@@ -9124,14 +9243,14 @@ $.fn.search = function(parameters) {
             var
               result = false
             ;
-            value = value || module.get.value();
+            value   = value   || module.get.value();
             results = results || module.get.results();
             if(settings.type === 'category') {
-              module.debug('Finding result from category results', value);
+              module.debug('Finding result that matches', value);
               $.each(results, function(index, category) {
-                if(category.results !== undefined) {
+                if($.isArray(category.results)) {
                   result = module.search.object(value, category.results)[0];
-                  if(result.length > 0) {
+                  if(result && result.length > 0) {
                     return true;
                   }
                 }
@@ -9155,6 +9274,7 @@ $.fn.search = function(parameters) {
           value: function(value) {
             module.verbose('Setting search input value', value);
             $prompt.val(value);
+            module.query();
           },
           buttonPressed: function() {
             $searchButton.addClass(className.pressed);
@@ -9176,11 +9296,12 @@ $.fn.search = function(parameters) {
         query: function() {
           var
             searchTerm = module.get.value(),
-            cachedHTML = module.read.cachedHTML(searchTerm)
+            cache = module.read.cache(searchTerm)
           ;
-          if(cachedHTML) {
+          if(cache) {
             module.debug('Reading result for ' + searchTerm + ' from cache');
-            module.addResults(cachedHTML);
+            module.save.results(cache.results);
+            module.addResults(cache.html);
           }
           else {
             module.debug('Querying for ' + searchTerm);
@@ -9195,6 +9316,9 @@ $.fn.search = function(parameters) {
               else if($.api.settings.api.search !== undefined) {
                 module.debug('Searching with default search API endpoint');
                 module.search.remote(searchTerm);
+              }
+              else {
+                module.error(error.noEndpoint);
               }
             }
             else {
@@ -9218,7 +9342,10 @@ $.fn.search = function(parameters) {
               results: searchResults
             });
             module.remove.loading();
-            module.write.cachedHTML(searchTerm, searchHTML);
+            module.write.cache(searchTerm, {
+              html    : searchHTML,
+              results : searchResults
+            });
             module.addResults(searchHTML);
           },
           remote: function(searchTerm) {
@@ -9250,8 +9377,9 @@ $.fn.search = function(parameters) {
               searchFields    = $.isArray(settings.searchFields)
                 ? settings.searchFields
                 : [settings.searchFields],
-              searchRegExp    = new RegExp(regExp.exact + searchTerm, 'i'),
-              fullTextRegExp  = new RegExp(searchTerm, 'i')
+              searchExp       = searchTerm.replace(regExp.escape, '\\$&'),
+              searchRegExp    = new RegExp(regExp.exact + searchExp, 'i'),
+              fullTextRegExp  = new RegExp(searchExp, 'i')
             ;
 
             source = source || settings.source;
@@ -9290,13 +9418,14 @@ $.fn.search = function(parameters) {
             ;
             module.verbose('Parsing server response', response);
             if(response !== undefined) {
-              if(searchTerm) {
-                module.write.cachedHTML(searchTerm, searchHTML);
-                if(response.results !== undefined) {
-                  module.save.results(response.results);
-                }
+              if(searchTerm !== undefined && response.results !== undefined) {
+                module.write.cache(searchTerm, {
+                  html    : searchHTML,
+                  results : response.results
+                });
+                module.save.results(response.results);
+                module.addResults(searchHTML);
               }
-              module.addResults(searchHTML);
             }
           }
         },
@@ -9330,7 +9459,7 @@ $.fn.search = function(parameters) {
         },
 
         read: {
-          cachedHTML: function(name) {
+          cache: function(name) {
             var
               cache = $module.data(metadata.cache)
             ;
@@ -9353,7 +9482,7 @@ $.fn.search = function(parameters) {
         },
 
         write: {
-          cachedHTML: function(name, value) {
+          cache: function(name, value) {
             var
               cache = ($module.data(metadata.cache) !== undefined)
                 ? $module.data(metadata.cache)
@@ -9438,7 +9567,9 @@ $.fn.search = function(parameters) {
           if(isProperObject || isProperArray ) {
             if(settings.maxResults > 0) {
               if(isProperObject) {
-                module.error(error.maxResults);
+                if(settings.type == 'standard') {
+                  module.error(error.maxResults);
+                }
               }
               else {
                 response.results = response.results.slice(0, settings.maxResults);
@@ -9696,6 +9827,7 @@ $.fn.search.settings = {
     source      : 'Cannot search. No source used, and Semantic API module was not included',
     noResults   : 'Your search returned no results',
     logging     : 'Error in debug logging, exiting.',
+    noEndpoint  : 'No search endpoint was specified',
     noTemplate  : 'A valid template name was not specified.',
     serverError : 'There was an issue with querying the server.',
     maxResults  : 'Results must be an array to use maxResults setting',
@@ -9708,7 +9840,8 @@ $.fn.search.settings = {
   },
 
   regExp: {
-    exact: '(?:\s|^)'
+    escape : /[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g,
+    exact  : '(?:\s|^)'
   },
 
   selector : {
@@ -9875,12 +10008,12 @@ $.fn.search.settings = {
 
 })( jQuery, window , document );
 
-/*
- * # Semantic - Shape
+/*!
+ * # Semantic UI 1.11.0 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -10705,12 +10838,12 @@ $.fn.shape.settings = {
 
 
 })( jQuery, window , document );
-/*
- * # Semantic - Sidebar
+/*!
+ * # Semantic UI 1.11.0 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -10821,9 +10954,9 @@ $.fn.sidebar = function(parameters) {
 
         create: {
           id: function() {
-            module.verbose('Creating unique id for element');
-            id = module.get.uniqueID();
+            id = (Math.random().toString(16) + '000000000').substr(2,8);
             elementNamespace = '.' + id;
+            module.verbose('Creating unique id for element', id);
           }
         },
 
@@ -11072,11 +11205,20 @@ $.fn.sidebar = function(parameters) {
               settings.transition = 'overlay';
             }
             module.refresh();
-            if(module.othersActive() && module.get.transition() !== 'overlay') {
+            if(module.othersActive()) {
               module.debug('Other sidebars currently visible');
-              settings.transition = 'overlay';
               if(settings.exclusive) {
-                module.hideOthers();
+                // if not overlay queue animation after hide
+                if(settings.transition != 'overlay') {
+                  module.hideOthers(module.show);
+                  return;
+                }
+                else {
+                  module.hideOthers();
+                }
+              }
+              else {
+                settings.transition = 'overlay';
               }
             }
             animateMethod(function() {
@@ -11129,8 +11271,7 @@ $.fn.sidebar = function(parameters) {
             sidebarCount   = $otherSidebars.length,
             callbackCount  = 0
           ;
-          callback       = callback || function(){};
-
+          callback = callback || function(){};
           $otherSidebars
             .sidebar('hide', function() {
               callbackCount++;
@@ -11429,9 +11570,6 @@ $.fn.sidebar = function(parameters) {
                 return transitions[transition];
               }
             }
-          },
-          uniqueID: function() {
-            return (Math.random().toString(16) + '000000000').substr(2,8);
           }
         },
 
@@ -11790,12 +11928,12 @@ $.extend( $.easing, {
 
 })( jQuery, window , document );
 
- /*
- * # Semantic - Sticky
+/*!
+ * # Semantic UI 1.11.0 - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2014 Contributorss
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -11822,7 +11960,9 @@ $.fn.sticky = function(parameters) {
   $allModules
     .each(function() {
       var
-        settings              = $.extend(true, {}, $.fn.sticky.settings, parameters),
+        settings              = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.sticky.settings, parameters)
+          : $.extend({}, $.fn.sticky.settings),
 
         className             = settings.className,
         namespace             = settings.namespace,
@@ -11854,37 +11994,17 @@ $.fn.sticky = function(parameters) {
       module      = {
 
         initialize: function() {
-          if(settings.context) {
-            $context = $(settings.context);
-          }
-          else {
-            $context = $container;
-          }
-          if($context.length === 0) {
-            module.error(error.invalidContext, settings.context, $module);
-            return;
-          }
+
+          module.determineContext();
           module.verbose('Initializing sticky', settings, $container);
+
           module.save.positions();
+          module.checkErrors();
+          module.bind.events();
 
-          // error conditions
-          if( module.is.hidden() ) {
-            module.error(error.visible, $module);
+          if(settings.observeChanges) {
+            module.observeChanges();
           }
-          if(module.cache.element.height > module.cache.context.height) {
-            module.reset();
-            module.error(error.elementSize, $module);
-            return;
-          }
-
-          $window
-            .on('resize' + eventNamespace, module.event.resize)
-          ;
-          $scroll
-            .on('scroll' + eventNamespace, module.event.scroll)
-          ;
-
-          module.observeChanges();
           module.instantiate();
         },
 
@@ -11902,40 +12022,63 @@ $.fn.sticky = function(parameters) {
           if(observer) {
             observer.disconnect();
           }
-          $window
-            .off('resize' + eventNamespace, module.event.resize)
-          ;
-          $scroll
-            .off('scroll' + eventNamespace, module.event.scroll)
-          ;
-          $module
-            .removeData(moduleNamespace)
-          ;
+          $window.off('resize' + eventNamespace, module.event.resize);
+          $scroll.off('scroll' + eventNamespace, module.event.scroll);
+          $module.removeData(moduleNamespace);
         },
 
         observeChanges: function() {
           var
             context = $context[0]
           ;
-          if(settings.observeChanges) {
-            if('MutationObserver' in window) {
-              observer = new MutationObserver(function(mutations) {
-                clearTimeout(module.timer);
-                module.timer = setTimeout(function() {
-                  module.verbose('DOM tree modified, updating sticky menu');
-                  module.refresh();
-                }, 200);
-              });
-              observer.observe(element, {
-                childList : true,
-                subtree   : true
-              });
-              observer.observe(context, {
-                childList : true,
-                subtree   : true
-              });
-              module.debug('Setting up mutation observer', observer);
-            }
+          if('MutationObserver' in window) {
+            observer = new MutationObserver(function(mutations) {
+              clearTimeout(module.timer);
+              module.timer = setTimeout(function() {
+                module.verbose('DOM tree modified, updating sticky menu');
+                module.refresh();
+              }, 20);
+            });
+            observer.observe(element, {
+              childList : true,
+              subtree   : true
+            });
+            observer.observe(context, {
+              childList : true,
+              subtree   : true
+            });
+            module.debug('Setting up mutation observer', observer);
+          }
+        },
+
+        determineContext: function() {
+          if(settings.context) {
+            $context = $(settings.context);
+          }
+          else {
+            $context = $container;
+          }
+          if($context.length === 0) {
+            module.error(error.invalidContext, settings.context, $module);
+            return;
+          }
+        },
+
+        checkErrors: function() {
+          if( module.is.hidden() ) {
+            module.error(error.visible, $module);
+          }
+          if(module.cache.element.height > module.cache.context.height) {
+            module.reset();
+            module.error(error.elementSize, $module);
+            return;
+          }
+        },
+
+        bind: {
+          events: function() {
+            $window.on('resize' + eventNamespace, module.event.resize);
+            $scroll.on('scroll' + eventNamespace, module.event.scroll);
           }
         },
 
@@ -11970,9 +12113,7 @@ $.fn.sticky = function(parameters) {
               $element = $('<div/>'),
               element = $element.get()
             ;
-            $element
-              .addClass(className.supported)
-            ;
+            $element.addClass(className.supported);
             return($element.css('position').match('sticky'));
           }
         },
@@ -11996,8 +12137,9 @@ $.fn.sticky = function(parameters) {
                 height : $module.outerHeight()
               },
               context = {
-                offset: $context.offset(),
-                height: $context.outerHeight()
+                offset        : $context.offset(),
+                height        : $context.outerHeight(),
+                bottomPadding : parseInt($context.css('padding-bottom'), 10)
               }
             ;
             module.cache = {
@@ -12014,9 +12156,10 @@ $.fn.sticky = function(parameters) {
                 bottom : element.offset.top + element.height
               },
               context: {
-                top    : context.offset.top,
-                height : context.height,
-                bottom : context.offset.top + context.height
+                top           : context.offset.top,
+                height        : context.height,
+                bottomPadding : context.bottomPadding,
+                bottom        : context.offset.top + context.height - context.bottomPadding
               }
             };
             module.set.containerSize();
@@ -12102,7 +12245,9 @@ $.fn.sticky = function(parameters) {
             else {
               module.debug('Settings container size', module.cache.context.height);
               if( Math.abs($container.height() - module.cache.context.height) > 5) {
-                $container.height(module.cache.context.height);
+                $container.css({
+                  height: module.cache.context.height
+                });
               }
             }
           },
@@ -12182,7 +12327,12 @@ $.fn.sticky = function(parameters) {
           if(elementVisible) {
 
             if( module.is.initialPosition() ) {
-              if(scroll.top >= element.top) {
+              if(scroll.top >= context.bottom) {
+                console.log(scroll.top, context.bottom);
+                module.debug('Element bottom of container');
+                module.bindBottom();
+              }
+              else if(scroll.top >= element.top) {
                 module.debug('Element passed, fixing element to page');
                 module.fixTop();
               }
@@ -12248,7 +12398,7 @@ $.fn.sticky = function(parameters) {
           $module
             .css('left' , '')
             .css('top' , '')
-            .css('bottom' , '')
+            .css('margin-bottom' , '')
             .removeClass(className.fixed)
             .removeClass(className.bottom)
             .addClass(className.bound)
@@ -12263,7 +12413,7 @@ $.fn.sticky = function(parameters) {
           $module
             .css('left' , '')
             .css('top' , '')
-            .css('bottom' , '')
+            .css('margin-bottom' , module.cache.context.bottomPadding)
             .removeClass(className.fixed)
             .removeClass(className.top)
             .addClass(className.bound)
@@ -12284,6 +12434,7 @@ $.fn.sticky = function(parameters) {
           module.set.offset();
           $module
             .css('left', module.cache.element.left)
+            .css('bottom' , '')
             .removeClass(className.bound)
             .removeClass(className.bottom)
             .addClass(className.fixed)
@@ -12297,6 +12448,7 @@ $.fn.sticky = function(parameters) {
           module.set.offset();
           $module
             .css('left', module.cache.element.left)
+            .css('bottom' , '')
             .removeClass(className.bound)
             .removeClass(className.top)
             .addClass(className.fixed)
@@ -12536,6 +12688,7 @@ $.fn.sticky.settings = {
   pushing        : false,
   context        : false,
   scrollContext  : window,
+
   offset         : 0,
   bottomOffset   : 0,
 
@@ -12568,12 +12721,12 @@ $.fn.sticky.settings = {
 
 })( jQuery, window , document );
 
- /*
- * # Semantic - Tab
+/*!
+ * # Semantic UI 1.11.0 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2014 Contributorss
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -12645,10 +12798,7 @@ $.fn.tab = function(parameters) {
 
           // set up automatic routing
           if(settings.auto) {
-            module.verbose('Setting up automatic tab retrieval from server');
-            settings.apiSettings = {
-              url: (settings.path || '') + '/{$tab}'
-            };
+            module.set.auto();
           }
 
           // attach events if navigation wasn't set to window
@@ -12808,6 +12958,22 @@ $.fn.tab = function(parameters) {
         },
 
         set: {
+          auto: function() {
+            var
+              url = (typeof settings.path == 'string')
+                ? settings.path.replace(/\/$/, '') + '/{$tab}'
+                : '/{$tab}'
+            ;
+            module.verbose('Setting up automatic tab retrieval from server', url);
+            if($.isPlainObject(settings.apiSettings)) {
+              settings.apiSettings.url = url;
+            }
+            else {
+              settings.apiSettings = {
+                url: url
+              };
+            }
+          },
           state: function(state) {
             $.address.value(state);
           }
@@ -12940,22 +13106,22 @@ $.fn.tab = function(parameters) {
             cachedContent = module.cache.read(fullTabPath);
 
 
+            module.activate.tab(tabPath);
+
             if(settings.cache && cachedContent) {
               module.debug('Showing existing content', fullTabPath);
               module.content.update(tabPath, cachedContent);
-              module.activate.tab(tabPath);
               settings.onTabLoad.call($tab, tabPath, parameterArray, historyEvent);
             }
             else if(existingRequest) {
               module.debug('Content is already loading', fullTabPath);
-              $tab
-                .addClass(className.loading)
-              ;
+              $tab.addClass(className.loading);
             }
             else if($.api !== undefined) {
-              requestSettings = $.extend(true, { headers: { 'X-Remote': true } }, settings.apiSettings, apiSettings);
+              requestSettings = $.extend(true, {
+                headers: { 'X-Remote': true }
+              }, settings.apiSettings, apiSettings);
               module.debug('Retrieving remote content', fullTabPath, requestSettings);
-              console.log(existingRequest, requestSettings, cachedContent);
               $tab.api( requestSettings );
             }
             else {
@@ -13357,12 +13523,12 @@ $.fn.tab.settings = {
 };
 
 })( jQuery, window , document );
-/*
- * # Semantic - Transition
+/*!
+ * # Semantic UI 1.11.0 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -13394,7 +13560,7 @@ $.fn.transition = function() {
     returnedValue
   ;
   $allModules
-    .each(function() {
+    .each(function(index) {
       var
         $module  = $(this),
         element  = this,
@@ -13445,7 +13611,12 @@ $.fn.transition = function() {
           // method not invoked, lets run an animation
           if(methodInvoked === false) {
             module.verbose('Converted arguments into settings object', settings);
-            module.animate();
+            if(settings.interval) {
+              module.delay(settings.animate);
+            }
+            else  {
+              module.animate();
+            }
             module.instantiate();
           }
         },
@@ -13491,6 +13662,24 @@ $.fn.transition = function() {
           ;
         },
 
+        delay: function(interval) {
+          var
+            isReverse = (settings.reverse === true),
+            shouldReverse = (settings.reverse == 'auto' && module.get.direction() == className.outward),
+            delay
+          ;
+          interval = (typeof interval !== undefined)
+            ? interval
+            : settings.interval
+          ;
+          delay = (isReverse || shouldReverse)
+            ? ($allModules.length - index) * settings.interval
+            : index * settings.interval
+          ;
+          module.debug('Delaying animation by', delay);
+          setTimeout(module.animate, delay);
+        },
+
         animate: function(overrideSettings) {
           settings = overrideSettings || settings;
           if(!module.is.supported()) {
@@ -13523,7 +13712,7 @@ $.fn.transition = function() {
 
         reset: function() {
           module.debug('Resetting animation to beginning conditions');
-          module.remove.animationEndCallback();
+          module.remove.animationCallbacks();
           module.restore.conditions();
           module.remove.animating();
         },
@@ -13532,7 +13721,7 @@ $.fn.transition = function() {
           module.debug('Queueing animation of', animation);
           module.queuing = true;
           $module
-            .one(animationEnd + eventNamespace, function() {
+            .one(animationEnd + '.queue' + eventNamespace, function() {
               module.queuing = false;
               module.repaint();
               module.animate.apply(this, settings);
@@ -13540,9 +13729,9 @@ $.fn.transition = function() {
           ;
         },
 
-        complete: function () {
+        complete: function (event) {
           module.verbose('CSS animation complete', settings.animation);
-          module.remove.animationEndCallback();
+          module.remove.completeCallback();
           module.remove.failSafe();
           if(!module.is.looping()) {
             if( module.is.outward() ) {
@@ -13555,7 +13744,6 @@ $.fn.transition = function() {
               module.verbose('Animation is outward, showing element');
               module.restore.conditions();
               module.show();
-              module.set.display();
               settings.onShow.call(this);
             }
             else {
@@ -13598,7 +13786,7 @@ $.fn.transition = function() {
               module.save.conditions();
             }
             module.remove.direction();
-            module.remove.animationEndCallback();
+            module.remove.completeCallback();
             if(module.can.transition() && !module.has.direction()) {
               module.set.direction();
             }
@@ -13678,12 +13866,12 @@ $.fn.transition = function() {
                 .addClass(className.transition)
                 .addClass(className.hidden)
               ;
-              if($module.css('display') !== 'none') {
-                module.verbose('Overriding default display to hide element');
-                $module
-                  .css('display', 'none')
-                ;
-              }
+            }
+            if($module.css('display') !== 'none') {
+              module.verbose('Overriding default display to hide element');
+              $module
+                .css('display', 'none')
+              ;
             }
           },
           visible: function() {
@@ -13705,7 +13893,7 @@ $.fn.transition = function() {
           conditions: function() {
             var
               clasName = $module.attr('class') || false,
-              style = $module.attr('style') || ''
+              style    = $module.attr('style') || ''
             ;
             $module.removeClass(settings.animation);
             module.remove.direction();
@@ -13732,8 +13920,9 @@ $.fn.transition = function() {
               module.verbose('Restoring original style attribute', module.cache.style);
               $module.attr('style', module.cache.style);
             }
-            if(module.is.looping()) {
-              module.remove.looping();
+            else {
+              module.verbose('Clearing style attribute');
+              $module.removeAttr('style');
             }
             module.verbose('Restoring original attributes', module.cache);
           }
@@ -13744,7 +13933,9 @@ $.fn.transition = function() {
             var
               duration = module.get.duration()
             ;
-            module.timer = setTimeout(module.complete, duration + 100);
+            module.timer = setTimeout(function() {
+              $module.trigger(animationEnd);
+            }, duration + settings.failSafeDelay);
             module.verbose('Adding fail safe timer', module.timer);
           }
         },
@@ -13764,8 +13955,15 @@ $.fn.transition = function() {
               })
             ;
           },
-          animationEndCallback: function() {
-            $module.off('.complete');
+          animationCallbacks: function() {
+            module.remove.queueCallback();
+            module.remove.completeCallback();
+          },
+          queueCallback: function() {
+            $module.off('.queue' + eventNamespace)
+          },
+          completeCallback: function() {
+            $module.off('.complete' + eventNamespace);
           },
           display: function() {
             $module.css('display', '');
@@ -13790,10 +13988,12 @@ $.fn.transition = function() {
           },
           looping: function() {
             module.debug('Transitions are no longer looping');
-            $module
-              .removeClass(className.looping)
-            ;
-            module.forceRepaint();
+            if( module.is.looping() ) {
+              module.reset();
+              $module
+                .removeClass(className.looping)
+              ;
+            }
           },
           transition: function() {
             $module
@@ -13843,6 +14043,31 @@ $.fn.transition = function() {
               });
             }
             return $.fn.transition.settings;
+          },
+          direction: function(animation) {
+            // quickest manually specified direction
+            animation = animation || settings.animation;
+            if(typeof animation === 'string') {
+              animation = animation.split(' ');
+              $.each(animation, function(index, word){
+                if(word === className.inward) {
+                  return className.inward;
+                }
+                else if(word === className.outward) {
+                  return className.outward;
+                }
+              });
+            }
+            // slower backup
+            if( !module.can.transition() ) {
+              return 'static';
+            }
+            if($module.is(':visible') && !module.is.hidden()) {
+              return className.outward;
+            }
+            else {
+              return className.inward;
+            }
           },
           duration: function(duration) {
             duration = duration || settings.duration;
@@ -13969,6 +14194,8 @@ $.fn.transition = function() {
                 .css('display')
               ;
               module.verbose('Determining final display state', displayType);
+              module.save.displayType(displayType);
+
               $clone.remove();
               if(currentAnimation != inAnimation) {
                 module.debug('Direction exists for animation', animation);
@@ -13982,7 +14209,6 @@ $.fn.transition = function() {
                 module.debug('Static animation found', animation, displayType);
                 directionExists = false;
               }
-              module.save.displayType(displayType);
               module.save.transitionExists(animation, directionExists);
             }
             return (transitionExists !== undefined)
@@ -14040,22 +14266,45 @@ $.fn.transition = function() {
           module.verbose('Showing element', display);
           module.remove.hidden();
           module.set.visible();
+          module.set.display();
           module.repaint();
         },
 
-        start: function() {
+        toggle: function() {
+          if( module.is.visible() ) {
+            module.hide();
+          }
+          else {
+            module.show();
+          }
+        },
+
+        stop: function() {
+          module.debug('Stopping current animation');
+          $module.trigger(animationEnd);
+        },
+
+        stopAll: function() {
+          module.debug('Stopping all animation');
+          module.remove.queueCallback();
+          $module.trigger(animationEnd);
+        },
+
+        clear: {
+          queue: function() {
+            module.debug('Clearing animation queue')
+            module.remove.queueCallback();
+          }
+        },
+
+        enable: function() {
           module.verbose('Starting animation');
           $module.removeClass(className.disabled);
         },
 
-        stop: function() {
+        disable: function() {
           module.debug('Stopping animation');
           $module.addClass(className.disabled);
-        },
-
-        toggle: function() {
-          module.debug('Toggling play status');
-          $module.toggleClass(className.disabled);
         },
 
         setting: function(name, value) {
@@ -14235,41 +14484,50 @@ $.fn.transition.exists = {};
 $.fn.transition.settings = {
 
   // module info
-  name         : 'Transition',
+  name          : 'Transition',
 
   // debug content outputted to console
-  debug        : false,
+  debug         : false,
 
   // verbose debug output
-  verbose      : true,
+  verbose       : true,
 
   // performance data output
-  performance  : true,
+  performance   : true,
 
   // event namespace
-  namespace    : 'transition',
+  namespace     : 'transition',
 
-  // animation complete event
-  onStart      : function() {},
-  onComplete   : function() {},
-  onShow       : function() {},
-  onHide       : function() {},
+  // delay between animations in group
+  interval      : 0,
+
+  // whether group animations should be reversed
+  reverse       : 'auto',
+
+  // animation callback event
+  onStart       : function() {},
+  onComplete    : function() {},
+  onShow        : function() {},
+  onHide        : function() {},
 
   // whether timeout should be used to ensure callback fires in cases animationend does not
-  useFailSafe  : true,
+  useFailSafe   : true,
+
+  // delay in ms for fail safe
+  failSafeDelay : 100,
 
   // whether EXACT animation can occur twice in a row
-  allowRepeats : false,
+  allowRepeats  : false,
 
   // Override final display type on visible
-  displayType  : false,
+  displayType   : false,
 
   // animation duration
-  animation    : 'fade',
-  duration     : false,
+  animation     : 'fade',
+  duration      : false,
 
   // new animations will occur after previous ones
-  queue       : true,
+  queue         : true,
 
   metadata : {
     displayType: 'display'
@@ -14300,12 +14558,12 @@ $.fn.transition.settings = {
 
 })( jQuery, window , document );
 
- /*
- * # Semantic - Video
+/*!
+ * # Semantic UI 1.11.0 - Video
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2014 Contributorss
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -14841,18 +15099,20 @@ $.fn.video.settings.templates = {
 
 })( jQuery, window , document );
 
-/*
- * # Semantic - API
+/*!
+ * # Semantic UI 1.11.0 - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
 
 ;(function ( $, window, document, undefined ) {
+
+"use strict";
 
 $.api = $.fn.api = function(parameters) {
 
@@ -14978,12 +15238,16 @@ $.api = $.fn.api = function(parameters) {
           }
 
           // call beforesend and get any settings changes
-          requestSettings = module.get.settings();
+          requestSettings         = module.get.settings();
 
-          // check if beforesend cancelled request
+          // check if before send cancelled request
           if(requestSettings === false) {
+            module.cancelled = true;
             module.error(error.beforeSend);
             return;
+          }
+          else {
+            module.cancelled = false;
           }
 
           if(settings.url) {
@@ -14999,9 +15263,9 @@ $.api = $.fn.api = function(parameters) {
 
           // exit conditions reached, missing url parameters
           if( !url ) {
-            if($module.is('form')) {
-              module.debug('No url or action specified, defaulting to form action');
-              url = $module.attr('action');
+            if( module.is.form() ) {
+              url = $module.attr('action') || '';
+              module.debug('No url or action specified, defaulting to form action', url);
             }
             else {
               module.error(error.missingURL, settings.action);
@@ -15023,7 +15287,9 @@ $.api = $.fn.api = function(parameters) {
             complete   : function() {}
           });
 
-          module.verbose('Creating AJAX request with settings', ajaxSettings);
+          module.debug('Querying URL', ajaxSettings.url);
+          module.debug('Sending data', data, ajaxSettings.method);
+          module.verbose('Using AJAX settings', ajaxSettings);
 
           if( module.is.loading() ) {
             // throttle additional requests
@@ -15047,12 +15313,21 @@ $.api = $.fn.api = function(parameters) {
           disabled: function() {
             return ($module.filter(settings.filter).length > 0);
           },
+          form: function() {
+            return $module.is('form');
+          },
+          input: function() {
+            return $module.is('input');
+          },
           loading: function() {
             return (module.request && module.request.state() == 'pending');
           }
         },
 
         was: {
+          cancelled: function() {
+            return (module.cancelled || false);
+          },
           succesful: function() {
             return (module.request && module.request.state() == 'resolved');
           },
@@ -15226,7 +15501,7 @@ $.api = $.fn.api = function(parameters) {
 
                   // if http status code returned and json returned error, look for it
                   if( xhr.status != 200 && httpMessage !== undefined && httpMessage !== '') {
-                    module.error(error.statusMessage + httpMessage);
+                    module.error(error.statusMessage + httpMessage, ajaxSettings.url);
                   }
                   else {
                     if(status == 'error' && settings.dataType == 'json') {
@@ -15340,10 +15615,10 @@ $.api = $.fn.api = function(parameters) {
               data = {}
             ;
             if( !$.isWindow(element) ) {
-              if( $module.is('input') ) {
+              if( module.is.input() ) {
                 data.value = $module.val();
               }
-              else if( $module.is('form') ) {
+              else if( !module.is.form() ) {
 
               }
               else {
@@ -15381,7 +15656,7 @@ $.api = $.fn.api = function(parameters) {
             var
               formData
             ;
-            if($(this).serializeObject() !== undefined) {
+            if($module.serializeObject !== undefined) {
               formData = $form.serializeObject();
             }
             else {
@@ -15402,7 +15677,7 @@ $.api = $.fn.api = function(parameters) {
                 url = settings.api[action];
                 module.debug('Found template url', url);
               }
-              else {
+              else if( !module.is.form() ) {
                 module.error(error.missingAction, settings.action, settings.api);
               }
             }
@@ -15610,7 +15885,7 @@ $.api.settings = {
   namespace       : 'api',
 
   debug           : true,
-  verbose         : true,
+  verbose         : false,
   performance     : true,
 
   // event binding
@@ -15695,18 +15970,20 @@ $.api.settings.api = {};
 
 
 })( jQuery, window , document );
-/*
- * # Semantic - Form Validation
+/*!
+ * # Semantic UI 1.11.0 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
 
 ;(function ( $, window, document, undefined ) {
+
+"use strict";
 
 $.fn.form = function(fields, parameters) {
   var
@@ -16666,10 +16943,18 @@ $.fn.form.settings = {
       return ($(this).filter(':checked').length > 0);
     },
 
-    // value contains (text)
+    // value contains text (insensitive)
     contains: function(value, text) {
+      // escape regex characters
       text = text.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
-      return (value.search(text) !== -1);
+      return (value.search( new RegExp(text, 'i') ) !== -1);
+    },
+
+    // value contains text (case sensitive)
+    containsExactly: function(value, text) {
+      // escape regex characters
+      text = text.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+      return (value.search( new RegExp(text) ) !== -1);
     },
 
     // is most likely an email
@@ -16717,8 +17002,21 @@ $.fn.form.settings = {
       );
     },
 
-    // is exactly value
+    // is value (case insensitive)
     is: function(value, text) {
+      text = (typeof text == 'string')
+        ? text.toLowerCase()
+        : text
+      ;
+      value = (typeof value == 'string')
+        ? value.toLowerCase()
+        : value
+      ;
+      return (value == text);
+    },
+
+    // is value
+    isExactly: function(value, text) {
       return (value == text);
     },
 
@@ -16760,8 +17058,21 @@ $.fn.form.settings = {
       ;
     },
 
-    // value is not exactly notValue
+    // value is not value (case insensitive)
     not: function(value, notValue) {
+      value = (typeof value == 'string')
+        ? value.toLowerCase()
+        : value
+      ;
+      notValue = (typeof notValue == 'string')
+        ? notValue.toLowerCase()
+        : notValue
+      ;
+      return (value != notValue);
+    },
+
+    // value is not value (case sensitive)
+    notExactly: function(value, notValue) {
       return (value != notValue);
     },
 
@@ -16778,18 +17089,20 @@ $.fn.form.settings = {
 
 })( jQuery, window , document );
 
-/*
- * # Semantic - State
+/*!
+ * # Semantic UI 1.11.0 - State
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
 
 ;(function ( $, window, document, undefined ) {
+
+"use strict";
 
 $.fn.state = function(parameters) {
   var
@@ -16972,13 +17285,20 @@ $.fn.state = function(parameters) {
         toggle: {
           state: function() {
             var
-              apiRequest
+              apiRequest,
+              requestCancelled
             ;
             if( module.allows('active') && module.is.enabled() ) {
               module.refresh();
               if($.fn.api !== undefined) {
-                apiRequest = $module.api('get request');
-                if(apiRequest) {
+                apiRequest       = $module.api('get request');
+                requestCancelled = $module.api('was cancelled');
+                if( requestCancelled ) {
+                  module.debug('API Request cancelled by beforesend');
+                  settings.activateTest   = function(){ return false; };
+                  settings.deactivateTest = function(){ return false; };
+                }
+                else if(apiRequest) {
                   module.listenTo(apiRequest);
                   return;
                 }
@@ -17009,11 +17329,6 @@ $.fn.state = function(parameters) {
                 module.change.state();
               })
             ;
-          }
-          // xhr exists but set to false, beforeSend killed the xhr
-          else {
-            settings.activateTest   = function(){ return false; };
-            settings.deactivateTest = function(){ return false; };
           }
         },
 
@@ -17174,7 +17489,7 @@ $.fn.state = function(parameters) {
               }
             }
             else {
-              module.debug('Text is already sane, ignoring update', text);
+              module.debug('Text is already set, ignoring update', text);
             }
           }
         },
@@ -17359,37 +17674,37 @@ $.fn.state = function(parameters) {
 $.fn.state.settings = {
 
   // module info
-  name : 'State',
+  name           : 'State',
 
   // debug output
-  debug      : false,
+  debug          : false,
 
   // verbose debug output
-  verbose    : true,
+  verbose        : true,
 
   // namespace for events
-  namespace  : 'state',
+  namespace      : 'state',
 
   // debug data includes performance
-  performance: true,
+  performance    : true,
 
   // callback occurs on state change
-  onActivate   : function() {},
-  onDeactivate : function() {},
-  onChange     : function() {},
+  onActivate     : function() {},
+  onDeactivate   : function() {},
+  onChange       : function() {},
 
   // state test functions
   activateTest   : function() { return true; },
   deactivateTest : function() { return true; },
 
   // whether to automatically map default states
-  automatic     : true,
+  automatic      : true,
 
   // activate / deactivate changes all elements instantiated at same time
-  sync          : false,
+  sync           : false,
 
   // default flash text duration, used for temporarily changing text of an element
-  flashDuration : 1000,
+  flashDuration  : 1000,
 
   // selector filter
   filter     : {
@@ -17401,7 +17716,8 @@ $.fn.state.settings = {
 
   // error
   error: {
-    method : 'The method you called is not defined.'
+    beforeSend : 'The before send function has cancelled state change',
+    method     : 'The method you called is not defined.'
   },
 
   // metadata
@@ -17469,18 +17785,20 @@ $.fn.state.settings = {
 
 })( jQuery, window , document );
 
-/*
- * # Semantic - Visibility
+/*!
+ * # Semantic UI 1.11.0 - Visibility
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
 
 ;(function ( $, window, document, undefined ) {
+
+"use strict";
 
 $.fn.visibility = function(parameters) {
   var
@@ -17499,7 +17817,9 @@ $.fn.visibility = function(parameters) {
   $allModules
     .each(function() {
       var
-        settings        = $.extend(true, {}, $.fn.visibility.settings, parameters),
+        settings        = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.visibility.settings, parameters)
+          : $.extend({}, $.fn.visibility.settings),
 
         className       = settings.className,
         namespace       = settings.namespace,
@@ -17523,19 +17843,20 @@ $.fn.visibility = function(parameters) {
           || function(callback) { setTimeout(callback, 0); },
 
         element         = this,
+        observer,
         module
       ;
 
-      module      = {
+      module = {
 
         initialize: function() {
-          module.verbose('Initializing visibility', settings);
+          module.debug('Initializing', settings);
 
           module.setup.cache();
           module.save.position();
 
           if( module.should.trackChanges() ) {
-            module.bindEvents();
+            module.bind.events();
             if(settings.type == 'image') {
               module.setup.image();
             }
@@ -17543,16 +17864,21 @@ $.fn.visibility = function(parameters) {
               module.setup.fixed();
             }
           }
-          module.checkVisibility();
+          if(settings.initialCheck) {
+            module.checkVisibility();
+          }
+          if(settings.observeChanges) {
+            module.observeChanges();
+          }
           module.instantiate();
         },
 
         instantiate: function() {
-          module.verbose('Storing instance of module', module);
-          instance = module;
+          module.debug('Storing instance', module);
           $module
             .data(moduleNamespace, module)
           ;
+          instance = module;
         },
 
         destroy: function() {
@@ -17561,16 +17887,37 @@ $.fn.visibility = function(parameters) {
             .off(eventNamespace)
             .removeData(moduleNamespace)
           ;
+          $window.off('resize' + eventNamespace, module.event.refresh);
+          $context.off('scroll' + eventNamespace, module.event.scroll);
         },
 
-        bindEvents: function() {
-          module.verbose('Binding visibility events to scroll and resize');
-          $window
-            .on('resize' + eventNamespace, module.event.refresh)
+        observeChanges: function() {
+          var
+            context = $context[0]
           ;
-          $context
-            .on('scroll' + eventNamespace, module.event.scroll)
-          ;
+          if('MutationObserver' in window) {
+            observer = new MutationObserver(function(mutations) {
+              module.verbose('DOM tree modified, updating visibility calculations');
+              module.refresh();
+            });
+            observer.observe(element, {
+              childList : true,
+              subtree   : true
+            });
+            module.debug('Setting up mutation observer', observer);
+          }
+        },
+
+        bind: {
+          events: function() {
+            module.verbose('Binding visibility events to scroll and resize');
+            $window
+              .on('resize' + eventNamespace, module.event.refresh)
+            ;
+            $context
+              .on('scroll' + eventNamespace, module.event.scroll)
+            ;
+          }
         },
 
         event: {
@@ -17581,10 +17928,14 @@ $.fn.visibility = function(parameters) {
             module.verbose('Scroll position changed');
             if(settings.throttle) {
               clearTimeout(module.timer);
-              module.timer = setTimeout(module.checkVisibility, settings.throttle);
+              module.timer = setTimeout(function() {
+                module.checkVisibility();
+              }, settings.throttle);
             }
             else {
-              requestAnimationFrame(module.checkVisibility);
+              requestAnimationFrame(function() {
+                module.checkVisibility();
+              });
             }
           }
         },
@@ -17617,16 +17968,14 @@ $.fn.visibility = function(parameters) {
         },
 
         should: {
-
           trackChanges: function() {
             if(methodInvoked && queryArguments.length > 0) {
               module.debug('One time query, no need to bind events');
               return false;
             }
-            module.debug('Query is attaching callbacks, watching for changes with scroll');
+            module.debug('Callbacks being attached');
             return true;
           }
-
         },
 
         setup: {
@@ -17643,8 +17992,10 @@ $.fn.visibility = function(parameters) {
             ;
             if(src) {
               module.verbose('Lazy loading image', src);
+              settings.observeChanges = false;
               // show when top visible
               module.topVisible(function() {
+                module.debug('Image top visible', element);
                 module.precache(src, function() {
                   module.set.image(src);
                   settings.onTopVisible = false;
@@ -17654,33 +18005,29 @@ $.fn.visibility = function(parameters) {
           },
           fixed: function() {
             module.verbose('Setting up fixed on element pass');
-            $module
-              .visibility({
-                once: false,
-                continuous: false,
-                onTopPassed: function() {
-                  $module
-                    .addClass(className.fixed)
-                    .css({
-                      position: 'fixed',
-                      top: settings.offset + 'px'
-                    })
-                  ;
-                  if(settings.animation && $.fn.transition !== undefined) {
-                    $module.transition(settings.transition, settings.duration);
-                  }
-                },
-                onTopPassedReverse: function() {
-                  $module
-                    .removeClass(className.fixed)
-                    .css({
-                      position: '',
-                      top: ''
-                    })
-                  ;
+            settings.once = false;
+            settings.onTopPassed = function() {
+              $module
+                .addClass(className.fixed)
+                .css({
+                  top: settings.offset + 'px'
+                })
+              ;
+              if(settings.transition) {
+                if($.fn.transition !== undefined) {
+                  $module.transition(settings.transition, settings.duration);
                 }
-              })
-            ;
+              }
+            };
+            settings.onTopPassedReverse = function() {
+              $module
+                .removeClass(className.fixed)
+                .css({
+                  position: '',
+                  top: ''
+                })
+              ;
+            };
           }
         },
 
@@ -17697,13 +18044,27 @@ $.fn.visibility = function(parameters) {
               $module.show();
             }
             else {
-              if(settings.transition && $.fn.transition !== undefined) {
-                $module.transition(settings.transition, settings.duration);
+              if(settings.transition) {
+                if( $.fn.transition !== undefined ) {
+                  $module.transition(settings.transition, settings.duration);
+                }
+                else {
+                  $module.fadeIn(settings.duration);
+                }
               }
               else {
-                $module.fadeIn(settings.duration);
+                $module.show();
               }
             }
+          }
+        },
+
+        is: {
+          visible: function() {
+            if(module.cache && module.cache.element) {
+              return (module.cache.element.width > 0);
+            }
+            return false;
           }
         },
 
@@ -17725,24 +18086,34 @@ $.fn.visibility = function(parameters) {
 
         checkVisibility: function() {
           module.verbose('Checking visibility of element', module.cache.element);
-          module.save.calculations();
 
-          // percentage
-          module.passed();
+          if( module.is.visible() ) {
 
-          // reverse (must be first)
-          module.passingReverse();
-          module.topVisibleReverse();
-          module.bottomVisibleReverse();
-          module.topPassedReverse();
-          module.bottomPassedReverse();
+            // update calculations derived from scroll
+            module.save.calculations();
 
-          // one time
-          module.passing();
-          module.topVisible();
-          module.bottomVisible();
-          module.topPassed();
-          module.bottomPassed();
+            // percentage
+            module.passed();
+
+            // reverse (must be first)
+            module.passingReverse();
+            module.topVisibleReverse();
+            module.bottomVisibleReverse();
+            module.topPassedReverse();
+            module.bottomPassedReverse();
+
+            // one time
+            module.passing();
+            module.topVisible();
+            module.bottomVisible();
+            module.topPassed();
+            module.bottomPassed();
+
+            // on update callback
+            if(settings.onUpdate) {
+              settings.onUpdate.call(element, module.get.elementCalculations());
+            }
+          }
         },
 
         passed: function(amount, newCallback) {
@@ -17996,7 +18367,7 @@ $.fn.visibility = function(parameters) {
             calculations = module.get.elementCalculations(),
             screen       = module.get.screenCalculations()
           ;
-          callback     = callback || false;
+          callback = callback || false;
           if(callback) {
             if(settings.continuous) {
               module.debug('Callback being called continuously', callbackName, calculations);
@@ -18063,72 +18434,66 @@ $.fn.visibility = function(parameters) {
           },
           elementPosition: function() {
             var
-              screen = module.get.screenSize()
+              element = module.cache.element,
+              screen  = module.get.screenSize()
             ;
             module.verbose('Saving element position');
-            $.extend(module.cache.element, {
-              margin : {
-                top    : parseInt($module.css('margin-top'), 10),
-                bottom : parseInt($module.css('margin-bottom'), 10)
-              },
-              fits   : (element.height < screen.height),
-              offset : $module.offset(),
-              width  : $module.outerWidth(),
-              height : $module.outerHeight()
-            });
-            return module.cache.element;
+            // (quicker than $.extend)
+            element.fits          = (element.height < screen.height);
+            element.offset        = $module.offset();
+            element.width         = $module.outerWidth();
+            element.height        = $module.outerHeight();
+            // store
+            module.cache.element = element;
+            return element;
           },
           elementCalculations: function() {
             var
-              screen  = module.get.screenCalculations(),
-              element = module.get.elementPosition()
+              screen     = module.get.screenCalculations(),
+              element    = module.get.elementPosition()
             ;
             // offset
             if(settings.includeMargin) {
-              $.extend(module.cache.element, {
-                top    : element.offset.top - element.margin.top,
-                bottom : element.offset.top + element.height + element.margin.bottom
-              });
+              element.margin        = {};
+              element.margin.top    = parseInt($module.css('margin-top'), 10);
+              element.margin.bottom = parseInt($module.css('margin-bottom'), 10);
+              element.top    = element.offset.top - element.margin.top;
+              element.bottom = element.offset.top + element.height + element.margin.bottom;
             }
             else {
-              $.extend(module.cache.element, {
-                top    : element.offset.top,
-                bottom : element.offset.top + element.height
-              });
+              element.top    = element.offset.top;
+              element.bottom = element.offset.top + element.height;
             }
+
             // visibility
-            $.extend(module.cache.element, {
-              topVisible       : (screen.bottom >= element.top),
-              topPassed        : (screen.top >= element.top),
-              bottomVisible    : (screen.bottom >= element.bottom),
-              bottomPassed     : (screen.top >= element.bottom),
-              pixelsPassed     : 0,
-              percentagePassed : 0
-            });
+            element.topVisible       = (screen.bottom >= element.top);
+            element.topPassed        = (screen.top >= element.top);
+            element.bottomVisible    = (screen.bottom >= element.bottom);
+            element.bottomPassed     = (screen.top >= element.bottom);
+            element.pixelsPassed     = 0;
+            element.percentagePassed = 0;
+
             // meta calculations
-            $.extend(module.cache.element, {
-              visible : (module.cache.element.topVisible || module.cache.element.bottomVisible),
-              passing : (module.cache.element.topPassed && !module.cache.element.bottomPassed),
-              hidden  : (!module.cache.element.topVisible && !module.cache.element.bottomVisible)
-            });
-            if(module.cache.element.passing) {
-              module.cache.element.pixelsPassed = (screen.top - element.top);
-              module.cache.element.percentagePassed = (screen.top - element.top) / element.height;
+            element.visible = (element.topVisible || element.bottomVisible);
+            element.passing = (element.topPassed && !element.bottomPassed);
+            element.hidden  = (!element.topVisible && !element.bottomVisible);
+
+            // passing calculations
+            if(element.passing) {
+              element.pixelsPassed     = (screen.top - element.top);
+              element.percentagePassed = (screen.top - element.top) / element.height;
             }
-            module.verbose('Updated element calculations', module.cache.element);
+            module.cache.element = element;
+            module.verbose('Updated element calculations', element);
+            return element;
           },
           screenCalculations: function() {
             var
-              scroll = $context.scrollTop() + settings.offset
+              scroll = module.get.scroll()
             ;
-            if(module.cache.scroll === undefined) {
-              module.cache.scroll = $context.scrollTop() + settings.offset;
-            }
             module.save.direction();
-            $.extend(module.cache.screen, {
-              top    : scroll,
-              bottom : scroll + module.cache.screen.height
-            });
+            module.cache.screen.top    = scroll;
+            module.cache.screen.bottom = scroll + module.cache.screen.height;
             return module.cache.screen;
           },
           screenSize: function() {
@@ -18385,18 +18750,30 @@ $.fn.visibility.settings = {
   name                   : 'Visibility',
   namespace              : 'visibility',
 
-  className: {
-    fixed: 'fixed'
-  },
-
   debug                  : false,
   verbose                : false,
   performance            : true,
 
+  // whether to use mutation observers to follow changes
+  observeChanges         : true,
+
+  // callback should only occur one time
+  once                   : true,
+
+  // callback should fire continuously whe evaluates to true
+  continuous             : false,
+
+  // offset to use with scroll top
   offset                 : 0,
+
+  // whether to include margin in elements position
   includeMargin          : false,
 
+  // scroll context for visibility checks
   context                : window,
+
+  // check position immediately on init
+  initialCheck           : true,
 
   // visibility check delay in ms (defaults to animationFrame)
   throttle               : false,
@@ -18406,7 +18783,7 @@ $.fn.visibility.settings = {
 
   // image only animation settings
   transition             : false,
-  duration               : 500,
+  duration               : 1000,
 
   // array of callbacks for percentage
   onPassed               : {},
@@ -18425,12 +18802,13 @@ $.fn.visibility.settings = {
   onTopPassedReverse     : false,
   onBottomPassedReverse  : false,
 
-  once                   : true,
-  continuous             : false,
-
   // utility callbacks
+  onUpdate               : false, // disabled by default for performance
   onRefresh              : function(){},
-  onScroll               : function(){},
+
+  className: {
+    fixed: 'fixed'
+  },
 
   error : {
     method : 'The method you called is not defined.'

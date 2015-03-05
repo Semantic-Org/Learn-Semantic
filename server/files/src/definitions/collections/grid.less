@@ -1,9 +1,9 @@
-/*
- * # Semantic - Grid
+/*!
+ * # Semantic UI - Grid
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -17,8 +17,6 @@
 @element : 'grid';
 
 @import (multiple) '../../theme.config';
-
-& {
 
 /*******************************
             Standard
@@ -950,6 +948,7 @@
 .ui.centered.grid > .row,
 .ui.grid > .centered.row {
   text-align: center;
+  justify-content: center;
 }
 .ui.centered.grid > .column:not(.aligned):not(.row),
 .ui.centered.grid > .row > .column:not(.aligned),
@@ -1236,9 +1235,11 @@
 .ui.grid [class*="top aligned"].column,
 .ui.grid > [class*="top aligned"].row > .column {
   vertical-align: top;
+  align-self: flex-start;
 }
 .ui.grid [class*="top aligned"].column {
   vertical-align: top !important;
+  align-self: flex-start;
 }
 
 /* Middle Aligned */
@@ -1247,10 +1248,11 @@
 .ui[class*="middle aligned"].grid > .column,
 .ui.grid > [class*="middle aligned"].row > .column {
   vertical-align: middle;
-  align-items: center;
+  align-self: center;
 }
 .ui.grid [class*="middle aligned"].column{
   vertical-align: middle !important;
+  align-self: center;
 }
 
 /* Bottom Aligned */
@@ -1259,9 +1261,10 @@
 .ui[class*="bottom aligned"].grid > .column,
 .ui.grid > [class*="bottom aligned"].row > .column {
   vertical-align: bottom;
-  align-items: flex-end;
+  align-self: flex-end;
 }
-.ui.grid [class*="bottom aligned"].column{
+.ui.grid [class*="bottom aligned"].column {
+  align-self: flex-end;
   vertical-align: bottom !important;
 }
 
@@ -1270,7 +1273,7 @@
 -----------------------*/
 
 .ui.grid > .white.row,
-.ui.grid .white.column {
+.ui.grid > .row > .white.column {
   background-color: @white !important;
   color: @textColor;
 }
@@ -1282,7 +1285,7 @@
 }
 
 .ui.grid > .black.row,
-.ui.grid .black.column {
+.ui.grid > .row > .black.column {
   background-color: @black !important;
   color: @white;
 }
@@ -1294,7 +1297,7 @@
 }
 
 .ui.grid > .blue.row,
-.ui.grid .blue.column {
+.ui.grid > .row > .blue.column {
   background-color: @blue !important;
   color: @white;
 }
@@ -1306,7 +1309,7 @@
 }
 
 .ui.grid > .green.row,
-.ui.grid .green.column {
+.ui.grid > .row > .green.column {
   background-color: @green !important;
   color: @white;
 }
@@ -1318,7 +1321,7 @@
 }
 
 .ui.grid > .orange.row,
-.ui.grid .orange.column {
+.ui.grid > .row > .orange.column {
   background-color: @orange !important;
   color: @white;
 }
@@ -1342,7 +1345,7 @@
 }
 
 .ui.grid > .purple.row,
-.ui.grid .purple.column {
+.ui.grid > .row > .purple.column {
   background-color: @purple !important;
   color: @white;
 }
@@ -1354,7 +1357,7 @@
 }
 
 .ui.grid > .red.row,
-.ui.grid .red.column {
+.ui.grid > .row > .red.column {
   background-color: @red !important;
   color: @white;
 }
@@ -1366,7 +1369,7 @@
 }
 
 .ui.grid > .teal.row,
-.ui.grid .teal.column {
+.ui.grid > .row > .teal.column {
   background-color: @teal !important;
   color: @white;
 }
@@ -1378,7 +1381,7 @@
 }
 
 .ui.grid > .yellow.row,
-.ui.grid .yellow.column {
+.ui.grid > .row > .yellow.column {
   background-color: @yellow !important;
   color: @white;
 }
@@ -1463,7 +1466,7 @@
 .ui.grid > [class*="equal height"].row > .column {
   display: inline-block;
   flex-direction: column;
-  flex: 1 0 auto;
+  flex: 0 0 auto;
 }
 
 /*-------------------
@@ -1664,8 +1667,8 @@
   .ui.stackable.grid {
     display: block !important;
     width: auto;
-    margin-left: -(@stackableGutter / 2) !important;
-    margin-right: -(@stackableGutter / 2) !important;
+    margin-left: 0em !important;
+    margin-right: 0em !important;
     padding: 0em;
   }
   .ui.stackable.grid > .row > .wide.column,
@@ -1686,9 +1689,11 @@
     padding: 0em;
   }
 
-  .ui.stackable.page.grid {
-    margin-left: 0em !important;
-    margin-right: 0em !important;
+  /* Don't pad inside segment or nested grid */
+  .ui.grid .ui.stackable.grid,
+  .ui.segment:not(.vertical) .ui.stackable.page.grid {
+    margin-left: -(@stackableGutter / 2) !important;
+    margin-right: -(@stackableGutter / 2) !important;
   }
 
   /* Equal Height Stackable */
@@ -1777,5 +1782,3 @@
 }
 
 .loadUIOverrides();
-
-}

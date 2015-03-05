@@ -1,9 +1,9 @@
- /*
- * # Semantic - Item
+/*!
+ * # Semantic UI - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2014 Contributorss
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -18,49 +18,9 @@
 
 @import (multiple) '../../theme.config';
 
-& {
-
 /*******************************
             Standard
 *******************************/
-
-
-/*--------------
-      Cards
----------------*/
-
-.ui.cards {
-  display: @groupDisplay;
-  margin: @groupCardsMargin;
-  flex-wrap: wrap;
-}
-
-.ui.cards > .card {
-  display: @groupCardDisplay;
-  margin: @groupCardMargin;
-  float: @groupFloat;
-}
-
-.ui.cards:first-child,
-.ui.card:first-child {
-  margin-top: 0em;
-}
-.ui.cards:last-child,
-.ui.card:last-child {
-  margin-bottom: 0em;
-}
-
-/* Clearing */
-.ui.cards:after,
-.ui.card:after {
-  display: block;
-  content: ' ';
-  height: 0px;
-  clear: both;
-  overflow: hidden;
-  visibility: hidden;
-}
-
 
 /*--------------
       Card
@@ -92,6 +52,47 @@
 .ui.card a {
   cursor: pointer;
 }
+
+.ui.card:first-child {
+  margin-top: 0em;
+}
+.ui.card:last-child {
+  margin-bottom: 0em;
+}
+
+/*--------------
+      Cards
+---------------*/
+
+.ui.cards {
+  display: @groupDisplay;
+  margin: @groupMargin;
+  flex-wrap: wrap;
+}
+
+.ui.cards > .card {
+  display: @groupCardDisplay;
+  margin: @groupCardMargin;
+  float: @groupCardFloat;
+}
+
+/* Clearing */
+.ui.cards:after,
+.ui.card:after {
+  display: block;
+  content: ' ';
+  height: 0px;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+
+/* Consecutive Card Groups Preserve Row Spacing */
+.ui.cards ~ .ui.cards {
+  margin-top: @consecutiveGroupDistance;
+}
+
 
 
 /*--------------
@@ -916,5 +917,3 @@ a.ui.card:hover,
 }
 
 .loadUIOverrides();
-
-}
