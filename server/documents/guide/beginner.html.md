@@ -4,29 +4,35 @@ css         : 'guide'
 standalone  : true
 
 title       : 'Beginners Guide'
-description : 'How to use Semantic UI'
+description : 'Learning Web Development Using Semantic UI'
 type        : 'Getting Started'
 ---
 
-# Beginners Guide!
-Welcome to the Semantic-UI beginners guide. If you have little experience with web-design and Semantic-Ui, this is the perfect place to start. This tutorial will guide you from the download to the implementation of the Semantic-UI elements, with a running example of re-creating the Airbnb landing page.
+# Introduction
+If you have little experience with web design and Semantic UI, this is the perfect place to start.
 
-This tutorial only uses the elements that can be found readily on the semantic-ui.com website, without any adjustments in the classes.
+This tutorial will guide you through downloading the project's code and the implementation of a web page using Semantic UI components, with an example layout that recreates the Airbnb landing page.
 
-###1. Download Semantic-UI
+This tutorial uses pre-built in components that can be found on semantic-ui.com website, without any adjustments to themes.
 
-To use Semantic you first need to download the folder that contains all the files you need to make use of Semantic-UI library.
+### 1. Download Semantic UI
 
-1.	Go to semantic-ui.com to [download](https://github.com/Semantic-Org/Semantic-UI/) Semantic-UI.
-2.	Unpack the file and place the files in a folder of your choice
-3.	After this is done you should have a folder called Semantic-UI-1.X (X stands for the version)
+To use Semantic you first need to download the folder that contains all the files you need to make use of Semantic UI library.
 
-###2. Download & Install a text editor
+<ol class="ui list">
+	<li>Go to semantic-ui.com to [download the zip file](http://www.semantic-ui.com).
+	<li>Unpack the file and place the files in a folder of your choice
+	<li>After this is done you should have a folder called `Semantic UI-1.X/` (X stands for the version)
+</ol>
+
+### 2. Install a Text Editor
 To start writing code you need a code editor. A cide editor is a software application that features tools and functionalities (i.e. auto complete) that makes writing code much clearer and easier. Most code editors also provide features to help you with managing files and directories of your project. Some text editors you need to buy, however there are great ones for free. It does not really matter which one you use, but here are a couple of code editors which are free to use:
 
-* [Brackets](http://brackets.io/)
-* [Sublime Text](http://www.sublimetext.com/)
-* [Notepad++](http://notepad-plus-plus.org/)
+<ul class="ui list">
+	<li>[Brackets](http://brackets.io/)</li>
+	<li>[Sublime Text](http://www.sublimetext.com/)</li>
+	<li>[Notepad++](http://notepad-plus-plus.org/)</li>
+</ul>
 
 
 ###3. Starting a new project with Semantic UI
@@ -37,11 +43,11 @@ Step 1.	Start your code editor.
 
 Step 2.	File>Open Folder
 
-Step 3.	Open the ‘dist’ folder inside the Semantic-UI.1.X folder you just downloaded.
+Step 3.	Open the ‘dist’ folder inside the Semantic UI.1.X folder you just downloaded.
 
 After you open the ‘dist’ folder in Brackets you will see the following files in the map directory on the left of the editor screen:
 
-![image](/images/screenshots/directory-map.png)
+<img src="/images/screenshots/directory-map.png" class="ui bordered image">
 
 These files are mandatory to make use of the Semantic UI library. To create a new project that uses the Semantic UI library you have to place your files inside the ‘dist’ folder.
 
@@ -49,18 +55,18 @@ Step 4. File>New
 
 Step 5. File>Save> name this ‘home.html’> Save
 
-![image](/images/screenshots/save-as.png)
+<img src="/images/screenshots/save-as.png" class="ui bordered image">
 
 You will see the created home.html file added to the 'dist' map.
 
-![image](/images/screenshots/home-added.png)
+<img src="/images/screenshots/home-added.png" class="ui bordered image">
 
 In home.html we need to include the semantic.css and semantic.js files in the header to make use of the Semantic UI library. Next to that you need to add a jQuery version link.
 
 Step 6. In the home.html file put the following code:
 
-
 ```
+<div class="code" data-type="html">
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -75,24 +81,24 @@ Step 6. In the home.html file put the following code:
 	</body>
 
 </html>
+</div>
 ```
-
-![image](/images/screenshots/include-files.png)
+<img src="/images/screenshots/include-files.png" class="ui bordered image">
 
 
 # **GREAT.. now you have everything you need to get it going!**
-## Lets get starting, and build your first Semantic-UI webpage!
-Now you are ready to use Semantic UI. In the next step we will guide you how to build your first landing page using the Semantic UI library.We will introduce you to the power and sheer simplicty of Semantic-UI by re-creating the **AirBnB** landing page from scratch. This is what you are going to make:
+## Lets get starting, and build your first Semantic UI webpage!
+Now you are ready to use Semantic UI. In the next step we will guide you how to build your first landing page using the Semantic UI library.We will introduce you to the power and sheer simplicty of Semantic UI by re-creating the **AirBnB** landing page from scratch. This is what you are going to make:
 
-![image](/images/screenshots/Semantic-ui-AirB.png)
+<img src="/images/screenshots/Semantic-ui-AirB.png" class="ui bordered image">
 
 ###Checklist: what do you need to use
 - **Code Editor**: to code. Both the home.html & semantic.css open to edit.
 - **Browser**: to view the changes
-- [The Semantic-UI menu](http://semantic-ui.com):for an overview on all the elements, collections, views, modules, behaviors & more. This to give you a complete overview of the rich library that Semantic-UI has. The library lets you look into the source code as well.
+- [The Semantic UI menu](http://semantic-ui.com):for an overview on all the elements, collections, views, modules, behaviors & more. This to give you a complete overview of the rich library that Semantic UI has. The library lets you look into the source code as well.
 
 ###So where do we begin? - Layout!
-Before we dive into the cool stuff of Semantic-UI we have to set up our page's layout. The AirBnB landing page consists of two main parts, the first is the large part where everything happens (lets call it AirBig) and a smaller section which shows a small part of the next page (AirSmall). (The last is a trick to show that there is more down there!).
+Before we dive into the cool stuff of Semantic UI we have to set up our page's layout. The AirBnB landing page consists of two main parts, the first is the large part where everything happens (lets call it AirBig) and a smaller section which shows a small part of the next page (AirSmall). (The last is a trick to show that there is more down there!).
 
 So to add the two main sections into your html add:
 
@@ -120,7 +126,7 @@ And we have to specify them in the semantic.css file. So go to the bottom of the
  }
 ```
 
-![image](/images/screenshots/add-body-html.png)
+<img src="/images/screenshots/add-body-html.png" class="ui bordered image">
 
 Now run the home.html file in your browser (double click the file in your folder). You will see that two sections have been created. But this doesn't look nice yet.. lets add the background picture first before we proceed.
 
@@ -132,7 +138,7 @@ To add a background picture full-size add two properties to the .AirBig class an
   background-size: 100% 100%;
 }
 ```
-![image](/images/screenshots/add-background-css.png)
+<img src="/images/screenshots/add-background-css.png" class="ui bordered image">
 
 
 Now that's better. It already looks like the page. Great!
@@ -155,7 +161,7 @@ Within the `<div class="AirBig"></div>` add the following:
 </div>
 ```
 
-![image](/images/screenshots/header-footer-html.png)
+<img src="/images/screenshots/header-footer-html.png" class="ui bordered image">
 
 
 And give them the following properties in the semantic.css file:
@@ -180,7 +186,7 @@ And give them the following properties in the semantic.css file:
 
 You can add a background-color property to the classes and run it in the browser to see if it has worked.
 
-![image](/images/screenshots/header-footer-properties.png)
+<img src="/images/screenshots/header-footer-properties.png" class="ui bordered image">
 
 Now the general layout is complete! We now will move on to fill in the elements of the webpage in the header, center and footer.
 
@@ -214,9 +220,9 @@ And adjust the semantic.css file by adding the logo class and img class:
 ```
 
 #### The menu + button
-The right side of the header consists of the Sign Up, Log In, Help and a List Your Space button elements. In order to do so we have to create a unordered list `<ul>` and line these up horizontally. For the Help and the button we are going to use our first Semantic-UI elements! The container holding the menu is named "top-menu" and the text in there is labeled "top-text".
+The right side of the header consists of the Sign Up, Log In, Help and a List Your Space button elements. In order to do so we have to create a unordered list `<ul>` and line these up horizontally. For the Help and the button we are going to use our first Semantic UI elements! The container holding the menu is named "top-menu" and the text in there is labeled "top-text".
 
-First we are making the entire list without the Semantic-UI elements. Lets add the elements in the html by adding the following elements in your home.html, in the `<div class"header"></div>` and after the `<div class="logo"></div>`, and add "Sign Up" and "Log In":
+First we are making the entire list without the Semantic UI elements. Lets add the elements in the html by adding the following elements in your home.html, in the `<div class"header"></div>` and after the `<div class="logo"></div>`, and add "Sign Up" and "Log In":
 
 ```
 <div class="header">
@@ -234,7 +240,7 @@ First we are making the entire list without the Semantic-UI elements. Lets add t
 	</div>
 </div>
 ```
-![image](/images/screenshots/add-list-html.png)
+<img src="/images/screenshots/add-list-html.png" class="ui bordered image">
 
 Run it in the browser.. does not look that good right? Add some styling to it first, by adjusting the semantic.css file. Add the following classes and properties:
 
@@ -253,11 +259,11 @@ Run it in the browser.. does not look that good right? Add some styling to it fi
 	display: inline-block;
  }
 ```
-![image](/images/screenshots/add-list-css.png)
+<img src="/images/screenshots/add-list-css.png" class="ui bordered image">
 
-![image](/images/screenshots/screenshot-menu-only.png)
+<img src="/images/screenshots/screenshot-menu-only.png" class="ui bordered image">
 
-Now compare before and after these additions! We now have a horizontally aligned list. But of course we want the Help menu and the button. Here we want to add the first Semantic-UI elements.
+Now compare before and after these additions! We now have a horizontally aligned list. But of course we want the Help menu and the button. Here we want to add the first Semantic UI elements.
 
 Please check out the semantic-ui.com Menu >> Modules >> Dropdown Here you can find all types of menus for us to readily use. The help dropdown menu on the AirBnB landing page has six different items:
 1. Visit the Help Center >>
@@ -300,7 +306,7 @@ First, on the semantic-ui website click on the view source '<>' button. This wil
 	</div>
 </div>
 ```
-![image](/images/screenshots/body-dropdown-html.png)
+<img src="/images/screenshots/body-dropdown-html.png" class="ui bordered image">
 
 And? There is a button, but does the dropdown work? NO...? That's no surprise, the javascript needs to be initialized.
 
@@ -320,7 +326,7 @@ And this is exactly what you need to add to the home.html file. Just before your
 Now test it again! Nice isn't it? You do not have to bother about the CSS with the semantic-ui elements.
 
 #### the "List Your Space" button
-The button is a simple element in Semantic-UI but gives a perfect opportunity to introduce the Semantic style of coding. Here we go!
+The button is a simple element in Semantic UI but gives a perfect opportunity to introduce the Semantic style of coding. Here we go!
 
 UI definitions in Semantic are given the class name ui. This is to help tell the difference between ui elements and parts of the definition of an element. This means any element with the class name UI has a corresponding UI definition.
 
@@ -349,7 +355,7 @@ Now the button fits in the Airbnb page and looks like you want to click it. But 
 </li>
 ```
 
-![image](/images/screenshots/screenshot-button.png)
+<img src="/images/screenshots/screenshot-button.png" class="ui bordered image">
 
 It's easy as that! Now we finished our header section. Next is the center part.
 
@@ -446,7 +452,7 @@ Our second element in the footer-container div is the upward dropdown menu. This
 </div>
 ```
 
-![image](/images/screenshots/body-center-footer-html.png)
+<img src="/images/screenshots/body-center-footer-html.png" class="ui bordered image">
 
 This element does not has to be initialized because this has been done earlier. The `<script>` at the bottom still needs to be there.
 
@@ -465,7 +471,7 @@ The last thing that needs to be done is adjusting the semantic.css file to fit i
 }
 ```
 
-## **Congratulations! You have created the Airbnb landing page with the elements of Semantic-UI**
+## **Congratulations! You have created the Airbnb landing page with the elements of Semantic UI**
 
 
 
