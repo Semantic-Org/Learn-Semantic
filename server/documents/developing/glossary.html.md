@@ -34,19 +34,19 @@ There are five types of component definitions in Semantic UI, each with their ow
     <tr>
       <td>Views</td>
       <td>
-        <p>A view is a common design trope for presenting specific types of website content like comments, or user activity. These are common views like, comments, activity feeds, content cards, that are presented in a similar fashion across most websites.</p>
+        <p>A view is a design convention for presenting types of content that is usually consistent across a website. These include re-usable components like comments, user activity feeds, or cards.</p>
       </td>
     </tr>
     <tr>
       <td>Modules</td>
       <td>
-        <p>Modules are UI components that have behaviors as an essential part of their definition. These include things like, accordions, dropdowns, and popups, which require not only a description of how they appear, but also a set of instructions for how to implement their behaviors. </p>
+        <p>Modules are components that have behaviors as an essential part of their definition. These include things like, accordions, dropdowns, and popups, which require not only a description of how they appear, but also a set of instructions for how to implement their behaviors. </p>
       </td>
     </tr>
     <tr>
       <td>Behaviors</td>
       <td>
-        <p>Behaviors are instructions for UI behavior that are not attached to a particular physical form. They may describe things like, form validation, state management, or server request routing.</p>
+        <p>Behaviors are instructions that are not attached to a particular physical form. They may describe things like, form validation, state management, or server request routing.</p>
       </td>
     </tr>
   </tbody>
