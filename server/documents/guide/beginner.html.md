@@ -8,7 +8,7 @@ description : 'Learning Web Development Using Semantic UI'
 type        : 'Getting Started'
 ---
 
-# Introduction
+## Introduction
 If you have little experience with web design and Semantic UI, this is the perfect place to start.
 
 This tutorial will guide you through downloading the project's code and the implementation of a web page using Semantic UI components, with an example layout that recreates the Airbnb landing page.
@@ -86,8 +86,7 @@ Step 6. In the home.html file put the following code:
 <img src="/images/screenshots/include-files.png" class="ui bordered image">
 
 
-# **GREAT.. now you have everything you need to get it going!**
-## Lets get starting, and build your first Semantic UI webpage!
+## Building a Page
 Now you are ready to use Semantic UI. In the next step we will guide you how to build your first landing page using the Semantic UI library.We will introduce you to the power and sheer simplicty of Semantic UI by re-creating the **AirBnB** landing page from scratch. This is what you are going to make:
 
 <img src="/images/screenshots/Semantic-ui-AirB.png" class="ui bordered image">
